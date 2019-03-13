@@ -28,18 +28,6 @@ from urlparse import urlparse
 import os
 
 
-
-"""Reasoning stuff"""
-def run_inferences( g ):
-    print('run_inferences')
-    # expand deductive closure
-    RDFClosure.DeductiveClosure(RDFClosure.RDFS_Semantics).expand(g)
-    #RDFClosure.DeductiveClosure(RDFClosure.OWLRL_Semantics).expand(g)
-    n_triples(g)
-    return g
-
-
-
 """Helper stuff"""
 def load_rdf( g, rdffile, format='turtle' ):
     #print("load_ontologies")
@@ -47,6 +35,9 @@ def load_rdf( g, rdffile, format='turtle' ):
     g.parse( rdffile, format = format )
     n_triples(g)
     return g
+
+def write_rdf(g, rdffile, format='turtle' ):
+    g.serialize(destination=rdffile,format = format)
 
 def n_triples( g, n=None ):
     """ Prints the number of triples in graph g """
@@ -100,44 +91,66 @@ def orderTypes(types):
 #Generates a new class that is the intersection of classes and inserts it into the given graph
 def intersectTypes(types, base, cg):
     newclass = URIRef(str(base)+"#"+"".join([str(t).split("#")[-1] for t in types]))
-    print newclass
-    cg.add((newclass, RDF.type, OWL.Class))
-    b = BNode()
-    cg.add((newclass, OWL.equivalentClass, b))
-
-    listName = BNode()
-    cg.add((b, OWL.intersectionOf, listName))
-    prevlist= listName
-    for idx,t in enumerate(types): #Creates an RDF Collection of types
-        if idx +1 == len(types):
-            listItem = RDF.nil
-        else:
-            listItem = BNode()
-        cg.add((prevlist, RDF.first, t))
-        cg.add((prevlist, RDF.rest, listItem))
-        prevlist =listItem
-    return cg
-
-
-
+    if not (newclass, None, None) in cg: #only update if class does not exist yet
+        print 'New type: '+str(newclass)
+        cg.add((newclass, RDF.type, OWL.Class))
+        b = BNode()
+        cg.add((newclass, OWL.equivalentClass, b))
+        listName = BNode()
+        cg.add((b, OWL.intersectionOf, listName))
+        prevlist= listName
+        for idx,t in enumerate(types): #Creates an RDF Collection of types as a class intersection. Also adds explicit subclass statements
+            cg.add((newclass, RDFS.subClassOf, t))
+            if idx +1 == len(types):
+                listItem = RDF.nil
+            else:
+                listItem = BNode()
+            cg.add((prevlist, RDF.first, t))
+            cg.add((prevlist, RDF.rest, listItem))
+            prevlist =listItem
+    return newclass
 
 
-def combineTypes(rdffile, ontology):
+def setprefixes(g):
+    g.bind('foaf', 'http://xmlns.com/foaf/0.1/')
+    g.bind( 'ccd', 'http://geographicknowledge.de/vocab/CoreConceptData.rdf#')
+    g.bind( 'owl', 'http://www.w3.org/2002/07/owl#')
+    g.bind( 'rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
+    g.bind( 'xml', 'http://www.w3.org/XML/1998/namespace')
+    g.bind( 'xsd', 'http://www.w3.org/2001/XMLSchema#')
+    g.bind( 'rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
+    g.bind('em', 'http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#')
+    g.bind('ada', 'http://geographicknowledge.de/vocab/AnalysisData.rdf#')
+    return g
+
+
+def combineTypes(rdffile, ontology, singletype = True): #singltype: should the resulting nodes in the rdffile have only a single type?
     rdfdata =load_rdf(rdflib.Graph(),rdffile)
-    ontdata =load_rdf(rdflib.Graph(),ontology)
-    #expontology = run_inferences(ontology)
-    base = [s for s in ontdata.subjects(RDF.type, OWL.Ontology)][0]
+    rdfdata = setprefixes(rdfdata)
 
-    for s,p,o in rdfdata.triples((None, RDF.type, None)): #Iterate over typed nodes in the RDF file
+    ontdata =load_rdf(rdflib.Graph(),ontology)
+    ontdata = setprefixes(ontdata)
+    newontfile = os.path.splitext(ontology)[0]+'_ct'+os.path.splitext(ontology)[1]
+    newrdffile =os.path.splitext(rdffile)[0]+'_ct'+os.path.splitext(rdffile)[1]
+
+    base = [s for s in ontdata.subjects(RDF.type, OWL.Ontology)][0]
+    subjects = set(rdfdata.subjects(RDF.type, None))
+    for s in subjects: #Iterate over typed nodes in the RDF file
         types = [otype for otype in rdfdata.objects(s, RDF.type)] #Get all classes of this node
-        print types
+        #print types
         cleanedtypes = cleanTypes(types,ontdata)
-        print cleanedtypes
+        #print cleanedtypes
         if len(cleanedtypes)>1:
             orderedtypes = orderTypes(cleanedtypes)
-            print orderedtypes
-            newontologydata = intersectTypes(orderedtypes, base, ontdata)
-            break
+            #print orderedtypes
+            newclass = intersectTypes(orderedtypes, base, ontdata)
+            if singletype: #If yes, remove the old type statements
+                rdfdata.remove( (s, RDF.type, None) )
+            rdfdata.add( (s, RDF.type, newclass) )
+    write_rdf(ontdata,newontfile)
+    write_rdf(rdfdata,newrdffile)
+
+
 
 
 

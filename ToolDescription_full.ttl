@@ -1,5 +1,5 @@
-@prefix gis: <http://geographicknowledge.de/vocab/GISConcepts.rdf>.
-@prefix  wf: <http://geographicknowledge.de/vocab/Workflow.rdf>.
+@prefix gis: <http://geographicknowledge.de/vocab/GISConcepts.rdf#>.
+@prefix  wf: <http://geographicknowledge.de/vocab/Workflow.rdf#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
@@ -29,47 +29,46 @@
 
    
 
-tools:SpatialJoinAggSumTess wf:input _:i2.
-_:i2 a ccd:ObjectVector. #"Join Features".
-_:i2 a ccd:IntervalA.
+tools:SpatialJoinAggSumTess wf:input
+[ a ccd:ObjectVector; #"Join Features".
+ a ccd:IntervalA
+ ].
 
-tools:SpatialJoinAggSumTess wf:input _:i1.
-_:i1 a ccd:Vector. #"target_features".
-_:i1 a ccd:Tessellation.
+tools:SpatialJoinAggSumTess wf:input 
+[ a ccd:Vector; #"target_features".
+a ccd:Tessellation].
 
-tools:SpatialJoinAggSumTess wf:output _:sumo.
-_:sumo a ccd:Lattice.
-_:sumo a ccd:IntervalA.
-_:sumo a exm:ERA.
-
+tools:SpatialJoinAggSumTess wf:output 
+[a ccd:Lattice; a ccd:IntervalA; a exm:ERA].
 
 
 
-tools:SpatialJoinAggCountTess wf:input _:i2.
-_:i2 a ccd:ObjectVector. #"Join Features".
 
-tools:SpatialJoinAggCountTess wf:input _:i1.
-_:i1 a ccd:Vector. #"target_features".
-_:i1 a ccd:Tessellation.
+tools:SpatialJoinAggCountTess wf:input 
+[ a ccd:ObjectVector]. #"Join Features".
 
-tools:SpatialJoinAggCountTess wf:output _:counto.
-_:counto a ccd:Lattice.
-_:counto a ccd:CountA.
-_:counto a exm:ERA.
+tools:SpatialJoinAggCountTess wf:input 
+[ a ccd:Vector; #"target_features".
+ a ccd:Tessellation].
+
+tools:SpatialJoinAggCountTess wf:output
+[a ccd:Lattice;
+ a ccd:CountA;
+a exm:ERA].
 
 
-tools:SpatialJoinAggMeanTess wf:input _:i2.
-_:i2 a ccd:ObjectVector. #"Join Features".
-_:i2 a ccd:IntervalA.
+tools:SpatialJoinAggMeanTess wf:input 
+[ a ccd:ObjectVector; #"Join Features".
+ a ccd:IntervalA].
 
-tools:SpatialJoinAggMeanTess wf:input _:i1.
-_:i1 a ccd:Vector. #"target_features".
-_:i1 a ccd:Tessellation.
+tools:SpatialJoinAggMeanTess wf:input 
+[ a ccd:Vector; #"target_features".
+a ccd:Tessellation].
 
-tools:SpatialJoinAggMeanTess wf:output _:meanto.
-_:meanto a ccd:Lattice.
-_:meanto a ccd:RatioA.
-_:meanto a exm:IRA.
+tools:SpatialJoinAggMeanTess wf:output 
+[ a ccd:Lattice;
+a ccd:RatioA;
+a exm:IRA].
 
 
     
