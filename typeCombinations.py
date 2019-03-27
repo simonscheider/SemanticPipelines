@@ -51,14 +51,6 @@ def printGraph(graph):
     for s, p, o in graph:
         print s, p,  o
 
-def file_to_str(fn):
-    """
-    Loads the content of a text file into a string
-    @return a string
-    """
-    with open(fn, 'r') as f:
-        content=f.read()
-    return content
 
 """"checks subsumption by property path query (fast)"""
 def isSubTypeOf(type1, supertype, ontology): #test if an owl class is a subclass of another inside an ontology
@@ -169,7 +161,7 @@ def combineTypes(rdffile, ontology, singletype = True): #singltype: should the r
 
 
 def main():
-    combineTypes('ToolDescription_full.ttl', 'CoreConceptData.ttl')
+    combineTypes('ToolDescription.ttl', 'CoreConceptData.ttl')
 
 if __name__ == '__main__':
     main()

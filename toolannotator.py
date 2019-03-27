@@ -89,7 +89,8 @@ def tools2XML(toollist=[{'operationname': 'spatialJoinSumTessRatio', 'inputs':[[
     comment = Comment('Contains all typed ArcGIS Pro tools for workflow analysis')
     top.append(comment)
     for t in toollist:
-        function = SubElement(top, 'function') #operationname
+        function = SubElement(top, 'function')
+        function.set('name',t['operationname']) #operationname
         operation = SubElement(function, 'operation')
         operation.text =t['operationname']
         inputs = SubElement(function, 'inputs')
@@ -149,7 +150,7 @@ def getToollistasXML(toolsinrdf= 'ToolDescription.ttl'):
 def main():
     #top = tools2XML()
     #print prettify(top)
-    toolsinrdf= 'ToolDescription.ttl'
+    toolsinrdf= 'ToolDescription_ct.ttl'
     xml= getToollistasXML(toolsinrdf)
     outpath = os.path.splitext(toolsinrdf)[0]+".xml"
     print outpath

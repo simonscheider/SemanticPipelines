@@ -48,7 +48,7 @@ def n_triples( g, n=None ):
         print( '  Triples: +'+str(len(g)-n) )
     return len(g)
 
-def cleanOWLOntology(input = 'CoreConceptData.ttl'):
+def cleanOWLOntology(input = 'CoreConceptData_ct.ttl'): #This takes the combined types version as input
     print 'Clean OWL ontology!'
     ccdontology = load_rdf(rdflib.Graph(),input)
     print 'Running inferences:'
@@ -58,18 +58,19 @@ def cleanOWLOntology(input = 'CoreConceptData.ttl'):
     taxonomy += ccdontology.triples( (None, RDFS.subClassOf, None) ) #Keeping only subClassOf statements and classes
     taxonomy += ccdontology.triples( (None, RDF.type, OWL.Class) )
     n_triples(taxonomy)
-    print 'Cleaning blank node triples:'
+    print 'Cleaning blank node triples and loops:'
     taxonomyclean = rdflib.Graph()
-    for (s,p,o) in taxonomy: #Removing triples that stem from blanknodes
+    for (s,p,o) in taxonomy: #Removing triples that stem from blanknodes as well as loops
         if type(s) != BNode and type(o) != BNode:
-            taxonomyclean.add((s,p,o))
+            if s != o and  s!= OWL.Nothing:
+                taxonomyclean.add((s,p,o))
     n_triples(taxonomyclean)
     #add common upper class for all data types, including spatial attributes and spatial data sets
     taxonomyclean.add((ADA.ValueList,RDFS.subClassOf,TOOLS.DType))
     taxonomyclean.add((ADA.SpatialDataSet,RDFS.subClassOf,TOOLS.DType))
     return taxonomyclean
 
-def extractToolOntology(tooldesc='ToolDescription.ttl'):
+def extractToolOntology(tooldesc='ToolDescription_ct.ttl'):
     print 'Extract Tool ontology!'
     output = rdflib.Graph()
     tools = load_rdf(rdflib.Graph(),tooldesc)
