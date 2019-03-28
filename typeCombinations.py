@@ -27,6 +27,7 @@ from rdflib import Namespace
 from urlparse import urlparse
 import os
 
+CCD= rdflib.Namespace("http://geographicknowledge.de/vocab/CoreConceptData.rdf#")
 
 """Helper stuff"""
 def load_rdf( g, rdffile, format='turtle' ):
@@ -80,10 +81,32 @@ def cleanTypes(types, expontology):
 def orderTypes(types):
     return sorted(types)
 
+def checkClassInter(ontology, types): #Checks whether an intersection of the given types already exists in the ontology and if yes, retrieves it
+    q0 = """SELECT ?class WHERE {
+           ?class owl:equivalentClass  / owl:intersectionOf ?b. """
+    var = 'b'
+    filters = ''
+    typelist = '('+' , '.join(["<"+str(t)+">" for t in types])+')'
+    for t in types:
+        t = str(t)
+        q0 +=""" ?%s rdf:first ?%s; rdf:rest ?%s .""" % (var, t.split('#')[1], var+'r')
+        filters += """ FILTER (?%s IN """ % (t.split('#')[1]) + typelist+""") """
+        var =var+'r'
+    q = q0 + filters + "}"
+    #print q
+    qres = ontology.query( q )
+    if qres:
+        for res in qres:
+            return res[0]
+            break
+    else:
+        return None
+
 #Generates a new class that is the intersection of classes and inserts it into the given graph
 def intersectTypes(types, base, cg):
     newclass = URIRef(str(base)+"#"+"".join([str(t).split("#")[-1] for t in types]))
-    if not (newclass, None, None) in cg: #only update if class does not exist yet
+    check = checkClassInter(cg, types)
+    if check == None : #only update if class does not exist yet
         print 'New type: '+str(newclass)
         cg.add((newclass, RDF.type, OWL.Class))
         b = BNode()
@@ -100,7 +123,9 @@ def intersectTypes(types, base, cg):
             cg.add((prevlist, RDF.first, t))
             cg.add((prevlist, RDF.rest, listItem))
             prevlist =listItem
-    return newclass
+        return newclass
+    else:
+        return check
 
 
 def setprefixes(g):
@@ -162,6 +187,8 @@ def combineTypes(rdffile, ontology, singletype = True): #singltype: should the r
 
 def main():
     combineTypes('ToolDescription.ttl', 'CoreConceptData.ttl')
+
+
 
 if __name__ == '__main__':
     main()

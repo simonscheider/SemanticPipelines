@@ -17,8 +17,6 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://desktop.arcgis.com/en/arcmap/10.3/analyze/commonly-used-tools/overlay-analysis.htm> tools:implements tools:CoverageOverlay .
-
 <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanCount,
         tools:FocalStatisticsMeanInterval,
         tools:FocalStatisticsMeanRatio,
@@ -39,8 +37,6 @@
         tools:ZonalStatisticsSumCount,
         tools:ZonalStatisticsSumRatio .
 
-tools: rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation" .
-
 tools:KrigingCount rdfs:label "interpolates a raster surface from points at Count measurement level using the kriging algorithm." ;
     wf:input1 [ a ccd:CountAPointMeasuresIRA ] ;
     wf:output [ a ccd:FieldRasterRatioAIRA ] .
@@ -49,33 +45,11 @@ tools:SpatialJoinCount rdfs:label "Counts the number of features from one featur
 
 tools:SpatialJoinCountTessInterval wf:input2 [ ] .
 
-tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation" ;
-    wf:input2 [ ] ;
-    wf:output [ a ccd:LatticeRatioA ] .
-
-tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation" ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
-    wf:output [ a ccd:IntervalALattice ] .
-
-tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation" ;
-    wf:input2 [ ] ;
-    wf:output [ a ccd:LatticeRatioA ] .
-
-tools:ThiessenPolygonsboolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level" .
-
-tools:spatialJoinMeanTessCount wf:input1 [ a ccd:CountAObjectVector ] .
-
-tools:spatialJoinMeanTessInterval wf:input1 [ a ccd:IntervalAObjectVector ] .
-
-tools:spatialJoinMeanTessRatio wf:input1 [ a ccd:ObjectVectorRatioA ] .
-
-tools:spatialJoinSumTessCount wf:input1 [ a ccd:CountAObjectVectorERA ] .
-
-tools:spatialJoinSumTessRatio wf:input1 [ a ccd:ObjectVectorRatioAERA ] .
-
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess,
+        tools:SpatialJoinMeanTessCount,
+        tools:SpatialJoinMeanTessInterval,
+        tools:SpatialJoinMeanTessRatio,
         tools:SpatialJoinSumTessCount,
-        tools:SpatialJoinSumTessInterval,
         tools:SpatialJoinSumTessRatio .
 
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> tools:implements tools:LeastCostPathRasterRatio .
@@ -116,18 +90,13 @@ tools:spatialJoinSumTessRatio wf:input1 [ a ccd:ObjectVectorRatioAERA ] .
         tools:LocalMapAlgebraMultiplyRatioCount,
         tools:LocalMapAlgebraMultiplyRatioRatio .
 
-tools:CoverageOverlay rdfs:label "Combine coverages into a new coverage" ;
-    wf:input1 [ a ccd:Coverage ] ;
-    wf:input2 [ a ccd:Coverage ] ;
-    wf:output [ a ccd:CoverageNominal ] .
-
 tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters" ;
     wf:input1 [ a ccd:Coverage ] ;
     wf:output [ a ccd:FieldRaster ] .
 
 tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive." ;
     wf:input1 [ a ccd:ExistenceRaster ] ;
-    wf:output [ a ccd:FieldRasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
     wf:input1 [ a ccd:ObjectVector ] ;
@@ -135,35 +104,35 @@ tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the E
 
 tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
-    wf:output [ a ccd:FieldrasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:CountAFieldRaster ] ;
-    wf:output [ a ccd:FieldrasterRatioA ] .
+    wf:input1 [ a ccd:CountAFieldRasterERA ] ;
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:FieldRasterintervalA ] ;
-    wf:output [ a ccd:FieldrasterIntervalA ] .
+    wf:input1 [ a ccd:FieldRasterIntervalA ] ;
+    wf:output [ a ccd:FieldRasterIntervalA ] .
 
 tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:FieldRasterRatioA ] ;
-    wf:output [ a ccd:FieldrasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:FocalStatisticsObjectVector rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:BooleanAObjectVector ] ;
-    wf:output [ a ccd:FieldrasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:CountAEFieldRasterERA ] ;
-    wf:output [ a ccd:CountAFieldrasterERA ] .
+    wf:input1 [ a ccd:CountAFieldRasterERA ] ;
+    wf:output [ a ccd:CountAFieldRasterERA ] .
 
 tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell location a Sum of the values with an Ratio measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
-    wf:output [ a ccd:FieldrasterRatioAERA ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it" ;
     wf:input1 [ a ccd:FieldRaster ] ;
-    wf:output [ a ccd:CountAFieldraster ] .
+    wf:output [ a ccd:CountAFieldRasterERA ] .
 
 tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm." ;
     wf:input1 [ a ccd:PointMeasuresIRA ] ;
@@ -205,7 +174,8 @@ tools:ObjectVectorToExistenceRasterBoolean rdfs:label " Converts Object vectors 
 
 tools:RasterToContourCount rdfs:label "Converts a field raster to a Contour dataset" ;
     wf:input1 [ a ccd:CountAFieldRaster ] ;
-    wf:output [ a ccd:ContourOridnalA ] .
+    wf:output [ a ccd:Contour,
+                ccd:OrdinalA ] .
 
 tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour dataset" ;
     wf:input1 [ a ccd:FieldRasterIntervalA ] ;
@@ -218,32 +188,51 @@ tools:RasterToContourRatio rdfs:label "Converts a field raster to a Contour data
                 ccd:OrdinalA ] .
 
 tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
-    wf:input1 [ a ccd:BooleanAFieldRaster ] ;
-    wf:output [ a ccd:BooleanCoverage ] .
+    wf:input1 [ a ccd:ExistenceRaster ] ;
+    wf:output [ a ccd:BooleanACoverage ] .
 
 tools:RasterToCoverageNominal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
     wf:input1 [ a ccd:FieldRasterNominalA ] ;
-    wf:output [ a ccd:CoverageNominal ] .
+    wf:output [ a ccd:CoverageNominalA ] .
 
 tools:RasterToCoverageOrdinal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
     wf:input1 [ a ccd:FieldRasterOrdinalA ] ;
-    wf:output [ a ccd:CoverageOrdinal ] .
+    wf:output [ a ccd:CoverageOrdinalA ] .
 
 tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldraster to a boolean (succes or fail) based on a rule" ;
     wf:input1 [ a ccd:FieldRaster ] ;
-    wf:output [ a ccd:BooleanExistenceRaster ] .
+    wf:output [ a ccd:BooleanAExistenceRaster ] .
 
 tools:SpatialJoinCountTess wf:input1 [ a ccd:ObjectVector ] ;
-    wf:output [ a ccd:CountLatticeERA ] .
-
-tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation" ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
     wf:output [ a ccd:CountALatticeERA ] .
 
-tools:SpatialJoinSumTessRatio wf:input2 [ a ccd:ObjectPolygon ] ;
+tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:CountAObjectVector ] ;
+    wf:input2 [ ] ;
+    wf:output [ a ccd:LatticeRatioA ] .
+
+tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:IntervalAObjectVector ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
+    wf:output [ a ccd:IntervalALattice ] .
+
+tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:ObjectVectorRatioA ] ;
+    wf:input2 [ ] ;
+    wf:output [ a ccd:LatticeRatioA ] .
+
+tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:CountAObjectVectorERA ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
+    wf:output [ a ccd:CountALatticeERA ] .
+
+tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:ObjectVectorRatioAERA ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeRatioAERA ] .
 
-tools:ThiessenPolygonsBoolean wf:input1 [ a ccd:BooleanAPointA ] ;
+tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level" ;
+    wf:input1 [ a ccd:BooleanAPointA ] ;
     wf:output [ a ccd:BooleanACoverage ] .
 
 tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point features with a Count measurement level" ;
@@ -267,65 +256,67 @@ tools:ThiessenPolygonsRatio rdfs:label "Creates Thiessen polygons from point fea
     wf:output [ a ccd:CoverageRatioA ] .
 
 tools:ZonalStatisticsMajorityBoolean rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:BooleanAFieldRaster ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input1 [ a ccd:ExistenceRaster ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:BooleanALattice ] .
 
 tools:ZonalStatisticsMajorityCount rdfs:label "Calculates the most common value on values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:CountAFieldRaster ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
-    wf:output [ a ccd:CountALattice ] .
+    wf:input1 [ a ccd:CountAFieldRasterERA ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
+    wf:output [ a ccd:CountALatticeERA ] .
 
 tools:ZonalStatisticsMajorityInterval rdfs:label "Calculates the most common value on values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterIntervalA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:IntervalALattice ] .
 
 tools:ZonalStatisticsMajorityNominal rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterNominalA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeNominalA ] .
 
 tools:ZonalStatisticsMajorityOrdinal rdfs:label "Calculates the most common value on values with a Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterOrdinalA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeOrdinalA ] .
 
 tools:ZonalStatisticsMajorityRatio rdfs:label "Calculates the most common value on values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterRatioA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeRatioA ] .
 
 tools:ZonalStatisticsMeanCount rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:CountAFieldRaster ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
-    wf:output [ a ccd:RatioAlattice ] .
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
+    wf:output [ a ccd:LatticeRatioA ] .
 
 tools:ZonalStatisticsMeanInterval rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterIntervalA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:IntervalALattice ] .
 
 tools:ZonalStatisticsMeanRatio rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterRatioA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
-    wf:output [ a ccd:RatioAlattice ] .
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
+    wf:output [ a ccd:LatticeRatioA ] .
 
 tools:ZonalStatisticsSumCount rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:CountAFieldRasterERA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:CountALatticeERA ] .
 
 tools:ZonalStatisticsSumRatio rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
-    wf:input2 [ a ccd:ObjectPolygon ] ;
+    wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeRatioAERA ] .
 
 tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points.",
         "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
     wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
-    wf:ouput _:f67bfeab8072c40b382de5c5c555dd9a5b40 ;
-    wf:output _:f67bfeab8072c40b382de5c5c555dd9a5b40 .
+    wf:ouput _:fedd114163bb14f909978f5dadc7000a9b41 ;
+    wf:output _:fedd114163bb14f909978f5dadc7000a9b41 .
 
-_:f67bfeab8072c40b382de5c5c555dd9a5b40 a ccd:BooleanAObjectLineObjectPoint .
+[] a ccd:TessellationAVectorA .
+
+_:fedd114163bb14f909978f5dadc7000a9b41 a ccd:BooleanAObjectLineObjectPoint .
 

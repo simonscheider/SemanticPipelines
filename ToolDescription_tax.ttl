@@ -3,9 +3,6 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageOverlay> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/analyze/commonly-used-tools/overlay-analysis.htm> .
-
 <http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
 
@@ -91,10 +88,16 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinCountTess> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessCount> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessCount> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessInterval> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessInterval> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessRatio> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessCount> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessRatio> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -151,9 +154,6 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumRatio> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
 
-<http://desktop.arcgis.com/en/arcmap/10.3/analyze/commonly-used-tools/overlay-analysis.htm> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
-
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
@@ -178,10 +178,10 @@
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> a <http://www.w3.org/2002/07/owl#Class> ;

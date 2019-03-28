@@ -26,85 +26,89 @@
 
 ######### Spatial join with sum rule 
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
+tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation".
 
-tools:   rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation".
-tools:spatialJoinSumTessRatio wf:input1 _:spatialJoinSumTessRatio1.
-_:spatialJoinSumTessRatio1 a ccd:ObjectVector. #"Join Features".
-_:spatialJoinSumTessRatio1 a ccd:RatioA.
-_:spatialJoinSumTessRatio1 a exm:ERA.
+tools:SpatialJoinSumTessRatio wf:input1 _:SpatialJoinSumTessRatio1.
+_:SpatialJoinSumTessRatio1 a ccd:ObjectVector. #"Join Features".
+_:SpatialJoinSumTessRatio1 a ccd:RatioA.
+_:SpatialJoinSumTessRatio1 a exm:ERA.
 
-tools:SpatialJoinSumTessRatio wf:input2 _:spatialJoinSumTessRatio2.
-_:spatialJoinSumTessRatio2 a ccd:ObjectPolygon. #"Target Features"
+tools:SpatialJoinSumTessRatio wf:input2 _:SpatialJoinSumTessRatio2.
+_:SpatialJoinSumTessRatio2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinSumTessRatio2 a ccd:TessellationA.
 
-tools:SpatialJoinSumTessRatio wf:output _:spatialJoinSumTessRatioOut.
-_:spatialJoinSumTessRatioOut a ccd:Lattice.
-_:spatialJoinSumTessRatioOut a ccd:RatioA.
-_:spatialJoinSumTessRatioOut a exm:ERA.
+tools:SpatialJoinSumTessRatio wf:output _:SpatialJoinSumTessRatioOut.
+_:SpatialJoinSumTessRatioOut a ccd:Lattice.
+_:SpatialJoinSumTessRatioOut a ccd:RatioA.
+_:SpatialJoinSumTessRatioOut a exm:ERA.
 
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
 
 tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation".
-tools:spatialJoinSumTessCount wf:input1 _:spatialJoinSumTessCount1.
-_:spatialJoinSumTessCount1 a ccd:ObjectVector. #"Join Features".
-_:spatialJoinSumTessCount1 a ccd:CountA.
-_:spatialJoinSumTessCount1 a exm:ERA.
+tools:SpatialJoinSumTessCount wf:input1 _:SpatialJoinSumTessCount1.
+_:SpatialJoinSumTessCount1 a ccd:ObjectVector. #"Join Features".
+_:SpatialJoinSumTessCount1 a ccd:CountA.
+_:SpatialJoinSumTessCount1 a exm:ERA.
 
-tools:SpatialJoinSumTessCount wf:input2 _:spatialJoinSumTessCount2.
-_:spatialJoinSumTessCount2 a ccd:ObjectPolygon. #"Target Features"
+tools:SpatialJoinSumTessCount wf:input2 _:SpatialJoinSumTessCount2.
+_:SpatialJoinSumTessCount2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinSumTessCount2 a ccd:TessellationA.
 
-
-tools:SpatialJoinSumTessCount wf:output _:spatialJoinSumTessCountOut.
-_:spatialJoinSumTessCountOut a ccd:Lattice.
-_:spatialJoinSumTessCountOut a ccd:CountA.
-_:spatialJoinSumTessCountOut a exm:ERA.
+tools:SpatialJoinSumTessCount wf:output _:SpatialJoinSumTessCountOut.
+_:SpatialJoinSumTessCountOut a ccd:Lattice.
+_:SpatialJoinSumTessCountOut a ccd:CountA.
+_:SpatialJoinSumTessCountOut a exm:ERA.
 
 #### spatial join with mean rule
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessInterval. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for interval data.
-
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessInterval. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for interval data.
 tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation".
-tools:spatialJoinMeanTessInterval wf:input1 _:spatialJoinMeanTessInterval1.
-_:spatialJoinMeanTessInterval1 a ccd:ObjectVector. #"Join Features".
-_:spatialJoinMeanTessInterval1 a ccd:IntervalA.
+
+tools:SpatialJoinMeanTessInterval wf:input1 _:SpatialJoinMeanTessInterval1.
+_:SpatialJoinMeanTessInterval1 a ccd:ObjectVector. #"Join Features".
+_:SpatialJoinMeanTessInterval1 a ccd:IntervalA.
 
 
-tools:SpatialJoinMeanTessInterval wf:input2 _:spatialJoinMeanTessInterval2.
-_:spatialJoinMeanTessInterval2 a ccd:ObjectPolygon. #"Target Features"
+tools:SpatialJoinMeanTessInterval wf:input2 _:SpatialJoinMeanTessInterval2.
+_:SpatialJoinMeanTessInterval2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA.
 
-tools:SpatialJoinMeanTessInterval wf:output _:spatialJoinMeanTessIntervalOut.
-_:spatialJoinMeanTessIntervalOut a ccd:Lattice.
-_:spatialJoinMeanTessIntervalOut a ccd:IntervalA.
+tools:SpatialJoinMeanTessInterval wf:output _:SpatialJoinMeanTessIntervalOut.
+_:SpatialJoinMeanTessIntervalOut a ccd:Lattice.
+_:SpatialJoinMeanTessIntervalOut a ccd:IntervalA.
 
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Ratio data.
-
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Ratio data.
 tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation".
-tools:spatialJoinMeanTessRatio wf:input1 _:spatialJoinMeanTessRatio1.
-_:spatialJoinMeanTessRatio1 a ccd:ObjectVector. #"Join Features".
-_:spatialJoinMeanTessRatio1 a ccd:RatioA.
+
+tools:SpatialJoinMeanTessRatio wf:input1 _:SpatialJoinMeanTessRatio1.
+_:SpatialJoinMeanTessRatio1 a ccd:ObjectVector. #"Join Features".
+_:SpatialJoinMeanTessRatio1 a ccd:RatioA.
 
 
-tools:SpatialJoinMeanTessRatio wf:input2 _:spatialJoinMeanTessRatio2.
-_:spatialJoinMeanTessInterval2 a ccd:ObjectPolygon. #"Target Features"
+tools:SpatialJoinMeanTessRatio wf:input2 _:SpatialJoinMeanTessRatio2.
+_:SpatialJoinMeanTessInterval2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA.
 
-tools:SpatialJoinMeanTessRatio wf:output _:spatialJoinMeanTessRatioOut.
-_:spatialJoinMeanTessRatioOut a ccd:Lattice.
-_:spatialJoinMeanTessRatioOut a ccd:RatioA.
+tools:SpatialJoinMeanTessRatio wf:output _:SpatialJoinMeanTessRatioOut.
+_:SpatialJoinMeanTessRatioOut a ccd:Lattice.
+_:SpatialJoinMeanTessRatioOut a ccd:RatioA.
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Count data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessCount. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Count data.
 
 tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation".
-tools:spatialJoinMeanTessCount wf:input1 _:spatialJoinMeanTessCount1.
-_:spatialJoinMeanTessCount1 a ccd:ObjectVector. #"Join Features".
-_:spatialJoinMeanTessCount1 a ccd:CountA.
+tools:SpatialJoinMeanTessCount wf:input1 _:SpatialJoinMeanTessCount1.
+_:SpatialJoinMeanTessCount1 a ccd:ObjectVector. #"Join Features".
+_:SpatialJoinMeanTessCount1 a ccd:CountA.
 
-tools:SpatialJoinMeanTessCount wf:input2 _:spatialJoinMeanTessCount2.
-_:spatialJoinMeanTessInterval2 a ccd:ObjectPolygon. #"Target Features"
+tools:SpatialJoinMeanTessCount wf:input2 _:SpatialJoinMeanTessCount2.
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA. #"Target Features"
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA.
 
-tools:SpatialJoinMeanTessCount wf:output _:spatialJoinMeanTessCountOut.
-_:spatialJoinMeanTessCountOut a ccd:Lattice.
-_:spatialJoinMeanTessCountOut a ccd:RatioA.
+tools:SpatialJoinMeanTessCount wf:output _:SpatialJoinMeanTessCountOut.
+_:SpatialJoinMeanTessCountOut a ccd:Lattice.
+_:SpatialJoinMeanTessCountOut a ccd:RatioA.
 
 
 #### spatial join with the count rule 
@@ -116,25 +120,26 @@ tools:SpatialJoinCountTess wf:input1 _:SpatialJoinCountTess1.
 _:SpatialJoinCountTess1 a ccd:ObjectVector.
 
 tools:SpatialJoinCountTessInterval wf:input2 _:SpatialJoinCountTess2.
-_:spatialJoinMeanTessInterval2 a ccd:ObjectPolygon. #"Target Features"
+_:SpatialJoinCountTessInterval2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinCountTessInterval2 a ccd:TessellationA.
 
 tools:SpatialJoinCountTess wf:output _:SpatialJoinCountTessOut.
 _:SpatialJoinCountTessOut a ccd:Lattice.
-_:SpatialJoinCountTessOut a ccd:Count.
+_:SpatialJoinCountTessOut a ccd:CountA.
 _:SpatialJoinCountTessOut a exm:ERA.
 
 ######## Thiessen polygons
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsBoolean.
-tools:ThiessenPolygonsboolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level".
+tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level".
 
-tools:ThiessenPolygonsBoolean wf:input1 _:ThiessenPolygonsboolean1. 
-_:ThiessenPolygonsboolean1 a ccd:PointA.
-_:ThiessenPolygonsboolean1 a ccd:BooleanA.
+tools:ThiessenPolygonsBoolean wf:input1 _:ThiessenPolygonsBoolean1. 
+_:ThiessenPolygonsBoolean1 a ccd:PointA.
+_:ThiessenPolygonsBoolean1 a ccd:BooleanA.
 
-tools:ThiessenPolygonsBoolean wf:output _:ThiessenPolygonsbooleanOut.
-_:ThiessenPolygonsbooleanOut a ccd:Coverage. 
-_:ThiessenPolygonsbooleanOut a ccd:BooleanA.
+tools:ThiessenPolygonsBoolean wf:output _:ThiessenPolygonsBooleanOut.
+_:ThiessenPolygonsBooleanOut a ccd:Coverage. 
+_:ThiessenPolygonsBooleanOut a ccd:BooleanA.
 
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsNominal.
@@ -284,7 +289,7 @@ _:FocalStatisticsExistenceRaster1 a ccd:ExistenceRaster.
 _:FocalStatisticsExistenceRaster1 a ccd:BooleanA.
 
 tools:FocalStatisticsExistenceRaster wf:output _:FocalStatisticsExistenceRasterOut.
-_:FocalStatisticsExistenceRasterOut a ccd:Fieldraster.
+_:FocalStatisticsExistenceRasterOut a ccd:FieldRaster.
 _:FocalStatisticsExistenceRasterOut a ccd:RatioA.
 
 
@@ -297,7 +302,7 @@ _:FocalStatisticsObjectVector1 a ccd:ObjectVector.
 _:FocalStatisticsObjectVector1 a ccd:BooleanA.
 
 tools:FocalStatisticsObjectVector wf:output _:FocalStatisticsObjectVectorOut.
-_:FocalStatisticsObjectVectorOut a ccd:Fieldraster.
+_:FocalStatisticsObjectVectorOut a ccd:FieldRaster.
 _:FocalStatisticsObjectVectorOut a ccd:RatioA.
 
 #### FocaldensityMean fieldraster to fieldraster with the mean operator
@@ -306,10 +311,10 @@ tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell loc
 
 tools:FocalStatisticsMeanInterval wf:input1 _:FocalStatisticsMeanInterval1.
 _:FocalStatisticsMeanInterval1 a ccd:FieldRaster.
-_:FocalStatisticsMeanInterval1 a ccd:intervalA.
+_:FocalStatisticsMeanInterval1 a ccd:IntervalA.
 
 tools:FocalStatisticsMeanInterval wf:output _:FocalStatisticsMeanIntervalOut.
-_:FocalStatisticsMeanIntervalOut a ccd:Fieldraster.
+_:FocalStatisticsMeanIntervalOut a ccd:FieldRaster.
 _:FocalStatisticsMeanIntervalOut a ccd:IntervalA.
 
 
@@ -321,7 +326,7 @@ _:FocalStatisticsMeanRatio1 a ccd:FieldRaster.
 _:FocalStatisticsMeanRatio1 a ccd:RatioA.
 
 tools:FocalStatisticsMeanRatio wf:output _:FocalStatisticsMeanRatioOut.
-_:FocalStatisticsMeanRatioOut a ccd:Fieldraster.
+_:FocalStatisticsMeanRatioOut a ccd:FieldRaster.
 _:FocalStatisticsMeanRatioOut a ccd:RatioA.
 
 
@@ -333,7 +338,7 @@ _:FocalStatisticsMeanCount1 a ccd:FieldRaster.
 _:FocalStatisticsMeanCount1 a ccd:CountA.
 
 tools:FocalStatisticsMeanCount wf:output _:FocalStatisticsMeanCountOut.
-_:FocalStatisticsMeanCountOut a ccd:Fieldraster.
+_:FocalStatisticsMeanCountOut a ccd:FieldRaster.
 _:FocalStatisticsMeanCountOut a ccd:RatioA.
 
 
@@ -349,7 +354,7 @@ _:FocalStatisticsSumRatio1 a ccd:FieldRaster.
 _:FocalStatisticsSumRatio1 a ccd:RatioA; a exm:ERA.
 
 tools:FocalStatisticsSumRatio wf:output _:FocalStatisticsSumRatioOut.
-_:FocalStatisticsSumRatioOut a ccd:Fieldraster.
+_:FocalStatisticsSumRatioOut a ccd:FieldRaster.
 _:FocalStatisticsSumRatioOut a ccd:RatioA; a exm:ERA.
 
 
@@ -357,11 +362,11 @@ _:FocalStatisticsSumRatioOut a ccd:RatioA; a exm:ERA.
 tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it".
 
 tools:FocalStatisticsSumCount wf:input1 _:FocalStatisticsSumCount1.
-_:FocalStatisticsSumCount1 a ccd:EFieldRaster.
+_:FocalStatisticsSumCount1 a ccd:FieldRaster.
 _:FocalStatisticsSumCount1 a ccd:CountA; a exm:ERA.
 
 tools:FocalStatisticsSumCount wf:output _:FocalStatisticsSumCountOut.
-_:FocalStatisticsSumCountOut a ccd:Fieldraster.
+_:FocalStatisticsSumCountOut a ccd:FieldRaster.
 _:FocalStatisticsSumCountOut a ccd:CountA; a exm:ERA.
 
 ### a count is always extensive should i add the extensive requirement than? 
@@ -376,7 +381,7 @@ _:FocalStatisticsVarietyInterval1 a ccd:FieldRaster.
 
 
 tools:FocalStatisticsVarietyInterval wf:output _:FocalStatisticsVarietyIntervalOut.
-_:FocalStatisticsVarietyIntervalOut a ccd:Fieldraster.
+_:FocalStatisticsVarietyIntervalOut a ccd:FieldRaster.
 _:FocalStatisticsVarietyIntervalOut a ccd:CountA. 
 
 ##### Euclidean Distance
@@ -397,13 +402,12 @@ tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, th
 tools:EuclideanDistanceExistenceRaster wf:input1 _:EuclideanDistanceExistenceRaster1.
 _:EuclideanDistanceExistenceRaster1 a ccd:ExistenceRaster.
 
-### an existence raster is always boolean , should i add the boolean requirement? 
 
 tools:EuclideanDistanceExistenceRaster wf:output _:EuclideanDistanceExistenceRasterOut. 
 _:EuclideanDistanceExistenceRasterOut a ccd:FieldRaster.
 _:EuclideanDistanceExistenceRasterOut a ccd:RatioA.
+_:EuclideanDistanceExistenceRasterOut a exm:IRA.
 
-### is distance always intensive data?
 
 
 ###### Zonal statistics with majority rule
@@ -416,7 +420,9 @@ _:ZonalStatisticsMajorityBoolean1 a ccd:FieldRaster.
 _:ZonalStatisticsMajorityBoolean1 a ccd:BooleanA.
 
 tools:ZonalStatisticsMajorityBoolean wf:input2 _:ZonalStatisticsMajorityBoolean2. ##target featues 
-_:ZonalStatisticsMajorityBoolean2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMajorityBoolean2 a ccd:VectorA.
+_:ZonalStatisticsMajorityBoolean2 a ccd:TessellationA.
+
 
 tools:ZonalStatisticsMajorityBoolean wf:output _:ZonalStatisticsMajorityBooleanOut.
 _:ZonalStatisticsMajorityBooleanOut a ccd:Lattice.
@@ -431,7 +437,8 @@ _:ZonalStatisticsMajorityNominal1 a ccd:FieldRaster.
 _:ZonalStatisticsMajorityNominal1 a ccd:NominalA.
 
 tools:ZonalStatisticsMajorityNominal wf:input2 _:ZonalStatisticsMajorityNominal2. ##target featues 
-_:ZonalStatisticsMajorityNominal2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMajorityNominal2 a ccd:VectorA.
+_:ZonalStatisticsMajorityNominal2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMajorityNominal wf:output _:ZonalStatisticsMajorityNominalOut.
 _:ZonalStatisticsMajorityNominalOut a ccd:Lattice.
@@ -446,7 +453,8 @@ _:ZonalStatisticsMajorityOrdinal1 a ccd:FieldRaster.
 _:ZonalStatisticsMajorityOrdinal1 a ccd:OrdinalA.
 
 tools:ZonalStatisticsMajorityOrdinal wf:input2 _:ZonalStatisticsMajorityOrdinal2. ##target featues 
-_:ZonalStatisticsMajorityOrdinal2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMajorityOrdinal2 a ccd:VectorA.
+_:ZonalStatisticsMajorityOrdinal2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMajorityOrdinal wf:output _:ZonalStatisticsMajorityOrdinalOut.
 _:ZonalStatisticsMajorityOrdinalOut a ccd:Lattice.
@@ -461,7 +469,8 @@ _:ZonalStatisticsMajorityInterval1 a ccd:FieldRaster.
 _:ZonalStatisticsMajorityInterval1 a ccd:IntervalA.
 
 tools:ZonalStatisticsMajorityInterval wf:input2 _:ZonalStatisticsMajorityInterval2. ##target featues 
-_:ZonalStatisticsMajorityInterval2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMajorityInterval2 a ccd:VectorA.
+_:ZonalStatisticsMajorityInterval2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMajorityInterval wf:output _:ZonalStatisticsMajorityIntervalOut.
 _:ZonalStatisticsMajorityIntervalOut a ccd:Lattice.
@@ -476,7 +485,8 @@ _:ZonalStatisticsMajorityRatio1 a ccd:FieldRaster.
 _:ZonalStatisticsMajorityRatio1 a ccd:RatioA.
 
 tools:ZonalStatisticsMajorityRatio wf:input2 _:ZonalStatisticsMajorityRatio2. ##target featues 
-_:ZonalStatisticsMajorityRatio2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMajorityRatio2 a ccd:VectorA.
+_:ZonalStatisticsMajorityRatio2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMajorityRatio wf:output _:ZonalStatisticsMajorityRatioOut.
 _:ZonalStatisticsMajorityRatioOut a ccd:Lattice.
@@ -491,7 +501,8 @@ _:ZonalStatisticsMajorityCount1 a ccd:FieldRaster.
 _:ZonalStatisticsMajorityCount1 a ccd:CountA.
 
 tools:ZonalStatisticsMajorityCount wf:input2 _:ZonalStatisticsMajorityCount2. ##target featues 
-_:ZonalStatisticsMajorityCount2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMajorityCount2 a ccd:VectorA.
+_:ZonalStatisticsMajorityCount2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMajorityCount wf:output _:ZonalStatisticsMajorityCountOut.
 _:ZonalStatisticsMajorityCountOut a ccd:Lattice.
@@ -509,7 +520,8 @@ _:ZonalStatisticsMeanInterval1 a ccd:FieldRaster.
 _:ZonalStatisticsMeanInterval1 a ccd:IntervalA.
 
 tools:ZonalStatisticsMeanInterval wf:input2 _:ZonalStatisticsMeanInterval2. ##target featues 
-_:ZonalStatisticsMeanInterval2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMeanInterval2 a ccd:VectorA.
+_:ZonalStatisticsMeanInterval2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMeanInterval wf:output _:ZonalStatisticsMeanIntervalOut.
 _:ZonalStatisticsMeanIntervalOut a ccd:Lattice.
@@ -524,10 +536,11 @@ _:ZonalStatisticsMeanRatio1 a ccd:FieldRaster.
 _:ZonalStatisticsMeanRatio1 a ccd:RatioA.
 
 tools:ZonalStatisticsMeanRatio wf:input2 _:ZonalStatisticsMeanRatio2. ##target featues 
-_:ZonalStatisticsMeanRatio2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMeanRatio2 a ccd:VectorA.
+_:ZonalStatisticsMeanRatio2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMeanRatio wf:output _:ZonalStatisticsMeanRatioOut.
-_:ZonalStatisticsMeanRatioOut a ccd:lattice.
+_:ZonalStatisticsMeanRatioOut a ccd:Lattice.
 _:ZonalStatisticsMeanRatioOut a ccd:RatioA.
 
 
@@ -539,10 +552,11 @@ _:ZonalStatisticsMeanCount1 a ccd:FieldRaster.
 _:ZonalStatisticsMeanCount1 a ccd:CountA.
 
 tools:ZonalStatisticsMeanCount wf:input2 _:ZonalStatisticsMeanCount2. ##target featues 
-_:ZonalStatisticsMeanCount2 a ccd:ObjectPolygon.
+_:ZonalStatisticsMeanCount2 a ccd:VectorA.
+_:ZonalStatisticsMeanCount2 a ccd:TessellationA.
 
 tools:ZonalStatisticsMeanCount wf:output _:ZonalStatisticsMeanCountOut.
-_:ZonalStatisticsMeanCountOut a ccd:lattice.
+_:ZonalStatisticsMeanCountOut a ccd:Lattice.
 _:ZonalStatisticsMeanCountOut a ccd:RatioA.
 
 
@@ -558,7 +572,8 @@ _:ZonalStatisticsSumRatio1 a ccd:RatioA.
 _:ZonalStatisticsSumRatio1 a exm:ERA.
 
 tools:ZonalStatisticsSumRatio wf:input2 _:ZonalStatisticsSumRatio2. ##target featues 
-_:ZonalStatisticsSumRatio2 a ccd:ObjectPolygon.
+_:ZonalStatisticsSumRatio2 a ccd:VectorA.
+_:ZonalStatisticsSumRatio2 a ccd:TessellationA.
 
 tools:ZonalStatisticsSumRatio wf:output _:ZonalStatisticsSumRatioOut.
 _:ZonalStatisticsSumRatioOut a ccd:Lattice.
@@ -574,7 +589,8 @@ _:ZonalStatisticsSumCount1 a ccd:CountA.
 _:ZonalStatisticsSumCount1 a exm:ERA. 
 
 tools:ZonalStatisticsSumCount wf:input2 _:ZonalStatisticsSumCount2. ##target featues 
-_:ZonalStatisticsSumCount2 a ccd:ObjectPolygon.
+_:ZonalStatisticsSumCount2 a ccd:VectorA.
+_:ZonalStatisticsSumCount2 a ccd:TessellationA.
 
 tools:ZonalStatisticsSumCount wf:output _:ZonalStatisticsSumCountOut.
 _:ZonalStatisticsSumCountOut a ccd:Lattice.
@@ -589,6 +605,8 @@ tools:LeastCostPathRasterRatio rdfs:label "The Cost Path function calculates the
 
 tools:LeastCostPathRasterRatio wf:input1 _:LeastCostPathRasterRatio1. #origin
 _:LeastCostPathRasterRatio1 a ccd:BoundedPhen.
+
+#boundedphen is not in the onotology yet
 
 tools:LeastCostPathRasterRatio wf:input2 _:LeastCostPathRasterRatio2. #destination
 _:LeastCostPathRasterRatio2 a ccd:BoundedPhen.
@@ -684,7 +702,7 @@ _:RasterToContourCount1 a ccd:CountA.
 
 tools:RasterToContourCount wf:output _:RasterToContourCountOutput.        
 _:RasterToContourCountOutput a ccd:Contour.
-_:RasterToContourCountOutput a ccd:OridnalA.
+_:RasterToContourCountOutput a ccd:OrdinalA.
 
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToContourInterval.
@@ -710,7 +728,7 @@ _:RasterToCoverageOrdinal1 a ccd:OrdinalA.
 
 tools:RasterToCoverageOrdinal wf:output _:RasterToCoverageOrdinalOutput.     
 _:RasterToCoverageOrdinalOutput a ccd:Coverage.
-_:RasterToCoverageOrdinalOutput a ccd:Ordinal.
+_:RasterToCoverageOrdinalOutput a ccd:OrdinalA.
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageNominal.
 tools:RasterToCoverageNominal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower".
@@ -721,7 +739,7 @@ _:RasterToCoverageNominal1 a ccd:NominalA.
 
 tools:RasterToCoverageNominal wf:output _:RasterToCoverageNominalOutput.     
 _:RasterToCoverageNominalOutput a ccd:Coverage.
-_:RasterToCoverageNominalOutput a ccd:Nominal.
+_:RasterToCoverageNominalOutput a ccd:NominalA.
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageBoolean.
 tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower".
@@ -732,7 +750,7 @@ _:RasterToCoverageBoolean1 a ccd:BooleanA.
 
 tools:RasterToCoverageBoolean wf:output _:RasterToCoverageBooleanOutput.     
 _:RasterToCoverageBooleanOutput a ccd:Coverage.
-_:RasterToCoverageBooleanOutput a ccd:Boolean.
+_:RasterToCoverageBooleanOutput a ccd:BooleanA.
 
 
 
@@ -756,34 +774,7 @@ _:ReclassifyFieldRasterToBoolean1 a ccd:FieldRaster.
 
 tools:ReclassifyFieldRasterToBoolean wf:output _:ReclassifyFieldRasterToBooleanOutput.
 _:ReclassifyFieldRasterToBooleanOutput a ccd:ExistenceRaster.
-_:ReclassifyFieldRasterToBooleanOutput a ccd:Boolean.
-
-### coverage Overlay ( i don't quite know for sure what overlay you refer to as this is quite a diverse class of tools. The currently used overlay would also be illegal as it creates a new polygon with two variables ( but our method can only handle one) 
-
-<http://desktop.arcgis.com/en/arcmap/10.3/analyze/commonly-used-tools/overlay-analysis.htm> tools:implements tools:CoverageOverlay. ## used the arcgis version for now, because i couldn't find the pro equivalent yet
- tools:CoverageOverlay rdfs:label "Combine coverages into a new coverage".
- 
-tools:CoverageOverlay wf:input1 _:CoverageOverlay1.
-_:CoverageOverlay1 a ccd:Coverage.
-
-tools:CoverageOverlay wf:input2 _:CoverageOverlay2.
-_:CoverageOverlay2 a ccd:Coverage.
-
-tools:CoverageOverlay wf:output _:CoverageOverlayOutput.
-_:CoverageOverlayOutput a ccd:Coverage.
-_:CoverageOverlayOutput a ccd:Nominal.
-
-## not sure if this can only become a nominal class if both classes are ordinal and the ordinality of one of the classes is decimal to the other class it could become ordinal again. It would be a weird situation though, you could probably better use local map algebra or overlay algebra in that case. 
-
-
-
-
-
-
-
-
-
-
+_:ReclassifyFieldRasterToBooleanOutput a ccd:BooleanA.
 
 
 
