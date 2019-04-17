@@ -1,0 +1,206 @@
+@prefix ada: <http://geographicknowledge.de/vocab/AnalysisData.rdf#> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> .
+@prefix em: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccd:BoundedPhen a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:Line a owl:Class ;
+    rdfs:subClassOf ada:Spatial,
+        owl:Thing .
+
+ccd:LineA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:LineData a owl:Class ;
+    rdfs:subClassOf ada:SpatialData,
+        owl:Thing .
+
+ccd:LineDataSet a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        ccd:Vector,
+        owl:Thing .
+
+ccd:Point a owl:Class ;
+    rdfs:subClassOf ada:Spatial,
+        owl:Thing .
+
+ccd:PointA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:PointData a owl:Class ;
+    rdfs:subClassOf ada:SpatialData,
+        owl:Thing .
+
+ccd:PointDataSet a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        ccd:Vector,
+        owl:Thing .
+
+ccd:Raster a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        ccd:RegionDataSet,
+        ccd:Tessellation,
+        owl:Thing .
+
+ccd:RasterA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:Region a owl:Class ;
+    rdfs:subClassOf ada:Spatial,
+        owl:Thing .
+
+ccd:RegionA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:RegionData a owl:Class ;
+    rdfs:subClassOf ada:SpatialData,
+        owl:Thing .
+
+ccd:TessellationAVectorA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        ccd:TessellationA,
+        ccd:VectorA,
+        owl:Thing .
+
+ccd:VectorTessellation a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        ccd:RegionDataSet,
+        ccd:Tessellation,
+        ccd:Vector,
+        owl:Thing .
+
+rdf:HTML rdfs:subClassOf rdfs:Literal .
+
+rdf:LangString rdfs:subClassOf rdfs:Literal .
+
+rdf:PlainLiteral rdfs:subClassOf rdfs:Literal .
+
+rdf:XMLLiteral rdfs:subClassOf rdfs:Literal .
+
+xsd:NCName rdfs:subClassOf rdfs:Literal .
+
+xsd:NMTOKEN rdfs:subClassOf rdfs:Literal .
+
+xsd:Name rdfs:subClassOf rdfs:Literal .
+
+xsd:anyURI rdfs:subClassOf rdfs:Literal .
+
+xsd:base64Binary rdfs:subClassOf rdfs:Literal .
+
+xsd:boolean rdfs:subClassOf rdfs:Literal .
+
+xsd:byte rdfs:subClassOf rdfs:Literal .
+
+xsd:date rdfs:subClassOf rdfs:Literal .
+
+xsd:dateTime rdfs:subClassOf rdfs:Literal .
+
+xsd:dateTimeStamp rdfs:subClassOf rdfs:Literal .
+
+xsd:decimal rdfs:subClassOf rdfs:Literal .
+
+xsd:double rdfs:subClassOf rdfs:Literal .
+
+xsd:float rdfs:subClassOf rdfs:Literal .
+
+xsd:hexBinary rdfs:subClassOf rdfs:Literal .
+
+xsd:int rdfs:subClassOf rdfs:Literal .
+
+xsd:integer rdfs:subClassOf rdfs:Literal .
+
+xsd:language rdfs:subClassOf rdfs:Literal .
+
+xsd:long rdfs:subClassOf rdfs:Literal .
+
+xsd:negativeInteger rdfs:subClassOf rdfs:Literal .
+
+xsd:nonNegativeInteger rdfs:subClassOf rdfs:Literal .
+
+xsd:nonPositiveInteger rdfs:subClassOf rdfs:Literal .
+
+xsd:normalizedString rdfs:subClassOf rdfs:Literal .
+
+xsd:positiveInteger rdfs:subClassOf rdfs:Literal .
+
+xsd:short rdfs:subClassOf rdfs:Literal .
+
+xsd:string rdfs:subClassOf rdfs:Literal .
+
+xsd:time rdfs:subClassOf rdfs:Literal .
+
+xsd:token rdfs:subClassOf rdfs:Literal .
+
+xsd:unsignedByte rdfs:subClassOf rdfs:Literal .
+
+xsd:unsignedInt rdfs:subClassOf rdfs:Literal .
+
+xsd:unsignedLong rdfs:subClassOf rdfs:Literal .
+
+xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
+
+ccd:TessellationA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:VectorA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:Tessellation a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        ccd:RegionDataSet,
+        owl:Thing .
+
+ccd:RegionDataSet a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        owl:Thing .
+
+ccd:Vector a owl:Class ;
+    rdfs:subClassOf ada:SpatialDataSet,
+        owl:Thing .
+
+ada:SpatialDataSet rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
+
+ada:Attribute rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:Attribute a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
+        owl:Thing .
+
+ada:ValueList rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
+
+owl:Thing a owl:Class .
+
