@@ -12,9 +12,11 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceObjectVector> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> .
 
+<http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectLineBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> .
+
 <http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectPointBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm>,
-        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> .
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsExistenceRaster> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> .

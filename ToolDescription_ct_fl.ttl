@@ -1,0 +1,184 @@
+@prefix ada: <http://geographicknowledge.de/vocab/AnalysisData.rdf#> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> .
+@prefix em: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToFieldRaster> wf:input1 [ a ccd:TessellationA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceExistenceRaster> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceObjectVector> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectLineBoolean> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectPointBoolean> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsExistenceRaster> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsMeanCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsMeanInterval> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsMeanRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsObjectVector> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsSumCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsSumRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsVarietyInterval> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#KrigingInterval> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#KrigingRatio> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#LeastCostPathRasterRatio> wf:input1 [ a ada:Attribute ] ;
+    wf:input2 [ a ada:Attribute ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyCountCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyCountRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyRatioCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyRatioRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ObjectVectorToExistenceRasterBoolean> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourInterval> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageBoolean> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageNominal> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageOrdinal> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ReclassifyFieldRasterToBoolean> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinCountTess> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessCount> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessInterval> wf:input1 [ a ccd:VectorA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessRatio> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessCount> wf:input1 [ a ccd:VectorA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessRatio> wf:input1 [ a ccd:VectorA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsBoolean> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsCount> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsInterval> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsNominal> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsOrdinal> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsRatio> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityBoolean> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityInterval> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityNominal> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityOrdinal> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanInterval> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumCount> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumRatio> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
+

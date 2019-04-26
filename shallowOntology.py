@@ -19,6 +19,7 @@ from rdflib import URIRef, BNode, Literal
 from rdflib import Namespace
 from urlparse import urlparse
 import os
+import operator
 
 
 TOOLS=rdflib.Namespace("http://geographicknowledge.de/vocab/GISTools.rdf#")
@@ -86,6 +87,7 @@ def recRemoveL(cl, ontology):
 def flattenOntology(ontologyfile, classlist ):
     ontology =load_rdf(rdflib.Graph(),ontologyfile)
     ontology = setprefixes(ontology)
+    removeLoops(ontology)
     base = 'http://geographicknowledge.de/vocab/CoreConceptData.rdf'
     classlist = [URIRef(str(base)+"#"+c) for c in classlist]
     newontfile = os.path.splitext(ontologyfile)[0]+'_fl'+os.path.splitext(ontologyfile)[1]
@@ -102,6 +104,7 @@ def flattenOntology(ontologyfile, classlist ):
 
 def flattenToolAnnotations(annotationfile, ontologyfile, flattenedontologyfile):
     ontology =load_rdf(rdflib.Graph(),ontologyfile)
+    removeLoops(ontology)
     ontology = setprefixes(ontology)
     flattenedontology =load_rdf(rdflib.Graph(),flattenedontologyfile)
     flattenedontology = setprefixes(flattenedontology)
@@ -113,8 +116,8 @@ def flattenToolAnnotations(annotationfile, ontologyfile, flattenedontologyfile):
     for t in anno.objects(None,TOOLS.implements):
         for p in wf:
             cl = anno.value(anno.value(t,p),  RDF.type)
-            luc = getflattenedLUC(flattenedontology, ontology, cl)
-            if luc != None:
+            if cl is not None:
+                luc = getflattenedLUC(flattenedontology, ontology, cl)
                 b = BNode()
                 flattenedtools.add((t,p,b))
                 flattenedtools.add((b,RDF.type,luc))
@@ -122,29 +125,64 @@ def flattenToolAnnotations(annotationfile, ontologyfile, flattenedontologyfile):
     flattenedtools.serialize(destination=out,format = "turtle")
 
 
+def removeLoops(ontology):
+    removedcl = []
+    for s in ontology.subjects( RDFS.subClassOf, None):
+        if s not in removedcl:
+            for o in ontology.objects(s, RDFS.subClassOf):
+                if (o, RDFS.subClassOf, s) in ontology:
+                    tt = [t for t in ontology.triples((o, RDFS.subClassOf,None))]
+                    for t in tt:
+                        if t[2] != s:
+                            ontology.add((s, t[1], t[2]))
+                    tt = [t for t in ontology.triples((None, RDFS.subClassOf,o))]
+                    for t in tt:
+                        if t[0] != s:
+                            ontology.add((t[0], t[1], s))
+                    ontology.remove((o, None, None))
+                    ontology.remove((None, None, o))
+                    removedcl.append(o)
 
 
-##Gets the depth of a class in an ontology hierarchy (lattice)
+
+
+
+##Gets the depth of a class in an ontology hierarchy (lattice) (this only works in taxonomies without loops (equivalent classes)
 def getDepth(ontology, cl, level):
     depth = level
+    #print "depth for :" +str(cl)
     for super in ontology.objects(cl, RDFS.subClassOf):
         d = getDepth(ontology,super,level+1)
         depth = d if d > depth else depth
     return depth
 
+
+def getsuperclasses(cl, taxonomy):
+    out = []
+    candidates = [c for c in  taxonomy.objects(cl, RDFS.subClassOf)]
+    while candidates:
+        c = candidates.pop()
+        if c not in out:
+            out += [c]
+            candidates += [i for i in taxonomy.objects(c, RDFS.subClassOf)]
+    return out
+
+
+
+
 #Get the super concept with the highest depth in the flattened ontology
 def getflattenedLUC(flattenedontology, ontology, cl):
        d = 0
-       luc = None
-       if (cl,None,None) in flattenedontology:
-            d = getDepth(flattenedontology,cl,0)
-            luc = cl
-       for super in ontology.objects(cl, RDFS.subClassOf):
-            returndepth, lucc = getflattenedLUC(flattenedontology, ontology, super)
-            if returndepth > d:
-                d = returndepth
-                luc = lucc
-       return d, luc
+       lucs = {}
+       #print "superclasses for: "+str(cl)
+       supercl = list(set(getsuperclasses(cl,ontology)))
+       #print supercl
+       superclfl= [s for s in supercl if ((s,None,None) in flattenedontology or (None,None,s) in flattenedontology)]
+       #print "flat superclasses for: "+str(cl)
+       lucs = {key:getDepth(flattenedontology,key,0) for key in superclfl}
+       #print lucs
+       return max(lucs.iteritems(), key=operator.itemgetter(1))[0]
+
 
 
 
@@ -155,17 +193,21 @@ def getflattenedLUC(flattenedontology, ontology, cl):
 
 
 def main():
-    classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ"] #This is the list of classes that should get kicked out of the ontology
+    classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ", "BoundedPhen"] #This is the list of classes that should get kicked out of the ontology Unions????
     ontologyfile = 'CoreConceptData_tax.ttl'
     flattenedontologyfile = flattenOntology(ontologyfile, classlist)
-    #flattenToolAnnotations("ToolDescription_ct.ttl", ontologyfile, flattenedontologyfile)
+    #ontology =load_rdf(rdflib.Graph(),ontologyfile)
+    #flattenedontology =load_rdf(rdflib.Graph(),flattenedontologyfile)
 
-    ontology =load_rdf(rdflib.Graph(),flattenedontologyfile)
-    ontology = setprefixes(ontology)
-    base = 'http://geographicknowledge.de/vocab/CoreConceptData.rdf'
-    classlist = [URIRef(str(base)+"#"+c) for c in classlist]
-    print getDepth(ontology, classlist[0],0)
 
+
+    #flattenedontology =load_rdf(rdflib.Graph(),flattenedontologyfile)
+    #flattenedontology = setprefixes(flattenedontology)
+    #base = 'http://geographicknowledge.de/vocab/CoreConceptData.rdf#'
+    #classlist = [URIRef(str(base)+"#"+c) for c in classlist]
+    #print getDepth(ontology, URIRef(base+"Raster"),0)
+
+    flattenToolAnnotations("ToolDescription_ct.ttl", ontologyfile, flattenedontologyfile)
 
 if __name__ == '__main__':
     main()

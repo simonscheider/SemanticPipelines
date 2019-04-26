@@ -1,6 +1,22 @@
 <?xml version="1.0" ?>
 <functions>
   <!--Contains all typed ArcGIS Pro tools for workflow analysis-->
+  <function name="ObjectVectorToExistenceRasterBoolean">
+    <operation>ObjectVectorToExistenceRasterBoolean</operation>
+    <inputs>
+      <input>
+        <type>ObjectVector</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>BooleanAExistenceRaster</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ObjectVectorToExistenceRasterBoolean</code>
+    </implementation>
+  </function>
   <function name="SpatialJoinSumTessCount">
     <operation>SpatialJoinSumTessCount</operation>
     <inputs>
@@ -20,353 +36,39 @@
       <code>SpatialJoinSumTessCount</code>
     </implementation>
   </function>
-  <function name="RasterToContourCount">
-    <operation>RasterToContourCount</operation>
-    <inputs>
-      <input>
-        <type>CountAFieldRaster</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>Contour</type>
-        <type>OrdinalA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>RasterToContourCount</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsExistenceRaster">
-    <operation>FocalStatisticsExistenceRaster</operation>
-    <inputs>
-      <input>
-        <type>BooleanAExistenceRaster</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsExistenceRaster</code>
-    </implementation>
-  </function>
-  <function name="LocalMapAlgebraMultiplyCountRatio">
-    <operation>LocalMapAlgebraMultiplyCountRatio</operation>
-    <inputs>
-      <input>
-        <type>CountAFieldRaster</type>
-      </input>
-      <input>
-        <type>FieldRasterRatioA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>LocalMapAlgebraMultiplyCountRatio</code>
-    </implementation>
-  </function>
-  <function name="KrigingInterval">
-    <operation>KrigingInterval</operation>
-    <inputs>
-      <input>
-        <type>PointMeasuresIRA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterIRA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>KrigingInterval</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsMeanRatio">
-    <operation>ZonalStatisticsMeanRatio</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterRatioA</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>LatticeRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ZonalStatisticsMeanRatio</code>
-    </implementation>
-  </function>
-  <function name="KrigingRatio">
-    <operation>KrigingRatio</operation>
-    <inputs>
-      <input>
-        <type>PointMeasuresRatioAIRA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioAIRA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>KrigingRatio</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsMeanInterval">
-    <operation>FocalStatisticsMeanInterval</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterIntervalA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterIntervalA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsMeanInterval</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsMajorityBoolean">
-    <operation>ZonalStatisticsMajorityBoolean</operation>
-    <inputs>
-      <input>
-        <type>ExistenceRaster</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>BooleanALattice</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ZonalStatisticsMajorityBoolean</code>
-    </implementation>
-  </function>
-  <function name="EuclideanDistanceExistenceRaster">
-    <operation>EuclideanDistanceExistenceRaster</operation>
-    <inputs>
-      <input>
-        <type>ExistenceRaster</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioAIRA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>EuclideanDistanceExistenceRaster</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsMeanCount">
-    <operation>ZonalStatisticsMeanCount</operation>
-    <inputs>
-      <input>
-        <type>CountAFieldRaster</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>LatticeRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ZonalStatisticsMeanCount</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsSumRatio">
-    <operation>ZonalStatisticsSumRatio</operation>
+  <function name="FocalStatisticsSumRatio">
+    <operation>FocalStatisticsSumRatio</operation>
     <inputs>
       <input>
         <type>FieldRasterRatioAERA</type>
       </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
     </inputs>
     <outputs>
       <output>
-        <type>LatticeRatioAERA</type>
+        <type>FieldRasterRatioAERA</type>
       </output>
     </outputs>
     <implementation>
-      <code>ZonalStatisticsSumRatio</code>
+      <code>FocalStatisticsSumRatio</code>
     </implementation>
   </function>
-  <function name="SpatialJoinCountTess">
-    <operation>SpatialJoinCountTess</operation>
-    <inputs>
-      <input>
-        <type>ObjectVector</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CountALatticeERA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>SpatialJoinCountTess</code>
-    </implementation>
-  </function>
-  <function name="SpatialJoinSumTessRatio">
-    <operation>SpatialJoinSumTessRatio</operation>
-    <inputs>
-      <input>
-        <type>ObjectVectorRatioAERA</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>LatticeRatioAERA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>SpatialJoinSumTessRatio</code>
-    </implementation>
-  </function>
-  <function name="RasterToContourRatio">
-    <operation>RasterToContourRatio</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterRatioA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>OrdinalA</type>
-        <type>Contour</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>RasterToContourRatio</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsMajorityOrdinal">
-    <operation>ZonalStatisticsMajorityOrdinal</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterOrdinalA</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>LatticeOrdinalA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ZonalStatisticsMajorityOrdinal</code>
-    </implementation>
-  </function>
-  <function name="ThiessenPolygonsCount">
-    <operation>ThiessenPolygonsCount</operation>
-    <inputs>
-      <input>
-        <type>CountAPointA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CountACoverage</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ThiessenPolygonsCount</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsMeanInterval">
-    <operation>ZonalStatisticsMeanInterval</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterIntervalA</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>IntervalALattice</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ZonalStatisticsMeanInterval</code>
-    </implementation>
-  </function>
-  <function name="ThiessenPolygonsOrdinal">
-    <operation>ThiessenPolygonsOrdinal</operation>
-    <inputs>
-      <input>
-        <type>OrdinalAPointA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CoverageOrdinalA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ThiessenPolygonsOrdinal</code>
-    </implementation>
-  </function>
-  <function name="ZonalStatisticsMajorityInterval">
-    <operation>ZonalStatisticsMajorityInterval</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterIntervalA</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>IntervalALattice</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ZonalStatisticsMajorityInterval</code>
-    </implementation>
-  </function>
-  <function name="RasterToCoverageNominal">
-    <operation>RasterToCoverageNominal</operation>
+  <function name="ZonalStatisticsMajorityNominal">
+    <operation>ZonalStatisticsMajorityNominal</operation>
     <inputs>
       <input>
         <type>FieldRasterNominalA</type>
       </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
     </inputs>
     <outputs>
       <output>
-        <type>CoverageNominalA</type>
+        <type>LatticeNominalA</type>
       </output>
     </outputs>
     <implementation>
-      <code>RasterToCoverageNominal</code>
+      <code>ZonalStatisticsMajorityNominal</code>
     </implementation>
   </function>
   <function name="SpatialJoinMeanTessCount">
@@ -379,97 +81,28 @@
     </inputs>
     <outputs>
       <output>
-        <type>LatticeRatioA</type>
+        <type>LatticeRatioAERA</type>
       </output>
     </outputs>
     <implementation>
       <code>SpatialJoinMeanTessCount</code>
     </implementation>
   </function>
-  <function name="ExistenceRasterToObjectPointBoolean">
-    <operation>ExistenceRasterToObjectPointBoolean</operation>
+  <function name="RasterToContourRatio">
+    <operation>RasterToContourRatio</operation>
     <inputs>
       <input>
-        <type>BooleanAExistenceRaster</type>
+        <type>FieldRasterRatioAIRA</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>BooleanAObjectLineObjectPoint</type>
+        <type>OrdinalA</type>
+        <type>Contour</type>
       </output>
     </outputs>
     <implementation>
-      <code>ExistenceRasterToObjectPointBoolean</code>
-    </implementation>
-  </function>
-  <function name="SpatialJoinMeanTessInterval">
-    <operation>SpatialJoinMeanTessInterval</operation>
-    <inputs>
-      <input>
-        <type>IntervalAObjectVector</type>
-      </input>
-      <input>
-        <type>TessellationAVectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>IntervalALattice</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>SpatialJoinMeanTessInterval</code>
-    </implementation>
-  </function>
-  <function name="LocalMapAlgebraMultiplyCountCount">
-    <operation>LocalMapAlgebraMultiplyCountCount</operation>
-    <inputs>
-      <input>
-        <type>CountAFieldRaster</type>
-      </input>
-      <input>
-        <type>CountAFieldRaster</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CountAFieldRaster</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>LocalMapAlgebraMultiplyCountCount</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsObjectVector">
-    <operation>FocalStatisticsObjectVector</operation>
-    <inputs>
-      <input>
-        <type>BooleanAObjectVector</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsObjectVector</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsSumCount">
-    <operation>FocalStatisticsSumCount</operation>
-    <inputs>
-      <input>
-        <type>CountAFieldRasterERA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CountAFieldRasterERA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsSumCount</code>
+      <code>RasterToContourRatio</code>
     </implementation>
   </function>
   <function name="ZonalStatisticsSumCount">
@@ -491,11 +124,27 @@
       <code>ZonalStatisticsSumCount</code>
     </implementation>
   </function>
-  <function name="ZonalStatisticsMajorityRatio">
-    <operation>ZonalStatisticsMajorityRatio</operation>
+  <function name="ExistenceRasterToObjectLineBoolean">
+    <operation>ExistenceRasterToObjectLineBoolean</operation>
     <inputs>
       <input>
-        <type>FieldRasterRatioA</type>
+        <type>BooleanAExistenceRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>BooleanAObjectLine</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ExistenceRasterToObjectLineBoolean</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMajorityInterval">
+    <operation>ZonalStatisticsMajorityInterval</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterIntervalA</type>
       </input>
       <input>
         <type>TessellationAVectorA</type>
@@ -503,11 +152,145 @@
     </inputs>
     <outputs>
       <output>
-        <type>LatticeRatioA</type>
+        <type>IntervalALattice</type>
       </output>
     </outputs>
     <implementation>
-      <code>ZonalStatisticsMajorityRatio</code>
+      <code>ZonalStatisticsMajorityInterval</code>
+    </implementation>
+  </function>
+  <function name="ThiessenPolygonsInterval">
+    <operation>ThiessenPolygonsInterval</operation>
+    <inputs>
+      <input>
+        <type>IntervalAPointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CoverageIntervalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ThiessenPolygonsInterval</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsExistenceRaster">
+    <operation>FocalStatisticsExistenceRaster</operation>
+    <inputs>
+      <input>
+        <type>BooleanAExistenceRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsExistenceRaster</code>
+    </implementation>
+  </function>
+  <function name="ThiessenPolygonsRatio">
+    <operation>ThiessenPolygonsRatio</operation>
+    <inputs>
+      <input>
+        <type>PointARatioA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CoverageRatioA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ThiessenPolygonsRatio</code>
+    </implementation>
+  </function>
+  <function name="LocalMapAlgebraMultiplyRatioRatio">
+    <operation>LocalMapAlgebraMultiplyRatioRatio</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterRatioA</type>
+      </input>
+      <input>
+        <type>FieldRasterRatioA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>LocalMapAlgebraMultiplyRatioRatio</code>
+    </implementation>
+  </function>
+  <function name="SpatialJoinMeanTessInterval">
+    <operation>SpatialJoinMeanTessInterval</operation>
+    <inputs>
+      <input>
+        <type>IntervalAObjectVector</type>
+      </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>IntervalALattice</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>SpatialJoinMeanTessInterval</code>
+    </implementation>
+  </function>
+  <function name="RasterToCoverageOrdinal">
+    <operation>RasterToCoverageOrdinal</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterOrdinalA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CoverageOrdinalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>RasterToCoverageOrdinal</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsMeanCount">
+    <operation>FocalStatisticsMeanCount</operation>
+    <inputs>
+      <input>
+        <type>CountAFieldRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsMeanCount</code>
+    </implementation>
+  </function>
+  <function name="ThiessenPolygonsCount">
+    <operation>ThiessenPolygonsCount</operation>
+    <inputs>
+      <input>
+        <type>CountAPointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CountACoverage</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ThiessenPolygonsCount</code>
     </implementation>
   </function>
   <function name="RasterToCoverageBoolean">
@@ -526,6 +309,192 @@
       <code>RasterToCoverageBoolean</code>
     </implementation>
   </function>
+  <function name="EuclideanDistanceExistenceRaster">
+    <operation>EuclideanDistanceExistenceRaster</operation>
+    <inputs>
+      <input>
+        <type>ExistenceRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>EuclideanDistanceExistenceRaster</code>
+    </implementation>
+  </function>
+  <function name="ExistenceRasterToObjectPointBoolean">
+    <operation>ExistenceRasterToObjectPointBoolean</operation>
+    <inputs>
+      <input>
+        <type>BooleanAExistenceRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>BooleanAObjectPoint</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ExistenceRasterToObjectPointBoolean</code>
+    </implementation>
+  </function>
+  <function name="SpatialJoinMeanTessRatio">
+    <operation>SpatialJoinMeanTessRatio</operation>
+    <inputs>
+      <input>
+        <type>ObjectVectorRatioA</type>
+      </input>
+      <input/>
+    </inputs>
+    <outputs>
+      <output>
+        <type>LatticeRatioAERA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>SpatialJoinMeanTessRatio</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMajorityOrdinal">
+    <operation>ZonalStatisticsMajorityOrdinal</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterOrdinalA</type>
+      </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>LatticeOrdinalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ZonalStatisticsMajorityOrdinal</code>
+    </implementation>
+  </function>
+  <function name="LocalMapAlgebraMultiplyCountCount">
+    <operation>LocalMapAlgebraMultiplyCountCount</operation>
+    <inputs>
+      <input>
+        <type>CountAFieldRaster</type>
+      </input>
+      <input>
+        <type>CountAFieldRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CountAFieldRaster</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>LocalMapAlgebraMultiplyCountCount</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsVarietyInterval">
+    <operation>FocalStatisticsVarietyInterval</operation>
+    <inputs>
+      <input>
+        <type>FieldRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CountAFieldRaster</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsVarietyInterval</code>
+    </implementation>
+  </function>
+  <function name="ThiessenPolygonsOrdinal">
+    <operation>ThiessenPolygonsOrdinal</operation>
+    <inputs>
+      <input>
+        <type>OrdinalAPointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CoverageOrdinalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ThiessenPolygonsOrdinal</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsSumCount">
+    <operation>FocalStatisticsSumCount</operation>
+    <inputs>
+      <input>
+        <type>CountAFieldRasterERA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CountAFieldRasterERA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsSumCount</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMajorityRatio">
+    <operation>ZonalStatisticsMajorityRatio</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterRatioAIRA</type>
+      </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>LatticeRatioAERA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ZonalStatisticsMajorityRatio</code>
+    </implementation>
+  </function>
+  <function name="RasterToCoverageNominal">
+    <operation>RasterToCoverageNominal</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterNominalA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CoverageNominalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>RasterToCoverageNominal</code>
+    </implementation>
+  </function>
+  <function name="SpatialJoinCountTess">
+    <operation>SpatialJoinCountTess</operation>
+    <inputs>
+      <input>
+        <type>ObjectVector</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CountALatticeERA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>SpatialJoinCountTess</code>
+    </implementation>
+  </function>
   <function name="ReclassifyFieldRasterToBoolean">
     <operation>ReclassifyFieldRasterToBoolean</operation>
     <inputs>
@@ -542,11 +511,30 @@
       <code>ReclassifyFieldRasterToBoolean</code>
     </implementation>
   </function>
-  <function name="ZonalStatisticsMajorityCount">
-    <operation>ZonalStatisticsMajorityCount</operation>
+  <function name="LocalMapAlgebraMultiplyRatioCount">
+    <operation>LocalMapAlgebraMultiplyRatioCount</operation>
     <inputs>
       <input>
-        <type>CountAFieldRasterERA</type>
+        <type>FieldRasterRatioAIRA</type>
+      </input>
+      <input>
+        <type>CountAFieldRaster</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>LocalMapAlgebraMultiplyRatioCount</code>
+    </implementation>
+  </function>
+  <function name="SpatialJoinSumTessRatio">
+    <operation>SpatialJoinSumTessRatio</operation>
+    <inputs>
+      <input>
+        <type>ObjectVectorRatioAERA</type>
       </input>
       <input>
         <type>TessellationAVectorA</type>
@@ -554,11 +542,142 @@
     </inputs>
     <outputs>
       <output>
-        <type>CountALatticeERA</type>
+        <type>LatticeRatioAERA</type>
       </output>
     </outputs>
     <implementation>
-      <code>ZonalStatisticsMajorityCount</code>
+      <code>SpatialJoinSumTessRatio</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMeanCount">
+    <operation>ZonalStatisticsMeanCount</operation>
+    <inputs>
+      <input>
+        <type>CountAFieldRaster</type>
+      </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>LatticeRatioAERA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ZonalStatisticsMeanCount</code>
+    </implementation>
+  </function>
+  <function name="ThiessenPolygonsBoolean">
+    <operation>ThiessenPolygonsBoolean</operation>
+    <inputs>
+      <input>
+        <type>BooleanAPointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>BooleanACoverage</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ThiessenPolygonsBoolean</code>
+    </implementation>
+  </function>
+  <function name="KrigingInterval">
+    <operation>KrigingInterval</operation>
+    <inputs>
+      <input>
+        <type>PointMeasuresIRA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>KrigingInterval</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsObjectVector">
+    <operation>FocalStatisticsObjectVector</operation>
+    <inputs>
+      <input>
+        <type>BooleanAObjectVector</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsObjectVector</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsMeanRatio">
+    <operation>FocalStatisticsMeanRatio</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterRatioAIRA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsMeanRatio</code>
+    </implementation>
+  </function>
+  <function name="FocalStatisticsMeanInterval">
+    <operation>FocalStatisticsMeanInterval</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterIntervalA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterIntervalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>FocalStatisticsMeanInterval</code>
+    </implementation>
+  </function>
+  <function name="ThiessenPolygonsNominal">
+    <operation>ThiessenPolygonsNominal</operation>
+    <inputs>
+      <input>
+        <type>NominalAPointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>CoverageNominalA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ThiessenPolygonsNominal</code>
+    </implementation>
+  </function>
+  <function name="KrigingRatio">
+    <operation>KrigingRatio</operation>
+    <inputs>
+      <input>
+        <type>PointMeasuresRatioAIRA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>FieldRasterRatioAIRA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>KrigingRatio</code>
     </implementation>
   </function>
   <function name="LeastCostPathRasterRatio">
@@ -583,39 +702,21 @@
       <code>LeastCostPathRasterRatio</code>
     </implementation>
   </function>
-  <function name="FocalStatisticsMeanRatio">
-    <operation>FocalStatisticsMeanRatio</operation>
+  <function name="RasterToContourInterval">
+    <operation>RasterToContourInterval</operation>
     <inputs>
       <input>
-        <type>FieldRasterRatioA</type>
+        <type>FieldRasterIntervalA</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>FieldRasterRatioA</type>
+        <type>Contour</type>
+        <type>OrdinalA</type>
       </output>
     </outputs>
     <implementation>
-      <code>FocalStatisticsMeanRatio</code>
-    </implementation>
-  </function>
-  <function name="LocalMapAlgebraMultiplyRatioRatio">
-    <operation>LocalMapAlgebraMultiplyRatioRatio</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterRatioA</type>
-      </input>
-      <input>
-        <type>FieldRasterRatioA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>LocalMapAlgebraMultiplyRatioRatio</code>
+      <code>RasterToContourInterval</code>
     </implementation>
   </function>
   <function name="CoverageToFieldRaster">
@@ -634,64 +735,72 @@
       <code>CoverageToFieldRaster</code>
     </implementation>
   </function>
-  <function name="LocalMapAlgebraMultiplyRatioCount">
-    <operation>LocalMapAlgebraMultiplyRatioCount</operation>
+  <function name="ZonalStatisticsMajorityBoolean">
+    <operation>ZonalStatisticsMajorityBoolean</operation>
     <inputs>
       <input>
-        <type>FieldRasterRatioA</type>
+        <type>ExistenceRaster</type>
       </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>BooleanALattice</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ZonalStatisticsMajorityBoolean</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMeanInterval">
+    <operation>ZonalStatisticsMeanInterval</operation>
+    <inputs>
+      <input>
+        <type>FieldRasterIntervalA</type>
+      </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>IntervalALattice</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ZonalStatisticsMeanInterval</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMajorityCount">
+    <operation>ZonalStatisticsMajorityCount</operation>
+    <inputs>
       <input>
         <type>CountAFieldRaster</type>
       </input>
+      <input>
+        <type>TessellationAVectorA</type>
+      </input>
     </inputs>
     <outputs>
       <output>
+        <type>CountALattice</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>ZonalStatisticsMajorityCount</code>
+    </implementation>
+  </function>
+  <function name="ZonalStatisticsMeanRatio">
+    <operation>ZonalStatisticsMeanRatio</operation>
+    <inputs>
+      <input>
         <type>FieldRasterRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>LocalMapAlgebraMultiplyRatioCount</code>
-    </implementation>
-  </function>
-  <function name="ExistenceRasterToObjectPointBoolean">
-    <operation>ExistenceRasterToObjectPointBoolean</operation>
-    <inputs>
-      <input>
-        <type>BooleanAExistenceRaster</type>
       </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>BooleanAObjectLineObjectPoint</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ExistenceRasterToObjectPointBoolean</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsMeanCount">
-    <operation>FocalStatisticsMeanCount</operation>
-    <inputs>
       <input>
-        <type>CountAFieldRasterERA</type>
+        <type>TessellationAVectorA</type>
       </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsMeanCount</code>
-    </implementation>
-  </function>
-  <function name="SpatialJoinMeanTessRatio">
-    <operation>SpatialJoinMeanTessRatio</operation>
-    <inputs>
-      <input>
-        <type>ObjectVectorRatioA</type>
-      </input>
-      <input/>
     </inputs>
     <outputs>
       <output>
@@ -699,78 +808,14 @@
       </output>
     </outputs>
     <implementation>
-      <code>SpatialJoinMeanTessRatio</code>
+      <code>ZonalStatisticsMeanRatio</code>
     </implementation>
   </function>
-  <function name="ObjectVectorToExistenceRasterBoolean">
-    <operation>ObjectVectorToExistenceRasterBoolean</operation>
+  <function name="RasterToContourCount">
+    <operation>RasterToContourCount</operation>
     <inputs>
       <input>
-        <type>ObjectVector</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>BooleanAExistenceRaster</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ObjectVectorToExistenceRasterBoolean</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsSumRatio">
-    <operation>FocalStatisticsSumRatio</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterRatioAERA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>FieldRasterRatioAERA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsSumRatio</code>
-    </implementation>
-  </function>
-  <function name="ThiessenPolygonsNominal">
-    <operation>ThiessenPolygonsNominal</operation>
-    <inputs>
-      <input>
-        <type>NominalAPointA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CoverageNominalA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ThiessenPolygonsNominal</code>
-    </implementation>
-  </function>
-  <function name="FocalStatisticsVarietyInterval">
-    <operation>FocalStatisticsVarietyInterval</operation>
-    <inputs>
-      <input>
-        <type>FieldRaster</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CountAFieldRasterERA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>FocalStatisticsVarietyInterval</code>
-    </implementation>
-  </function>
-  <function name="RasterToContourInterval">
-    <operation>RasterToContourInterval</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterIntervalA</type>
+        <type>CountAFieldRaster</type>
       </input>
     </inputs>
     <outputs>
@@ -780,71 +825,26 @@
       </output>
     </outputs>
     <implementation>
-      <code>RasterToContourInterval</code>
+      <code>RasterToContourCount</code>
     </implementation>
   </function>
-  <function name="ThiessenPolygonsInterval">
-    <operation>ThiessenPolygonsInterval</operation>
+  <function name="LocalMapAlgebraMultiplyCountRatio">
+    <operation>LocalMapAlgebraMultiplyCountRatio</operation>
     <inputs>
       <input>
-        <type>IntervalAPointA</type>
+        <type>CountAFieldRaster</type>
+      </input>
+      <input>
+        <type>FieldRasterRatioA</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>CoverageIntervalA</type>
+        <type>FieldRasterRatioA</type>
       </output>
     </outputs>
     <implementation>
-      <code>ThiessenPolygonsInterval</code>
-    </implementation>
-  </function>
-  <function name="RasterToCoverageOrdinal">
-    <operation>RasterToCoverageOrdinal</operation>
-    <inputs>
-      <input>
-        <type>FieldRasterOrdinalA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CoverageOrdinalA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>RasterToCoverageOrdinal</code>
-    </implementation>
-  </function>
-  <function name="ThiessenPolygonsBoolean">
-    <operation>ThiessenPolygonsBoolean</operation>
-    <inputs>
-      <input>
-        <type>BooleanAPointA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>BooleanACoverage</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ThiessenPolygonsBoolean</code>
-    </implementation>
-  </function>
-  <function name="ThiessenPolygonsRatio">
-    <operation>ThiessenPolygonsRatio</operation>
-    <inputs>
-      <input>
-        <type>PointARatioA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>CoverageRatioA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>ThiessenPolygonsRatio</code>
+      <code>LocalMapAlgebraMultiplyCountRatio</code>
     </implementation>
   </function>
   <function name="EuclideanDistanceObjectVector">
@@ -856,18 +856,18 @@
     </inputs>
     <outputs>
       <output>
-        <type>FieldRasterRatioA</type>
+        <type>FieldRasterRatioAIRA</type>
       </output>
     </outputs>
     <implementation>
       <code>EuclideanDistanceObjectVector</code>
     </implementation>
   </function>
-  <function name="ZonalStatisticsMajorityNominal">
-    <operation>ZonalStatisticsMajorityNominal</operation>
+  <function name="ZonalStatisticsSumRatio">
+    <operation>ZonalStatisticsSumRatio</operation>
     <inputs>
       <input>
-        <type>FieldRasterNominalA</type>
+        <type>FieldRasterRatioAERA</type>
       </input>
       <input>
         <type>TessellationAVectorA</type>
@@ -875,11 +875,11 @@
     </inputs>
     <outputs>
       <output>
-        <type>LatticeNominalA</type>
+        <type>LatticeRatioAERA</type>
       </output>
     </outputs>
     <implementation>
-      <code>ZonalStatisticsMajorityNominal</code>
+      <code>ZonalStatisticsSumRatio</code>
     </implementation>
   </function>
 </functions>

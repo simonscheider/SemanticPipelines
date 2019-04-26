@@ -65,6 +65,7 @@
                                                    ) ;
                                 rdf:type owl:Class
                               ] ;
+          rdfs:subClassOf :TessellationA ;
           rdfs:comment "Coverages are tessellated layers that represent a continuous field. For example, landuse polygons."@en .
 
 
@@ -84,6 +85,7 @@
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ;
+             rdfs:subClassOf :VectorA ;
              rdfs:comment "Events represented in terms of an attribute of a vector data set. For example, the magnitude of earthquakes represented as an attribute of a point data set."@en .
 
 
@@ -123,6 +125,7 @@
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ;
+             rdfs:subClassOf :RasterA ;
              rdfs:comment "Field rasters are raster representations of continuous fields. For example, raster layers representing a terrain height (DTM)."@en .
 
 
@@ -142,6 +145,7 @@
                                                   ) ;
                                rdf:type owl:Class
                              ] ;
+         rdfs:subClassOf :TessellationA ;
          rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en .
 
 
@@ -207,7 +211,8 @@
                                                      ) ;
                                   rdf:type owl:Class
                                 ] ;
-            rdfs:subClassOf :ObjectVector ;
+            rdfs:subClassOf :LineA ,
+                            :ObjectVector ;
             rdfs:comment "An attribute of an object line dataset"@en .
 
 
@@ -221,7 +226,8 @@
                                                       ) ;
                                    rdf:type owl:Class
                                  ] ;
-             rdfs:subClassOf :ObjectVector ;
+             rdfs:subClassOf :ObjectVector ,
+                             :PointA ;
              rdfs:comment "An attribute of an object point dataset"@en .
 
 
@@ -241,7 +247,8 @@
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
-              rdfs:subClassOf :ObjectVector .
+              rdfs:subClassOf :ObjectVector ,
+                              :RegionA .
 
 
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectVector
@@ -254,7 +261,8 @@
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
-              rdfs:subClassOf :Attribute ;
+              rdfs:subClassOf :Attribute ,
+                              :VectorA ;
               rdfs:comment "Object vectors are vector representation of a set of objecs and their quality. For example, a point layer denoting points of Interest (POI) or buildings in a city together with their quality, e.g. the building height."@en .
 
 
@@ -319,6 +327,7 @@
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
+               rdfs:subClassOf :PointA ;
                rdfs:comment "Point measures are point-like representations of continuous fields. For example, point data sets denoting the locations of measured temperature values."@en .
 
 

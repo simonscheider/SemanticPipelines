@@ -9,12 +9,6 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ccd:BoundedPhen a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
-        ccd:Attribute,
-        owl:Thing .
-
 ccd:Line a owl:Class ;
     rdfs:subClassOf ada:Spatial,
         owl:Thing .
@@ -22,7 +16,6 @@ ccd:Line a owl:Class ;
 ccd:LineA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
 ccd:LineData a owl:Class ;
@@ -41,7 +34,6 @@ ccd:Point a owl:Class ;
 ccd:PointA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
 ccd:PointData a owl:Class ;
@@ -62,7 +54,6 @@ ccd:Raster a owl:Class ;
 ccd:RasterA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
 ccd:Region a owl:Class ;
@@ -72,7 +63,6 @@ ccd:Region a owl:Class ;
 ccd:RegionA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
 ccd:RegionData a owl:Class ;
@@ -82,7 +72,6 @@ ccd:RegionData a owl:Class ;
 ccd:TessellationAVectorA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         ccd:TessellationA,
         ccd:VectorA,
         owl:Thing .
@@ -167,13 +156,11 @@ xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
 ccd:TessellationA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
 ccd:VectorA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
 ccd:Tessellation a owl:Class ;
@@ -189,16 +176,10 @@ ccd:Vector a owl:Class ;
     rdfs:subClassOf ada:SpatialDataSet,
         owl:Thing .
 
-ada:SpatialDataSet rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
-
 ada:Attribute rdfs:subClassOf ada:ValueList,
-        ccd:Attribute,
         owl:Thing .
 
-ccd:Attribute a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
-        owl:Thing .
+ada:SpatialDataSet rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
 
 ada:ValueList rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
 

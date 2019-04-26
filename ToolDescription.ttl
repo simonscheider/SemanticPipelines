@@ -267,16 +267,16 @@ _:ExistenceRasterToObjectPointBooleanOut a ccd:BooleanA.
  
 
 ##### ##### Existenceraster to ObjectLine
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean. 
-tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean. 
+tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
 
-tools:ExistenceRasterToObjectPointBoolean wf:input1 _:ExistenceRasterToObjectPointBoolean1.
-_:ExistenceRasterToObjectPointBoolean1 a ccd:ExistenceRaster. 
-_:ExistenceRasterToObjectPointBoolean1 a ccd:BooleanA.
+tools:ExistenceRasterToObjectLineBoolean wf:input1 _:ExistenceRasterToObjectLineBoolean1.
+_:ExistenceRasterToObjectLineBoolean1 a ccd:ExistenceRaster. 
+_:ExistenceRasterToObjectLineBoolean1 a ccd:BooleanA.
 
-tools:ExistenceRasterToObjectPointBoolean wf:ouput _:ExistenceRasterToObjectPointBooleanOut.
-_:ExistenceRasterToObjectPointBooleanOut a ccd:ObjectLine.
-_:ExistenceRasterToObjectPointBooleanOut a ccd:BooleanA.
+tools:ExistenceRasterToObjectLineBoolean wf:output _:ExistenceRasterToObjectLineBooleanOut.
+_:ExistenceRasterToObjectLineBooleanOut a ccd:ObjectLine.
+_:ExistenceRasterToObjectLineBooleanOut a ccd:BooleanA.
 
 
 
