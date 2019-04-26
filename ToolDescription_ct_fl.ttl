@@ -2,6 +2,7 @@
 @prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> .
 @prefix em: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://geographicknowledge.de/vocab/GISTools.rdf#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -9,176 +10,278 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToFieldRaster> wf:input1 [ a ccd:TessellationA ] ;
+ns1:CoverageToFieldRaster wf:input1 [ a ccd:TessellationA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceExistenceRaster> wf:input1 [ a ccd:RasterA ] ;
+ns1:EuclideanDistanceExistenceRaster wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceObjectVector> wf:input1 [ a ccd:VectorA ] ;
+ns1:EuclideanDistanceObjectVector wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectLineBoolean> wf:input1 [ a ccd:RasterA ] ;
+ns1:ExistenceRasterToObjectLineBoolean wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:VectorA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectPointBoolean> wf:input1 [ a ccd:RasterA ] ;
+ns1:ExistenceRasterToObjectPointBoolean wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:VectorA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsExistenceRaster> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsExistenceRaster wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsMeanCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsMeanCount wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsMeanInterval> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsMeanInterval wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsMeanRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsMeanRatio wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsObjectVector> wf:input1 [ a ccd:VectorA ] ;
+ns1:FocalStatisticsObjectVector wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsSumCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsSumCount wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsSumRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsSumRatio wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsVarietyInterval> wf:input1 [ a ccd:RasterA ] ;
+ns1:FocalStatisticsVarietyInterval wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#KrigingInterval> wf:input1 [ a ccd:PointA ] ;
+ns1:KrigingInterval wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#KrigingRatio> wf:input1 [ a ccd:PointA ] ;
+ns1:KrigingRatio wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#LeastCostPathRasterRatio> wf:input1 [ a ada:Attribute ] ;
+ns1:LeastCostPathRasterRatio wf:input1 [ a ada:Attribute ] ;
     wf:input2 [ a ada:Attribute ] ;
     wf:input3 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyCountCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:LocalMapAlgebraMultiplyCountCount wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyCountRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:LocalMapAlgebraMultiplyCountRatio wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyRatioCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:LocalMapAlgebraMultiplyRatioCount wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyRatioRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:LocalMapAlgebraMultiplyRatioRatio wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ObjectVectorToExistenceRasterBoolean> wf:input1 [ a ccd:VectorA ] ;
+ns1:ObjectVectorToExistenceRasterBoolean wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:RasterToContourCount wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ada:Attribute ] .
+
+ns1:RasterToContourInterval wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourInterval> wf:input1 [ a ccd:RasterA ] ;
+ns1:RasterToContourRatio wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:RasterToCoverageBoolean wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageBoolean> wf:input1 [ a ccd:RasterA ] ;
+ns1:RasterToCoverageNominal wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageNominal> wf:input1 [ a ccd:RasterA ] ;
+ns1:RasterToCoverageOrdinal wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageOrdinal> wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-<http://geographicknowledge.de/vocab/GISTools.rdf#ReclassifyFieldRasterToBoolean> wf:input1 [ a ccd:RasterA ] ;
+ns1:ReclassifyFieldRasterToBoolean wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinCountTess> wf:input1 [ a ccd:VectorA ] ;
+ns1:SpatialJoinCountTess wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessCount> wf:input1 [ a ccd:VectorA ] ;
+ns1:SpatialJoinMeanTessCount wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessInterval> wf:input1 [ a ccd:VectorA ] ;
+ns1:SpatialJoinMeanTessInterval wf:input1 [ a ccd:VectorA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinMeanTessRatio> wf:input1 [ a ccd:VectorA ] ;
+ns1:SpatialJoinMeanTessRatio wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessCount> wf:input1 [ a ccd:VectorA ] ;
+ns1:SpatialJoinSumTessCount wf:input1 [ a ccd:VectorA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinSumTessRatio> wf:input1 [ a ccd:VectorA ] ;
+ns1:SpatialJoinSumTessRatio wf:input1 [ a ccd:VectorA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsBoolean> wf:input1 [ a ccd:PointA ] ;
+ns1:ThiessenPolygonsBoolean wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsCount> wf:input1 [ a ccd:PointA ] ;
+ns1:ThiessenPolygonsCount wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsInterval> wf:input1 [ a ccd:PointA ] ;
+ns1:ThiessenPolygonsInterval wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsNominal> wf:input1 [ a ccd:PointA ] ;
+ns1:ThiessenPolygonsNominal wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsOrdinal> wf:input1 [ a ccd:PointA ] ;
+ns1:ThiessenPolygonsOrdinal wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ThiessenPolygonsRatio> wf:input1 [ a ccd:PointA ] ;
+ns1:ThiessenPolygonsRatio wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityBoolean> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMajorityBoolean wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMajorityCount wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityInterval> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMajorityInterval wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityNominal> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMajorityNominal wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityOrdinal> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMajorityOrdinal wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMajorityRatio wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMeanCount wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanInterval> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMeanInterval wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsMeanRatio wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumCount> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsSumCount wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumRatio> wf:input1 [ a ccd:RasterA ] ;
+ns1:ZonalStatisticsSumRatio wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
+
+[] ns1:implements ns1:EuclideanDistanceObjectVector .
+
+[] ns1:implements ns1:ThiessenPolygonsCount .
+
+[] ns1:implements ns1:KrigingInterval .
+
+[] ns1:implements ns1:SpatialJoinMeanTessRatio .
+
+[] ns1:implements ns1:ThiessenPolygonsNominal .
+
+[] ns1:implements ns1:CoverageToFieldRaster .
+
+[] ns1:implements ns1:ZonalStatisticsMeanInterval .
+
+[] ns1:implements ns1:ExistenceRasterToObjectLineBoolean .
+
+[] ns1:implements ns1:ZonalStatisticsMajorityInterval .
+
+[] ns1:implements ns1:FocalStatisticsObjectVector .
+
+[] ns1:implements ns1:KrigingRatio .
+
+[] ns1:implements ns1:FocalStatisticsSumCount .
+
+[] ns1:implements ns1:RasterToCoverageBoolean .
+
+[] ns1:implements ns1:FocalStatisticsMeanRatio .
+
+[] ns1:implements ns1:LocalMapAlgebraMultiplyRatioRatio .
+
+[] ns1:implements ns1:ThiessenPolygonsInterval .
+
+[] ns1:implements ns1:LeastCostPathRasterRatio .
+
+[] ns1:implements ns1:EuclideanDistanceExistenceRaster .
+
+[] ns1:implements ns1:FocalStatisticsMeanCount .
+
+[] ns1:implements ns1:LocalMapAlgebraMultiplyCountCount .
+
+[] ns1:implements ns1:ReclassifyFieldRasterToBoolean .
+
+[] ns1:implements ns1:SpatialJoinSumTessRatio .
+
+[] ns1:implements ns1:RasterToCoverageNominal .
+
+[] ns1:implements ns1:ZonalStatisticsMajorityOrdinal .
+
+[] ns1:implements ns1:FocalStatisticsExistenceRaster .
+
+[] ns1:implements ns1:ZonalStatisticsMajorityNominal .
+
+[] ns1:implements ns1:FocalStatisticsSumRatio .
+
+[] ns1:implements ns1:FocalStatisticsVarietyInterval .
+
+[] ns1:implements ns1:SpatialJoinSumTessCount .
+
+[] ns1:implements ns1:FocalStatisticsMeanInterval .
+
+[] ns1:implements ns1:RasterToContourCount .
+
+[] ns1:implements ns1:LocalMapAlgebraMultiplyRatioCount .
+
+[] ns1:implements ns1:ThiessenPolygonsOrdinal .
+
+[] ns1:implements ns1:LocalMapAlgebraMultiplyCountRatio .
+
+[] ns1:implements ns1:ExistenceRasterToObjectPointBoolean .
+
+[] ns1:implements ns1:ObjectVectorToExistenceRasterBoolean .
+
+[] ns1:implements ns1:ZonalStatisticsMajorityBoolean .
+
+[] ns1:implements ns1:SpatialJoinCountTess .
+
+[] ns1:implements ns1:ZonalStatisticsMeanRatio .
+
+[] ns1:implements ns1:RasterToCoverageOrdinal .
+
+[] ns1:implements ns1:ThiessenPolygonsRatio .
+
+[] ns1:implements ns1:ZonalStatisticsSumCount .
+
+[] ns1:implements ns1:ZonalStatisticsMeanCount .
+
+[] ns1:implements ns1:ZonalStatisticsMajorityRatio .
+
+[] ns1:implements ns1:SpatialJoinMeanTessCount .
+
+[] ns1:implements ns1:ZonalStatisticsSumRatio .
+
+[] ns1:implements ns1:RasterToContourInterval .
+
+[] ns1:implements ns1:SpatialJoinMeanTessInterval .
+
+[] ns1:implements ns1:ThiessenPolygonsBoolean .
+
+[] ns1:implements ns1:RasterToContourRatio .
+
+[] ns1:implements ns1:ZonalStatisticsMajorityCount .
 

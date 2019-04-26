@@ -48,9 +48,9 @@ def n_triples( g, n=None ):
         print( '  Triples: +'+str(len(g)-n) )
     return len(g)
 
-def cleanOWLOntology(input = 'CoreConceptData_ct.ttl'): #This takes the combined types version as input
+def cleanOWLOntology(ontologyfile= 'CoreConceptData_ct.ttl'): #This takes the combined types version as input
     print 'Clean OWL ontology!'
-    ccdontology = load_rdf(rdflib.Graph(),input)
+    ccdontology = load_rdf(rdflib.Graph(),ontologyfile)
     print 'Running inferences:'
     ccdontology = run_inferences(ccdontology)
     taxonomy = rdflib.Graph()
@@ -84,17 +84,13 @@ def extractToolOntology(tooldesc='ToolDescription_ct.ttl'):
     return output
 
 
-def main():
+def main(ontologyfile = 'CoreConceptData_ct.ttl', tooldesc='ToolDescription_ct.ttl'):
     dt = 'CoreConceptData_tax.ttl'
-    tax = cleanOWLOntology()
-    tooltax =extractToolOntology()
+    tax = cleanOWLOntology(ontologyfile = 'CoreConceptData_ct.ttl')
+    tooltax =extractToolOntology(tooldesc='ToolDescription_ct.ttl')
     tax.serialize(destination=dt,format = "turtle")
     to = 'ToolDescription_tax.ttl'
     tooltax.serialize(destination=to,format = "turtle")
-    final = rdflib.Graph()
-    final.parse(dt, format='turtle')
-    final.parse(to, format='turtle')
-    final.serialize(destination='GISTaxonomy.rdf', format = "application/rdf+xml")
 
 
 

@@ -147,10 +147,9 @@ def getToollistasXML(toolsinrdf= 'ToolDescription.ttl'):
 
 
 
-def main():
+def main(toolsinrdf= 'ToolDescription_ct.ttl'):
     #top = tools2XML()
     #print prettify(top)
-    toolsinrdf= 'ToolDescription_ct.ttl'
     xml= getToollistasXML(toolsinrdf)
     outpath = os.path.splitext(toolsinrdf)[0]+".xml"
     print outpath

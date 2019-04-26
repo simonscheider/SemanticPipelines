@@ -121,6 +121,8 @@ def flattenToolAnnotations(annotationfile, ontologyfile, flattenedontologyfile):
                 b = BNode()
                 flattenedtools.add((t,p,b))
                 flattenedtools.add((b,RDF.type,luc))
+        supertool = anno.value(TOOLS.implements,t)
+        flattenedtools.add(((supertool if supertool != None else BNode()),TOOLS.implements,t))
     flattenedtools = setprefixes(flattenedtools)
     flattenedtools.serialize(destination=out,format = "turtle")
 
@@ -192,9 +194,9 @@ def getflattenedLUC(flattenedontology, ontology, cl):
 
 
 
-def main():
-    classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ", "BoundedPhen"] #This is the list of classes that should get kicked out of the ontology Unions????
-    ontologyfile = 'CoreConceptData_tax.ttl'
+def main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ", "BoundedPhen"] ):
+     #This is the list of classes that should get kicked out of the ontology Unions????
+
     flattenedontologyfile = flattenOntology(ontologyfile, classlist)
     #ontology =load_rdf(rdflib.Graph(),ontologyfile)
     #flattenedontology =load_rdf(rdflib.Graph(),flattenedontologyfile)
@@ -207,7 +209,7 @@ def main():
     #classlist = [URIRef(str(base)+"#"+c) for c in classlist]
     #print getDepth(ontology, URIRef(base+"Raster"),0)
 
-    flattenToolAnnotations("ToolDescription_ct.ttl", ontologyfile, flattenedontologyfile)
+    flattenToolAnnotations(tooldescfile, ontologyfile, flattenedontologyfile)
 
 if __name__ == '__main__':
     main()
