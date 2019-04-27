@@ -112,7 +112,11 @@ def tools2XML(toollist=[{'operationname': 'spatialJoinSumTessRatio', 'inputs':[[
 
 
 def shortURInames(URI):
-    return URI.split('#')[1]
+    if "#" in URI:
+        return URI.split('#')[1]
+    else:
+        return os.path.basename(os.path.splitext(URI)[0])
+
 
 def getinoutypes(g, predicate, subject):
         output = g.value(predicate = predicate, subject = subject, any = False)

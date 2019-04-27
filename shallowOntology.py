@@ -38,6 +38,7 @@ def setprefixes(g):
     g.bind('em', 'http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#')
     g.bind('ada', 'http://geographicknowledge.de/vocab/AnalysisData.rdf#')
     g.bind('wf', 'http://geographicknowledge.de/vocab/Workflow.rdf#')
+    g.bind('tools', 'http://geographicknowledge.de/vocab/GISTools.rdf#')
     return g
 
 """Helper stuff"""
@@ -114,15 +115,16 @@ def flattenToolAnnotations(annotationfile, ontologyfile, flattenedontologyfile):
     #iterate over all tools
     wf = [WF.output, WF.input1, WF.input2, WF.input3]
     for t in anno.objects(None,TOOLS.implements):
-        for p in wf:
-            cl = anno.value(anno.value(t,p),  RDF.type)
-            if cl is not None:
-                luc = getflattenedLUC(flattenedontology, ontology, cl)
-                b = BNode()
-                flattenedtools.add((t,p,b))
-                flattenedtools.add((b,RDF.type,luc))
-        supertool = anno.value(TOOLS.implements,t)
-        flattenedtools.add(((supertool if supertool != None else BNode()),TOOLS.implements,t))
+        supertool = [st for st in anno.subjects(TOOLS.implements,t)][0]
+        if supertool not in flattenedtools.objects(None, TOOLS.implements):
+            for p in wf:
+                cl = anno.value(anno.value(t,p),  RDF.type)
+                if cl is not None:
+                    luc = getflattenedLUC(flattenedontology, ontology, cl)
+                    b = BNode()
+                    flattenedtools.add((supertool,p,b))
+                    flattenedtools.add((b,RDF.type,luc))
+            flattenedtools.add((TOOLS.tool ,TOOLS.implements,supertool))
     flattenedtools = setprefixes(flattenedtools)
     flattenedtools.serialize(destination=out,format = "turtle")
 

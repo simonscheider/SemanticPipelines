@@ -2,286 +2,73 @@
 @prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> .
 @prefix em: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <http://geographicknowledge.de/vocab/GISTools.rdf#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tools: <http://geographicknowledge.de/vocab/GISTools.rdf#> .
 @prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns1:CoverageToFieldRaster wf:input1 [ a ccd:TessellationA ] ;
+tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm>,
+        <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm>,
+        <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm>,
+        <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm>,
+        <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> .
+
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:EuclideanDistanceExistenceRaster wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
 
-ns1:EuclideanDistanceObjectVector wf:input1 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:RasterA ] .
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> wf:input1 [ a ccd:VectorA ] ;
+    wf:input2 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:TessellationA ] .
 
-ns1:ExistenceRasterToObjectLineBoolean wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:VectorA ] .
-
-ns1:ExistenceRasterToObjectPointBoolean wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:VectorA ] .
-
-ns1:FocalStatisticsExistenceRaster wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsMeanCount wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsMeanInterval wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsMeanRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsObjectVector wf:input1 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsSumCount wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsSumRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:FocalStatisticsVarietyInterval wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:KrigingInterval wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:KrigingRatio wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-ns1:LeastCostPathRasterRatio wf:input1 [ a ada:Attribute ] ;
+<https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> wf:input1 [ a ada:Attribute ] ;
     wf:input2 [ a ada:Attribute ] ;
     wf:input3 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:LocalMapAlgebraMultiplyCountCount wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:LocalMapAlgebraMultiplyCountRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:LocalMapAlgebraMultiplyRatioCount wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:LocalMapAlgebraMultiplyRatioRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> wf:input1 [ a ccd:TessellationA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:ObjectVectorToExistenceRasterBoolean wf:input1 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:RasterA ] .
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorA ] .
 
-ns1:RasterToContourCount wf:input1 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ada:Attribute ] .
 
-ns1:RasterToContourInterval wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorA ] .
 
-ns1:RasterToContourRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:RasterToCoverageBoolean wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:RasterToCoverageNominal wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:RasterToCoverageOrdinal wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ReclassifyFieldRasterToBoolean wf:input1 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .
 
-ns1:SpatialJoinCountTess wf:input1 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:SpatialJoinMeanTessCount wf:input1 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:SpatialJoinMeanTessInterval wf:input1 [ a ccd:VectorA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:SpatialJoinMeanTessRatio wf:input1 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:SpatialJoinSumTessCount wf:input1 [ a ccd:VectorA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:SpatialJoinSumTessRatio wf:input1 [ a ccd:VectorA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ThiessenPolygonsBoolean wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ThiessenPolygonsCount wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ThiessenPolygonsInterval wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ThiessenPolygonsNominal wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ThiessenPolygonsOrdinal wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ThiessenPolygonsRatio wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMajorityBoolean wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMajorityCount wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMajorityInterval wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMajorityNominal wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMajorityOrdinal wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMajorityRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMeanCount wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMeanInterval wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsMeanRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsSumCount wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-ns1:ZonalStatisticsSumRatio wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:VectorA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-[] ns1:implements ns1:EuclideanDistanceObjectVector .
-
-[] ns1:implements ns1:ThiessenPolygonsCount .
-
-[] ns1:implements ns1:KrigingInterval .
-
-[] ns1:implements ns1:SpatialJoinMeanTessRatio .
-
-[] ns1:implements ns1:ThiessenPolygonsNominal .
-
-[] ns1:implements ns1:CoverageToFieldRaster .
-
-[] ns1:implements ns1:ZonalStatisticsMeanInterval .
-
-[] ns1:implements ns1:ExistenceRasterToObjectLineBoolean .
-
-[] ns1:implements ns1:ZonalStatisticsMajorityInterval .
-
-[] ns1:implements ns1:FocalStatisticsObjectVector .
-
-[] ns1:implements ns1:KrigingRatio .
-
-[] ns1:implements ns1:FocalStatisticsSumCount .
-
-[] ns1:implements ns1:RasterToCoverageBoolean .
-
-[] ns1:implements ns1:FocalStatisticsMeanRatio .
-
-[] ns1:implements ns1:LocalMapAlgebraMultiplyRatioRatio .
-
-[] ns1:implements ns1:ThiessenPolygonsInterval .
-
-[] ns1:implements ns1:LeastCostPathRasterRatio .
-
-[] ns1:implements ns1:EuclideanDistanceExistenceRaster .
-
-[] ns1:implements ns1:FocalStatisticsMeanCount .
-
-[] ns1:implements ns1:LocalMapAlgebraMultiplyCountCount .
-
-[] ns1:implements ns1:ReclassifyFieldRasterToBoolean .
-
-[] ns1:implements ns1:SpatialJoinSumTessRatio .
-
-[] ns1:implements ns1:RasterToCoverageNominal .
-
-[] ns1:implements ns1:ZonalStatisticsMajorityOrdinal .
-
-[] ns1:implements ns1:FocalStatisticsExistenceRaster .
-
-[] ns1:implements ns1:ZonalStatisticsMajorityNominal .
-
-[] ns1:implements ns1:FocalStatisticsSumRatio .
-
-[] ns1:implements ns1:FocalStatisticsVarietyInterval .
-
-[] ns1:implements ns1:SpatialJoinSumTessCount .
-
-[] ns1:implements ns1:FocalStatisticsMeanInterval .
-
-[] ns1:implements ns1:RasterToContourCount .
-
-[] ns1:implements ns1:LocalMapAlgebraMultiplyRatioCount .
-
-[] ns1:implements ns1:ThiessenPolygonsOrdinal .
-
-[] ns1:implements ns1:LocalMapAlgebraMultiplyCountRatio .
-
-[] ns1:implements ns1:ExistenceRasterToObjectPointBoolean .
-
-[] ns1:implements ns1:ObjectVectorToExistenceRasterBoolean .
-
-[] ns1:implements ns1:ZonalStatisticsMajorityBoolean .
-
-[] ns1:implements ns1:SpatialJoinCountTess .
-
-[] ns1:implements ns1:ZonalStatisticsMeanRatio .
-
-[] ns1:implements ns1:RasterToCoverageOrdinal .
-
-[] ns1:implements ns1:ThiessenPolygonsRatio .
-
-[] ns1:implements ns1:ZonalStatisticsSumCount .
-
-[] ns1:implements ns1:ZonalStatisticsMeanCount .
-
-[] ns1:implements ns1:ZonalStatisticsMajorityRatio .
-
-[] ns1:implements ns1:SpatialJoinMeanTessCount .
-
-[] ns1:implements ns1:ZonalStatisticsSumRatio .
-
-[] ns1:implements ns1:RasterToContourInterval .
-
-[] ns1:implements ns1:SpatialJoinMeanTessInterval .
-
-[] ns1:implements ns1:ThiessenPolygonsBoolean .
-
-[] ns1:implements ns1:RasterToContourRatio .
-
-[] ns1:implements ns1:ZonalStatisticsMajorityCount .
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
 

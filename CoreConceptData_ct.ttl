@@ -78,11 +78,6 @@ ccd:CountAFieldRasterERA a owl:Class ;
         em:ERA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:FieldRaster em:ERA ) ] .
 
-ccd:CountALattice a owl:Class ;
-    rdfs:subClassOf ccd:CountA,
-        ccd:Lattice ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:Lattice ) ] .
-
 ccd:CountALatticeERA a owl:Class ;
     rdfs:subClassOf ccd:CountA,
         ccd:Lattice,
@@ -150,6 +145,11 @@ ccd:FieldRasterOrdinalA a owl:Class ;
     rdfs:subClassOf ccd:FieldRaster,
         ccd:OrdinalA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:FieldRaster ccd:OrdinalA ) ] .
+
+ccd:FieldRasterRatioA a owl:Class ;
+    rdfs:subClassOf ccd:FieldRaster,
+        ccd:RatioA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:FieldRaster ccd:RatioA ) ] .
 
 ccd:FieldRasterRatioAERA a owl:Class ;
     rdfs:subClassOf ccd:FieldRaster,
@@ -438,9 +438,21 @@ ccd:IntervalA a owl:Class ;
     rdfs:comment "An interval scaled attribute"@en ;
     rdfs:subClassOf ccd:OrdinalA .
 
+ccd:Lattice a owl:Class ;
+    rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
+    rdfs:subClassOf ccd:TessellationA ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Tessellation ] ) ] .
+
 em:ERA a owl:Class ;
     rdfs:comment "Extensive region attribute"@en ;
     rdfs:subClassOf ccd:IntervalA .
+
+ccd:CountA a owl:Class ;
+    rdfs:comment "An attribute that denotes counts of discrete entities (compare Chrisman 1998)"@en ;
+    rdfs:subClassOf ccd:RatioA .
 
 ccd:PointA a owl:Class ;
     rdfs:comment "Attribute of some point data set"@en ;
@@ -454,21 +466,13 @@ ccd:BooleanA a owl:Class ;
     rdfs:comment "Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes"@en ;
     rdfs:subClassOf ccd:NominalA .
 
-ccd:Lattice a owl:Class ;
-    rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
-    rdfs:subClassOf ccd:TessellationA ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Tessellation ] ) ] .
-
 ccd:RatioA a owl:Class ;
     rdfs:comment "Spatial attribute on ratio scale level"@en ;
     rdfs:subClassOf ccd:IntervalA .
 
-ccd:CountA a owl:Class ;
-    rdfs:comment "An attribute that denotes counts of discrete entities (compare Chrisman 1998)"@en ;
-    rdfs:subClassOf ccd:RatioA .
+ccd:Attribute a owl:Class ;
+    rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
+    rdfs:subClassOf ada:ValueList .
 
 ccd:FieldRaster a owl:Class ;
     rdfs:comment "Field rasters are raster representations of continuous fields. For example, raster layers representing a terrain height (DTM)."@en ;
@@ -477,8 +481,4 @@ ccd:FieldRaster a owl:Class ;
             owl:intersectionOf ( ccd:FieldQ [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Raster ] ) ] .
-
-ccd:Attribute a owl:Class ;
-    rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
-    rdfs:subClassOf ada:ValueList .
 

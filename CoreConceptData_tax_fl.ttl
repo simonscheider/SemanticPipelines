@@ -5,6 +5,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tools: <http://geographicknowledge.de/vocab/GISTools.rdf#> .
 @prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -179,9 +180,9 @@ ccd:Vector a owl:Class ;
 ada:Attribute rdfs:subClassOf ada:ValueList,
         owl:Thing .
 
-ada:SpatialDataSet rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
+ada:SpatialDataSet rdfs:subClassOf tools:DType .
 
-ada:ValueList rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
+ada:ValueList rdfs:subClassOf tools:DType .
 
 owl:Thing a owl:Class .
 
