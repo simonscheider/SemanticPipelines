@@ -112,7 +112,7 @@ tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset 
 
 tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
-    wf:output [ a ccd:FieldRasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:CountAFieldRaster ] ;
@@ -167,9 +167,9 @@ tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a single
     wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value" ;
-    wf:input1 [ a ccd:FieldRasterRatioA ] ;
+    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
     wf:input2 [ a ccd:CountAFieldRaster ] ;
-    wf:output [ a ccd:FieldRasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother" ;
     wf:input1 [ a ccd:FieldRasterRatioA ] ;
@@ -191,7 +191,7 @@ tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour d
                 ccd:OrdinalA ] .
 
 tools:RasterToContourRatio rdfs:label "Converts a field raster to a Contour dataset" ;
-    wf:input1 [ a ccd:FieldRasterRatioA ] ;
+    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
     wf:output [ a ccd:Contour,
                 ccd:OrdinalA ] .
 

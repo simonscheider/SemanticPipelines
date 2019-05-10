@@ -267,7 +267,8 @@ ccd:Line a owl:Class ;
 
 ccd:LineA a owl:Class ;
     rdfs:comment "Attribute of some Line data set"@en ;
-    rdfs:subClassOf ccd:Attribute ;
+    rdfs:subClassOf ccd:Attribute,
+        ccd:VectorA ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
@@ -369,14 +370,6 @@ ccd:TessellationA a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Tessellation ] ) ] .
 
-ccd:VectorA a owl:Class ;
-    rdfs:comment "Attribute of some vector data set"@en ;
-    rdfs:subClassOf ccd:Attribute ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Vector ] ) ] .
-
 ccd:ObjectQ a owl:Class ;
     rdfs:comment "An attribute that represents the quality of an object (core concept)"@en ;
     rdfs:subClassOf ccd:Attribute .
@@ -404,6 +397,14 @@ ccd:Vector a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ada:SpatialDataSet [ a owl:Class ;
                         owl:complementOf ccd:Raster ] ) ] .
+
+ccd:VectorA a owl:Class ;
+    rdfs:comment "Attribute of some vector data set"@en ;
+    rdfs:subClassOf ccd:Attribute ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Vector ] ) ] .
 
 ccd:NominalA a owl:Class ;
     rdfs:comment "A spatial attribute on nominal scale level"@en ;
@@ -456,7 +457,8 @@ ccd:CountA a owl:Class ;
 
 ccd:PointA a owl:Class ;
     rdfs:comment "Attribute of some point data set"@en ;
-    rdfs:subClassOf ccd:Attribute ;
+    rdfs:subClassOf ccd:Attribute,
+        ccd:VectorA ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;

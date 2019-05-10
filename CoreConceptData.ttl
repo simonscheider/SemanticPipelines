@@ -165,7 +165,8 @@
                                                 ) ;
                              rdf:type owl:Class
                            ] ;
-       rdfs:subClassOf :Attribute ;
+       rdfs:subClassOf :Attribute ,
+                       :VectorA ;
        rdfs:comment "Attribute of some Line data set"@en .
 
 
@@ -288,7 +289,8 @@
                                                  ) ;
                               rdf:type owl:Class
                             ] ;
-        rdfs:subClassOf :Attribute ;
+        rdfs:subClassOf :Attribute ,
+                        :VectorA ;
         rdfs:comment "Attribute of some point data set"@en .
 
 

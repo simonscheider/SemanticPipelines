@@ -17,6 +17,7 @@ ccd:Line a owl:Class ;
 ccd:LineA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
+        ccd:VectorA,
         owl:Thing .
 
 ccd:LineData a owl:Class ;
@@ -35,6 +36,7 @@ ccd:Point a owl:Class ;
 ccd:PointA a owl:Class ;
     rdfs:subClassOf ada:Attribute,
         ada:ValueList,
+        ccd:VectorA,
         owl:Thing .
 
 ccd:PointData a owl:Class ;
@@ -159,11 +161,6 @@ ccd:TessellationA a owl:Class ;
         ada:ValueList,
         owl:Thing .
 
-ccd:VectorA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
-        owl:Thing .
-
 ccd:Tessellation a owl:Class ;
     rdfs:subClassOf ada:SpatialDataSet,
         ccd:RegionDataSet,
@@ -175,6 +172,11 @@ ccd:RegionDataSet a owl:Class ;
 
 ccd:Vector a owl:Class ;
     rdfs:subClassOf ada:SpatialDataSet,
+        owl:Thing .
+
+ccd:VectorA a owl:Class ;
+    rdfs:subClassOf ada:Attribute,
+        ada:ValueList,
         owl:Thing .
 
 ada:Attribute rdfs:subClassOf ada:ValueList,
