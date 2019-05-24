@@ -99,6 +99,17 @@
                  rdfs:comment "Existence rasters are rasters representing boolean fields (fields denoting whether something is present at a cell location or not)."@en .
 
 
+###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceVector
+:ExistenceVector rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :BooleanA
+                                                            :VectorA
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf :VectorA ;
+                 rdfs:comment "A vector layer attribute that satisfies a boolean expression and thus denotes the 'existence' of some attribute encoded phenomenon across space. Example is a layer of polygons of ''forest'' landuse or a layer of \"parks\"."@en .
+
+
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExtLattice
 :ExtLattice rdf:type owl:Class ;
             owl:equivalentClass [ owl:intersectionOf ( :Lattice

@@ -121,6 +121,12 @@ ccd:CoverageRatioA a owl:Class ;
         ccd:RatioA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:Coverage ccd:RatioA ) ] .
 
+ccd:ExistenceVector a owl:Class ;
+    rdfs:comment "A vector layer attribute that satisfies a boolean expression and thus denotes the 'existence' of some attribute encoded phenomenon across space. Example is a layer of polygons of ''forest'' landuse or a layer of \"parks\"."@en ;
+    rdfs:subClassOf ccd:VectorA ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:BooleanA ccd:VectorA ) ] .
+
 ccd:ExtLattice a owl:Class ;
     rdfs:comment "This type of lattice has an extensive attribute. For example, a spatial dataset about the population number of municipalities"@en ;
     owl:equivalentClass [ a owl:Class ;
@@ -145,11 +151,6 @@ ccd:FieldRasterOrdinalA a owl:Class ;
     rdfs:subClassOf ccd:FieldRaster,
         ccd:OrdinalA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:FieldRaster ccd:OrdinalA ) ] .
-
-ccd:FieldRasterRatioA a owl:Class ;
-    rdfs:subClassOf ccd:FieldRaster,
-        ccd:RatioA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:FieldRaster ccd:RatioA ) ] .
 
 ccd:FieldRasterRatioAERA a owl:Class ;
     rdfs:subClassOf ccd:FieldRaster,
@@ -464,17 +465,13 @@ ccd:PointA a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:PointDataSet ] ) ] .
 
-ccd:BooleanA a owl:Class ;
-    rdfs:comment "Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes"@en ;
-    rdfs:subClassOf ccd:NominalA .
-
 ccd:RatioA a owl:Class ;
     rdfs:comment "Spatial attribute on ratio scale level"@en ;
     rdfs:subClassOf ccd:IntervalA .
 
-ccd:Attribute a owl:Class ;
-    rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
-    rdfs:subClassOf ada:ValueList .
+ccd:BooleanA a owl:Class ;
+    rdfs:comment "Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes"@en ;
+    rdfs:subClassOf ccd:NominalA .
 
 ccd:FieldRaster a owl:Class ;
     rdfs:comment "Field rasters are raster representations of continuous fields. For example, raster layers representing a terrain height (DTM)."@en ;
@@ -483,4 +480,8 @@ ccd:FieldRaster a owl:Class ;
             owl:intersectionOf ( ccd:FieldQ [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Raster ] ) ] .
+
+ccd:Attribute a owl:Class ;
+    rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
+    rdfs:subClassOf ada:ValueList .
 
