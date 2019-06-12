@@ -19,16 +19,10 @@
 @prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#>.
  
 
-###Simons tools
-<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements
-tools:ArealInterpolationAverage,tools:ArealInterpolationRate. 
-tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of a measured attribute".
 
-tools:ArealInterpolationAverage wf:input1 [a ccd:Lattice; a ccd:IntervalA; a exm:IRA]; wf:input2 [a ccd:VectorA, ccd:TessellationA] ;
-wf:output [a ccd:Lattice; a ccd:IntervalA; a exm:IRA].
 
-tools:ArealInterpolationRate wf:input1 [a ccd:Lattice; a ccd:CountA; a exm:ERA]; wf:input2 [a ccd:VectorA, ccd:TessellationA] ;
-wf:output [a ccd:Lattice; a ccd:CountA; a exm:ERA].
+
+
 
 ######### Spatial join with sum rule 
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
@@ -94,8 +88,8 @@ _:SpatialJoinMeanTessRatio1 a ccd:RatioA.
 
 
 tools:SpatialJoinMeanTessRatio wf:input2 _:SpatialJoinMeanTessRatio2.
-_:SpatialJoinMeanTessRatio2 a ccd:VectorA. #"Target Features"
-_:SpatialJoinMeanTessRatio2 a ccd:TessellationA.
+_:SpatialJoinMeanTessInterval2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA.
 
 tools:SpatialJoinMeanTessRatio wf:output _:SpatialJoinMeanTessRatioOut.
 _:SpatialJoinMeanTessRatioOut a ccd:Lattice.
@@ -109,8 +103,8 @@ _:SpatialJoinMeanTessCount1 a ccd:ObjectVector. #"Join Features".
 _:SpatialJoinMeanTessCount1 a ccd:CountA.
 
 tools:SpatialJoinMeanTessCount wf:input2 _:SpatialJoinMeanTessCount2.
-_:SpatialJoinMeanTessCount2 a ccd:TessellationA. #"Target Features"
-_:SpatialJoinMeanTessCount2 a ccd:TessellationA.
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA. #"Target Features"
+_:SpatialJoinMeanTessInterval2 a ccd:TessellationA.
 
 tools:SpatialJoinMeanTessCount wf:output _:SpatialJoinMeanTessCountOut.
 _:SpatialJoinMeanTessCountOut a ccd:Lattice.
@@ -121,13 +115,13 @@ _:SpatialJoinMeanTessCountOut a ccd:RatioA.
 
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess. #with JOIN_ONE_TO_ONE parameter and with Merge_RULe count.
 
-tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation".
+tools:SpatialJoinCount rdfs:label "Counts the number of features from one feature to another based on the spatial relation".
 tools:SpatialJoinCountTess wf:input1 _:SpatialJoinCountTess1.
 _:SpatialJoinCountTess1 a ccd:ObjectVector.
 
 tools:SpatialJoinCountTessInterval wf:input2 _:SpatialJoinCountTess2.
-_:SpatialJoinCountTess2 a ccd:VectorA. #"Target Features"
-_:SpatialJoinCountTess2 a ccd:TessellationA.
+_:SpatialJoinCountTessInterval2 a ccd:VectorA. #"Target Features"
+_:SpatialJoinCountTessInterval2 a ccd:TessellationA.
 
 tools:SpatialJoinCountTess wf:output _:SpatialJoinCountTessOut.
 _:SpatialJoinCountTessOut a ccd:Lattice.
@@ -273,16 +267,16 @@ _:ExistenceRasterToObjectPointBooleanOut a ccd:BooleanA.
  
 
 ##### ##### Existenceraster to ObjectLine
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean. 
-tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean. 
+tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
 
-tools:ExistenceRasterToObjectPointBoolean wf:input1 _:ExistenceRasterToObjectPointBoolean1.
-_:ExistenceRasterToObjectPointBoolean1 a ccd:ExistenceRaster. 
-_:ExistenceRasterToObjectPointBoolean1 a ccd:BooleanA.
+tools:ExistenceRasterToObjectLineBoolean wf:input1 _:ExistenceRasterToObjectLineBoolean1.
+_:ExistenceRasterToObjectLineBoolean1 a ccd:ExistenceRaster. 
+_:ExistenceRasterToObjectLineBoolean1 a ccd:BooleanA.
 
-tools:ExistenceRasterToObjectPointBoolean wf:ouput _:ExistenceRasterToObjectPointBooleanOut.
-_:ExistenceRasterToObjectPointBooleanOut a ccd:ObjectLine.
-_:ExistenceRasterToObjectPointBooleanOut a ccd:BooleanA.
+tools:ExistenceRasterToObjectLineBoolean wf:output _:ExistenceRasterToObjectLineBooleanOut.
+_:ExistenceRasterToObjectLineBooleanOut a ccd:ObjectLine.
+_:ExistenceRasterToObjectLineBooleanOut a ccd:BooleanA.
 
 
 
@@ -378,7 +372,6 @@ _:FocalStatisticsSumCountOut a ccd:CountA; a exm:ERA.
 ### a count is always extensive should i add the extensive requirement than? 
 
 
-#### this one has the name that includes interval but it's not an interval method it always results in a count. 
 ##### Focal density to field raster Variety
 <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsVarietyInterval.
 tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it".
@@ -770,14 +763,7 @@ tools:CoverageToFieldRaster wf:input1 _:CoverageToFieldRaster1.
 _:CoverageToFieldRaster1 a ccd:Coverage.
 
 tools:CoverageToFieldRaster wf:output _:CoverageToFieldRasterOutput.
-_:CoverageToFieldRasterOutput a ccd:FieldRaster; a ccd:NominalA. 
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster.
-tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters".
-
-tools:ContourToFieldRaster wf:input1 [ a ccd:Contour].
-
-tools:ContourToFieldRaster wf:output [ a ccd:FieldRaster; a ccd:OrdinalA].
+_:CoverageToFieldRasterOutput a ccd:FieldRaster. 
 
 ### boolean reclassify 
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm> tools:implements tools:ReclassifyFieldRasterToBoolean.
@@ -789,210 +775,6 @@ _:ReclassifyFieldRasterToBoolean1 a ccd:FieldRaster.
 tools:ReclassifyFieldRasterToBoolean wf:output _:ReclassifyFieldRasterToBooleanOutput.
 _:ReclassifyFieldRasterToBooleanOutput a ccd:ExistenceRaster.
 _:ReclassifyFieldRasterToBooleanOutput a ccd:BooleanA.
-
-
-#### Contour to Existence Vector
-<https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> tools:implements tools:SelectFeaturesContourToExistenceVector. 
-### <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/copy-features.htm> tools:implements tools: tools:SelectFeaturesContourToExistenceVector.
-tools:SelectFeaturesContourToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria ".
-
-tools:SelectFeaturesContourToExistenceVector wf:input1 _:SelectFeaturesContourToExistenceVector1. 
-_:SelectFeaturesContourToExistenceVector1 a ccd:Coverage.
-
-tools:SelectFeaturesContourToExistenceVector wf:output _:SelectFeaturesContourToExistenceVectorOutput.
-_:SelectFeaturesContourToExistenceVectorOutput a ccd:ExistenceVector.
-
-#### Coverage to Existence Vector
-<https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> tools:implements tools:SelectFeaturesCoverageToExistenceVector. 
-### <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/copy-features.htm> tools:implements tools: tools:SelectFeaturesCoverageToExistenceVector.
-tools:SelectFeaturesCoverageToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria ".
-
-tools:SelectFeaturesCoverageToExistenceVector wf:input1 _:SelectFeaturesCoverageToExistenceVector1. 
-_:SelectFeaturesCoverageToExistenceVector1 a ccd:Coverage.
-
-tools:SelectFeaturesCoverageToExistenceVector wf:output _:SelectFeaturesCoverageToExistenceVectorOutput.
-_:SelectFeaturesCoverageToExistenceVectorOutput a ccd:ExistenceVector.
-
-
-#### Existence vector to object vector 
-<https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements tools:MergeTessellationExistenceVectorToObjectVector.
-tools:MergeTessellationExistenceVectorToObjectVector rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon.".
-
-tools:MergeTessellationExistenceVectorToObjectVector wf:input1 _:MergeTessellationExistenceVectorToObjectVector1.
-_:MergeTessellationExistenceVectorToObjectVector1 a ccd:ExistenceVector.
-
-tools:MergeTessellationExistenceVectorToObjectVector wf:output _:MergeTessellationExistenceVectorToObjectVectorOutput.
-_:MergeTessellationExistenceVectorToObjectVectorOutput a ccd:ObjectVector.
-
-
-#### Boolean Field raster to point measures
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresBoolean.
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean wf:input1 _:ExtractFieldRasterValuestoPointMeasuresBoolean1.
-_:ExtractFieldRasterValuestoPointMeasuresBoolean1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresBoolean1 a ccd:BooleanA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean wf:input2 _:ExtractFieldRasterValuestoPointMeasuresBoolean2.
-_:ExtractFieldRasterValuestoPointMeasuresBoolean2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean wf:output _:ExtractFieldRasterValuestoPointMeasuresBooleanOutput.
-_:ExtractFieldRasterValuestoPointMeasuresBooleanOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresBooleanOutput a ccd:BooleanA.
-
-
-#### Nominal Field raster to point measures
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresNominal.
-tools:ExtractFieldRasterValuestoPointMeasuresNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal wf:input1 _:ExtractFieldRasterValuestoPointMeasuresNominal1.
-_:ExtractFieldRasterValuestoPointMeasuresNominal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresNominal1 a ccd:NominalA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal wf:input2 _:ExtractFieldRasterValuestoPointMeasuresNominal2.
-_:ExtractFieldRasterValuestoPointMeasuresNominal2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal wf:output _:ExtractFieldRasterValuestoPointMeasuresNominalOutput.
-_:ExtractFieldRasterValuestoPointMeasuresNominalOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresNominalOutput a ccd:NominalA.
-
-
-#### Ordinal field raster to point measures
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresOrdinal.
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal wf:input1 _:ExtractFieldRasterValuestoPointMeasuresOrdinal1.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinal1 a ccd:OrdinalA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal wf:input2 _:ExtractFieldRasterValuestoPointMeasuresOrdinal2.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinal2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal wf:output _:ExtractFieldRasterValuestoPointMeasuresOrdinalOutput.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinalOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinalOutput a ccd:OrdinalA.
-
-
-#### Interval field raster to point measures
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresInterval.
-tools:ExtractFieldRasterValuestoPointMeasuresInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval wf:input1 _:ExtractFieldRasterValuestoPointMeasuresInterval1.
-_:ExtractFieldRasterValuestoPointMeasuresInterval1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresInterval1 a ccd:IntervalA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval wf:input2 _:ExtractFieldRasterValuestoPointMeasuresInterval2.
-_:ExtractFieldRasterValuestoPointMeasuresInterval2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval wf:output _:ExtractFieldRasterValuestoPointMeasuresIntervalOutput.
-_:ExtractFieldRasterValuestoPointMeasuresIntervalOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresIntervalOutput a ccd:IntervalA.
-
-#### Ratio field raster to point measures
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresRatio.
-tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio wf:input1 _:ExtractFieldRasterValuestoPointMeasuresRatio1.
-_:ExtractFieldRasterValuestoPointMeasuresRatio1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresRatio1 a ccd:RatioA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio wf:input2 _:ExtractFieldRasterValuestoPointMeasuresRatio2.
-_:ExtractFieldRasterValuestoPointMeasuresRatio2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio wf:output _:ExtractFieldRasterValuestoPointMeasuresRatioOutput.
-_:ExtractFieldRasterValuestoPointMeasuresRatioOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresRatioOutput a ccd:RatioA.
-
-#### Boolean Field raster to Object Point
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointBoolean.
-tools:ExtractFieldRasterValuestoObjectPointBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointBoolean wf:input1 _:ExtractFieldRasterValuestoObjectPointBoolean1.
-_:ExtractFieldRasterValuestoObjectPointBoolean1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointBoolean1 a ccd:BooleanA. 
-
-tools:ExtractFieldRasterValuestoObjectPointBoolean wf:input2 _:ExtractFieldRasterValuestoObjectPointBoolean2.
-_:ExtractFieldRasterValuestoObjectPointBoolean2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointBoolean wf:output _:ExtractFieldRasterValuestoObjectPointBooleanOutput.
-_:ExtractFieldRasterValuestoObjectPointBooleanOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointBooleanOutput a ccd:BooleanA.
-
-
-#### Nominal Field raster to Object Point
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointNominal.
-tools:ExtractFieldRasterValuestoObjectPointNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointNominal wf:input1 _:ExtractFieldRasterValuestoObjectPointNominal1.
-_:ExtractFieldRasterValuestoObjectPointNominal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointNominal1 a ccd:NominalA. 
-
-tools:ExtractFieldRasterValuestoObjectPointNominal wf:input2 _:ExtractFieldRasterValuestoObjectPointNominal2.
-_:ExtractFieldRasterValuestoObjectPointNominal2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointNominal wf:output _:ExtractFieldRasterValuestoObjectPointNominalOutput.
-_:ExtractFieldRasterValuestoObjectPointNominalOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointNominalOutput a ccd:NominalA.
-
-
-#### Ordinal field raster to Object Point
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointOrdinal.
-tools:ExtractFieldRasterValuestoObjectPointOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal wf:input1 _:ExtractFieldRasterValuestoObjectPointOrdinal1.
-_:ExtractFieldRasterValuestoObjectPointOrdinal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointOrdinal1 a ccd:OrdinalA. 
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal wf:input2 _:ExtractFieldRasterValuestoObjectPointOrdinal2.
-_:ExtractFieldRasterValuestoObjectPointOrdinal2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal wf:output _:ExtractFieldRasterValuestoObjectPointOrdinalOutput.
-_:ExtractFieldRasterValuestoObjectPointOrdinalOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointOrdinalOutput a ccd:OrdinalA.
-
-
-#### Interval field raster to Object Point
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointInterval.
-tools:ExtractFieldRasterValuestoObjectPointInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointInterval wf:input1 _:ExtractFieldRasterValuestoObjectPointInterval1.
-_:ExtractFieldRasterValuestoObjectPointInterval1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointInterval1 a ccd:IntervalA. 
-
-tools:ExtractFieldRasterValuestoObjectPointInterval wf:input2 _:ExtractFieldRasterValuestoObjectPointInterval2.
-_:ExtractFieldRasterValuestoObjectPointInterval2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointInterval wf:output _:ExtractFieldRasterValuestoObjectPointIntervalOutput.
-_:ExtractFieldRasterValuestoObjectPointIntervalOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointIntervalOutput a ccd:IntervalA.
-
-#### Ratio field raster to Object Point
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointRatio.
-tools:ExtractFieldRasterValuestoObjectPointRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointRatio wf:input1 _:ExtractFieldRasterValuestoObjectPointRatio1.
-_:ExtractFieldRasterValuestoObjectPointRatio1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointRatio1 a ccd:RatioA. 
-
-tools:ExtractFieldRasterValuestoObjectPointRatio wf:input2 _:ExtractFieldRasterValuestoObjectPointRatio2.
-_:ExtractFieldRasterValuestoObjectPointRatio2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointRatio wf:output _:ExtractFieldRasterValuestoObjectPointRatioOutput.
-_:ExtractFieldRasterValuestoObjectPointRatioOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointRatioOutput a ccd:RatioA.
-
-
-
 
 
 

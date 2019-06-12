@@ -1,6 +1,41 @@
 <?xml version="1.0" ?>
 <functions>
   <!--Contains all typed ArcGIS Pro tools for workflow analysis-->
+  <function name="merge-features-into-one-feature">
+    <operation>merge-features-into-one-feature</operation>
+    <inputs>
+      <input>
+        <type>VectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>VectorA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>merge-features-into-one-feature</code>
+    </implementation>
+  </function>
+  <function name="extract-values-to-points">
+    <operation>extract-values-to-points</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+      <input>
+        <type>PointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>PointA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>extract-values-to-points</code>
+    </implementation>
+  </function>
   <function name="polygon-to-raster">
     <operation>polygon-to-raster</operation>
     <inputs>
@@ -17,11 +52,30 @@
       <code>polygon-to-raster</code>
     </implementation>
   </function>
-  <function name="create-thiessen-polygons">
-    <operation>create-thiessen-polygons</operation>
+  <function name="focal-statistics-function">
+    <operation>focal-statistics-function</operation>
     <inputs>
       <input>
-        <type>PointA</type>
+        <type>RasterA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>focal-statistics-function</code>
+    </implementation>
+  </function>
+  <function name="spatial-join">
+    <operation>spatial-join</operation>
+    <inputs>
+      <input>
+        <type>VectorA</type>
+      </input>
+      <input>
+        <type>VectorA</type>
       </input>
     </inputs>
     <outputs>
@@ -30,7 +84,112 @@
       </output>
     </outputs>
     <implementation>
-      <code>create-thiessen-polygons</code>
+      <code>spatial-join</code>
+    </implementation>
+  </function>
+  <function name="using-areal-interpolation-to-predict-to-new-polygons">
+    <operation>using-areal-interpolation-to-predict-to-new-polygons</operation>
+    <inputs>
+      <input>
+        <type>TessellationA</type>
+      </input>
+      <input>
+        <type>VectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>TessellationA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>using-areal-interpolation-to-predict-to-new-polygons</code>
+    </implementation>
+  </function>
+  <function name="raster-calculator">
+    <operation>raster-calculator</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+      <input>
+        <type>RasterA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>raster-calculator</code>
+    </implementation>
+  </function>
+  <function name="kriging">
+    <operation>kriging</operation>
+    <inputs>
+      <input>
+        <type>PointA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>kriging</code>
+    </implementation>
+  </function>
+  <function name="raster-to-point">
+    <operation>raster-to-point</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>LineA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>raster-to-point</code>
+    </implementation>
+  </function>
+  <function name="zonal-statistics">
+    <operation>zonal-statistics</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+      <input>
+        <type>VectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>TessellationA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>zonal-statistics</code>
+    </implementation>
+  </function>
+  <function name="euclidean-distance">
+    <operation>euclidean-distance</operation>
+    <inputs>
+      <input>
+        <type>VectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>euclidean-distance</code>
     </implementation>
   </function>
   <function name="cost-path-function">
@@ -55,11 +214,11 @@
       <code>cost-path-function</code>
     </implementation>
   </function>
-  <function name="kriging">
-    <operation>kriging</operation>
+  <function name="focal-statistics">
+    <operation>focal-statistics</operation>
     <inputs>
       <input>
-        <type>PointA</type>
+        <type>RasterA</type>
       </input>
     </inputs>
     <outputs>
@@ -68,14 +227,14 @@
       </output>
     </outputs>
     <implementation>
-      <code>kriging</code>
+      <code>focal-statistics</code>
     </implementation>
   </function>
-  <function name="raster-to-polygon">
-    <operation>raster-to-polygon</operation>
+  <function name="create-thiessen-polygons">
+    <operation>create-thiessen-polygons</operation>
     <inputs>
       <input>
-        <type>RasterA</type>
+        <type>PointA</type>
       </input>
     </inputs>
     <outputs>
@@ -84,7 +243,7 @@
       </output>
     </outputs>
     <implementation>
-      <code>raster-to-polygon</code>
+      <code>create-thiessen-polygons</code>
     </implementation>
   </function>
   <function name="reclassify">
@@ -103,46 +262,24 @@
       <code>reclassify</code>
     </implementation>
   </function>
-  <function name="zonal-statistics">
-    <operation>zonal-statistics</operation>
+  <function name="select-features-using-attributes">
+    <operation>select-features-using-attributes</operation>
     <inputs>
       <input>
-        <type>RasterA</type>
-      </input>
-      <input>
-        <type>VectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
         <type>TessellationA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>zonal-statistics</code>
-    </implementation>
-  </function>
-  <function name="spatial-join">
-    <operation>spatial-join</operation>
-    <inputs>
-      <input>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
         <type>VectorA</type>
-      </input>
-      <input>
-        <type>VectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>TessellationA</type>
       </output>
     </outputs>
     <implementation>
-      <code>spatial-join</code>
+      <code>select-features-using-attributes</code>
     </implementation>
   </function>
-  <function name="raster-to-point">
-    <operation>raster-to-point</operation>
+  <function name="raster-to-polygon">
+    <operation>raster-to-polygon</operation>
     <inputs>
       <input>
         <type>RasterA</type>
@@ -150,94 +287,11 @@
     </inputs>
     <outputs>
       <output>
-        <type>PointA</type>
+        <type>ValueList</type>
       </output>
     </outputs>
     <implementation>
-      <code>raster-to-point</code>
-    </implementation>
-  </function>
-  <function name="focal-statistics-function">
-    <operation>focal-statistics-function</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>focal-statistics-function</code>
-    </implementation>
-  </function>
-  <function name="raster-calculator">
-    <operation>raster-calculator</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>raster-calculator</code>
-    </implementation>
-  </function>
-  <function name="raster-to-polyline">
-    <operation>raster-to-polyline</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>LineA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>raster-to-polyline</code>
-    </implementation>
-  </function>
-  <function name="focal-statistics">
-    <operation>focal-statistics</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>focal-statistics</code>
-    </implementation>
-  </function>
-  <function name="euclidean-distance">
-    <operation>euclidean-distance</operation>
-    <inputs>
-      <input>
-        <type>VectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>euclidean-distance</code>
+      <code>raster-to-polygon</code>
     </implementation>
   </function>
 </functions>

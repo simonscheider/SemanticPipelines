@@ -37,14 +37,13 @@
         tools:ZonalStatisticsSumCount,
         tools:ZonalStatisticsSumRatio .
 
-<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage,
-        tools:ArealInterpolationRate .
-
 tools:KrigingCount rdfs:label "interpolates a raster surface from points at Count measurement level using the kriging algorithm." ;
     wf:input1 [ a ccd:CountAPointMeasuresIRA ] ;
     wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
-tools:SpatialJoinCountTessInterval wf:input2 [ a ccd:TessellationAVectorA ] .
+tools:SpatialJoinCount rdfs:label "Counts the number of features from one feature to another based on the spatial relation" .
+
+tools:SpatialJoinCountTessInterval wf:input2 [ ] .
 
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess,
         tools:SpatialJoinMeanTessCount,
@@ -56,11 +55,6 @@ tools:SpatialJoinCountTessInterval wf:input2 [ a ccd:TessellationAVectorA ] .
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> tools:implements tools:LeastCostPathRasterRatio .
 
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> tools:implements tools:FocalStatisticsExistenceRaster .
-
-<https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements tools:MergeTessellationExistenceVectorToObjectVector .
-
-<https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> tools:implements tools:SelectFeaturesContourToExistenceVector,
-        tools:SelectFeaturesCoverageToExistenceVector .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingInterval,
         tools:KrigingRatio .
@@ -74,8 +68,7 @@ tools:SpatialJoinCountTessInterval wf:input2 [ a ccd:TessellationAVectorA ] .
         tools:ThiessenPolygonsOrdinal,
         tools:ThiessenPolygonsRatio .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster,
-        tools:CoverageToFieldRaster,
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToFieldRaster,
         tools:ObjectVectorToExistenceRasterBoolean .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean .
@@ -87,43 +80,19 @@ tools:SpatialJoinCountTessInterval wf:input2 [ a ccd:TessellationAVectorA ] .
         tools:RasterToCoverageNominal,
         tools:RasterToCoverageOrdinal .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean .
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceExistenceRaster,
         tools:EuclideanDistanceObjectVector .
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointBoolean,
-        tools:ExtractFieldRasterValuestoObjectPointInterval,
-        tools:ExtractFieldRasterValuestoObjectPointNominal,
-        tools:ExtractFieldRasterValuestoObjectPointOrdinal,
-        tools:ExtractFieldRasterValuestoObjectPointRatio,
-        tools:ExtractFieldRasterValuestoPointMeasuresBoolean,
-        tools:ExtractFieldRasterValuestoPointMeasuresInterval,
-        tools:ExtractFieldRasterValuestoPointMeasuresNominal,
-        tools:ExtractFieldRasterValuestoPointMeasuresOrdinal,
-        tools:ExtractFieldRasterValuestoPointMeasuresRatio .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountCount,
         tools:LocalMapAlgebraMultiplyCountRatio,
         tools:LocalMapAlgebraMultiplyRatioCount,
         tools:LocalMapAlgebraMultiplyRatioRatio .
 
-tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of a measured attribute" ;
-    wf:input1 [ a ccd:LatticeIRA ] ;
-    wf:input2 [ a ccd:TessellationAVectorA ] ;
-    wf:output [ a ccd:LatticeIRA ] .
-
-tools:ArealInterpolationRate wf:input1 [ a ccd:CountALatticeERA ] ;
-    wf:input2 [ a ccd:TessellationAVectorA ] ;
-    wf:output [ a ccd:CountALatticeERA ] .
-
-tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters" ;
-    wf:input1 [ a ccd:Contour ] ;
-    wf:output [ a ccd:FieldRasterOrdinalA ] .
-
 tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters" ;
     wf:input1 [ a ccd:Coverage ] ;
-    wf:output [ a ccd:FieldRasterNominalA ] .
+    wf:output [ a ccd:FieldRaster ] .
 
 tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive." ;
     wf:input1 [ a ccd:ExistenceRaster ] ;
@@ -131,77 +100,35 @@ tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, th
 
 tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
     wf:input1 [ a ccd:ObjectVector ] ;
-    wf:output [ a ccd:FieldRasterRatioAERA ] .
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
-tools:ExtractFieldRasterValuestoObjectPointBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
-    wf:input1 [ a ccd:ExistenceRaster ] ;
-    wf:input2 [ a ccd:ObjectPoint ] ;
+tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
+    wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
+    wf:output [ a ccd:BooleanAObjectLine ] .
+
+tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points." ;
+    wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
     wf:output [ a ccd:BooleanAObjectPoint ] .
-
-tools:ExtractFieldRasterValuestoObjectPointInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterIntervalA ] ;
-    wf:input2 [ a ccd:ObjectPoint ] ;
-    wf:output [ a ccd:IntervalAObjectPoint ] .
-
-tools:ExtractFieldRasterValuestoObjectPointNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterNominalA ] ;
-    wf:input2 [ a ccd:ObjectPoint ] ;
-    wf:output [ a ccd:NominalAObjectPoint ] .
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterOrdinalA ] ;
-    wf:input2 [ a ccd:ObjectPoint ] ;
-    wf:output [ a ccd:ObjectPointOrdinalA ] .
-
-tools:ExtractFieldRasterValuestoObjectPointRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
-    wf:input2 [ a ccd:ObjectPoint ] ;
-    wf:output [ a ccd:ObjectPointRatioA ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
-    wf:input1 [ a ccd:ExistenceRaster ] ;
-    wf:input2 [ a ccd:PointMeasures ] ;
-    wf:output [ a ccd:BooleanAPointMeasures ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterIntervalA ] ;
-    wf:input2 [ a ccd:PointMeasures ] ;
-    wf:output [ a ccd:IntervalAPointMeasures ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterNominalA ] ;
-    wf:input2 [ a ccd:PointMeasures ] ;
-    wf:output [ a ccd:NominalAPointMeasures ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterOrdinalA ] ;
-    wf:input2 [ a ccd:PointMeasures ] ;
-    wf:output [ a ccd:OrdinalAPointMeasures ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
-    wf:input2 [ a ccd:PointMeasures ] ;
-    wf:output [ a ccd:PointMeasuresRatioA ] .
 
 tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
-    wf:output [ a ccd:FieldRasterRatioAIRA ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:CountAFieldRasterERA ] ;
-    wf:output [ a ccd:FieldRasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:FieldRasterIntervalA ] ;
     wf:output [ a ccd:FieldRasterIntervalA ] .
 
 tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
-    wf:output [ a ccd:FieldRasterRatioAIRA ] .
+    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:FocalStatisticsObjectVector rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:BooleanAObjectVector ] ;
-    wf:output [ a ccd:FieldRasterRatioAIRA ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:CountAFieldRasterERA ] ;
@@ -230,28 +157,24 @@ tools:LeastCostPathRasterRatio rdfs:label "The Cost Path function calculates the
     wf:output [ a ccd:ExistenceRaster ] .
 
 tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother" ;
-    wf:input1 [ a ccd:CountAFieldRasterERA ] ;
+    wf:input1 [ a ccd:CountAFieldRaster ] ;
     wf:input2 [ a ccd:CountAFieldRasterERA ] ;
     wf:output [ a ccd:CountAFieldRasterERA ] .
 
 tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value" ;
-    wf:input1 [ a ccd:CountAFieldRasterERA ] ;
-    wf:input2 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:input1 [ a ccd:CountAFieldRaster ] ;
+    wf:input2 [ a ccd:FieldRasterRatioAERA ] ;
     wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value" ;
-    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
     wf:input2 [ a ccd:CountAFieldRasterERA ] ;
-    wf:output [ a ccd:FieldRasterRatioAIRA ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother" ;
     wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
     wf:input2 [ a ccd:FieldRasterRatioAIRA ] ;
-    wf:output [ a ccd:FieldRasterRatioAIRA ] .
-
-tools:MergeTessellationExistenceVectorToObjectVector rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon." ;
-    wf:input1 [ a ccd:ExistenceVector ] ;
-    wf:output [ a ccd:ObjectVector ] .
+    wf:output [ a ccd:FieldRasterRatioAERA ] .
 
 tools:ObjectVectorToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster" ;
     wf:input1 [ a ccd:ObjectVector ] ;
@@ -268,7 +191,7 @@ tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour d
                 ccd:OrdinalA ] .
 
 tools:RasterToContourRatio rdfs:label "Converts a field raster to a Contour dataset" ;
-    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
     wf:output [ a ccd:Contour,
                 ccd:OrdinalA ] .
 
@@ -288,22 +211,13 @@ tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldr
     wf:input1 [ a ccd:FieldRaster ] ;
     wf:output [ a ccd:BooleanAExistenceRaster ] .
 
-tools:SelectFeaturesContourToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
-    wf:input1 [ a ccd:Coverage ] ;
-    wf:output [ a ccd:ExistenceVector ] .
-
-tools:SelectFeaturesCoverageToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
-    wf:input1 [ a ccd:Coverage ] ;
-    wf:output [ a ccd:ExistenceVector ] .
-
-tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:ObjectVector ] ;
+tools:SpatialJoinCountTess wf:input1 [ a ccd:ObjectVector ] ;
     wf:output [ a ccd:CountALatticeERA ] .
 
 tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:CountAObjectVector ] ;
-    wf:input2 [ a ccd:TessellationA ] ;
-    wf:output [ a ccd:LatticeRatioA ] .
+    wf:input1 [ a ccd:CountAObjectVectorERA ] ;
+    wf:input2 [ ] ;
+    wf:output [ a ccd:LatticeRatioAERA ] .
 
 tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:IntervalAObjectVector ] ;
@@ -311,9 +225,9 @@ tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval me
     wf:output [ a ccd:IntervalALattice ] .
 
 tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:ObjectVectorRatioA ] ;
-    wf:input2 [ a ccd:TessellationAVectorA ] ;
-    wf:output [ a ccd:LatticeRatioA ] .
+    wf:input1 [ a ccd:ObjectVectorRatioAERA ] ;
+    wf:input2 [ ] ;
+    wf:output [ a ccd:LatticeRatioAERA ] .
 
 tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:CountAObjectVectorERA ] ;
@@ -375,12 +289,12 @@ tools:ZonalStatisticsMajorityOrdinal rdfs:label "Calculates the most common valu
     wf:output [ a ccd:LatticeOrdinalA ] .
 
 tools:ZonalStatisticsMajorityRatio rdfs:label "Calculates the most common value on values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
     wf:input2 [ a ccd:TessellationAVectorA ] ;
-    wf:output [ a ccd:LatticeRatioA ] .
+    wf:output [ a ccd:LatticeRatioAERA ] .
 
 tools:ZonalStatisticsMeanCount rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:CountAFieldRasterERA ] ;
+    wf:input1 [ a ccd:CountAFieldRaster ] ;
     wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeRatioAERA ] .
 
@@ -404,11 +318,5 @@ tools:ZonalStatisticsSumRatio rdfs:label "Calculates the total value for values 
     wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeRatioAERA ] .
 
-tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points.",
-        "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
-    wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
-    wf:ouput _:fd8f3db754c174d4590c8fde8242a57e8b40 ;
-    wf:output _:fd8f3db754c174d4590c8fde8242a57e8b40 .
-
-_:fd8f3db754c174d4590c8fde8242a57e8b40 a ccd:BooleanAObjectLineObjectPoint .
+[] a ccd:TessellationAVectorA .
 
