@@ -21,9 +21,11 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceObjectVector> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> .
 
+<http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectLineBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> .
+
 <http://geographicknowledge.de/vocab/GISTools.rdf#ExistenceRasterToObjectPointBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm>,
-        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> .
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ExtractFieldRasterValuestoObjectPointBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> .
@@ -103,8 +105,17 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#MergeTessellationExistenceVectorToObjectVector> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> .
 
+<http://geographicknowledge.de/vocab/GISTools.rdf#ObjectLineToExistenceRasterBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ObjectPointToExistenceRasterBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ObjectRegionToExistenceRasterBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> .
+
 <http://geographicknowledge.de/vocab/GISTools.rdf#ObjectVectorToExistenceRasterBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourCount> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> .
@@ -229,10 +240,13 @@
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> a <http://www.w3.org/2002/07/owl#Class> ;

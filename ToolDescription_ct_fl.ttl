@@ -21,14 +21,16 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
         <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> .
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
@@ -66,14 +68,19 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:RegionA ] ;
+    wf:output [ a ccd:RasterA ] .
+
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> wf:input1 [ a ccd:TessellationA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LineA ] .
+    wf:output [ a ccd:PointA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ada:ValueList ] .
+    wf:output [ a ccd:TessellationA ] .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> wf:input1 [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .

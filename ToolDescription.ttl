@@ -110,7 +110,7 @@ _:SpatialJoinMeanTessCount1 a ccd:CountA.
 
 tools:SpatialJoinMeanTessCount wf:input2 _:SpatialJoinMeanTessCount2.
 _:SpatialJoinMeanTessCount2 a ccd:TessellationA. #"Target Features"
-_:SpatialJoinMeanTessCount2 a ccd:TessellationA.
+
 
 tools:SpatialJoinMeanTessCount wf:output _:SpatialJoinMeanTessCountOut.
 _:SpatialJoinMeanTessCountOut a ccd:Lattice.
@@ -140,7 +140,7 @@ _:SpatialJoinCountTessOut a exm:ERA.
 tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level".
 
 tools:ThiessenPolygonsBoolean wf:input1 _:ThiessenPolygonsBoolean1. 
-_:ThiessenPolygonsBoolean1 a ccd:PointA.
+_:ThiessenPolygonsBoolean1 a ccd:PointMeasures.
 _:ThiessenPolygonsBoolean1 a ccd:BooleanA.
 
 tools:ThiessenPolygonsBoolean wf:output _:ThiessenPolygonsBooleanOut.
@@ -152,7 +152,7 @@ _:ThiessenPolygonsBooleanOut a ccd:BooleanA.
 tools:ThiessenPolygonsNominal rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level".
 
 tools:ThiessenPolygonsNominal wf:input1 _:ThiessenPolygonsNominal1. 
-_:ThiessenPolygonsNominal1 a ccd:PointA.
+_:ThiessenPolygonsNominal1 a ccd:PointMeasures.
 _:ThiessenPolygonsNominal1 a ccd:NominalA.
 
 tools:ThiessenPolygonsNominal wf:output _:ThiessenPolygonsNominalOut.
@@ -164,7 +164,7 @@ _:ThiessenPolygonsNominalOut a ccd:NominalA.
 tools:ThiessenPolygonsOrdinal rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level".
 
 tools:ThiessenPolygonsOrdinal wf:input1 _:ThiessenPolygonsOrdinal1. 
-_:ThiessenPolygonsOrdinal1 a ccd:PointA.
+_:ThiessenPolygonsOrdinal1 a ccd:PointMeasures.
 _:ThiessenPolygonsOrdinal1 a ccd:OrdinalA.
 
 tools:ThiessenPolygonsOrdinal wf:output _:ThiessenPolygonsOrdinalOut.
@@ -176,7 +176,7 @@ _:ThiessenPolygonsOrdinalOut a ccd:OrdinalA.
 tools:ThiessenPolygonsInterval rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level".
 
 tools:ThiessenPolygonsInterval wf:input1 _:ThiessenPolygonsInterval1. 
-_:ThiessenPolygonsInterval1 a ccd:PointA.
+_:ThiessenPolygonsInterval1 a ccd:PointMeasures.
 _:ThiessenPolygonsInterval1 a ccd:IntervalA.
 
 tools:ThiessenPolygonsInterval wf:output _:ThiessenPolygonsIntervalOut.
@@ -188,7 +188,7 @@ _:ThiessenPolygonsIntervalOut a ccd:IntervalA.
 tools:ThiessenPolygonsRatio rdfs:label "Creates Thiessen polygons from point features with a Ratio measurement level".
 
 tools:ThiessenPolygonsRatio wf:input1 _:ThiessenPolygonsRatio1. 
-_:ThiessenPolygonsRatio1 a ccd:PointA.
+_:ThiessenPolygonsRatio1 a ccd:PointMeasures.
 _:ThiessenPolygonsRatio1 a ccd:RatioA.
 
 tools:ThiessenPolygonsRatio wf:output _:ThiessenPolygonsRatioOut.
@@ -200,7 +200,7 @@ _:ThiessenPolygonsRatioOut a ccd:RatioA.
 tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point features with a Count measurement level".
 
 tools:ThiessenPolygonsCount wf:input1 _:ThiessenPolygonsCount1. 
-_:ThiessenPolygonsCount1 a ccd:PointA.
+_:ThiessenPolygonsCount1 a ccd:PointMeasures.
 _:ThiessenPolygonsCount1 a ccd:CountA.
 
 tools:ThiessenPolygonsCount wf:output _:ThiessenPolygonsCountOut.
@@ -246,16 +246,35 @@ _:KrigingCountOut a ccd:RatioA; a exm:IRA.
 
 ### Object vector to existence Raster  ( only kept the Objectvector to booleaan as this method only denotes the existence of polygons, if it also would give a value it would be a field raster) The input can only be booleaan, but every input is already boolean for the purpose of this analysis (it exists or it doesn't) 
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ObjectVectorToExistenceRasterBoolean.
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectRegionToExistenceRasterBoolean.
+tools:ObjectRegionToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
+
+
+tools:ObjectRegionToExistenceRasterBoolean wf:input1 [ a ccd:ObjectRegion].
+
+tools:ObjectRegionToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectPointToExistenceRasterBoolean.
+tools:ObjectPointToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
+
+tools:ObjectPointToExistenceRasterBoolean wf:input1 [ a ccd:ObjectPoint].
+
+tools:ObjectPointToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectLineToExistenceRasterBoolean.
+tools:ObjectLineToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
+
+tools:ObjectLineToExistenceRasterBoolean wf:input1 [ a ccd:ObjectLine].
+
+tools:ObjectLineToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectVectorToExistenceRasterBoolean.
 tools:ObjectVectorToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
 
+tools:ObjectVectorToExistenceRasterBoolean wf:input1 [ a ccd:ObjectVector].
 
-tools:ObjectVectorToExistenceRasterBoolean wf:input1 _:ObjectVectorToExistenceRasterBoolean1.
-_:ObjectVectorToExistenceRasterBoolean1 a ccd:ObjectVector.
+tools:ObjectVectorToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
 
-tools:ObjectVectorToExistenceRasterBoolean wf:output _:ObjectVectorToExistenceRasterBooleanOut.
-_:ObjectVectorToExistenceRasterBooleanOut a ccd:ExistenceRaster.
-_:ObjectVectorToExistenceRasterBooleanOut a ccd:BooleanA.
 
 
 ##### Existence raster to point vector ( not sure if the output should be boolean because existence is already implied by existing and doesn't need a value)
@@ -273,16 +292,12 @@ _:ExistenceRasterToObjectPointBooleanOut a ccd:BooleanA.
  
 
 ##### ##### Existenceraster to ObjectLine
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean. 
-tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean. 
+tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
 
-tools:ExistenceRasterToObjectPointBoolean wf:input1 _:ExistenceRasterToObjectPointBoolean1.
-_:ExistenceRasterToObjectPointBoolean1 a ccd:ExistenceRaster. 
-_:ExistenceRasterToObjectPointBoolean1 a ccd:BooleanA.
+tools:ExistenceRasterToObjectLineBoolean wf:input1 [ a ccd:ExistenceRaster; a ccd:BooleanA].
 
-tools:ExistenceRasterToObjectPointBoolean wf:ouput _:ExistenceRasterToObjectPointBooleanOut.
-_:ExistenceRasterToObjectPointBooleanOut a ccd:ObjectLine.
-_:ExistenceRasterToObjectPointBooleanOut a ccd:BooleanA.
+tools:ExistenceRasterToObjectLineBoolean wf:ouput [ a ccd:ObjectLine; a ccd:BooleanA].
 
 
 
@@ -292,7 +307,7 @@ tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell 
 
 tools:FocalStatisticsExistenceRaster wf:input1 _:FocalStatisticsExistenceRaster1.
 _:FocalStatisticsExistenceRaster1 a ccd:ExistenceRaster.
-_:FocalStatisticsExistenceRaster1 a ccd:BooleanA.
+
 
 tools:FocalStatisticsExistenceRaster wf:output _:FocalStatisticsExistenceRasterOut.
 _:FocalStatisticsExistenceRasterOut a ccd:FieldRaster.
@@ -305,7 +320,7 @@ tools:FocalStatisticsObjectVector rdfs:label "Calculates for each input cell loc
 
 tools:FocalStatisticsObjectVector wf:input1 _:FocalStatisticsObjectVector1.
 _:FocalStatisticsObjectVector1 a ccd:ObjectVector.
-_:FocalStatisticsObjectVector1 a ccd:BooleanA.
+
 
 tools:FocalStatisticsObjectVector wf:output _:FocalStatisticsObjectVectorOut.
 _:FocalStatisticsObjectVectorOut a ccd:FieldRaster.
@@ -401,7 +416,7 @@ _:EuclideanDistanceObjectVector1 a ccd:ObjectVector.
 
 tools:EuclideanDistanceObjectVector wf:output _:EuclideanDistanceObjectVectorOut. 
 _:EuclideanDistanceObjectVectorOut a ccd:FieldRaster.
-_:EuclideanDistanceObjectVectorOut a ccd:RatioA.
+_:EuclideanDistanceObjectVectorOut a ccd:RatioA; a exm:IRA.
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceExistenceRaster.
 tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive.".
@@ -628,7 +643,7 @@ _:LeastCostPathRasterRatioOut a ccd:ExistenceRaster.
 ### local map algebra 
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyRatioRatio.
-tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother". 
+tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother". 
 
 tools:LocalMapAlgebraMultiplyRatioRatio wf:input1 _:LocalMapAlgebraMultiplyRatioRatio1. # first raster
 _:LocalMapAlgebraMultiplyRatioRatio1 a ccd:FieldRaster.
@@ -643,7 +658,7 @@ _:LocalMapAlgebraMultiplyRatioRatioOutput a ccd:FieldRaster.
 _:LocalMapAlgebraMultiplyRatioRatioOutput a ccd:RatioA.
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountCount.
-tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother". 
+tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother". 
 
 tools:LocalMapAlgebraMultiplyCountCount wf:input1 _:LocalMapAlgebraMultiplyCountCount1. # first raster
 _:LocalMapAlgebraMultiplyCountCount1 a ccd:FieldRaster.
@@ -658,7 +673,7 @@ _:LocalMapAlgebraMultiplyCountCountOutput a ccd:FieldRaster.
 _:LocalMapAlgebraMultiplyCountCountOutput a ccd:CountA.
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountRatio.
-tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value". 
+tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value". 
 
 tools:LocalMapAlgebraMultiplyCountRatio wf:input1 _:LocalMapAlgebraMultiplyCountRatio1. # first raster
 _:LocalMapAlgebraMultiplyCountRatio1 a ccd:FieldRaster.
@@ -673,7 +688,7 @@ _:LocalMapAlgebraMultiplyCountRatioOutput a ccd:FieldRaster.
 _:LocalMapAlgebraMultiplyCountRatioOutput a ccd:RatioA.
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyRatioCount.
-tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a single Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value". 
+tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value". 
 
 tools:LocalMapAlgebraMultiplyRatioCount wf:input1 _:LocalMapAlgebraMultiplyRatioCount1. # first raster
 _:LocalMapAlgebraMultiplyRatioCount1 a ccd:FieldRaster.
@@ -767,7 +782,7 @@ _:RasterToCoverageBooleanOutput a ccd:BooleanA.
 tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters".
 
 tools:CoverageToFieldRaster wf:input1 _:CoverageToFieldRaster1.
-_:CoverageToFieldRaster1 a ccd:Coverage.
+_:CoverageToFieldRaster1 a ccd:Coverage. 
 
 tools:CoverageToFieldRaster wf:output _:CoverageToFieldRasterOutput.
 _:CoverageToFieldRasterOutput a ccd:FieldRaster; a ccd:NominalA. 
@@ -991,7 +1006,7 @@ tools:ExtractFieldRasterValuestoObjectPointRatio wf:output _:ExtractFieldRasterV
 _:ExtractFieldRasterValuestoObjectPointRatioOutput a ccd:ObjectPoint.
 _:ExtractFieldRasterValuestoObjectPointRatioOutput a ccd:RatioA.
 
-
+#missing: overlay tools
 
 
 

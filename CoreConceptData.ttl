@@ -35,6 +35,7 @@
 :BoundedPhen rdf:type owl:Class ;
              owl:equivalentClass [ rdf:type owl:Class ;
                                    owl:unionOf ( :ExistenceRaster
+                                                 :ExistenceVector
                                                  :ObjectVector
                                                )
                                  ] ;
@@ -102,7 +103,7 @@
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceVector
 :ExistenceVector rdf:type owl:Class ;
                  owl:equivalentClass [ owl:intersectionOf ( :BooleanA
-                                                            :VectorA
+                                                            :FieldVector
                                                           ) ;
                                        rdf:type owl:Class
                                      ] ;
@@ -138,6 +139,20 @@
                                  ] ;
              rdfs:subClassOf :RasterA ;
              rdfs:comment "Field rasters are raster representations of continuous fields. For example, raster layers representing a terrain height (DTM)."@en .
+
+
+###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector
+:FieldVector rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :FieldQ
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet> ;
+                                                          owl:someValuesFrom :Vector
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf :VectorA ;
+             rdfs:comment "A vector representation of a field. Can be a point or line measure, or a coverage"@en .
 
 
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA
@@ -205,6 +220,21 @@
                                  ] ;
              owl:disjointWith :PointDataSet ,
                               :RegionDataSet .
+
+
+###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineMeasures
+:LineMeasures rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :FieldQ
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet> ;
+                                                           owl:someValuesFrom :LineDataSet
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf :FieldVector ,
+                              :LineA ;
+              rdfs:comment "Linear representations of fields. Examples are isoline maps"@en .
 
 
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA
@@ -340,8 +370,9 @@
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:subClassOf :PointA ;
-               rdfs:comment "Point measures are point-like representations of continuous fields. For example, point data sets denoting the locations of measured temperature values."@en .
+               rdfs:subClassOf :FieldVector ,
+                               :PointA ;
+               rdfs:comment "Point measures are point-like representations of fields. For example, point data sets denoting the locations of measured temperature values."@en .
 
 
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#Raster
