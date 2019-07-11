@@ -179,22 +179,6 @@
         <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#ERA>,
         <http://www.w3.org/2002/07/owl#Thing> .
 
-<http://geographicknowledge.de/vocab/CoreConceptData.rdf#CountAPointMeasures> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
-        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#CountA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointMeasures>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RatioA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA>,
-        <http://www.w3.org/2002/07/owl#Thing> .
-
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#CountAPointMeasuresIRA> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
         <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
@@ -644,6 +628,21 @@
         <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#IRA>,
         <http://www.w3.org/2002/07/owl#Thing> .
 
+<http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointMeasuresRatioA> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointMeasures>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RatioA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA>,
+        <http://www.w3.org/2002/07/owl#Thing> .
+
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointMeasuresRatioAIRA> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
         <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
@@ -853,6 +852,16 @@ xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
 
 <http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialDataSet> rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#DType> .
 
+<http://geographicknowledge.de/vocab/CoreConceptData.rdf#CountA> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RatioA>,
+        <http://www.w3.org/2002/07/owl#Thing> .
+
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Coverage> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
         <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
@@ -875,16 +884,6 @@ xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
         <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA>,
-        <http://www.w3.org/2002/07/owl#Thing> .
-
-<http://geographicknowledge.de/vocab/CoreConceptData.rdf#CountA> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
-        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RatioA>,
         <http://www.w3.org/2002/07/owl#Thing> .
 
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointMeasures> a <http://www.w3.org/2002/07/owl#Class> ;

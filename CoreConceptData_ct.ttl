@@ -267,11 +267,6 @@ ccd:PointMeasuresIRA a owl:Class ;
         em:IRA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:PointMeasures em:IRA ) ] .
 
-ccd:PointMeasuresRatioA a owl:Class ;
-    rdfs:subClassOf ccd:PointMeasures,
-        ccd:RatioA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:PointMeasures ccd:RatioA ) ] .
-
 ccd:PointMeasuresRatioAIRA a owl:Class ;
     rdfs:subClassOf ccd:PointMeasures,
         ccd:RatioA,
@@ -510,14 +505,6 @@ ccd:CountA a owl:Class ;
     rdfs:comment "An attribute that denotes counts of discrete entities (compare Chrisman 1998)"@en ;
     rdfs:subClassOf ccd:RatioA .
 
-ccd:Lattice a owl:Class ;
-    rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
-    rdfs:subClassOf ccd:TessellationA ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Tessellation ] ) ] .
-
 ccd:PointMeasures a owl:Class ;
     rdfs:comment "Point measures are point-like representations of fields. For example, point data sets denoting the locations of measured temperature values."@en ;
     rdfs:subClassOf ccd:FieldVector,
@@ -526,6 +513,14 @@ ccd:PointMeasures a owl:Class ;
             owl:intersectionOf ( ccd:FieldQ [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:PointDataSet ] ) ] .
+
+ccd:Lattice a owl:Class ;
+    rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
+    rdfs:subClassOf ccd:TessellationA ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Tessellation ] ) ] .
 
 ccd:Attribute a owl:Class ;
     rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;

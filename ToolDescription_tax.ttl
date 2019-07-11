@@ -183,19 +183,7 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityCount> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
-
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityInterval> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
-
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityNominal> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
-
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityOrdinal> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
-
-<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityRatio> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanCount> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -205,6 +193,9 @@
     rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanRatio> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMedOrdinal> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumCount> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -264,9 +255,9 @@
 <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
