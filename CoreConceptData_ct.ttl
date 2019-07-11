@@ -246,11 +246,6 @@ ccd:ObjectRegion a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:RegionDataSet ] ) ] .
 
-ccd:ObjectVectorRatioA a owl:Class ;
-    rdfs:subClassOf ccd:ObjectVector,
-        ccd:RatioA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:ObjectVector ccd:RatioA ) ] .
-
 ccd:ObjectVectorRatioAERA a owl:Class ;
     rdfs:subClassOf ccd:ObjectVector,
         ccd:RatioA,
@@ -464,6 +459,15 @@ ccd:NominalA a owl:Class ;
     rdfs:comment "A spatial attribute on nominal scale level"@en ;
     rdfs:subClassOf ccd:Attribute .
 
+ccd:ObjectVector a owl:Class ;
+    rdfs:comment "Object vectors are vector representation of a set of objecs and their quality. For example, a point layer denoting points of Interest (POI) or buildings in a city together with their quality, e.g. the building height."@en ;
+    rdfs:subClassOf ccd:Attribute,
+        ccd:VectorA ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Vector ] ) ] .
+
 ccd:OrdinalA a owl:Class ;
     rdfs:comment "A spatial attribute on ordinal scale level"@en ;
     rdfs:subClassOf ccd:NominalA .
@@ -487,15 +491,6 @@ em:ERA a owl:Class ;
 ccd:BooleanA a owl:Class ;
     rdfs:comment "Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes"@en ;
     rdfs:subClassOf ccd:NominalA .
-
-ccd:ObjectVector a owl:Class ;
-    rdfs:comment "Object vectors are vector representation of a set of objecs and their quality. For example, a point layer denoting points of Interest (POI) or buildings in a city together with their quality, e.g. the building height."@en ;
-    rdfs:subClassOf ccd:Attribute,
-        ccd:VectorA ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Vector ] ) ] .
 
 ccd:IntervalA a owl:Class ;
     rdfs:comment "An interval scaled attribute"@en ;

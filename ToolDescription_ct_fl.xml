@@ -1,6 +1,44 @@
 <?xml version="1.0" ?>
 <functions>
   <!--Contains all typed ArcGIS Pro tools for workflow analysis-->
+  <function name="euclidean-distance">
+    <operation>euclidean-distance</operation>
+    <inputs>
+      <input>
+        <type>VectorA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>euclidean-distance</code>
+    </implementation>
+  </function>
+  <function name="cost-path-function">
+    <operation>cost-path-function</operation>
+    <inputs>
+      <input>
+        <type>ValueList</type>
+      </input>
+      <input>
+        <type>ValueList</type>
+      </input>
+      <input>
+        <type>RasterA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>cost-path-function</code>
+    </implementation>
+  </function>
   <function name="extract-values-to-points">
     <operation>extract-values-to-points</operation>
     <inputs>
@@ -20,92 +58,65 @@
       <code>extract-values-to-points</code>
     </implementation>
   </function>
-  <function name="raster-to-polyline">
-    <operation>raster-to-polyline</operation>
+  <function name="using-areal-interpolation-to-predict-to-new-polygons">
+    <operation>using-areal-interpolation-to-predict-to-new-polygons</operation>
     <inputs>
       <input>
-        <type>RasterA</type>
+        <type>ValueList</type>
+      </input>
+      <input>
+        <type>ValueList</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>PointA</type>
-        <type>TessellationA</type>
-        <type>PointA</type>
-        <type>VectorA</type>
-        <type>VectorA</type>
-        <type>VectorA</type>
-        <type>VectorA</type>
-        <type>PointA</type>
-        <type>TessellationA</type>
-        <type>TessellationA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>TessellationA</type>
-        <type>VectorA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>TessellationA</type>
-        <type>RasterA</type>
-        <type>PointA</type>
-        <type>TessellationA</type>
-        <type>RasterA</type>
-        <type>VectorA</type>
-        <type>RasterA</type>
-        <type>PointA</type>
-        <type>RasterA</type>
-        <type>TessellationA</type>
-        <type>Attribute</type>
-        <type>VectorA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>VectorA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>RasterA</type>
-        <type>TessellationA</type>
-        <type>RasterA</type>
-        <type>Attribute</type>
-        <type>RasterA</type>
+        <type>ValueList</type>
       </output>
     </outputs>
     <implementation>
-      <code>raster-to-polyline</code>
+      <code>using-areal-interpolation-to-predict-to-new-polygons</code>
+    </implementation>
+  </function>
+  <function name="create-thiessen-polygons">
+    <operation>create-thiessen-polygons</operation>
+    <inputs>
+      <input>
+        <type>ValueList</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>ValueList</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>create-thiessen-polygons</code>
     </implementation>
   </function>
   <function name="kriging">
     <operation>kriging</operation>
     <inputs>
       <input>
-        <type>PointA</type>
+        <type>ValueList</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>RasterA</type>
+        <type>ValueList</type>
       </output>
     </outputs>
     <implementation>
       <code>kriging</code>
     </implementation>
   </function>
-  <function name="cost-path-function">
-    <operation>cost-path-function</operation>
+  <function name="raster-calculator">
+    <operation>raster-calculator</operation>
     <inputs>
       <input>
-        <type>Attribute</type>
-      </input>
-      <input>
-        <type>Attribute</type>
-      </input>
-      <input>
         <type>RasterA</type>
+      </input>
+      <input>
+        <type>ValueList</type>
       </input>
     </inputs>
     <outputs>
@@ -114,42 +125,39 @@
       </output>
     </outputs>
     <implementation>
-      <code>cost-path-function</code>
+      <code>raster-calculator</code>
     </implementation>
   </function>
-  <function name="euclidean-distance">
-    <operation>euclidean-distance</operation>
+  <function name="feature-to-raster">
+    <operation>feature-to-raster</operation>
     <inputs>
       <input>
-        <type>RasterA</type>
+        <type>PointA</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>RasterA</type>
+        <type>ValueList</type>
       </output>
     </outputs>
     <implementation>
-      <code>euclidean-distance</code>
+      <code>feature-to-raster</code>
     </implementation>
   </function>
-  <function name="spatial-join">
-    <operation>spatial-join</operation>
+  <function name="raster-to-polygon">
+    <operation>raster-to-polygon</operation>
     <inputs>
       <input>
-        <type>VectorA</type>
-      </input>
-      <input>
-        <type>VectorA</type>
+        <type>RasterA</type>
       </input>
     </inputs>
     <outputs>
       <output>
-        <type>TessellationA</type>
+        <type>ValueList</type>
       </output>
     </outputs>
     <implementation>
-      <code>spatial-join</code>
+      <code>raster-to-polygon</code>
     </implementation>
   </function>
   <function name="select-features-using-attributes">
@@ -168,6 +176,100 @@
       <code>select-features-using-attributes</code>
     </implementation>
   </function>
+  <function name="raster-to-polyline">
+    <operation>raster-to-polyline</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>TessellationA</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>RasterA</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>PointA</type>
+        <type>RasterA</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>VectorA</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>ValueList</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>RasterA</type>
+        <type>TessellationA</type>
+        <type>VectorA</type>
+        <type>TessellationA</type>
+        <type>VectorA</type>
+        <type>RasterA</type>
+        <type>PointA</type>
+        <type>ValueList</type>
+        <type>RasterA</type>
+        <type>VectorA</type>
+        <type>PointA</type>
+        <type>RasterA</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>raster-to-polyline</code>
+    </implementation>
+  </function>
+  <function name="reclassify">
+    <operation>reclassify</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>ValueList</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>reclassify</code>
+    </implementation>
+  </function>
+  <function name="zonal-statistics">
+    <operation>zonal-statistics</operation>
+    <inputs>
+      <input>
+        <type>RasterA</type>
+      </input>
+      <input>
+        <type>ValueList</type>
+      </input>
+    </inputs>
+    <outputs>
+      <output>
+        <type>ValueList</type>
+      </output>
+    </outputs>
+    <implementation>
+      <code>zonal-statistics</code>
+    </implementation>
+  </function>
   <function name="raster-to-point">
     <operation>raster-to-point</operation>
     <inputs>
@@ -177,7 +279,7 @@
     </inputs>
     <outputs>
       <output>
-        <type>PointA</type>
+        <type>ValueList</type>
       </output>
     </outputs>
     <implementation>
@@ -198,25 +300,6 @@
     </outputs>
     <implementation>
       <code>focal-statistics</code>
-    </implementation>
-  </function>
-  <function name="raster-calculator">
-    <operation>raster-calculator</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>raster-calculator</code>
     </implementation>
   </function>
   <function name="polygon-to-raster">
@@ -251,14 +334,14 @@
       <code>focal-statistics-function</code>
     </implementation>
   </function>
-  <function name="using-areal-interpolation-to-predict-to-new-polygons">
-    <operation>using-areal-interpolation-to-predict-to-new-polygons</operation>
+  <function name="spatial-join">
+    <operation>spatial-join</operation>
     <inputs>
       <input>
-        <type>TessellationA</type>
+        <type>ValueList</type>
       </input>
       <input>
-        <type>VectorA</type>
+        <type>ValueList</type>
       </input>
     </inputs>
     <outputs>
@@ -267,71 +350,7 @@
       </output>
     </outputs>
     <implementation>
-      <code>using-areal-interpolation-to-predict-to-new-polygons</code>
-    </implementation>
-  </function>
-  <function name="create-thiessen-polygons">
-    <operation>create-thiessen-polygons</operation>
-    <inputs>
-      <input>
-        <type>PointA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>TessellationA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>create-thiessen-polygons</code>
-    </implementation>
-  </function>
-  <function name="feature-to-raster">
-    <operation>feature-to-raster</operation>
-    <inputs>
-      <input>
-        <type>VectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>feature-to-raster</code>
-    </implementation>
-  </function>
-  <function name="reclassify">
-    <operation>reclassify</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>RasterA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>reclassify</code>
-    </implementation>
-  </function>
-  <function name="raster-to-polygon">
-    <operation>raster-to-polygon</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>TessellationA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>raster-to-polygon</code>
+      <code>spatial-join</code>
     </implementation>
   </function>
   <function name="merge-features-into-one-feature">
@@ -348,25 +367,6 @@
     </outputs>
     <implementation>
       <code>merge-features-into-one-feature</code>
-    </implementation>
-  </function>
-  <function name="zonal-statistics">
-    <operation>zonal-statistics</operation>
-    <inputs>
-      <input>
-        <type>RasterA</type>
-      </input>
-      <input>
-        <type>VectorA</type>
-      </input>
-    </inputs>
-    <outputs>
-      <output>
-        <type>TessellationA</type>
-      </output>
-    </outputs>
-    <implementation>
-      <code>zonal-statistics</code>
     </implementation>
   </function>
 </functions>

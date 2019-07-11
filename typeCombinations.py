@@ -151,9 +151,10 @@ def combineTypes(rdffile, ontology, singletype = True): #singltype: should the r
     newrdffile =os.path.splitext(rdffile)[0]+'_ct'+os.path.splitext(rdffile)[1]
 
     base = [s for s in ontdata.subjects(RDF.type, OWL.Ontology)][0]
-    subjects = set(rdfdata.subjects(RDF.type, None))
-    for s in subjects: #Iterate over typed nodes in the RDF file
-        types = [otype for otype in rdfdata.objects(s, RDF.type)] #Get all classes of this node
+    subjects =  list(set(rdfdata.subjects(RDF.type, None)))
+    ttypes = [[otype for otype in rdfdata.objects(s, RDF.type)] for s in subjects] #Get all classes of this node
+    for idx,s in enumerate(subjects): #Iterate over typed nodes in the RDF file
+        types = ttypes[idx]
         #print types
         cleanedtypes = cleanTypes(types,ontdata)
         #print cleanedtypes

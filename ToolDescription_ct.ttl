@@ -188,7 +188,7 @@ tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the in
     wf:output [ a ccd:OrdinalAPointMeasures ] .
 
 tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
-    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
+    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
     wf:input2 [ a ccd:PointMeasures ] ;
     wf:output [ a ccd:PointMeasuresRatioAIRA ] .
 
@@ -198,19 +198,19 @@ tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell 
 
 tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:CountAFieldRaster ] ;
-    wf:output [ a ccd:FieldRasterRatioAERA ] .
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:FieldRasterIntervalA ] ;
     wf:output [ a ccd:FieldRasterIntervalA ] .
 
 tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:FieldRasterRatioA ] ;
-    wf:output [ a ccd:FieldRasterRatioAERA ] .
+    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:FocalStatisticsObjectVector rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:ObjectVector ] ;
-    wf:output [ a ccd:FieldRasterRatioA ] .
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it" ;
     wf:input1 [ a ccd:CountAFieldRasterERA ] ;
@@ -254,9 +254,9 @@ tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a Local 
     wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother" ;
-    wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
-    wf:input2 [ a ccd:FieldRasterRatioAERA ] ;
-    wf:output [ a ccd:FieldRasterRatioAERA ] .
+    wf:input1 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:input2 [ a ccd:FieldRasterRatioAIRA ] ;
+    wf:output [ a ccd:FieldRasterRatioAIRA ] .
 
 tools:MergeTessellationExistenceVectorToObjectVector rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon." ;
     wf:input1 [ a ccd:ExistenceVector ] ;
@@ -324,7 +324,7 @@ tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one fe
 tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:CountAObjectVector ] ;
     wf:input2 [ a ccd:TessellationA ] ;
-    wf:output [ a ccd:LatticeRatioAERA ] .
+    wf:output [ a ccd:LatticeRatioA ] .
 
 tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:IntervalAObjectVector ] ;
@@ -332,7 +332,7 @@ tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval me
     wf:output [ a ccd:IntervalALattice ] .
 
 tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:ObjectVectorRatioA ] ;
+    wf:input1 [ a ccd:ObjectVectorRatioAERA ] ;
     wf:input2 [ a ccd:TessellationAVectorA ] ;
     wf:output [ a ccd:LatticeRatioA ] .
 
@@ -383,7 +383,7 @@ tools:ZonalStatisticsMajorityNominal rdfs:label "Calculates the most common valu
 tools:ZonalStatisticsMeanCount rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:CountAFieldRaster ] ;
     wf:input2 [ a ccd:TessellationAVectorA ] ;
-    wf:output [ a ccd:LatticeRatioAERA ] .
+    wf:output [ a ccd:LatticeRatioA ] .
 
 tools:ZonalStatisticsMeanInterval rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterIntervalA ] ;
@@ -393,7 +393,7 @@ tools:ZonalStatisticsMeanInterval rdfs:label "Calculates the average value for v
 tools:ZonalStatisticsMeanRatio rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterRatioAERA ] ;
     wf:input2 [ a ccd:TessellationAVectorA ] ;
-    wf:output [ a ccd:LatticeRatioAERA ] .
+    wf:output [ a ccd:LatticeRatioA ] .
 
 tools:ZonalStatisticsMedOrdinal rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:FieldRasterOrdinalA ] ;
