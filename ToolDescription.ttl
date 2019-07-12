@@ -401,24 +401,24 @@ tools:ZonalStatisticsMedOrdinal wf:output [a ccd:Lattice; a ccd:OrdinalA].
 ###### Zonal statistics with mean rule
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanInterval.
-tools:ZonalStatisticsMeanInterval  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanIntervalIRA.
+tools:ZonalStatisticsMeanIntervalIRA  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
-tools:ZonalStatisticsMeanInterval wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA; a exm:IRA]. #IRA This was added because of the APE leaf problem. !!!
+tools:ZonalStatisticsMeanIntervalIRA wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA; a exm:IRA]. #IRA This was added because of the APE leaf problem. !!!
 
-tools:ZonalStatisticsMeanInterval wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
+tools:ZonalStatisticsMeanIntervalIRA wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
 
-tools:ZonalStatisticsMeanInterval wf:output [ a ccd:Lattice; a ccd:IntervalA].
+tools:ZonalStatisticsMeanIntervalIRA wf:output [ a ccd:Lattice; a ccd:IntervalA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatio.
-tools:ZonalStatisticsMeanRatio  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatioIRA.
+tools:ZonalStatisticsMeanRatioIRA  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
-tools:ZonalStatisticsMeanRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA; a exm:IRA].
+tools:ZonalStatisticsMeanRatioIRA wf:input1 [ a ccd:FieldRaster; a ccd:RatioA; a exm:IRA].
 
-tools:ZonalStatisticsMeanRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
+tools:ZonalStatisticsMeanRatioIRA wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
 
-tools:ZonalStatisticsMeanRatio wf:output [ a ccd:Lattice; a ccd:RatioA].
+tools:ZonalStatisticsMeanRatioIRA wf:output [ a ccd:Lattice; a ccd:RatioA].
 
 <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanInterval.
 tools:ZonalStatisticsMeanInterval  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 

@@ -45,8 +45,8 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> wf:input1 [ a ada:ValueList ] ;
-    wf:input2 [ a ada:ValueList ] ;
+<https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> wf:input1 [ a ada:Attribute ] ;
+    wf:input2 [ a ada:Attribute ] ;
     wf:input3 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
@@ -68,7 +68,7 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:RegionA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:LineA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> wf:input1 [ a ccd:TessellationA ] ;
@@ -82,7 +82,7 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> wf:input1 [ a ccd:RasterA ] .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> wf:input1 [ a ccd:RasterA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> wf:input1 [ a ccd:VectorA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> wf:input1 [ a ccd:RasterA ] ;

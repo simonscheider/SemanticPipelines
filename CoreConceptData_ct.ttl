@@ -126,11 +126,6 @@ ccd:ExtLattice a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ccd:Lattice em:ERA ) ] .
 
-ccd:FieldRasterERA a owl:Class ;
-    rdfs:subClassOf ccd:FieldRaster,
-        em:ERA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:FieldRaster em:ERA ) ] .
-
 ccd:FieldRasterIRA a owl:Class ;
     rdfs:subClassOf ccd:FieldRaster,
         em:IRA ;
@@ -490,6 +485,10 @@ ccd:Coverage a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Tessellation ] ) ] .
 
+em:ERA a owl:Class ;
+    rdfs:comment "Extensive region attribute"@en ;
+    rdfs:subClassOf ccd:IntervalA .
+
 ccd:BooleanA a owl:Class ;
     rdfs:comment "Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes"@en ;
     rdfs:subClassOf ccd:NominalA .
@@ -506,10 +505,6 @@ ccd:ObjectVector a owl:Class ;
 ccd:IntervalA a owl:Class ;
     rdfs:comment "An interval scaled attribute"@en ;
     rdfs:subClassOf ccd:OrdinalA .
-
-em:ERA a owl:Class ;
-    rdfs:comment "Extensive region attribute"@en ;
-    rdfs:subClassOf ccd:IntervalA .
 
 ccd:CountA a owl:Class ;
     rdfs:comment "An attribute that denotes counts of discrete entities (compare Chrisman 1998)"@en ;
