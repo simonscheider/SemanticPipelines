@@ -87,9 +87,13 @@ def checkClassInter(ontology, types): #Checks whether an intersection of the giv
     var = 'b'
     filters = ''
     typelist = '('+' , '.join(["<"+str(t)+">" for t in types])+')'
-    for t in types:
+    for idx,t in enumerate(types):
         t = str(t)
-        q0 +=""" ?%s rdf:first ?%s; rdf:rest ?%s .""" % (var, t.split('#')[1], var+'r')
+        if idx+1 == len(types):
+            rest = "rdf:nil"
+        else:
+            rest = '?'+var+'r'
+        q0 +=""" ?%s rdf:first ?%s; rdf:rest %s .""" % (var, t.split('#')[1], rest)
         filters += """ FILTER (?%s IN """ % (t.split('#')[1]) + typelist+""") """
         var =var+'r'
     q = q0 + filters + "}"
@@ -107,7 +111,7 @@ def intersectTypes(types, base, cg):
     newclass = URIRef(str(base)+"#"+"".join([str(t).split("#")[-1] for t in types]))
     check = checkClassInter(cg, types)
     if check == None : #only update if class does not exist yet
-        print 'New type: '+str(newclass)
+        #print 'New type: '+str(newclass)
         cg.add((newclass, RDF.type, OWL.Class))
         b = BNode()
         cg.add((newclass, OWL.equivalentClass, b))
@@ -125,6 +129,7 @@ def intersectTypes(types, base, cg):
             prevlist =listItem
         return newclass
     else:
+        #print 'Old type: '+str(check)
         return check
 
 
@@ -144,6 +149,7 @@ def setprefixes(g):
 def combineTypes(rdffile, ontology, singletype = True): #singltype: should the resulting nodes in the rdffile have only a single type?
     rdfdata =load_rdf(rdflib.Graph(),rdffile)
     rdfdata = setprefixes(rdfdata)
+    print "Intersecting types (creating new leave classes in the ontology for each new type combination occurring in a tool's input/output annotation)"
 
     ontdata =load_rdf(rdflib.Graph(),ontology)
     ontdata = setprefixes(ontdata)
