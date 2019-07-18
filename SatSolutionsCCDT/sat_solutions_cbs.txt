@@ -1,0 +1,4 @@
+LatticeIRA(T0.0) TessellationAVectorA(T0.1) ArealInterpolationAverage(M1) LatticeIRA(T1.0) 
+LatticeIRA(T0.0) TessellationAVectorA(T0.1) ArealInterpolationAverage(M1) LatticeIRA(T1.0) ArealInterpolationAverage(M2) LatticeIRA(T2.0) 
+LatticeIRA(T0.0) TessellationAVectorA(T0.1) ArealInterpolationAverage(M1) LatticeIRA(T1.0) ArealInterpolationAverage(M2) LatticeIRA(T2.0) ArealInterpolationAverage(M3) LatticeIRA(T3.0) 
+LatticeIRA(T0.0) TessellationAVectorA(T0.1) ArealInterpolationAverage(M1) LatticeIRA(T1.0) ArealInterpolationAverage(M2) LatticeIRA(T2.0) ArealInterpolationAverage(M3) LatticeIRA(T3.0) ArealInterpolationAverage(M4) LatticeIRA(T4.0) 

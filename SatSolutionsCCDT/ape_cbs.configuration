@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<ontology_path value="./GISTaxonomy.rdf"/>
+	<toolsTaxonomyRoot value="Tool"/>
+	<dataTaxonomyRoot value="DType">
+		<typesTaxonomyRoot value="DType"/>
+	</dataTaxonomyRoot>
+	<tool_annotations_path value="./ToolDescription_ct.xml"/>
+	<constraints_path value="./constraints.csv"/>
+	<shared_memory value="true"/>
+	<solutions_path value="./sat_solutions_cbs.txt"/>
+	<solution_min_length value="1"/>
+	<solution_max_length value="4"/>
+	<max_solutions value="50"/>
+	<execution_scripts_folder value="./Implementations"/>
+	<number_of_execution_scripts value="5"/>
+	<inputs>
+		<input>
+			<type>LatticeIRA</type>			
+		</input>
+		<input>
+			<type>TessellationAVectorA</type>
+		</input>
+	</inputs>
+	<outputs>
+		<output>
+			<type>LatticeIRA</type>
+		</output>
+	</outputs>
+	<debug_mode value="true"/>
+</configuration>
