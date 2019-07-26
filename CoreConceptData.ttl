@@ -8,7 +8,7 @@
 
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf> rdf:type owl:Ontology ;
                                                            owl:imports <http://geographicknowledge.de/vocab/AnalysisData.rdf> ;
-                                                           rdfs:comment "This ontology pattern describes geodata types representing spatial core concepts (Kuhn 2012) we well as further semantic distinctions relevant for geocomputation and analysis."@en ;
+                                                           rdfs:comment "This ontology pattern describes geodata types representing core concepts of spatial information (Kuhn 2012) we well as further semantic attribute distinctions relevant for geocomputation and geo-analysis."@en ;
                                                            rdfs:seeAlso <http://spatial.ucsb.edu/core-concepts-of-spatial-information/> .
 
 #################################################################

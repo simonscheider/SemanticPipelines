@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-16"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>
+	<!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+	<!ENTITY xml 'http://www.w3.org/XML/1998/namespace'>
+]>
+<rdf:RDF xml:base="http://geographicknowledge.de/vocab/CoreConceptData.rdf" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="http://geographicknowledge.de/vocab/CoreConceptData.rdf#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute">
+    <owl:equivalentClass rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+  </rdf:Description>
+  <owl:Ontology rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf">
+    <rdfs:comment xml:lang="en">This ontology pattern describes geodata types representing core concepts of spatial information (Kuhn 2012) we well as further semantic attribute distinctions relevant for geocomputation and geo-analysis.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://spatial.ucsb.edu/core-concepts-of-spatial-information/" />
+    <owl:imports rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf" />
+  </owl:Ontology>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute">
+    <rdfs:comment xml:lang="en">Attributes of a tabular dataset. Each attribute corresponds to a column in the table.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#BooleanA">
+    <rdfs:comment xml:lang="en">Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#BoundedPhen">
+    <rdfs:comment xml:lang="en">This is a spatial attribute which denotes a bounded phenomenon. Can be either a object vector or an existence raster</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:nodeID="autos4" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Contour">
+    <rdfs:comment xml:lang="en">Contour layers are coverages that denote intervals of the reprepresented continuous field. For example, temperature intervals, represented as regions bounded by isolines of a temperature field.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Coverage" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#CountA">
+    <rdfs:comment xml:lang="en">An attribute that denotes counts of discrete entities (compare Chrisman 1998)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RatioA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Coverage">
+    <rdfs:comment xml:lang="en">Coverages are tessellated layers that represent a continuous field. For example, landuse polygons.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#TessellationA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos8" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#EventQ">
+    <rdfs:comment xml:lang="en">This attribute represents a quality of an event (core concept). For example, the duration.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#EventVector">
+    <rdfs:comment xml:lang="en">Events represented in terms of an attribute of a vector data set. For example, the magnitude of earthquakes represented as an attribute of a point data set.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos12" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceRaster">
+    <rdfs:comment xml:lang="en">Existence rasters are rasters representing boolean fields (fields denoting whether something is present at a cell location or not).</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos16" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceVector">
+    <rdfs:comment xml:lang="en">A vector layer attribute that satisfies a boolean expression and thus denotes the 'existence' of some attribute encoded phenomenon across space. Example is a layer of polygons of ''forest'' landuse or a layer of "parks".</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos19" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExtLattice">
+    <rdfs:comment xml:lang="en">This type of lattice has an extensive attribute. For example, a spatial dataset about the population number of municipalities</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos22" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ">
+    <rdfs:comment xml:lang="en">An attribute which represents the quality of a field (core concept). This implies that the spatial data items in this data set are self-similar (their parts have the same attribute)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldRaster">
+    <rdfs:comment xml:lang="en">Field rasters are raster representations of continuous fields. For example, raster layers representing a terrain height (DTM).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RasterA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos25" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector">
+    <rdfs:comment xml:lang="en">A vector representation of a field. Can be a point or line measure, or a coverage</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos29" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA">
+    <rdfs:comment xml:lang="en">An interval scaled attribute</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Lattice">
+    <rdfs:comment xml:lang="en">A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#TessellationA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos33" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Line">
+    <rdfs:comment xml:lang="en">A generalized notion of a line in 2D and 3D</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#Spatial" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineA">
+    <rdfs:comment xml:lang="en">Attribute of some Line data set</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos37" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineData">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos41" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineDataSet">
+    <owl:disjointWith rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointDataSet" />
+    <owl:disjointWith rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos45" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineMeasures">
+    <rdfs:comment xml:lang="en">Linear representations of fields. Examples are isoline maps</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos49" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA">
+    <rdfs:comment xml:lang="en">A spatial attribute on nominal scale level</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectLine">
+    <rdfs:comment xml:lang="en">An attribute of an object line dataset</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineA" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectVector" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos53" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectPoint">
+    <rdfs:comment xml:lang="en">An attribute of an object point dataset</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectVector" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos57" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectQ">
+    <rdfs:comment xml:lang="en">An attribute that represents the quality of an object (core concept)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectRegion">
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectVector" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos61" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectVector">
+    <rdfs:comment xml:lang="en">Object vectors are vector representation of a set of objecs and their quality. For example, a point layer denoting points of Interest (POI) or buildings in a city together with their quality, e.g. the building height.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos65" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#OrdinalA">
+    <rdfs:comment xml:lang="en">A spatial attribute on ordinal scale level</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Point">
+    <rdfs:comment xml:lang="en">A generalized notion of a point in 2D and 3D</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#Spatial" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointA">
+    <rdfs:comment xml:lang="en">Attribute of some point data set</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos69" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointData">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos73" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointDataSet">
+    <owl:disjointWith rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos77" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointMeasures">
+    <rdfs:comment xml:lang="en">Point measures are point-like representations of fields. For example, point data sets denoting the locations of measured temperature values.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector" />
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointA" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos81" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Raster">
+    <rdfs:comment xml:lang="en">A raster data set is a special kind of tessellation, where regions are regular squares.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RasterA">
+    <rdfs:comment xml:lang="en">Attribute of some Raster</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos85" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RatioA">
+    <rdfs:comment xml:lang="en">Spatial attribute on ratio scale level</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Region">
+    <rdfs:comment xml:lang="en">A generalized geometry, including 2D and 3D extended regions. In 2D, this might be a Polygon.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#Spatial" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionA">
+    <rdfs:comment xml:lang="en">Atrribute of some region data sets</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos89" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionData">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos93" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos97" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation">
+    <rdfs:comment xml:lang="en">A region data set where spatial regions are tessellated (jointly covering and mutually non-overlapping) within a spatial extent</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#TessellationA">
+    <rdfs:comment xml:lang="en">An attribute of a tesselation data set</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos101" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Track">
+    <rdfs:comment xml:lang="en">A type for a spatial track. A spatial track is a vector representation of "fix" events of some moving object. For example, a GPS track of points of a person moving.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#EventVector" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector">
+    <rdfs:comment xml:lang="en">Vector data sets are spatial data sets that are not raster</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos105" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA">
+    <rdfs:comment xml:lang="en">Attribute of some vector data set</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos109" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorTessellation">
+    <rdfs:comment xml:lang="en">This is a vector data set which is tessellated (and no raster)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation" />
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:nodeID="autos113" />
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#ERA">
+    <rdfs:comment xml:lang="en">Extensive region attribute</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA" />
+  </owl:Class>
+  <owl:Class rdf:about="http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#IRA">
+    <rdfs:comment xml:lang="en">Intensive region attribute</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#IntervalA" />
+  </owl:Class>
+  <rdf:Description rdf:nodeID="autos101">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdf:rest rdf:nodeID="autos102" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos102">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos105">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialDataSet" />
+    <rdf:rest rdf:nodeID="autos106" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos106">
+    <rdf:first>
+      <owl:Class>
+        <owl:complementOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Raster" />
+      </owl:Class>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos109">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdf:rest rdf:nodeID="autos110" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos110">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos113">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation" />
+    <rdf:rest rdf:nodeID="autos114" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos114">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos12">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#EventQ" />
+    <rdf:rest rdf:nodeID="autos13" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos13">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos16">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#BooleanA" />
+    <rdf:rest rdf:nodeID="autos17" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos17">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldRaster" />
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos19">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#BooleanA" />
+    <rdf:rest rdf:nodeID="autos20" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos20">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldVector" />
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos22">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Lattice" />
+    <rdf:rest rdf:nodeID="autos23" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos23">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#ERA" />
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos25">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ" />
+    <rdf:rest rdf:nodeID="autos26" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos26">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Raster" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos29">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ" />
+    <rdf:rest rdf:nodeID="autos30" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos30">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos33">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectQ" />
+    <rdf:rest rdf:nodeID="autos34" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos34">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos37">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdf:rest rdf:nodeID="autos38" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos38">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos4">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceRaster" />
+    <rdf:rest rdf:nodeID="autos5" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos41">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialData" />
+    <rdf:rest rdf:nodeID="autos42" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos42">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/GISConcepts.rdf#hasAttribute" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Line" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos45">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+    <rdf:rest rdf:nodeID="autos46" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos46">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#hasElement" />
+        <owl:allValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineData" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos49">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ" />
+    <rdf:rest rdf:nodeID="autos50" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos5">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceVector" />
+    <rdf:rest rdf:nodeID="autos6" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos50">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos53">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectQ" />
+    <rdf:rest rdf:nodeID="autos54" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos54">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos57">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectQ" />
+    <rdf:rest rdf:nodeID="autos58" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos58">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos6">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectVector" />
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos61">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectQ" />
+    <rdf:rest rdf:nodeID="autos62" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos62">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos65">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ObjectQ" />
+    <rdf:rest rdf:nodeID="autos66" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos66">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos69">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdf:rest rdf:nodeID="autos70" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos70">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos73">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialData" />
+    <rdf:rest rdf:nodeID="autos74" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos74">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/GISConcepts.rdf#hasAttribute" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Point" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos77">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector" />
+    <rdf:rest rdf:nodeID="autos78" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos78">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#hasElement" />
+        <owl:allValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointData" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos8">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ" />
+    <rdf:rest rdf:nodeID="autos9" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos81">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#FieldQ" />
+    <rdf:rest rdf:nodeID="autos82" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos82">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#PointDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos85">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdf:rest rdf:nodeID="autos86" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos86">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Raster" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos89">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute" />
+    <rdf:rest rdf:nodeID="autos90" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos9">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos90">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#ofDataSet" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos93">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialData" />
+    <rdf:rest rdf:nodeID="autos94" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos94">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/GISConcepts.rdf#hasAttribute" />
+        <owl:someValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Region" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos97">
+    <rdf:first rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialDataSet" />
+    <rdf:rest rdf:nodeID="autos98" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="autos98">
+    <rdf:first>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://geographicknowledge.de/vocab/AnalysisData.rdf#hasElement" />
+        <owl:allValuesFrom rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionData" />
+      </owl:Restriction>
+    </rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil" />
+  </rdf:Description>
+</rdf:RDF>
