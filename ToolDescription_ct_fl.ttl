@@ -68,7 +68,7 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:RegionA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:LineA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> wf:input1 [ a ccd:TessellationA ] ;
@@ -78,7 +78,7 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
     wf:output [ a ccd:PointA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ada:ValueList ] .
+    wf:output [ a ccd:TessellationA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:LineA ] .
