@@ -102,9 +102,7 @@ def getToollistasDict(toolsinrdf= 'ToolDescription.ttl'):
                 inputs += [{"DType": x} for x in getinoutypes(trdf, p, t)]
         
         outtypes = getinoutypes(trdf, WF.output, t)
-        if len(outtypes)== 1:
-            outtypes = outtypes[0]
-        outputs = {"DType": outtypes}
+        outputs = [{"DType": outtypes}]
         
         name = shortURInames(t)
         toolobj ={'name': name}
