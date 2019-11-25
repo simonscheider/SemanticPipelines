@@ -18,7 +18,7 @@ import glob
 from rdflib.namespace import RDFS, RDF, OWL
 from rdflib import URIRef, BNode, Literal
 from rdflib import Namespace
-from urlparse import urlparse
+from urllib.parse import urlparse
 import os
 
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
@@ -65,14 +65,14 @@ def write_rdf(g, rdffile, format='turtle' ):
 def n_triples( g, n=None ):
     """ Prints the number of triples in graph g """
     if n is None:
-        print( '  Triples: '+str(len(g)) )
+        print(( '  Triples: '+str(len(g)) ))
     else:
-        print( '  Triples: +'+str(len(g)-n) )
+        print(( '  Triples: +'+str(len(g)-n) ))
     return len(g)
 
 def printGraph(graph):
     for s, p, o in graph:
-        print s, p,  o
+        print(s, p,  o)
 
 def file_to_str(fn):
     """
@@ -130,7 +130,7 @@ def getToollistasXML(toolsinrdf= 'ToolDescription.ttl'):
     trdf =setprefixes(trdf)
     tools = [tool for tool in trdf.objects(None, TOOLS.implements)]
     for t in tools:
-        print t
+        print(t)
         toolobj ={'operationname':shortURInames(t)}
         inputs = []
         for p in [WF.input1, WF.input2, WF.input3]:
@@ -143,7 +143,7 @@ def getToollistasXML(toolsinrdf= 'ToolDescription.ttl'):
         toolobj['inputs']= inputs
         toolobj['outputs']= outputs
         toollist.append(toolobj)
-        print toolobj
+        print(toolobj)
     return prettify(tools2XML(toollist))
 
 
@@ -156,7 +156,7 @@ def main(toolsinrdf= 'ToolDescription_ct.ttl'):
     #print prettify(top)
     xml= getToollistasXML(toolsinrdf)
     outpath = os.path.splitext(toolsinrdf)[0]+".xml"
-    print outpath
+    print(outpath)
     outfile = open(outpath, "w")
     outfile.write(xml)
     #print shortURInames("http://geographicknowledge.de/vocab/Workflow.rdf#hallo")

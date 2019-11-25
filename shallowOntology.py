@@ -13,11 +13,10 @@
 import rdflib
 import rdflib.plugins.sparql as sparql
 import glob
-import RDFClosure
 from rdflib.namespace import RDFS, RDF, OWL
 from rdflib import URIRef, BNode, Literal
 from rdflib import Namespace
-from urlparse import urlparse
+from urllib.parse import urlparse
 import os
 import operator
 
@@ -52,9 +51,9 @@ def load_rdf( g, rdffile, format='turtle' ):
 def n_triples( g, n=None ):
     """ Prints the number of triples in graph g """
     if n is None:
-        print( '  Triples: '+str(len(g)) )
+        print(( '  Triples: '+str(len(g)) ))
     else:
-        print( '  Triples: +'+str(len(g)-n) )
+        print(( '  Triples: +'+str(len(g)-n) ))
     return len(g)
 
 def write_rdf(g, rdffile, format='turtle' ):
@@ -78,7 +77,7 @@ def recRemoveDef(cl, ontology):
 def recRemoveL(cl, ontology):
     sub = ontology.subjects(RDFS.subClassOf, cl)
     for s in sub:
-        print s
+        print(s)
         recRemoveDef(s,ontology)
         recRemoveL(s, ontology)
         ontology.remove((s, None, None))
@@ -93,7 +92,7 @@ def flattenOntology(ontologyfile, classlist ):
     classlist = [URIRef(str(base)+"#"+c) for c in classlist]
     newontfile = os.path.splitext(ontologyfile)[0]+'_fl'+os.path.splitext(ontologyfile)[1]
     for c in classlist:
-            print c
+            print(c)
             recRemoveDef(c,ontology)
             recRemoveL(c,ontology)
             ontology.remove((c, None, None))
@@ -185,7 +184,7 @@ def getflattenedLUC(flattenedontology, ontology, cl):
        #print "flat superclasses for: "+str(cl)
        lucs = {key:getDepth(flattenedontology,key,0) for key in superclfl}
        #print lucs
-       return max(lucs.iteritems(), key=operator.itemgetter(1))[0]
+       return max(iter(lucs.items()), key=operator.itemgetter(1))[0]
 
 
 
