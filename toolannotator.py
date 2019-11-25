@@ -25,15 +25,17 @@ from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 from xml.etree import ElementTree
 from xml.dom import minidom
 
+import json
+
 TOOLS=rdflib.Namespace("http://geographicknowledge.de/vocab/GISTools.rdf#")
 WF= rdflib.Namespace("http://geographicknowledge.de/vocab/Workflow.rdf#")
 
-def prettify(elem):
-    """Return a pretty-printed XML string for the Element.
-    """
-    rough_string = ElementTree.tostring(elem, 'utf-8')
-    reparsed = minidom.parseString(rough_string)
-    return reparsed.toprettyxml(indent="  ")
+# def prettify(elem):
+#     """Return a pretty-printed XML string for the Element.
+#     """
+#     rough_string = ElementTree.tostring(elem, 'utf-8')
+#     reparsed = minidom.parseString(rough_string)
+#     return reparsed.toprettyxml(indent="  ")
 
 
 def setprefixes(g):
@@ -59,8 +61,6 @@ def load_rdf( g, rdffile, format='turtle' ):
     n_triples(g)
     return g
 
-def write_rdf(g, rdffile, format='turtle' ):
-    g.serialize(destination=rdffile,format = format)
 
 def n_triples( g, n=None ):
     """ Prints the number of triples in graph g """
@@ -69,46 +69,6 @@ def n_triples( g, n=None ):
     else:
         print(( '  Triples: +'+str(len(g)-n) ))
     return len(g)
-
-def printGraph(graph):
-    for s, p, o in graph:
-        print(s, p,  o)
-
-def file_to_str(fn):
-    """
-    Loads the content of a text file into a string
-    @return a string
-    """
-    with open(fn, 'r') as f:
-        content=f.read()
-    return content
-
-
-def tools2XML(toollist=[{'operationname': 'spatialJoinSumTessRatio', 'inputs':[['ObjectVector','RatioA', 'ERA'], ['ObjectRegion']], 'outputs':[['Lattice', 'RatioA', 'ERA']]}]):
-    top = Element("functions")
-    comment = Comment('Contains all typed ArcGIS Pro tools for workflow analysis')
-    top.append(comment)
-    for t in toollist:
-        function = SubElement(top, 'function')
-        function.set('name',t['operationname']) #operationname
-        operation = SubElement(function, 'operation')
-        operation.text =t['operationname']
-        inputs = SubElement(function, 'inputs')
-        for i in t['inputs']:
-            input = SubElement(inputs, 'input')
-            for it in i:
-                inputtype =SubElement(input, 'type')
-                inputtype.text =it
-        outputs = SubElement(function, 'outputs')
-        for o in t['outputs']:
-            output = SubElement(outputs, 'output')
-            for ot in o:
-                outputtype =SubElement(output, 'type')
-                outputtype.text =ot
-        implementation = SubElement(function, 'implementation')
-        code = SubElement(implementation, 'code')
-        code.text = t['operationname']
-    return top
 
 
 def shortURInames(URI):
@@ -119,47 +79,51 @@ def shortURInames(URI):
 
 
 def getinoutypes(g, predicate, subject):
-        output = g.value(predicate = predicate, subject = subject, any = False)
-        outputtypes = [outputtype for outputtype in g.objects(output, RDF.type)]
-        return [shortURInames(t) for t in outputtypes]
+    """Returns a list of names of types that """
+    output = g.value(predicate = predicate, subject = subject, any = False)
+    if not output:
+        raise Exception(f'Could not find object with subject {subject} and predicate {predicate}!')
+    outputtypes = [outputtype for outputtype in g.objects(output, RDF.type)]
+
+    return [shortURInames(t) for t in outputtypes]
 
 
-def getToollistasXML(toolsinrdf= 'ToolDescription.ttl'):
-    toollist= []
-    trdf = load_rdf(rdflib.Graph(),toolsinrdf)
-    trdf =setprefixes(trdf)
+def getToollistasDict(toolsinrdf= 'ToolDescription.ttl'):
+    """Read the tool annotations from the TTL file, and return a string
+    representation in XML format that APE understands."""
+    toollist= {'functions': []}
+    trdf = load_rdf(rdflib.Graph(), toolsinrdf)
+    trdf = setprefixes(trdf)
     tools = [tool for tool in trdf.objects(None, TOOLS.implements)]
     for t in tools:
-        print(t)
-        toolobj ={'operationname':shortURInames(t)}
         inputs = []
         for p in [WF.input1, WF.input2, WF.input3]:
-            if trdf.value(subject = t, predicate = p,default=None) != None:
-                inputs.append(getinoutypes(trdf, p,t))
-        outputs = []
-        outputs.append(getinoutypes(trdf, WF.output,t)) #trdf.value(predicate = WF.output, subject = t, any = False)
-        #print inputs
-        #print outputs
+            if trdf.value(subject=t, predicate=p, default=None) != None:
+                inputs += [{"DType": x} for x in getinoutypes(trdf, p, t)]
+        
+        outtypes = getinoutypes(trdf, WF.output, t)
+        if len(outtypes)== 1:
+            outtypes = outtypes[0]
+        outputs = {"DType": outtypes}
+        
+        name = shortURInames(t)
+        toolobj ={'name': name}
         toolobj['inputs']= inputs
         toolobj['outputs']= outputs
-        toollist.append(toolobj)
+        toolobj['operation'] = name
+        toollist['functions'].append(toolobj)
         print(toolobj)
-    return prettify(tools2XML(toollist))
-
-
-
-
+    return toollist
 
 
 def main(toolsinrdf= 'ToolDescription_ct.ttl'):
-    #top = tools2XML()
-    #print prettify(top)
-    xml= getToollistasXML(toolsinrdf)
-    outpath = os.path.splitext(toolsinrdf)[0]+".xml"
-    print(outpath)
-    outfile = open(outpath, "w")
-    outfile.write(xml)
-    #print shortURInames("http://geographicknowledge.de/vocab/Workflow.rdf#hallo")
+    """Read tool annotations from TTL file, convert it to a JSON format that
+    APE understands, and write it to a file."""
+
+    dict_form = getToollistasDict(toolsinrdf)
+    outpath = os.path.splitext(toolsinrdf)[0]+".json"
+    with open(outpath, 'w') as f:
+        json.dump(dict_form, f, sort_keys=True, indent=2)
 
 
 if __name__ == '__main__':
