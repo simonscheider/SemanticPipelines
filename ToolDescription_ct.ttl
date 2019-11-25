@@ -138,7 +138,7 @@ tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the E
 
 tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
     wf:input1 [ a ccd:BooleanAExistenceRaster ] ;
-    wf:ouput [ a ccd:BooleanAObjectLine ] .
+    wf:output [ a ccd:BooleanAObjectLine ] .
 
 tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points." ;
     wf:input1 [ a ccd:BooleanAExistenceRaster ] ;

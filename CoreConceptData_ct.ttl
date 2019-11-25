@@ -12,7 +12,7 @@
 ada:Attribute owl:equivalentClass ccd:Attribute .
 
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf> a owl:Ontology ;
-    rdfs:comment "This ontology pattern describes geodata types representing spatial core concepts (Kuhn 2012) we well as further semantic distinctions relevant for geocomputation and analysis."@en ;
+    rdfs:comment "This ontology pattern describes geodata types representing core concepts of spatial information (Kuhn 2012) we well as further semantic attribute distinctions relevant for geocomputation and geo-analysis."@en ;
     rdfs:seeAlso <http://spatial.ucsb.edu/core-concepts-of-spatial-information/> ;
     owl:imports <http://geographicknowledge.de/vocab/AnalysisData.rdf> .
 
