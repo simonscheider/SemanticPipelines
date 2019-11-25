@@ -218,7 +218,7 @@ tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset w
 
 tools:ExistenceRasterToObjectLineBoolean wf:input1 [ a ccd:ExistenceRaster; a ccd:BooleanA].
 
-tools:ExistenceRasterToObjectLineBoolean wf:ouput [ a ccd:ObjectLine; a ccd:BooleanA].
+tools:ExistenceRasterToObjectLineBoolean wf:output [ a ccd:ObjectLine; a ccd:BooleanA].
 
 
 
