@@ -1,44 +1,41 @@
 @prefix gis: <http://geographicknowledge.de/vocab/GISConcepts.rdf#>.
-@prefix  wf: <http://geographicknowledge.de/vocab/Workflow.rdf#>.
+@prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix xml: <http://www.w3.org/XML/1998/namespace>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix tools: <http://geographicknowledge.de/vocab/GISTools.rdf#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix sioc: <http://rdfs.org/sioc/ns#> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
-@prefix dbp: <http://dbpedia.org/resource/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix exm: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
-
-#This is our data types ontology 
+@prefix tools: <http://geographicknowledge.de/vocab/GISTools.rdf#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix sioc: <http://rdfs.org/sioc/ns#>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbp: <http://dbpedia.org/resource/>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix exm: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#>.
 @prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#>.
  
 
-###Simons tools
-<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements
-tools:ArealInterpolationAverage,tools:ArealInterpolationRate. 
-tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of a measured attribute".
+# Simon's tools
+<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage.
+tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of a measured attribute";
+    wf:input1 [ a ccd:Lattice, ccd:IntervalA, exm:IRA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:IntervalA, exm:IRA ].
 
-tools:ArealInterpolationAverage wf:input1 [a ccd:Lattice; a ccd:IntervalA; a exm:IRA]; wf:input2 [a ccd:VectorA, ccd:TessellationA] ;
-wf:output [a ccd:Lattice; a ccd:IntervalA; a exm:IRA].
-
-tools:ArealInterpolationRate wf:input1 [a ccd:Lattice; a ccd:CountA; a exm:ERA]; wf:input2 [a ccd:VectorA, ccd:TessellationA] ;
-wf:output [a ccd:Lattice; a ccd:CountA; a exm:ERA].
+<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationRate.
+tools:ArealInterpolationRate rdfs:label "";
+    wf:input1 [ a ccd:Lattice, ccd:CountA, exm:ERA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:CountA, exm:ERA ].
 
 ######### Spatial join with sum rule 
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
-tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation".
-
-tools:SpatialJoinSumTessRatio wf:input1 [ a ccd:ObjectVector; a ccd:RatioA; a exm:ERA].
-
-tools:SpatialJoinSumTessRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:SpatialJoinSumTessRatio wf:output [ a ccd:Lattice; a ccd:RatioA; a exm:ERA].
+tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation";
+    wf:input1 [ a ccd:ObjectVector, ccd:RatioA, exm:ERA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:RatioA, exm:ERA ].
 
 
 <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
@@ -232,15 +229,6 @@ tools:FocalStatisticsExistenceRaster wf:input1 [ a ccd:ExistenceRaster].
 tools:FocalStatisticsExistenceRaster wf:output [ a ccd:FieldRaster; a ccd:RatioA].
 
 
-#### ObjectVector density to field raster
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsObjectVector.
-tools:FocalStatisticsObjectVector rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood.".
-
-tools:FocalStatisticsObjectVector wf:input1 [ a ccd:ObjectVector].
-
-
-tools:FocalStatisticsObjectVector wf:output [ a ccd:FieldRaster; a ccd:RatioA].
-
 #### FocaldensityMean fieldraster to fieldraster with the mean operator
 <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanInterval.
 tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it".
@@ -295,8 +283,14 @@ tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the va
 
 tools:FocalStatisticsVarietyInterval wf:input1 [ a ccd:FieldRaster].
 
-
 tools:FocalStatisticsVarietyInterval wf:output [ a ccd:FieldRaster; a ccd:CountA]. 
+
+
+#### ObjectVector density to field raster
+<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements tools:KernelDensity.
+tools:KernelDensity rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood.".
+tools:KernelDensity wf:input1 [ a ccd:ObjectVector].
+tools:KernelDensity wf:output [ a ccd:FieldRaster; a ccd:RatioA].
 
 ##### Euclidean Distance
 
