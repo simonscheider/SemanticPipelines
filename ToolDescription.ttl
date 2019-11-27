@@ -1,144 +1,97 @@
-@prefix gis: <http://geographicknowledge.de/vocab/GISConcepts.rdf#>.
 @prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix xml: <http://www.w3.org/XML/1998/namespace>.
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix tools: <http://geographicknowledge.de/vocab/GISTools.rdf#>.
-@prefix dct: <http://purl.org/dc/terms/>.
-@prefix sioc: <http://rdfs.org/sioc/ns#>.
-@prefix dbo: <http://dbpedia.org/ontology/>.
-@prefix dbp: <http://dbpedia.org/resource/>.
-@prefix dc: <http://purl.org/dc/elements/1.1/>.
-@prefix dct: <http://purl.org/dc/terms/>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#>.
- 
+
 
 # Simon's tools
 <http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage.
-tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of a measured attribute";
+tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of the mean of a measured attribute";
     wf:input1 [ a ccd:Lattice, ccd:IntervalA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
     wf:output [ a ccd:Lattice, ccd:IntervalA ].
 
 <http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationRate.
-tools:ArealInterpolationRate rdfs:label "";
-    wf:input1 [ a ccd:Lattice, ccd:CountA ];
+tools:ArealInterpolationRate rdfs:label "Makes polygon to polygon predictions of a measured rate attribute";
+    wf:input1 [ a ccd:Lattice, ccd:RatioA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:CountA ].
+    wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 ######### Spatial join with sum rule 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
+# with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio.
 tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:RatioA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
     wf:output [ a ccd:Lattice, ccd:RatioA ].
 
-
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
-
-tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation".
-tools:SpatialJoinSumTessCount wf:input1 [ a ccd:ObjectVector; a ccd:CountA].
-
-tools:SpatialJoinSumTessCount wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:SpatialJoinSumTessCount wf:output [ a ccd:Lattice; a ccd:CountA].
+# with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount.
+tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation";
+    wf:input1 [ a ccd:ObjectVector, ccd:CountA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:CountA ].
 
 #### spatial join with mean rule
+# with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for interval data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessInterval.
+tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation";
+    wf:input1 [ a ccd:ObjectVector, ccd:IntervalA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:IntervalA ].
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessInterval. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for interval data.
-tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation".
+# with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Ratio data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessRatio.
+tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation";
+    wf:input1 [ a ccd:ObjectVector, ccd:RatioA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:RatioA ].
 
-tools:SpatialJoinMeanTessInterval wf:input1 [ a ccd:ObjectVector; a ccd:IntervalA].
-
-
-tools:SpatialJoinMeanTessInterval wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:SpatialJoinMeanTessInterval wf:output [ a ccd:Lattice; a ccd:IntervalA].
-
-
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessRatio. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Ratio data.
-tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation".
-
-tools:SpatialJoinMeanTessRatio wf:input1 [ a ccd:ObjectVector; a ccd:RatioA].
-
-
-tools:SpatialJoinMeanTessRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:SpatialJoinMeanTessRatio wf:output [ a ccd:Lattice; a ccd:RatioA].
-
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessCount. #with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Count data.
-
-tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation".
-tools:SpatialJoinMeanTessCount wf:input1 [ a ccd:ObjectVector; a ccd:CountA].
-
-tools:SpatialJoinMeanTessCount wf:input2 [ a ccd:TessellationA]. #"Target Features"
-
-
-tools:SpatialJoinMeanTessCount wf:output [ a ccd:Lattice; a ccd:RatioA].
-
+# with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Count data.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessCount.
+tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation";
+    wf:input1 [ a ccd:ObjectVector, ccd:CountA ];
+    wf:input2 [ a ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 #### spatial join with the count rule 
-
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess. #with JOIN_ONE_TO_ONE parameter and with Merge_RULe count.
-
-tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation".
-tools:SpatialJoinCountTess wf:input1 [ a ccd:ObjectVector].
-
-tools:SpatialJoinCountTessInterval wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:SpatialJoinCountTess wf:output [ a ccd:Lattice; a ccd:CountA].
+# with JOIN_ONE_TO_ONE parameter and with Merge_RULe count.
+<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess.
+tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation";
+    wf:input1 [ a ccd:ObjectVector ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:CountA ].
 
 ######## Thiessen polygons
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsBoolean.
-tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level".
-
-tools:ThiessenPolygonsBoolean wf:input1 [ a ccd:PointMeasures; a ccd:BooleanA].
-
-tools:ThiessenPolygonsBoolean wf:output [ a ccd:Coverage; a ccd:BooleanA].
-
+tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level";
+    wf:input1 [ a ccd:PointMeasures, ccd:BooleanA ];
+    wf:output [ a ccd:Coverage, ccd:BooleanA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsNominal.
-tools:ThiessenPolygonsNominal rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level".
-
-tools:ThiessenPolygonsNominal wf:input1 [ a ccd:PointMeasures; a ccd:NominalA].
-
-tools:ThiessenPolygonsNominal wf:output [ a ccd:Coverage; a ccd:NominalA].
-
+tools:ThiessenPolygonsNominal rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level";
+    wf:input1 [ a ccd:PointMeasures, ccd:NominalA ];
+    wf:output [ a ccd:Coverage, ccd:NominalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsOrdinal.
-tools:ThiessenPolygonsOrdinal rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level".
-
-tools:ThiessenPolygonsOrdinal wf:input1 [ a ccd:PointMeasures; a ccd:OrdinalA].
-
-tools:ThiessenPolygonsOrdinal wf:output [ a ccd:Coverage; a ccd:OrdinalA].
-
+tools:ThiessenPolygonsOrdinal rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level";
+    wf:input1 [ a ccd:PointMeasures, ccd:OrdinalA ];
+    wf:output [ a ccd:Coverage, ccd:OrdinalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsInterval.
-tools:ThiessenPolygonsInterval rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level".
-
-tools:ThiessenPolygonsInterval wf:input1 [ a ccd:PointMeasures; a ccd:IntervalA].
-
-tools:ThiessenPolygonsInterval wf:output [ a ccd:Coverage; a ccd:IntervalA].
-
+tools:ThiessenPolygonsInterval rdfs:label "Creates Thiessen polygons from point features with a ordinal measurement level";
+    wf:input1 [ a ccd:PointMeasures, ccd:IntervalA ];
+    wf:output [ a ccd:Coverage, ccd:IntervalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsRatio.
-tools:ThiessenPolygonsRatio rdfs:label "Creates Thiessen polygons from point features with a Ratio measurement level".
-
-tools:ThiessenPolygonsRatio wf:input1 [ a ccd:PointMeasures; a ccd:RatioA].
-
-tools:ThiessenPolygonsRatio wf:output [ a ccd:Coverage; a ccd:RatioA].
-
+tools:ThiessenPolygonsRatio rdfs:label "Creates Thiessen polygons from point features with a Ratio measurement level";
+    wf:input1 [ a ccd:PointMeasures, ccd:RatioA ];
+    wf:output [ a ccd:Coverage, ccd:RatioA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsCount.
-tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point features with a Count measurement level".
-
-tools:ThiessenPolygonsCount wf:input1 [ a ccd:PointMeasures;a ccd:CountA].
-
-tools:ThiessenPolygonsCount wf:output [ a ccd:Coverage; a ccd:CountA].
+tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point features with a Count measurement level";
+    wf:input1 [ a ccd:PointMeasures, ccd:CountA ];
+    wf:output [ a ccd:Coverage, ccd:CountA ].
 
 #### point interpolation with krigings algorithm to raster. 
 
