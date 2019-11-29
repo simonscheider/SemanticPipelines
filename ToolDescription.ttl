@@ -5,13 +5,13 @@
 
 
 # Simon's tools
-<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage.
+<https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage.
 tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of the mean of a measured attribute";
     wf:input1 [ a ccd:Lattice, ccd:IntervalA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
     wf:output [ a ccd:Lattice, ccd:IntervalA ].
 
-<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationRate.
+<https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationRate.
 tools:ArealInterpolationRate rdfs:label "Makes polygon to polygon predictions of a measured rate attribute";
     wf:input1 [ a ccd:Lattice, ccd:RatioA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
@@ -19,14 +19,14 @@ tools:ArealInterpolationRate rdfs:label "Makes polygon to polygon predictions of
 
 ######### Spatial join with sum rule 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio.
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio.
 tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:RatioA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
     wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount.
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount.
 tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:CountA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
@@ -34,21 +34,21 @@ tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measureme
 
 #### spatial join with mean rule
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for interval data.
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessInterval.
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessInterval.
 tools:SpatialJoinMeanTessInterval rdfs:label "Sums the attributes at interval measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:IntervalA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
     wf:output [ a ccd:Lattice, ccd:IntervalA ].
 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Ratio data.
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessRatio.
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessRatio.
 tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:RatioA ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
     wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Count data.
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessCount.
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessCount.
 tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:CountA ];
     wf:input2 [ a ccd:TessellationA ];
@@ -56,7 +56,7 @@ tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count meas
 
 #### spatial join with the count rule 
 # with JOIN_ONE_TO_ONE parameter and with Merge_RULe count.
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess.
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess.
 tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector ];
     wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
@@ -94,39 +94,30 @@ tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point fea
     wf:output [ a ccd:Coverage, ccd:CountA ].
 
 #### point interpolation with krigings algorithm to raster. 
+# with the standard 12 points setting, and a spherical search radius.
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingInterval.
+tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm.";
+    wf:input1 [ a ccd:PointMeasures, ccd:IntervalA ];
+    wf:output [ a ccd:FieldRaster, ccd:IntervalA ].
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingInterval.  #with the standard 12 points setting, and a spherical search radius.
-tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm.". 
+# with the standard 12 points setting, and a spherical search radius.
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingRatio.
+tools:KrigingRatio rdfs:label "interpolates a raster surface from points at Ratio measurement level using the kriging algorithm.";
+    wf:input1 [ a ccd:PointMeasures, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
-tools:KrigingInterval wf:input1 [ a ccd:PointMeasures; a ccd:IntervalA].
-
-tools:KrigingInterval wf:output [ a ccd:FieldRaster; a ccd:IntervalA].
-
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingRatio.  #with the standard 12 points setting, and a spherical search radius.
-tools:KrigingRatio rdfs:label "interpolates a raster surface from points at Ratio measurement level using the kriging algorithm.". 
-
-tools:KrigingRatio wf:input1 [ a ccd:PointMeasures; a ccd:RatioA].
-
-tools:KrigingRatio wf:output [ a ccd:FieldRaster; a ccd:RatioA ].
-
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingRatio.  #with the standard 12 points setting, and a spherical search radius.
-tools:KrigingCount rdfs:label "interpolates a raster surface from points at Count measurement level using the kriging algorithm.". 
-
-tools:KrigingCount wf:input1 [ a ccd:PointMeasures; a ccd:CountA].
-
-tools:KrigingCount wf:output [ a ccd:FieldRaster; a ccd:RatioA].
+# with the standard 12 points setting, and a spherical search radius.
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingCount.
+tools:KrigingCount rdfs:label "interpolates a raster surface from points at Count measurement level using the kriging algorithm.";
+    wf:input1 [ a ccd:PointMeasures, ccd:CountA ];
+    wf:output [ a ccd:FieldRaster, ccd:CountA ]. # The output may be a floating point number but it still represents a count of discrete entities.
 
 ### Object vector to existence Raster  ( only kept the Objectvector to booleaan as this method only denotes the existence of polygons, if it also would give a value it would be a field raster) The input can only be booleaan, but every input is already boolean for the purpose of this analysis (it exists or it doesn't) 
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectRegionToExistenceRasterBoolean.
-tools:ObjectRegionToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
-
-
-tools:ObjectRegionToExistenceRasterBoolean wf:input1 [ a ccd:ObjectRegion].
-
-tools:ObjectRegionToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
+tools:ObjectRegionToExistenceRasterBoolean rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
+    wf:input1 [ a ccd:ObjectRegion ];
+    wf:output [ a ccd:ExistenceRaster, ccd:BooleanA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectPointToExistenceRasterBoolean.
 tools:ObjectPointToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
@@ -182,7 +173,7 @@ tools:FocalStatisticsExistenceRaster wf:output [ a ccd:FieldRaster; a ccd:RatioA
 
 
 #### FocaldensityMean fieldraster to fieldraster with the mean operator
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanInterval.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanInterval.
 tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it".
 
 tools:FocalStatisticsMeanInterval wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA].
@@ -190,7 +181,7 @@ tools:FocalStatisticsMeanInterval wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA
 tools:FocalStatisticsMeanInterval wf:output [ a ccd:FieldRaster; a ccd:IntervalA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanRatio.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanRatio.
 tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it".
 
 tools:FocalStatisticsMeanRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
@@ -198,7 +189,7 @@ tools:FocalStatisticsMeanRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
 tools:FocalStatisticsMeanRatio wf:output [ a ccd:FieldRaster; a ccd:RatioA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanCount.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanCount.
 tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it".
 
 tools:FocalStatisticsMeanCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA].
@@ -210,7 +201,7 @@ tools:FocalStatisticsMeanCount wf:output [ a ccd:FieldRaster; a ccd:RatioA].
 ##rewrite
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsSumRatio.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsSumRatio.
 tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell location a Sum of the values with an Ratio measurement level within a specified neighborhood around it".
 
 tools:FocalStatisticsSumRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
@@ -218,7 +209,7 @@ tools:FocalStatisticsSumRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
 tools:FocalStatisticsSumRatio wf:output [ a ccd:FieldRaster; a ccd:RatioA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsSumCount.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsSumCount.
 tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it".
 
 tools:FocalStatisticsSumCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA].
@@ -230,7 +221,7 @@ tools:FocalStatisticsSumCount wf:output [ a ccd:FieldRaster; a ccd:CountA].
 
 #### this one has the name that includes interval but it's not an interval method it always results in a count. 
 ##### Focal density to field raster Variety
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsVarietyInterval.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsVarietyInterval.
 tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it".
 
 tools:FocalStatisticsVarietyInterval wf:input1 [ a ccd:FieldRaster].
@@ -239,7 +230,7 @@ tools:FocalStatisticsVarietyInterval wf:output [ a ccd:FieldRaster; a ccd:CountA
 
 
 #### ObjectVector density to field raster
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements tools:KernelDensity.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements tools:KernelDensity.
 tools:KernelDensity rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood.".
 tools:KernelDensity wf:input1 [ a ccd:ObjectVector].
 tools:KernelDensity wf:output [ a ccd:FieldRaster; a ccd:RatioA].
@@ -265,7 +256,7 @@ tools:EuclideanDistanceExistenceRaster wf:output [ a ccd:FieldRaster; a ccd:Rati
 
 ###### Zonal statistics rules
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityBoolean.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityBoolean.
 tools:ZonalStatisticsMajorityBoolean  rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMajorityBoolean wf:input1 [ a ccd:FieldRaster; a ccd:BooleanA].
@@ -276,7 +267,7 @@ tools:ZonalStatisticsMajorityBoolean wf:input2 [ a ccd:VectorA; a ccd:Tessellati
 tools:ZonalStatisticsMajorityBoolean wf:output [ a ccd:Lattice; a ccd:BooleanA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityNominal.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityNominal.
 tools:ZonalStatisticsMajorityNominal  rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMajorityNominal wf:input1 [ a ccd:FieldRaster; a ccd:NominalA].
@@ -286,7 +277,7 @@ tools:ZonalStatisticsMajorityNominal wf:input2 [ a ccd:VectorA; a ccd:Tessellati
 tools:ZonalStatisticsMajorityNominal wf:output [ a ccd:Lattice; a ccd:NominalA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMedOrdinal.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMedOrdinal.
 tools:ZonalStatisticsMedOrdinal  rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMedOrdinal wf:input1 [ a ccd:FieldRaster; a ccd:OrdinalA].
@@ -296,7 +287,7 @@ tools:ZonalStatisticsMedOrdinal wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
 tools:ZonalStatisticsMedOrdinal wf:output [a ccd:Lattice; a ccd:OrdinalA].
 
 
-#<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityInterval.
+#<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityInterval.
 #tools:ZonalStatisticsMajorityInterval  rdfs:label "Calculates the most common value on values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 #
 #tools:ZonalStatisticsMajorityInterval wf:input1 _:ZonalStatisticsMajorityInterval1. ## join features
@@ -312,7 +303,7 @@ tools:ZonalStatisticsMedOrdinal wf:output [a ccd:Lattice; a ccd:OrdinalA].
 #_:ZonalStatisticsMajorityIntervalOut a ccd:IntervalA.
 
 
-#<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityRatio.
+#<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityRatio.
 #tools:ZonalStatisticsMajorityRatio  rdfs:label "Calculates the most common value on values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 #
 #tools:ZonalStatisticsMajorityRatio wf:input1 _:ZonalStatisticsMajorityRatio1. ## join features
@@ -328,7 +319,7 @@ tools:ZonalStatisticsMedOrdinal wf:output [a ccd:Lattice; a ccd:OrdinalA].
 #_:ZonalStatisticsMajorityRatioOut a ccd:RatioA.
 
 
-#<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityCount.
+#<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityCount.
 #tools:ZonalStatisticsMajorityCount  rdfs:label "Calculates the most common value on values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 #
 #tools:ZonalStatisticsMajorityCount wf:input1 _:ZonalStatisticsMajorityCount1. ## join features
@@ -347,7 +338,7 @@ tools:ZonalStatisticsMedOrdinal wf:output [a ccd:Lattice; a ccd:OrdinalA].
 ###### Zonal statistics with mean rule
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanIntervalIRA.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanIntervalIRA.
 tools:ZonalStatisticsMeanIntervalIRA  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMeanIntervalIRA wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA]. #IRA This was added because of the APE leaf problem. !!!
@@ -357,7 +348,7 @@ tools:ZonalStatisticsMeanIntervalIRA wf:input2 [ a ccd:VectorA; a ccd:Tessellati
 tools:ZonalStatisticsMeanIntervalIRA wf:output [ a ccd:Lattice; a ccd:IntervalA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatioIRA.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatioIRA.
 tools:ZonalStatisticsMeanRatioIRA  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMeanRatioIRA wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
@@ -366,7 +357,7 @@ tools:ZonalStatisticsMeanRatioIRA wf:input2 [ a ccd:VectorA; a ccd:TessellationA
 
 tools:ZonalStatisticsMeanRatioIRA wf:output [ a ccd:Lattice; a ccd:RatioA].
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanInterval.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanInterval.
 tools:ZonalStatisticsMeanInterval  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMeanInterval wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA]. #IRA This was added because of the APE leaf problem. 
@@ -376,7 +367,7 @@ tools:ZonalStatisticsMeanInterval wf:input2 [ a ccd:VectorA; a ccd:TessellationA
 tools:ZonalStatisticsMeanInterval wf:output [ a ccd:Lattice; a ccd:IntervalA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatio.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatio.
 tools:ZonalStatisticsMeanRatio  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMeanRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
@@ -386,7 +377,7 @@ tools:ZonalStatisticsMeanRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
 tools:ZonalStatisticsMeanRatio wf:output [ a ccd:Lattice; a ccd:RatioA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanCount.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanCount.
 tools:ZonalStatisticsMeanCount  rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsMeanCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA].
@@ -399,7 +390,7 @@ tools:ZonalStatisticsMeanCount wf:output [ a ccd:Lattice; a ccd:RatioA].
 
 ###### Zonal statistics with sum rule
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumRatio.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumRatio.
 tools:ZonalStatisticsSumRatio  rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsSumRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
@@ -409,7 +400,7 @@ tools:ZonalStatisticsSumRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
 tools:ZonalStatisticsSumRatio wf:output [ a ccd:Lattice; a ccd:RatioA].
 
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumCount.
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumCount.
 tools:ZonalStatisticsSumCount  rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
 
 tools:ZonalStatisticsSumCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA]. 
