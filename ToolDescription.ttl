@@ -113,108 +113,73 @@ tools:KrigingCount rdfs:label "interpolates a raster surface from points at Coun
     wf:output [ a ccd:FieldRaster, ccd:CountA ]. # The output may be a floating point number but it still represents a count of discrete entities.
 
 ### Object vector to existence Raster  ( only kept the Objectvector to booleaan as this method only denotes the existence of polygons, if it also would give a value it would be a field raster) The input can only be booleaan, but every input is already boolean for the purpose of this analysis (it exists or it doesn't) 
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectRegionToExistenceRasterBoolean.
 tools:ObjectRegionToExistenceRasterBoolean rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
     wf:input1 [ a ccd:ObjectRegion ];
     wf:output [ a ccd:ExistenceRaster, ccd:BooleanA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectPointToExistenceRasterBoolean.
-tools:ObjectPointToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
-
-tools:ObjectPointToExistenceRasterBoolean wf:input1 [ a ccd:ObjectPoint].
-
-tools:ObjectPointToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
+tools:ObjectPointToExistenceRasterBoolean rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
+    wf:input1 [ a ccd:ObjectPoint ];
+    wf:output [ a ccd:ExistenceRaster, ccd:BooleanA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectLineToExistenceRasterBoolean.
-tools:ObjectLineToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
-
-tools:ObjectLineToExistenceRasterBoolean wf:input1 [ a ccd:ObjectLine].
-
-tools:ObjectLineToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
+tools:ObjectLineToExistenceRasterBoolean rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
+    wf:input1 [ a ccd:ObjectLine ];
+    wf:output [ a ccd:ExistenceRaster, ccd:BooleanA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectVectorToExistenceRasterBoolean.
-tools:ObjectVectorToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster".
-
-tools:ObjectVectorToExistenceRasterBoolean wf:input1 [ a ccd:ObjectVector].
-
-tools:ObjectVectorToExistenceRasterBoolean wf:output [ a ccd:ExistenceRaster; a ccd:BooleanA].
-
+tools:ObjectVectorToExistenceRasterBoolean rdfs:label " Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
+    wf:input1 [ a ccd:ObjectVector ];
+    wf:output [ a ccd:ExistenceRaster, ccd:BooleanA ].
 
 
 ##### Existence raster to point vector ( not sure if the output should be boolean because existence is already implied by existing and doesn't need a value)
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean.
-tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points.".
-
-tools:ExistenceRasterToObjectPointBoolean wf:input1 [ a ccd:ExistenceRaster; a ccd:BooleanA].
-
-tools:ExistenceRasterToObjectPointBoolean wf:output [ a ccd:ObjectPoint; a ccd:BooleanA].
-
- 
+tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points.";
+    wf:input1 [ a ccd:ExistenceRaster, ccd:BooleanA ];
+    wf:output [ a ccd:ObjectPoint, ccd:BooleanA ].
 
 ##### ##### Existenceraster to ObjectLine
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean. 
-tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value".
-
-tools:ExistenceRasterToObjectLineBoolean wf:input1 [ a ccd:ExistenceRaster; a ccd:BooleanA].
-
-tools:ExistenceRasterToObjectLineBoolean wf:output [ a ccd:ObjectLine; a ccd:BooleanA].
-
-
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean.
+tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value";
+    wf:input1 [ a ccd:ExistenceRaster, ccd:BooleanA ];
+    wf:output [ a ccd:ObjectLine, ccd:BooleanA ].
 
 ##### Raster focal density to field raster 
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> tools:implements tools:FocalStatisticsExistenceRaster.
-tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood.".
-
-tools:FocalStatisticsExistenceRaster wf:input1 [ a ccd:ExistenceRaster].
-
-
-tools:FocalStatisticsExistenceRaster wf:output [ a ccd:FieldRaster; a ccd:RatioA].
+tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood.";
+    wf:input1 [ a ccd:ExistenceRaster ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 
 #### FocaldensityMean fieldraster to fieldraster with the mean operator
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanInterval.
-tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it".
-
-tools:FocalStatisticsMeanInterval wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA].
-
-tools:FocalStatisticsMeanInterval wf:output [ a ccd:FieldRaster; a ccd:IntervalA].
-
+tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it";
+    wf:input1 [ a ccd:FieldRaster, ccd:IntervalA ];
+    wf:output [ a ccd:FieldRaster, ccd:IntervalA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanRatio.
-tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it".
-
-tools:FocalStatisticsMeanRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
-
-tools:FocalStatisticsMeanRatio wf:output [ a ccd:FieldRaster; a ccd:RatioA].
-
+tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanCount.
-tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it".
-
-tools:FocalStatisticsMeanCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA].
-
-tools:FocalStatisticsMeanCount wf:output [ a ccd:FieldRaster; a ccd:RatioA].
-
+tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 ##### Focal density to field raster sum
 ##rewrite
-
-
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsSumRatio.
-tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell location a Sum of the values with an Ratio measurement level within a specified neighborhood around it".
-
-tools:FocalStatisticsSumRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
-
-tools:FocalStatisticsSumRatio wf:output [ a ccd:FieldRaster; a ccd:RatioA].
-
+tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell location a Sum of the values with an Ratio measurement level within a specified neighborhood around it";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsSumCount.
-tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it".
-
-tools:FocalStatisticsSumCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA].
-
-tools:FocalStatisticsSumCount wf:output [ a ccd:FieldRaster; a ccd:CountA].
+tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:output [ a ccd:FieldRaster, ccd:CountA ].
 
 ### a count is always extensive should i add the extensive requirement than? 
 
@@ -222,587 +187,248 @@ tools:FocalStatisticsSumCount wf:output [ a ccd:FieldRaster; a ccd:CountA].
 #### this one has the name that includes interval but it's not an interval method it always results in a count. 
 ##### Focal density to field raster Variety
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsVarietyInterval.
-tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it".
-
-tools:FocalStatisticsVarietyInterval wf:input1 [ a ccd:FieldRaster].
-
-tools:FocalStatisticsVarietyInterval wf:output [ a ccd:FieldRaster; a ccd:CountA]. 
-
+tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it";
+    wf:input1 [ a ccd:FieldRaster ];
+    wf:output [ a ccd:FieldRaster, ccd:CountA ].
 
 #### ObjectVector density to field raster
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements tools:KernelDensity.
-tools:KernelDensity rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood.".
-tools:KernelDensity wf:input1 [ a ccd:ObjectVector].
-tools:KernelDensity wf:output [ a ccd:FieldRaster; a ccd:RatioA].
+tools:KernelDensity rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood.";
+    wf:input1 [ a ccd:ObjectVector ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 ##### Euclidean Distance
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceObjectVector.
-tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source.".
-
-tools:EuclideanDistanceObjectVector wf:input1 [ a ccd:ObjectVector].
-
-tools:EuclideanDistanceObjectVector wf:output [ a ccd:FieldRaster; a ccd:RatioA].
+tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source.";
+    wf:input1 [ a ccd:ObjectVector ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceExistenceRaster.
-tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive.".
-
-tools:EuclideanDistanceExistenceRaster wf:input1 [ a ccd:ExistenceRaster].
-
-
-tools:EuclideanDistanceExistenceRaster wf:output [ a ccd:FieldRaster; a ccd:RatioA].
-
-
+tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive.";
+    wf:input1 [ a ccd:ExistenceRaster ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 ###### Zonal statistics rules
-
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityBoolean.
-tools:ZonalStatisticsMajorityBoolean  rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMajorityBoolean wf:input1 [ a ccd:FieldRaster; a ccd:BooleanA].
-
-tools:ZonalStatisticsMajorityBoolean wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-
-tools:ZonalStatisticsMajorityBoolean wf:output [ a ccd:Lattice; a ccd:BooleanA].
-
+tools:ZonalStatisticsMajorityBoolean  rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:BooleanA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:BooleanA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityNominal.
-tools:ZonalStatisticsMajorityNominal  rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMajorityNominal wf:input1 [ a ccd:FieldRaster; a ccd:NominalA].
-
-tools:ZonalStatisticsMajorityNominal wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMajorityNominal wf:output [ a ccd:Lattice; a ccd:NominalA].
-
+tools:ZonalStatisticsMajorityNominal  rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:NominalA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:NominalA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMedOrdinal.
-tools:ZonalStatisticsMedOrdinal  rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMedOrdinal wf:input1 [ a ccd:FieldRaster; a ccd:OrdinalA].
-
-tools:ZonalStatisticsMedOrdinal wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMedOrdinal wf:output [a ccd:Lattice; a ccd:OrdinalA].
-
-
-#<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityInterval.
-#tools:ZonalStatisticsMajorityInterval  rdfs:label "Calculates the most common value on values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-#
-#tools:ZonalStatisticsMajorityInterval wf:input1 _:ZonalStatisticsMajorityInterval1. ## join features
-#_:ZonalStatisticsMajorityInterval1 a ccd:FieldRaster.
-#_:ZonalStatisticsMajorityInterval1 a ccd:IntervalA.
-#
-#tools:ZonalStatisticsMajorityInterval wf:input2 _:ZonalStatisticsMajorityInterval2. ##target featues 
-#_:ZonalStatisticsMajorityInterval2 a ccd:VectorA.
-#_:ZonalStatisticsMajorityInterval2 a ccd:TessellationA.
-#
-#tools:ZonalStatisticsMajorityInterval wf:output _:ZonalStatisticsMajorityIntervalOut.
-#_:ZonalStatisticsMajorityIntervalOut a ccd:Lattice.
-#_:ZonalStatisticsMajorityIntervalOut a ccd:IntervalA.
-
-
-#<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityRatio.
-#tools:ZonalStatisticsMajorityRatio  rdfs:label "Calculates the most common value on values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-#
-#tools:ZonalStatisticsMajorityRatio wf:input1 _:ZonalStatisticsMajorityRatio1. ## join features
-#_:ZonalStatisticsMajorityRatio1 a ccd:FieldRaster.
-#_:ZonalStatisticsMajorityRatio1 a ccd:RatioA.
-#
-#tools:ZonalStatisticsMajorityRatio wf:input2 _:ZonalStatisticsMajorityRatio2. ##target featues 
-#_:ZonalStatisticsMajorityRatio2 a ccd:VectorA.
-#_:ZonalStatisticsMajorityRatio2 a ccd:TessellationA.
-#
-#tools:ZonalStatisticsMajorityRatio wf:output _:ZonalStatisticsMajorityRatioOut.
-#_:ZonalStatisticsMajorityRatioOut a ccd:Lattice.
-#_:ZonalStatisticsMajorityRatioOut a ccd:RatioA.
-
-
-#<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityCount.
-#tools:ZonalStatisticsMajorityCount  rdfs:label "Calculates the most common value on values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-#
-#tools:ZonalStatisticsMajorityCount wf:input1 _:ZonalStatisticsMajorityCount1. ## join features
-#_:ZonalStatisticsMajorityCount1 a ccd:FieldRaster.
-#_:ZonalStatisticsMajorityCount1 a ccd:CountA.
-#
-#tools:ZonalStatisticsMajorityCount wf:input2 _:ZonalStatisticsMajorityCount2. ##target featues 
-#_:ZonalStatisticsMajorityCount2 a ccd:VectorA.
-#_:ZonalStatisticsMajorityCount2 a ccd:TessellationA.
-#
-#tools:ZonalStatisticsMajorityCount wf:output _:ZonalStatisticsMajorityCountOut.
-#_:ZonalStatisticsMajorityCountOut a ccd:Lattice.
-#_:ZonalStatisticsMajorityCountOut a ccd:CountA.
-
+tools:ZonalStatisticsMedOrdinal  rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:OrdinalA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:OrdinalA ].
 
 ###### Zonal statistics with mean rule
 
-
-<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanIntervalIRA.
-tools:ZonalStatisticsMeanIntervalIRA  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMeanIntervalIRA wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA]. #IRA This was added because of the APE leaf problem. !!!
-
-tools:ZonalStatisticsMeanIntervalIRA wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMeanIntervalIRA wf:output [ a ccd:Lattice; a ccd:IntervalA].
-
-
-<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatioIRA.
-tools:ZonalStatisticsMeanRatioIRA  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMeanRatioIRA wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
-
-tools:ZonalStatisticsMeanRatioIRA wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMeanRatioIRA wf:output [ a ccd:Lattice; a ccd:RatioA].
-
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanInterval.
-tools:ZonalStatisticsMeanInterval  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMeanInterval wf:input1 [ a ccd:FieldRaster; a ccd:IntervalA]. #IRA This was added because of the APE leaf problem. 
-
-tools:ZonalStatisticsMeanInterval wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMeanInterval wf:output [ a ccd:Lattice; a ccd:IntervalA].
-
+tools:ZonalStatisticsMeanInterval  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:IntervalA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:IntervalA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatio.
-tools:ZonalStatisticsMeanRatio  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMeanRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
-
-tools:ZonalStatisticsMeanRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMeanRatio wf:output [ a ccd:Lattice; a ccd:RatioA].
-
+tools:ZonalStatisticsMeanRatio  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanCount.
-tools:ZonalStatisticsMeanCount  rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsMeanCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA].
-
-tools:ZonalStatisticsMeanCount wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsMeanCount wf:output [ a ccd:Lattice; a ccd:RatioA].
-
-
+tools:ZonalStatisticsMeanCount  rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 ###### Zonal statistics with sum rule
-
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumRatio.
-tools:ZonalStatisticsSumRatio  rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsSumRatio wf:input1 [ a ccd:FieldRaster; a ccd:RatioA].
-
-tools:ZonalStatisticsSumRatio wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsSumRatio wf:output [ a ccd:Lattice; a ccd:RatioA].
-
+tools:ZonalStatisticsSumRatio  rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:RatioA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumCount.
-tools:ZonalStatisticsSumCount  rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.". 
-
-tools:ZonalStatisticsSumCount wf:input1 [ a ccd:FieldRaster; a ccd:CountA]. 
-
-tools:ZonalStatisticsSumCount wf:input2 [ a ccd:VectorA; a ccd:TessellationA].
-
-tools:ZonalStatisticsSumCount wf:output [ a ccd:Lattice; a ccd:CountA].
-
-
+tools:ZonalStatisticsSumCount  rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
+    wf:output [ a ccd:Lattice, ccd:CountA ].
 
 #### least cost past over rasters, creating an existence raster of the shortest route
-
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> tools:implements tools:LeastCostPathRasterRatio.
-tools:LeastCostPathRasterRatio rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance".
-
-tools:LeastCostPathRasterRatio wf:input1 _:LeastCostPathRasterRatio1. #origin
-_:LeastCostPathRasterRatio1 a ccd:BoundedPhen.
-
-#boundedphen is not in the onotology yet
-
-tools:LeastCostPathRasterRatio wf:input2 _:LeastCostPathRasterRatio2. #destination
-_:LeastCostPathRasterRatio2 a ccd:BoundedPhen.
-
-tools:LeastCostPathRasterRatio wf:input3 _:LeastCostPathRasterRatio3. #impedance raster
-_:LeastCostPathRasterRatio3 a ccd:FieldRaster.
-_:LeastCostPathRasterRatio3 a ccd:IntervalA.
-
-tools:LeastCostPathRasterRatio wf:output _:LeastCostPathRasterRatioOut. # output existence raster
-_:LeastCostPathRasterRatioOut a ccd:ExistenceRaster.
+tools:LeastCostPathRasterRatio rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance";
+    wf:input1 [ a ccd:BoundedPhen ];
+    wf:input2 [ a ccd:BoundedPhen ];
+    wf:input3 [ a ccd:FieldRaster, ccd:IntervalA ];
+    wf:output [ a ccd:ExistenceRaster ].
 
 ### local map algebra 
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyRatioRatio.
-tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother". 
-
-tools:LocalMapAlgebraMultiplyRatioRatio wf:input1 _:LocalMapAlgebraMultiplyRatioRatio1. # first raster
-_:LocalMapAlgebraMultiplyRatioRatio1 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyRatioRatio1 a ccd:RatioA.
-
-tools:LocalMapAlgebraMultiplyRatioRatio wf:input2 _:LocalMapAlgebraMultiplyRatioRatio2.
-_:LocalMapAlgebraMultiplyRatioRatio2 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyRatioRatio2 a ccd:RatioA.
-
-tools:LocalMapAlgebraMultiplyRatioRatio wf:output _:LocalMapAlgebraMultiplyRatioRatioOutput.
-_:LocalMapAlgebraMultiplyRatioRatioOutput a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyRatioRatioOutput a ccd:RatioA.
+tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:input2 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountCount.
-tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother". 
-
-tools:LocalMapAlgebraMultiplyCountCount wf:input1 _:LocalMapAlgebraMultiplyCountCount1. # first raster
-_:LocalMapAlgebraMultiplyCountCount1 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyCountCount1 a ccd:CountA.
-
-tools:LocalMapAlgebraMultiplyCountCount wf:input2 _:LocalMapAlgebraMultiplyCountCount2.
-_:LocalMapAlgebraMultiplyCountCount2 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyCountCount2 a ccd:CountA.
-
-tools:LocalMapAlgebraMultiplyCountCount wf:output _:LocalMapAlgebraMultiplyCountCountOutput.
-_:LocalMapAlgebraMultiplyCountCountOutput a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyCountCountOutput a ccd:CountA.
+tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:input2 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:output [ a ccd:FieldRaster, ccd:CountA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountRatio.
-tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value". 
-
-tools:LocalMapAlgebraMultiplyCountRatio wf:input1 _:LocalMapAlgebraMultiplyCountRatio1. # first raster
-_:LocalMapAlgebraMultiplyCountRatio1 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyCountRatio1 a ccd:CountA.
-
-tools:LocalMapAlgebraMultiplyCountRatio wf:input2 _:LocalMapAlgebraMultiplyCountRatio2.
-_:LocalMapAlgebraMultiplyCountRatio2 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyCountRatio2 a ccd:RatioA.
-
-tools:LocalMapAlgebraMultiplyCountRatio wf:output _:LocalMapAlgebraMultiplyCountRatioOutput.
-_:LocalMapAlgebraMultiplyCountRatioOutput a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyCountRatioOutput a ccd:RatioA.
+tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:input2 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyRatioCount.
-tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value". 
-
-tools:LocalMapAlgebraMultiplyRatioCount wf:input1 _:LocalMapAlgebraMultiplyRatioCount1. # first raster
-_:LocalMapAlgebraMultiplyRatioCount1 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyRatioCount1 a ccd:RatioA.
-
-tools:LocalMapAlgebraMultiplyRatioCount wf:input2 _:LocalMapAlgebraMultiplyRatioCount2.
-_:LocalMapAlgebraMultiplyRatioCount2 a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyRatioCount2 a ccd:CountA.
-
-tools:LocalMapAlgebraMultiplyRatioCount wf:output _:LocalMapAlgebraMultiplyRatioCountOutput.
-_:LocalMapAlgebraMultiplyRatioCountOutput a ccd:FieldRaster.
-_:LocalMapAlgebraMultiplyRatioCountOutput a ccd:RatioA.
+tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a ratio value with a count value";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:input2 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 #Raster to polygon or fieldraster to Contour
+#normally you have to make intervals for the Contours, this would make it a Ordinal output, if you don't make ranges it would be Ratio but you would get an large amount of contours
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToContourRatio.
-tools:RasterToContourRatio rdfs:label "Converts a field raster to a Contour dataset".
-
-tools:RasterToContourRatio wf:input1 _:RasterToContourRatio1.
-_:RasterToContourRatio1 a ccd:FieldRaster.
-_:RasterToContourRatio1 a ccd:RatioA.
-
-tools:RasterToContourRatio wf:output _:RasterToContourRatioOutput.        #normally you have to make intervals for the Contours, this would make it a Ordinal output, if you don't make ranges it would be Ratio but you would get an large amount of contours
-_:RasterToContourRatioOutput a ccd:Contour.
-_:RasterToContourRatioOutput a ccd:OrdinalA.
-
+tools:RasterToContourRatio rdfs:label "Converts a field raster to a Contour dataset";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:output [ a ccd:Contour, ccd:OrdinalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToContourCount.
-tools:RasterToContourCount rdfs:label "Converts a field raster to a Contour dataset".
-
-tools:RasterToContourCount wf:input1 _:RasterToContourCount1.
-_:RasterToContourCount1 a ccd:FieldRaster.
-_:RasterToContourCount1 a ccd:CountA.
-
-tools:RasterToContourCount wf:output _:RasterToContourCountOutput.        
-_:RasterToContourCountOutput a ccd:Contour.
-_:RasterToContourCountOutput a ccd:OrdinalA.
-
+tools:RasterToContourCount rdfs:label "Converts a field raster to a Contour dataset";
+    wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
+    wf:output [ a ccd:Contour, ccd:OrdinalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToContourInterval.
-tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour dataset".
-
-tools:RasterToContourInterval wf:input1 _:RasterToContourInterval1.
-_:RasterToContourInterval1 a ccd:FieldRaster.
-_:RasterToContourInterval1 a ccd:IntervalA.
-
-tools:RasterToContourInterval wf:output _:RasterToContourIntervalOutput.        
-_:RasterToContourIntervalOutput a ccd:Contour.
-_:RasterToContourIntervalOutput a ccd:OrdinalA.
+tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour dataset";
+    wf:input1 [ a ccd:FieldRaster, ccd:IntervalA ];
+    wf:output [ a ccd:Contour, ccd:OrdinalA ].
 
 #Raster to polygon / fieldraster to Coverage
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageOrdinal.
-tools:RasterToCoverageOrdinal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower".
-
-
-tools:RasterToCoverageOrdinal wf:input1 _:RasterToCoverageOrdinal1.
-_:RasterToCoverageOrdinal1 a ccd:FieldRaster.
-_:RasterToCoverageOrdinal1 a ccd:OrdinalA.
-
-tools:RasterToCoverageOrdinal wf:output _:RasterToCoverageOrdinalOutput.     
-_:RasterToCoverageOrdinalOutput a ccd:Coverage.
-_:RasterToCoverageOrdinalOutput a ccd:OrdinalA.
+tools:RasterToCoverageOrdinal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower";
+    wf:input1 [ a ccd:FieldRaster, ccd:OrdinalA ];
+    wf:output [ a ccd:Coverage, ccd:OrdinalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageNominal.
-tools:RasterToCoverageNominal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower".
-
-tools:RasterToCoverageNominal wf:input1 _:RasterToCoverageNominal1.
-_:RasterToCoverageNominal1 a ccd:FieldRaster.
-_:RasterToCoverageNominal1 a ccd:NominalA.
-
-tools:RasterToCoverageNominal wf:output _:RasterToCoverageNominalOutput.     
-_:RasterToCoverageNominalOutput a ccd:Coverage.
-_:RasterToCoverageNominalOutput a ccd:NominalA.
+tools:RasterToCoverageNominal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower";
+    wf:input1 [ a ccd:FieldRaster, ccd:NominalA ];
+    wf:output [ a ccd:Coverage, ccd:NominalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageBoolean.
-tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower".
-
-tools:RasterToCoverageBoolean wf:input1 _:RasterToCoverageBoolean1.
-_:RasterToCoverageBoolean1 a ccd:FieldRaster.
-_:RasterToCoverageBoolean1 a ccd:BooleanA.
-
-tools:RasterToCoverageBoolean wf:output _:RasterToCoverageBooleanOutput.     
-_:RasterToCoverageBooleanOutput a ccd:Coverage.
-_:RasterToCoverageBooleanOutput a ccd:BooleanA.
-
-
+tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower";
+    wf:input1 [ a ccd:FieldRaster, ccd:BooleanA ];
+    wf:output [ a ccd:Coverage, ccd:BooleanA ].
 
 ###Field Polygon to raster
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToFieldRaster.
-tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters".
-
-tools:CoverageToFieldRaster wf:input1 _:CoverageToFieldRaster1.
-_:CoverageToFieldRaster1 a ccd:Coverage. 
-
-tools:CoverageToFieldRaster wf:output _:CoverageToFieldRasterOutput.
-_:CoverageToFieldRasterOutput a ccd:FieldRaster; a ccd:NominalA. 
+tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters";
+    wf:input1 [ a ccd:Coverage ];
+    wf:output [ a ccd:FieldRaster, ccd:NominalA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster.
-tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters".
-
-tools:ContourToFieldRaster wf:input1 [ a ccd:Contour].
-
-tools:ContourToFieldRaster wf:output [ a ccd:FieldRaster; a ccd:OrdinalA].
+tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters";
+    wf:input1 [ a ccd:Contour ];
+    wf:output [ a ccd:FieldRaster, ccd:OrdinalA ].
 
 ### boolean reclassify 
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm> tools:implements tools:ReclassifyFieldRasterToBoolean.
-tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldraster to a boolean (succes or fail) based on a rule".
-
-tools:ReclassifyFieldRasterToBoolean wf:input1 _:ReclassifyFieldRasterToBoolean1.
-_:ReclassifyFieldRasterToBoolean1 a ccd:FieldRaster.
-
-tools:ReclassifyFieldRasterToBoolean wf:output _:ReclassifyFieldRasterToBooleanOutput.
-_:ReclassifyFieldRasterToBooleanOutput a ccd:ExistenceRaster.
-_:ReclassifyFieldRasterToBooleanOutput a ccd:BooleanA.
-
+tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldraster to a boolean (succes or fail) based on a rule";
+    wf:input1 [ a ccd:FieldRaster ];
+    wf:output [ a ccd:ExistenceRaster, ccd:BooleanA ].
 
 #### Contour to Existence Vector
 <https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> tools:implements tools:SelectFeaturesContourToExistenceVector. 
-### <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/copy-features.htm> tools:implements tools: tools:SelectFeaturesContourToExistenceVector.
-tools:SelectFeaturesContourToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria ".
-
-tools:SelectFeaturesContourToExistenceVector wf:input1 _:SelectFeaturesContourToExistenceVector1. 
-_:SelectFeaturesContourToExistenceVector1 a ccd:Coverage.
-
-tools:SelectFeaturesContourToExistenceVector wf:output _:SelectFeaturesContourToExistenceVectorOutput.
-_:SelectFeaturesContourToExistenceVectorOutput a ccd:ExistenceVector.
+tools:SelectFeaturesContourToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria";
+    wf:input1 [ a ccd:Coverage ];
+    wf:output [ a ccd:ExistenceVector ].
 
 #### Coverage to Existence Vector
 <https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> tools:implements tools:SelectFeaturesCoverageToExistenceVector. 
-### <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/copy-features.htm> tools:implements tools: tools:SelectFeaturesCoverageToExistenceVector.
-tools:SelectFeaturesCoverageToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria ".
-
-tools:SelectFeaturesCoverageToExistenceVector wf:input1 _:SelectFeaturesCoverageToExistenceVector1. 
-_:SelectFeaturesCoverageToExistenceVector1 a ccd:Coverage.
-
-tools:SelectFeaturesCoverageToExistenceVector wf:output _:SelectFeaturesCoverageToExistenceVectorOutput.
-_:SelectFeaturesCoverageToExistenceVectorOutput a ccd:ExistenceVector.
-
+tools:SelectFeaturesCoverageToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria ";
+    wf:input1 [ a ccd:Coverage ];
+    wf:output [ a ccd:ExistenceVector ].
 
 #### Existence vector to object vector 
 <https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements tools:MergeTessellationExistenceVectorToObjectVector.
-tools:MergeTessellationExistenceVectorToObjectVector rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon.".
-
-tools:MergeTessellationExistenceVectorToObjectVector wf:input1 _:MergeTessellationExistenceVectorToObjectVector1.
-_:MergeTessellationExistenceVectorToObjectVector1 a ccd:ExistenceVector.
-
-tools:MergeTessellationExistenceVectorToObjectVector wf:output _:MergeTessellationExistenceVectorToObjectVectorOutput.
-_:MergeTessellationExistenceVectorToObjectVectorOutput a ccd:ObjectVector.
-
+tools:MergeTessellationExistenceVectorToObjectVector rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon.";
+    wf:input1 [ a ccd:ExistenceVector ];
+    wf:output [ a ccd:ObjectVector ].
 
 #### Boolean Field raster to point measures
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresBoolean.
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean wf:input1 _:ExtractFieldRasterValuestoPointMeasuresBoolean1.
-_:ExtractFieldRasterValuestoPointMeasuresBoolean1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresBoolean1 a ccd:BooleanA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean wf:input2 _:ExtractFieldRasterValuestoPointMeasuresBoolean2.
-_:ExtractFieldRasterValuestoPointMeasuresBoolean2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean wf:output _:ExtractFieldRasterValuestoPointMeasuresBooleanOutput.
-_:ExtractFieldRasterValuestoPointMeasuresBooleanOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresBooleanOutput a ccd:BooleanA.
-
+tools:ExtractFieldRasterValuestoPointMeasuresBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:BooleanA ];
+    wf:input2 [ a ccd:PointMeasures ];
+    wf:output [ a ccd:PointMeasures, ccd:BooleanA ].
 
 #### Nominal Field raster to point measures
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresNominal.
-tools:ExtractFieldRasterValuestoPointMeasuresNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal wf:input1 _:ExtractFieldRasterValuestoPointMeasuresNominal1.
-_:ExtractFieldRasterValuestoPointMeasuresNominal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresNominal1 a ccd:NominalA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal wf:input2 _:ExtractFieldRasterValuestoPointMeasuresNominal2.
-_:ExtractFieldRasterValuestoPointMeasuresNominal2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal wf:output _:ExtractFieldRasterValuestoPointMeasuresNominalOutput.
-_:ExtractFieldRasterValuestoPointMeasuresNominalOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresNominalOutput a ccd:NominalA.
-
+tools:ExtractFieldRasterValuestoPointMeasuresNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:NominalA ];
+    wf:input2 [ a ccd:PointMeasures ];
+    wf:output [ a ccd:PointMeasures, ccd:NominalA ].
 
 #### Ordinal field raster to point measures
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresOrdinal.
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal wf:input1 _:ExtractFieldRasterValuestoPointMeasuresOrdinal1.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinal1 a ccd:OrdinalA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal wf:input2 _:ExtractFieldRasterValuestoPointMeasuresOrdinal2.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinal2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal wf:output _:ExtractFieldRasterValuestoPointMeasuresOrdinalOutput.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinalOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresOrdinalOutput a ccd:OrdinalA.
-
+tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:OrdinalA ];
+    wf:input2 [ a ccd:PointMeasures ];
+    wf:output [ a ccd:PointMeasures, ccd:OrdinalA ].
 
 #### Interval field raster to point measures
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresInterval.
-tools:ExtractFieldRasterValuestoPointMeasuresInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval wf:input1 _:ExtractFieldRasterValuestoPointMeasuresInterval1.
-_:ExtractFieldRasterValuestoPointMeasuresInterval1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresInterval1 a ccd:IntervalA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval wf:input2 _:ExtractFieldRasterValuestoPointMeasuresInterval2.
-_:ExtractFieldRasterValuestoPointMeasuresInterval2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval wf:output _:ExtractFieldRasterValuestoPointMeasuresIntervalOutput.
-_:ExtractFieldRasterValuestoPointMeasuresIntervalOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresIntervalOutput a ccd:IntervalA.
+tools:ExtractFieldRasterValuestoPointMeasuresInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:IntervalA ];
+    wf:input2 [ a ccd:PointMeasures ];
+    wf:output [ a ccd:PointMeasures, ccd:IntervalA ].
 
 #### Ratio field raster to point measures
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoPointMeasuresRatio.
-tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio wf:input1 _:ExtractFieldRasterValuestoPointMeasuresRatio1.
-_:ExtractFieldRasterValuestoPointMeasuresRatio1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoPointMeasuresRatio1 a ccd:RatioA. 
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio wf:input2 _:ExtractFieldRasterValuestoPointMeasuresRatio2.
-_:ExtractFieldRasterValuestoPointMeasuresRatio2 a ccd:PointMeasures.
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio wf:output _:ExtractFieldRasterValuestoPointMeasuresRatioOutput.
-_:ExtractFieldRasterValuestoPointMeasuresRatioOutput a ccd:PointMeasures.
-_:ExtractFieldRasterValuestoPointMeasuresRatioOutput a ccd:RatioA.
+tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:input2 [ a ccd:PointMeasures ];
+    wf:output [ a ccd:PointMeasures, ccd:RatioA ].
 
 #### Boolean Field raster to Object Point
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointBoolean.
-tools:ExtractFieldRasterValuestoObjectPointBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointBoolean wf:input1 _:ExtractFieldRasterValuestoObjectPointBoolean1.
-_:ExtractFieldRasterValuestoObjectPointBoolean1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointBoolean1 a ccd:BooleanA. 
-
-tools:ExtractFieldRasterValuestoObjectPointBoolean wf:input2 _:ExtractFieldRasterValuestoObjectPointBoolean2.
-_:ExtractFieldRasterValuestoObjectPointBoolean2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointBoolean wf:output _:ExtractFieldRasterValuestoObjectPointBooleanOutput.
-_:ExtractFieldRasterValuestoObjectPointBooleanOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointBooleanOutput a ccd:BooleanA.
-
+tools:ExtractFieldRasterValuestoObjectPointBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:BooleanA ];
+    wf:input2 [ a ccd:ObjectPoint ];
+    wf:output [ a ccd:ObjectPoint, ccd:BooleanA ].
 
 #### Nominal Field raster to Object Point
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointNominal.
-tools:ExtractFieldRasterValuestoObjectPointNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointNominal wf:input1 _:ExtractFieldRasterValuestoObjectPointNominal1.
-_:ExtractFieldRasterValuestoObjectPointNominal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointNominal1 a ccd:NominalA. 
-
-tools:ExtractFieldRasterValuestoObjectPointNominal wf:input2 _:ExtractFieldRasterValuestoObjectPointNominal2.
-_:ExtractFieldRasterValuestoObjectPointNominal2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointNominal wf:output _:ExtractFieldRasterValuestoObjectPointNominalOutput.
-_:ExtractFieldRasterValuestoObjectPointNominalOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointNominalOutput a ccd:NominalA.
-
+tools:ExtractFieldRasterValuestoObjectPointNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:NominalA ];
+    wf:input2 [ a ccd:ObjectPoint ];
+    wf:output [ a ccd:ObjectPoint, ccd:NominalA ].
 
 #### Ordinal field raster to Object Point
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointOrdinal.
-tools:ExtractFieldRasterValuestoObjectPointOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal wf:input1 _:ExtractFieldRasterValuestoObjectPointOrdinal1.
-_:ExtractFieldRasterValuestoObjectPointOrdinal1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointOrdinal1 a ccd:OrdinalA. 
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal wf:input2 _:ExtractFieldRasterValuestoObjectPointOrdinal2.
-_:ExtractFieldRasterValuestoObjectPointOrdinal2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal wf:output _:ExtractFieldRasterValuestoObjectPointOrdinalOutput.
-_:ExtractFieldRasterValuestoObjectPointOrdinalOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointOrdinalOutput a ccd:OrdinalA.
-
+tools:ExtractFieldRasterValuestoObjectPointOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:OrdinalA ];
+    wf:input2 [ a ccd:ObjectPoint ];
+    wf:output [ a ccd:ObjectPoint, ccd:OrdinalA ].
 
 #### Interval field raster to Object Point
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointInterval.
-tools:ExtractFieldRasterValuestoObjectPointInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointInterval wf:input1 _:ExtractFieldRasterValuestoObjectPointInterval1.
-_:ExtractFieldRasterValuestoObjectPointInterval1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointInterval1 a ccd:IntervalA. 
-
-tools:ExtractFieldRasterValuestoObjectPointInterval wf:input2 _:ExtractFieldRasterValuestoObjectPointInterval2.
-_:ExtractFieldRasterValuestoObjectPointInterval2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointInterval wf:output _:ExtractFieldRasterValuestoObjectPointIntervalOutput.
-_:ExtractFieldRasterValuestoObjectPointIntervalOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointIntervalOutput a ccd:IntervalA.
+tools:ExtractFieldRasterValuestoObjectPointInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:IntervalA ];
+    wf:input2 [ a ccd:ObjectPoint ];
+    wf:output [ a ccd:ObjectPoint, ccd:IntervalA ].
 
 #### Ratio field raster to Object Point
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointRatio.
-tools:ExtractFieldRasterValuestoObjectPointRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure".
-
-tools:ExtractFieldRasterValuestoObjectPointRatio wf:input1 _:ExtractFieldRasterValuestoObjectPointRatio1.
-_:ExtractFieldRasterValuestoObjectPointRatio1 a ccd:FieldRaster.
-_:ExtractFieldRasterValuestoObjectPointRatio1 a ccd:RatioA. 
-
-tools:ExtractFieldRasterValuestoObjectPointRatio wf:input2 _:ExtractFieldRasterValuestoObjectPointRatio2.
-_:ExtractFieldRasterValuestoObjectPointRatio2 a ccd:ObjectPoint.
-
-tools:ExtractFieldRasterValuestoObjectPointRatio wf:output _:ExtractFieldRasterValuestoObjectPointRatioOutput.
-_:ExtractFieldRasterValuestoObjectPointRatioOutput a ccd:ObjectPoint.
-_:ExtractFieldRasterValuestoObjectPointRatioOutput a ccd:RatioA.
+tools:ExtractFieldRasterValuestoObjectPointRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure";
+    wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
+    wf:input2 [ a ccd:ObjectPoint ];
+    wf:output [ a ccd:ObjectPoint, ccd:RatioA ].
 
 #missing: overlay tools
-
-
-
-
-
-
-
-
