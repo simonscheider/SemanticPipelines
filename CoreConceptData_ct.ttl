@@ -37,10 +37,11 @@ ccd:BooleanACoverage a owl:Class ;
         ccd:Coverage ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:BooleanA ccd:Coverage ) ] .
 
-ccd:BooleanALattice a owl:Class ;
+ccd:BooleanALatticeVectorA a owl:Class ;
     rdfs:subClassOf ccd:BooleanA,
-        ccd:Lattice ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:BooleanA ccd:Lattice ) ] .
+        ccd:Lattice,
+        ccd:VectorA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:BooleanA ccd:Lattice ccd:VectorA ) ] .
 
 ccd:BooleanAObjectLine a owl:Class ;
     rdfs:subClassOf ccd:BooleanA,
@@ -94,11 +95,12 @@ ccd:CountAFieldRasterIRA a owl:Class ;
         em:IRA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:FieldRaster em:IRA ) ] .
 
-ccd:CountALatticeERA a owl:Class ;
+ccd:CountALatticeVectorAERA a owl:Class ;
     rdfs:subClassOf ccd:CountA,
         ccd:Lattice,
+        ccd:VectorA,
         em:ERA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:Lattice em:ERA ) ] .
+    owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:Lattice ccd:VectorA em:ERA ) ] .
 
 ccd:CountAObjectVectorERA a owl:Class ;
     rdfs:subClassOf ccd:CountA,
@@ -185,10 +187,11 @@ ccd:FieldRasterRatioAIRA a owl:Class ;
         em:IRA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:FieldRaster ccd:RatioA em:IRA ) ] .
 
-ccd:IntervalALattice a owl:Class ;
+ccd:IntervalALatticeVectorA a owl:Class ;
     rdfs:subClassOf ccd:IntervalA,
-        ccd:Lattice ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:IntervalA ccd:Lattice ) ] .
+        ccd:Lattice,
+        ccd:VectorA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:IntervalA ccd:Lattice ccd:VectorA ) ] .
 
 ccd:IntervalAObjectPoint a owl:Class ;
     rdfs:subClassOf ccd:IntervalA,
@@ -211,37 +214,48 @@ ccd:LatticeDS a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ccd:ObjectDS ccd:Tessellation ) ] .
 
-ccd:LatticeIRA a owl:Class ;
+ccd:LatticeNominalAVectorA a owl:Class ;
     rdfs:subClassOf ccd:Lattice,
-        em:IRA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice em:IRA ) ] .
+        ccd:NominalA,
+        ccd:VectorA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:NominalA ccd:VectorA ) ] .
 
-ccd:LatticeNominalA a owl:Class ;
+ccd:LatticeOrdinalAVectorA a owl:Class ;
     rdfs:subClassOf ccd:Lattice,
-        ccd:NominalA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:NominalA ) ] .
+        ccd:OrdinalA,
+        ccd:VectorA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:OrdinalA ccd:VectorA ) ] .
 
-ccd:LatticeOrdinalA a owl:Class ;
-    rdfs:subClassOf ccd:Lattice,
-        ccd:OrdinalA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:OrdinalA ) ] .
-
-ccd:LatticeRatioA a owl:Class ;
-    rdfs:subClassOf ccd:Lattice,
-        ccd:RatioA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:RatioA ) ] .
-
-ccd:LatticeRatioAERA a owl:Class ;
+ccd:LatticeRatioAVectorA a owl:Class ;
     rdfs:subClassOf ccd:Lattice,
         ccd:RatioA,
+        ccd:VectorA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:RatioA ccd:VectorA ) ] .
+
+ccd:LatticeRatioAVectorAERA a owl:Class ;
+    rdfs:subClassOf ccd:Lattice,
+        ccd:RatioA,
+        ccd:VectorA,
         em:ERA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:RatioA em:ERA ) ] .
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:RatioA ccd:VectorA em:ERA ) ] .
 
-ccd:LatticeRatioAIRA a owl:Class ;
+ccd:LatticeRatioAVectorAIRA a owl:Class ;
     rdfs:subClassOf ccd:Lattice,
         ccd:RatioA,
+        ccd:VectorA,
         em:IRA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:RatioA em:IRA ) ] .
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:RatioA ccd:VectorA em:IRA ) ] .
+
+ccd:LatticeVectorA a owl:Class ;
+    rdfs:subClassOf ccd:Lattice,
+        ccd:VectorA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:VectorA ) ] .
+
+ccd:LatticeVectorAIRA a owl:Class ;
+    rdfs:subClassOf ccd:Lattice,
+        ccd:VectorA,
+        em:IRA ;
+    owl:equivalentClass [ owl:intersectionOf ( ccd:Lattice ccd:VectorA em:IRA ) ] .
 
 ccd:LineMeasures a owl:Class ;
     rdfs:comment "Linear representations of fields. Examples are isoline maps"@en ;
@@ -340,11 +354,6 @@ ccd:PointMeasuresRatioAIRA a owl:Class ;
         ccd:RatioA,
         em:IRA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:PointMeasures ccd:RatioA em:IRA ) ] .
-
-ccd:TessellationAVectorA a owl:Class ;
-    rdfs:subClassOf ccd:TessellationA,
-        ccd:VectorA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:TessellationA ccd:VectorA ) ] .
 
 ccd:Track a owl:Class ;
     rdfs:comment "A type for a spatial track. A spatial track is a vector representation of \"fix\" events of some moving object. For example, a GPS track of points of a person moving."@en ;
@@ -473,6 +482,14 @@ ccd:PointA a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:PointDataSet ] ) ] .
 
+ccd:TessellationA a owl:Class ;
+    rdfs:comment "An attribute of a tesselation data set"@en ;
+    rdfs:subClassOf ccd:Attribute ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Tessellation ] ) ] .
+
 ccd:ExistenceRaster a owl:Class ;
     rdfs:comment "Existence rasters are rasters representing boolean fields (fields denoting whether something is present at a cell location or not)."@en ;
     owl:equivalentClass [ a owl:Class ;
@@ -501,14 +518,6 @@ ccd:LineDataSet a owl:Class ;
             owl:intersectionOf ( ccd:Vector [ a owl:Restriction ;
                         owl:allValuesFrom ccd:LineData ;
                         owl:onProperty ada:hasElement ] ) ] .
-
-ccd:TessellationA a owl:Class ;
-    rdfs:comment "An attribute of a tesselation data set"@en ;
-    rdfs:subClassOf ccd:Attribute ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Tessellation ] ) ] .
 
 ccd:CoreConceptDataSet a owl:Class ;
     rdfs:comment "A data set which represents a core concept of spatial information. The attributes of this dataset are assumed to be of corresponding types."@en ;
@@ -554,14 +563,6 @@ ccd:Vector a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ada:SpatialDataSet [ a owl:Class ;
                         owl:complementOf ccd:Raster ] ) ] .
-
-ccd:VectorA a owl:Class ;
-    rdfs:comment "Attribute of some vector data set"@en ;
-    rdfs:subClassOf ccd:Attribute ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Vector ] ) ] .
 
 ccd:ObjectPoint a owl:Class ;
     rdfs:comment "An attribute of an object point dataset"@en ;
@@ -630,14 +631,6 @@ ccd:PointMeasures a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:PointDataSet ] ) ] .
 
-ccd:Lattice a owl:Class ;
-    rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
-    rdfs:subClassOf ccd:TessellationA ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:Tessellation ] ) ] .
-
 ccd:Attribute a owl:Class ;
     rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
     rdfs:subClassOf ada:ValueList .
@@ -650,7 +643,23 @@ ccd:FieldRaster a owl:Class ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Raster ] ) ] .
 
+ccd:Lattice a owl:Class ;
+    rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
+    rdfs:subClassOf ccd:TessellationA ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:ObjectQ [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Tessellation ] ) ] .
+
 ccd:RatioA a owl:Class ;
     rdfs:comment "Spatial attribute on ratio scale level"@en ;
     rdfs:subClassOf ccd:IntervalA .
+
+ccd:VectorA a owl:Class ;
+    rdfs:comment "Attribute of some vector data set"@en ;
+    rdfs:subClassOf ccd:Attribute ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:Vector ] ) ] .
 

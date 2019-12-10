@@ -7,60 +7,60 @@
 
 <https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage.
 tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of the mean of a measured attribute";
-    wf:input1 [ a ccd:Lattice, ccd:IntervalA, exm:IRA ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:IntervalA, exm:IRA ].
+    wf:input1 [ a ccd:Lattice, ccd:VectorA, ccd:IntervalA, exm:IRA ];
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:IntervalA, exm:IRA ].
 
 <https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationRate.
 tools:ArealInterpolationRate rdfs:label "Makes polygon to polygon predictions of a measured rate attribute";
-    wf:input1 [ a ccd:Lattice, ccd:RatioA, exm:IRA ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:RatioA, exm:IRA ].
+    wf:input1 [ a ccd:Lattice, ccd:VectorA, ccd:RatioA, exm:IRA ];
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA, exm:IRA ].
 
 ######### Spatial join with sum rule
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Ratio data.
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessRatio.
 tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:RatioA, exm:ERA ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:RatioA, exm:ERA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA, exm:ERA ].
 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe sum for Count data.
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinSumTessCount.
 tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:CountA, exm:ERA ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:CountA, exm:ERA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:CountA, exm:ERA ].
 
 #### spatial join with mean rule
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for interval data.
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessInterval.
 tools:SpatialJoinMeanTessInterval rdfs:label "Averages the attributes at interval measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:IntervalA ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:IntervalA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:IntervalA ].
 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Ratio data.
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessRatio.
 tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:RatioA ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:RatioA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA ].
 
 # with JOIN_ONE_TO_ONE parameter, with Merge_RULe mean for Count data.
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinMeanTessCount.
 tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector, ccd:CountA, exm:ERA ];
-    wf:input2 [ a ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:CountA, exm:ERA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:CountA, exm:ERA ].
 
 #### spatial join with the count rule
 # with JOIN_ONE_TO_ONE parameter and with Merge_RULe count.
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess.
 tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation";
     wf:input1 [ a ccd:ObjectVector ];
-    wf:input2 [ a ccd:Lattice ];
-    wf:output [ a ccd:Lattice, ccd:CountA, exm:ERA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:CountA, exm:ERA ].
 
 ######## Thiessen polygons
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsBoolean.
@@ -116,40 +116,40 @@ tools:KrigingCount rdfs:label "interpolates a raster surface from points at coun
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectRegionToExistenceRaster.
 tools:ObjectRegionToExistenceRaster rdfs:label "Converts object regions with any measurement level to a raster denoting the existence of a feature at a location in the raster";
     wf:input1 [ a ccd:ObjectRegion ];
-    wf:output [ a ccd:ExistenceRaster ].
+    wf:output [ a ccd:NoDataExistenceRaster ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectPointToExistenceRaster.
 tools:ObjectPointToExistenceRaster rdfs:label "Converts object points with any measurement level to a raster denoting the existence of a feature at a location in the raster";
     wf:input1 [ a ccd:ObjectPoint ];
-    wf:output [ a ccd:ExistenceRaster ].
+    wf:output [ a ccd:NoDataExistenceRaster ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectLineToExistenceRaster.
 tools:ObjectLineToExistenceRaster rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
     wf:input1 [ a ccd:ObjectLine ];
-    wf:output [ a ccd:ExistenceRaster ].
+    wf:output [ a ccd:NoDataExistenceRaster ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectVectorToExistenceRaster.
 tools:ObjectVectorToExistenceRaster rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster";
     wf:input1 [ a ccd:ObjectVector ];
-    wf:output [ a ccd:ExistenceRaster ].
+    wf:output [ a ccd:NoDataExistenceRaster ].
 
 
 ##### Existence raster to point vector ( not sure if the output should be boolean because existence is already implied by existing and doesn't need a value)
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean.
 tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points.";
-    wf:input1 [ a ccd:ExistenceRaster ];
+    wf:input1 [ a ccd:NoDataExistenceRaster ];
     wf:output [ a ccd:ObjectPoint, ccd:BooleanA ].
 
 ##### ##### Existenceraster to ObjectLine
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean.
 tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value";
-    wf:input1 [ a ccd:ExistenceRaster ];
+    wf:input1 [ a ccd:NoDataExistenceRaster ];
     wf:output [ a ccd:ObjectLine, ccd:BooleanA ].
 
 ##### Raster focal density to field raster
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> tools:implements tools:FocalStatisticsExistenceRaster.
 tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood.";
-    wf:input1 [ a ccd:ExistenceRaster ];
+    wf:input1 [ a ccd:NoDataExistenceRaster ];
     wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 
@@ -205,72 +205,72 @@ tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the E
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceExistenceRaster.
 tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive.";
-    wf:input1 [ a ccd:ExistenceRaster ];
+    wf:input1 [ a ccd:NoDataExistenceRaster ];
     wf:output [ a ccd:FieldRaster, ccd:RatioA, exm:IRA ].
 
 ###### Zonal statistics rules
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityBoolean.
 tools:ZonalStatisticsMajorityBoolean  rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:BooleanA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:BooleanA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:BooleanA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMajorityNominal.
 tools:ZonalStatisticsMajorityNominal  rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:NominalA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:NominalA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:NominalA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMedOrdinal.
 tools:ZonalStatisticsMedOrdinal  rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:OrdinalA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:OrdinalA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:OrdinalA ].
 
 ###### Zonal statistics with mean rule
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanInterval.
 tools:ZonalStatisticsMeanInterval  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:IntervalA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:IntervalA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:IntervalA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanIntervalIRA.
 tools:ZonalStatisticsMeanIntervalIRA  rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:IntervalA, exm:IRA ]; #IRA This was added because of the APE leaf problem. !!!
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:IntervalA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:IntervalA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatio.
 tools:ZonalStatisticsMeanRatio  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:RatioA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:RatioA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanRatioIRA.
 tools:ZonalStatisticsMeanRatioIRA  rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:RatioA, exm:IRA ]; #IRA This was added because of the APE leaf problem. !!!
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:RatioA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsMeanCount.
 tools:ZonalStatisticsMeanCount  rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:CountA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:RatioA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA ].
 
 ###### Zonal statistics with sum rule
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumRatio.
 tools:ZonalStatisticsSumRatio  rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:RatioA, exm:ERA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:RatioA, exm:ERA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:RatioA, exm:ERA ].
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> tools:implements tools:ZonalStatisticsSumCount.
 tools:ZonalStatisticsSumCount  rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input.";
     wf:input1 [ a ccd:FieldRaster, ccd:CountA, exm:ERA ];
-    wf:input2 [ a ccd:VectorA, ccd:TessellationA ];
-    wf:output [ a ccd:Lattice, ccd:CountA, exm:ERA ].
+    wf:input2 [ a ccd:Lattice, ccd:VectorA ];
+    wf:output [ a ccd:Lattice, ccd:VectorA, ccd:CountA, exm:ERA ].
 
 #### least cost past over rasters, creating an existence raster of the shortest route
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> tools:implements tools:LeastCostPathRasterRatio.
@@ -278,7 +278,7 @@ tools:LeastCostPathRasterRatio rdfs:label "The Cost Path function calculates the
     wf:input1 [ a ccd:BoundedPhen ];
     wf:input2 [ a ccd:BoundedPhen ];
     wf:input3 [ a ccd:FieldRaster, ccd:IntervalA ];
-    wf:output [ a ccd:ExistenceRaster ].
+    wf:output [ a ccd:NoDataExistenceRaster ].
 
 ### local map algebra
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyRatioRatio.
@@ -353,7 +353,7 @@ tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters";
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm> tools:implements tools:ReclassifyFieldRasterToBoolean.
 tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldraster to a boolean (succes or fail) based on a rule";
     wf:input1 [ a ccd:FieldRaster ];
-    wf:output [ a ccd:ExistenceRaster ].
+    wf:output [ a ccd:NoDataExistenceRaster ].
 
 #### Contour to Existence Vector
 <https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> tools:implements tools:SelectFeaturesContourToExistenceVector.
