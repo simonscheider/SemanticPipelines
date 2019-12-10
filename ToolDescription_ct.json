@@ -3,62 +3,63 @@
     {
       "inputs": [
         {
+          "DType": "FieldRasterRatioA"
+        }
+      ],
+      "name": "RasterToContourRatio",
+      "operation": "RasterToContourRatio",
+      "outputs": [
+        {
+          "DType": [
+            "OrdinalA",
+            "Contour"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
           "DType": "FieldRasterIntervalA"
-        }
-      ],
-      "name": "FocalStatisticsMeanInterval",
-      "operation": "FocalStatisticsMeanInterval",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterIntervalA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "CountAFieldRaster"
-        }
-      ],
-      "name": "FocalStatisticsMeanCount",
-      "operation": "FocalStatisticsMeanCount",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ExistenceRaster"
-        }
-      ],
-      "name": "FocalStatisticsExistenceRaster",
-      "operation": "FocalStatisticsExistenceRaster",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "CountAFieldRaster"
         },
+        {
+          "DType": "PointMeasures"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoPointMeasuresInterval",
+      "operation": "ExtractFieldRasterValuestoPointMeasuresInterval",
+      "outputs": [
+        {
+          "DType": [
+            "IntervalAPointMeasures"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ObjectVector"
+        }
+      ],
+      "name": "KernelDensity",
+      "operation": "KernelDensity",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
         {
           "DType": "FieldRasterRatioA"
         }
       ],
-      "name": "LocalMapAlgebraMultiplyCountRatio",
-      "operation": "LocalMapAlgebraMultiplyCountRatio",
+      "name": "FocalStatisticsMeanRatio",
+      "operation": "FocalStatisticsMeanRatio",
       "outputs": [
         {
           "DType": [
@@ -70,14 +71,14 @@
     {
       "inputs": [
         {
-          "DType": "CountAFieldRaster"
+          "DType": "ObjectVectorRatioA"
         },
         {
-          "DType": "TessellationAVectorA"
+          "DType": "Lattice"
         }
       ],
-      "name": "ZonalStatisticsMeanCount",
-      "operation": "ZonalStatisticsMeanCount",
+      "name": "SpatialJoinMeanTessRatio",
+      "operation": "SpatialJoinMeanTessRatio",
       "outputs": [
         {
           "DType": [
@@ -89,18 +90,16 @@
     {
       "inputs": [
         {
-          "DType": "IntervalAObjectVector"
-        },
-        {
-          "DType": "Lattice"
+          "DType": "CountAFieldRaster"
         }
       ],
-      "name": "SpatialJoinMeanTessInterval",
-      "operation": "SpatialJoinMeanTessInterval",
+      "name": "RasterToContourCount",
+      "operation": "RasterToContourCount",
       "outputs": [
         {
           "DType": [
-            "IntervalALattice"
+            "OrdinalA",
+            "Contour"
           ]
         }
       ]
@@ -108,34 +107,18 @@
     {
       "inputs": [
         {
-          "DType": "ExistenceRaster"
-        }
-      ],
-      "name": "ExistenceRasterToObjectPointBoolean",
-      "operation": "ExistenceRasterToObjectPointBoolean",
-      "outputs": [
-        {
-          "DType": [
-            "BooleanAObjectPoint"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterIntervalA"
+          "DType": "FieldRasterRatioA"
         },
         {
-          "DType": "ObjectPoint"
+          "DType": "TessellationAVectorA"
         }
       ],
-      "name": "ExtractFieldRasterValuestoObjectPointInterval",
-      "operation": "ExtractFieldRasterValuestoObjectPointInterval",
+      "name": "ZonalStatisticsMeanRatio",
+      "operation": "ZonalStatisticsMeanRatio",
       "outputs": [
         {
           "DType": [
-            "IntervalAObjectPoint"
+            "LatticeRatioA"
           ]
         }
       ]
@@ -162,34 +145,15 @@
     {
       "inputs": [
         {
-          "DType": "ExistenceRaster"
+          "DType": "FieldRasterNominalA"
         }
       ],
-      "name": "ExistenceRasterToObjectLineBoolean",
-      "operation": "ExistenceRasterToObjectLineBoolean",
+      "name": "RasterToCoverageNominal",
+      "operation": "RasterToCoverageNominal",
       "outputs": [
         {
           "DType": [
-            "BooleanAObjectLine"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioA"
-        },
-        {
-          "DType": "ObjectPoint"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoObjectPointRatio",
-      "operation": "ExtractFieldRasterValuestoObjectPointRatio",
-      "outputs": [
-        {
-          "DType": [
-            "ObjectPointRatioA"
+            "CoverageNominalA"
           ]
         }
       ]
@@ -198,199 +162,10 @@
       "inputs": [
         {
           "DType": "ExistenceRaster"
-        },
-        {
-          "DType": "TessellationAVectorA"
         }
       ],
-      "name": "ZonalStatisticsMajorityBoolean",
-      "operation": "ZonalStatisticsMajorityBoolean",
-      "outputs": [
-        {
-          "DType": [
-            "BooleanALattice"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ObjectVector"
-        }
-      ],
-      "name": "KernelDensity",
-      "operation": "KernelDensity",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "Coverage"
-        }
-      ],
-      "name": "SelectFeaturesContourToExistenceVector",
-      "operation": "SelectFeaturesContourToExistenceVector",
-      "outputs": [
-        {
-          "DType": [
-            "ExistenceVector"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "IntervalAPointMeasures"
-        }
-      ],
-      "name": "ThiessenPolygonsInterval",
-      "operation": "ThiessenPolygonsInterval",
-      "outputs": [
-        {
-          "DType": [
-            "CoverageIntervalA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "CountAObjectVectorERA"
-        },
-        {
-          "DType": "TessellationA"
-        }
-      ],
-      "name": "SpatialJoinMeanTessCount",
-      "operation": "SpatialJoinMeanTessCount",
-      "outputs": [
-        {
-          "DType": [
-            "CountALatticeERA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioA"
-        }
-      ],
-      "name": "RasterToContourRatio",
-      "operation": "RasterToContourRatio",
-      "outputs": [
-        {
-          "DType": [
-            "OrdinalA",
-            "Contour"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioAERA"
-        }
-      ],
-      "name": "FocalStatisticsSumRatio",
-      "operation": "FocalStatisticsSumRatio",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioAERA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioA"
-        },
-        {
-          "DType": "PointMeasures"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoPointMeasuresRatio",
-      "operation": "ExtractFieldRasterValuestoPointMeasuresRatio",
-      "outputs": [
-        {
-          "DType": [
-            "PointMeasuresRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "CountAFieldRasterERA"
-        }
-      ],
-      "name": "FocalStatisticsSumCount",
-      "operation": "FocalStatisticsSumCount",
-      "outputs": [
-        {
-          "DType": [
-            "CountAFieldRasterERA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "Coverage"
-        }
-      ],
-      "name": "SelectFeaturesCoverageToExistenceVector",
-      "operation": "SelectFeaturesCoverageToExistenceVector",
-      "outputs": [
-        {
-          "DType": [
-            "ExistenceVector"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ExistenceRaster"
-        },
-        {
-          "DType": "ObjectPoint"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoObjectPointBoolean",
-      "operation": "ExtractFieldRasterValuestoObjectPointBoolean",
-      "outputs": [
-        {
-          "DType": [
-            "BooleanAObjectPoint"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "BooleanAPointMeasures"
-        }
-      ],
-      "name": "ThiessenPolygonsBoolean",
-      "operation": "ThiessenPolygonsBoolean",
+      "name": "RasterToCoverageBoolean",
+      "operation": "RasterToCoverageBoolean",
       "outputs": [
         {
           "DType": [
@@ -402,15 +177,212 @@
     {
       "inputs": [
         {
-          "DType": "FieldRaster"
+          "DType": "FieldRasterIntervalA"
+        },
+        {
+          "DType": "ObjectPoint"
         }
       ],
-      "name": "FocalStatisticsVarietyInterval",
-      "operation": "FocalStatisticsVarietyInterval",
+      "name": "ExtractFieldRasterValuestoObjectPointInterval",
+      "operation": "ExtractFieldRasterValuestoObjectPointInterval",
       "outputs": [
         {
           "DType": [
-            "CountAFieldRaster"
+            "IntervalAObjectPoint"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ObjectVector"
+        }
+      ],
+      "name": "ObjectVectorToExistenceRaster",
+      "operation": "ObjectVectorToExistenceRaster",
+      "outputs": [
+        {
+          "DType": [
+            "ExistenceRaster"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ExistenceRaster"
+        }
+      ],
+      "name": "ExistenceRasterToObjectPointBoolean",
+      "operation": "ExistenceRasterToObjectPointBoolean",
+      "outputs": [
+        {
+          "DType": [
+            "BooleanAObjectPoint"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "LatticeRatioAIRA"
+        },
+        {
+          "DType": "Lattice"
+        }
+      ],
+      "name": "ArealInterpolationRate",
+      "operation": "ArealInterpolationRate",
+      "outputs": [
+        {
+          "DType": [
+            "LatticeRatioAIRA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ExistenceRaster"
+        },
+        {
+          "DType": "PointMeasures"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoPointMeasuresBoolean",
+      "operation": "ExtractFieldRasterValuestoPointMeasuresBoolean",
+      "outputs": [
+        {
+          "DType": [
+            "BooleanAPointMeasures"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterNominalA"
+        },
+        {
+          "DType": "ObjectPoint"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoObjectPointNominal",
+      "operation": "ExtractFieldRasterValuestoObjectPointNominal",
+      "outputs": [
+        {
+          "DType": [
+            "NominalAObjectPoint"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAFieldRaster"
+        },
+        {
+          "DType": "TessellationAVectorA"
+        }
+      ],
+      "name": "ZonalStatisticsMeanCount",
+      "operation": "ZonalStatisticsMeanCount",
+      "outputs": [
+        {
+          "DType": [
+            "LatticeRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "OrdinalAPointMeasures"
+        }
+      ],
+      "name": "ThiessenPolygonsOrdinal",
+      "operation": "ThiessenPolygonsOrdinal",
+      "outputs": [
+        {
+          "DType": [
+            "CoverageOrdinalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAFieldRaster"
+        },
+        {
+          "DType": "FieldRasterRatioA"
+        }
+      ],
+      "name": "LocalMapAlgebraMultiplyCountRatio",
+      "operation": "LocalMapAlgebraMultiplyCountRatio",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterIRA"
+        },
+        {
+          "DType": "TessellationAVectorA"
+        }
+      ],
+      "name": "ZonalStatisticsMeanIntervalIRA",
+      "operation": "ZonalStatisticsMeanIntervalIRA",
+      "outputs": [
+        {
+          "DType": [
+            "IntervalALattice"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterOrdinalA"
+        }
+      ],
+      "name": "RasterToCoverageOrdinal",
+      "operation": "RasterToCoverageOrdinal",
+      "outputs": [
+        {
+          "DType": [
+            "CoverageOrdinalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterIntervalA"
+        }
+      ],
+      "name": "FocalStatisticsMeanInterval",
+      "operation": "FocalStatisticsMeanInterval",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterIntervalA"
           ]
         }
       ]
@@ -434,18 +406,15 @@
     {
       "inputs": [
         {
-          "DType": "LatticeIRA"
-        },
-        {
-          "DType": "Lattice"
+          "DType": "ExistenceRaster"
         }
       ],
-      "name": "ArealInterpolationAverage",
-      "operation": "ArealInterpolationAverage",
+      "name": "EuclideanDistanceExistenceRaster",
+      "operation": "EuclideanDistanceExistenceRaster",
       "outputs": [
         {
           "DType": [
-            "LatticeIRA"
+            "FieldRasterRatioAIRA"
           ]
         }
       ]
@@ -453,15 +422,15 @@
     {
       "inputs": [
         {
-          "DType": "CountAPointMeasures"
+          "DType": "CountAPointMeasuresIRA"
         }
       ],
-      "name": "ThiessenPolygonsCount",
-      "operation": "ThiessenPolygonsCount",
+      "name": "KrigingCount",
+      "operation": "KrigingCount",
       "outputs": [
         {
           "DType": [
-            "CountACoverage"
+            "CountAFieldRasterIRA"
           ]
         }
       ]
@@ -491,18 +460,85 @@
     {
       "inputs": [
         {
-          "DType": "ObjectVector"
+          "DType": "Coverage"
+        }
+      ],
+      "name": "SelectFeaturesCoverageToExistenceVector",
+      "operation": "SelectFeaturesCoverageToExistenceVector",
+      "outputs": [
+        {
+          "DType": [
+            "ExistenceVector"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "NominalAPointMeasures"
+        }
+      ],
+      "name": "ThiessenPolygonsNominal",
+      "operation": "ThiessenPolygonsNominal",
+      "outputs": [
+        {
+          "DType": [
+            "CoverageNominalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "BooleanAPointMeasures"
+        }
+      ],
+      "name": "ThiessenPolygonsBoolean",
+      "operation": "ThiessenPolygonsBoolean",
+      "outputs": [
+        {
+          "DType": [
+            "BooleanACoverage"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ExistenceRaster"
+        },
+        {
+          "DType": "TessellationAVectorA"
+        }
+      ],
+      "name": "ZonalStatisticsMajorityBoolean",
+      "operation": "ZonalStatisticsMajorityBoolean",
+      "outputs": [
+        {
+          "DType": [
+            "BooleanALattice"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "LatticeIRA"
         },
         {
           "DType": "Lattice"
         }
       ],
-      "name": "SpatialJoinCountTess",
-      "operation": "SpatialJoinCountTess",
+      "name": "ArealInterpolationAverage",
+      "operation": "ArealInterpolationAverage",
       "outputs": [
         {
           "DType": [
-            "CountALatticeERA"
+            "LatticeIRA"
           ]
         }
       ]
@@ -510,34 +546,18 @@
     {
       "inputs": [
         {
-          "DType": "CountAPointMeasuresIRA"
-        }
-      ],
-      "name": "KrigingCount",
-      "operation": "KrigingCount",
-      "outputs": [
-        {
-          "DType": [
-            "CountAFieldRasterIRA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterNominalA"
+          "DType": "FieldRasterOrdinalA"
         },
         {
           "DType": "TessellationAVectorA"
         }
       ],
-      "name": "ZonalStatisticsMajorityNominal",
-      "operation": "ZonalStatisticsMajorityNominal",
+      "name": "ZonalStatisticsMedOrdinal",
+      "operation": "ZonalStatisticsMedOrdinal",
       "outputs": [
         {
           "DType": [
-            "LatticeNominalA"
+            "LatticeOrdinalA"
           ]
         }
       ]
@@ -545,35 +565,15 @@
     {
       "inputs": [
         {
-          "DType": "FieldRasterIntervalA"
+          "DType": "FieldRaster"
         }
       ],
-      "name": "RasterToContourInterval",
-      "operation": "RasterToContourInterval",
+      "name": "ReclassifyFieldRasterToBoolean",
+      "operation": "ReclassifyFieldRasterToBoolean",
       "outputs": [
         {
           "DType": [
-            "OrdinalA",
-            "Contour"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "CountAFieldRasterERA"
-        },
-        {
-          "DType": "TessellationAVectorA"
-        }
-      ],
-      "name": "ZonalStatisticsSumCount",
-      "operation": "ZonalStatisticsSumCount",
-      "outputs": [
-        {
-          "DType": [
-            "CountALatticeERA"
+            "ExistenceRaster"
           ]
         }
       ]
@@ -597,168 +597,15 @@
     {
       "inputs": [
         {
-          "DType": "FieldRasterOrdinalA"
-        },
-        {
-          "DType": "ObjectPoint"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoObjectPointOrdinal",
-      "operation": "ExtractFieldRasterValuestoObjectPointOrdinal",
-      "outputs": [
-        {
-          "DType": [
-            "ObjectPointOrdinalA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterNominalA"
-        },
-        {
-          "DType": "ObjectPoint"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoObjectPointNominal",
-      "operation": "ExtractFieldRasterValuestoObjectPointNominal",
-      "outputs": [
-        {
-          "DType": [
-            "NominalAObjectPoint"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterNominalA"
-        }
-      ],
-      "name": "RasterToCoverageNominal",
-      "operation": "RasterToCoverageNominal",
-      "outputs": [
-        {
-          "DType": [
-            "CoverageNominalA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ObjectVector"
-        }
-      ],
-      "name": "ObjectVectorToExistenceRaster",
-      "operation": "ObjectVectorToExistenceRaster",
-      "outputs": [
-        {
-          "DType": [
-            "ExistenceRaster"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterOrdinalA"
-        },
-        {
-          "DType": "PointMeasures"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoPointMeasuresOrdinal",
-      "operation": "ExtractFieldRasterValuestoPointMeasuresOrdinal",
-      "outputs": [
-        {
-          "DType": [
-            "OrdinalAPointMeasures"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ObjectVector"
-        }
-      ],
-      "name": "EuclideanDistanceObjectVector",
-      "operation": "EuclideanDistanceObjectVector",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioAIRA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "Contour"
-        }
-      ],
-      "name": "ContourToFieldRaster",
-      "operation": "ContourToFieldRaster",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterOrdinalA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "PointMeasuresIRA"
-        }
-      ],
-      "name": "KrigingInterval",
-      "operation": "KrigingInterval",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterIRA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ObjectRegion"
-        }
-      ],
-      "name": "ObjectRegionToExistenceRaster",
-      "operation": "ObjectRegionToExistenceRaster",
-      "outputs": [
-        {
-          "DType": [
-            "ExistenceRaster"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
           "DType": "ExistenceRaster"
         }
       ],
-      "name": "RasterToCoverageBoolean",
-      "operation": "RasterToCoverageBoolean",
+      "name": "ExistenceRasterToObjectLineBoolean",
+      "operation": "ExistenceRasterToObjectLineBoolean",
       "outputs": [
         {
           "DType": [
-            "BooleanACoverage"
+            "BooleanAObjectLine"
           ]
         }
       ]
@@ -766,34 +613,15 @@
     {
       "inputs": [
         {
-          "DType": "CountAFieldRaster"
-        },
-        {
-          "DType": "CountAFieldRaster"
+          "DType": "ObjectLine"
         }
       ],
-      "name": "LocalMapAlgebraMultiplyCountCount",
-      "operation": "LocalMapAlgebraMultiplyCountCount",
+      "name": "ObjectLineToExistenceRaster",
+      "operation": "ObjectLineToExistenceRaster",
       "outputs": [
         {
           "DType": [
-            "CountAFieldRaster"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "OrdinalAPointMeasures"
-        }
-      ],
-      "name": "ThiessenPolygonsOrdinal",
-      "operation": "ThiessenPolygonsOrdinal",
-      "outputs": [
-        {
-          "DType": [
-            "CoverageOrdinalA"
+            "ExistenceRaster"
           ]
         }
       ]
@@ -802,10 +630,32 @@
       "inputs": [
         {
           "DType": "FieldRasterRatioA"
+        },
+        {
+          "DType": "CountAFieldRaster"
         }
       ],
-      "name": "FocalStatisticsMeanRatio",
-      "operation": "FocalStatisticsMeanRatio",
+      "name": "LocalMapAlgebraMultiplyRatioCount",
+      "operation": "LocalMapAlgebraMultiplyRatioCount",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterRatioA"
+        },
+        {
+          "DType": "FieldRasterRatioA"
+        }
+      ],
+      "name": "LocalMapAlgebraMultiplyRatioRatio",
+      "operation": "LocalMapAlgebraMultiplyRatioRatio",
       "outputs": [
         {
           "DType": [
@@ -836,18 +686,15 @@
     {
       "inputs": [
         {
-          "DType": "FieldRasterIntervalA"
-        },
-        {
-          "DType": "TessellationAVectorA"
+          "DType": "ExistenceVector"
         }
       ],
-      "name": "ZonalStatisticsMeanInterval",
-      "operation": "ZonalStatisticsMeanInterval",
+      "name": "MergeTessellationExistenceVectorToObjectVector",
+      "operation": "MergeTessellationExistenceVectorToObjectVector",
       "outputs": [
         {
           "DType": [
-            "IntervalALattice"
+            "ObjectVector"
           ]
         }
       ]
@@ -855,145 +702,31 @@
     {
       "inputs": [
         {
-          "DType": "ExistenceRaster"
+          "DType": "Coverage"
         }
       ],
-      "name": "EuclideanDistanceExistenceRaster",
-      "operation": "EuclideanDistanceExistenceRaster",
+      "name": "SelectFeaturesContourToExistenceVector",
+      "operation": "SelectFeaturesContourToExistenceVector",
+      "outputs": [
+        {
+          "DType": [
+            "ExistenceVector"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointMeasuresRatioAIRA"
+        }
+      ],
+      "name": "KrigingRatio",
+      "operation": "KrigingRatio",
       "outputs": [
         {
           "DType": [
             "FieldRasterRatioAIRA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ExistenceRaster"
-        },
-        {
-          "DType": "PointMeasures"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoPointMeasuresBoolean",
-      "operation": "ExtractFieldRasterValuestoPointMeasuresBoolean",
-      "outputs": [
-        {
-          "DType": [
-            "BooleanAPointMeasures"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterIntervalA"
-        },
-        {
-          "DType": "PointMeasures"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoPointMeasuresInterval",
-      "operation": "ExtractFieldRasterValuestoPointMeasuresInterval",
-      "outputs": [
-        {
-          "DType": [
-            "IntervalAPointMeasures"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioA"
-        },
-        {
-          "DType": "CountAFieldRaster"
-        }
-      ],
-      "name": "LocalMapAlgebraMultiplyRatioCount",
-      "operation": "LocalMapAlgebraMultiplyRatioCount",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRaster"
-        }
-      ],
-      "name": "ReclassifyFieldRasterToBoolean",
-      "operation": "ReclassifyFieldRasterToBoolean",
-      "outputs": [
-        {
-          "DType": [
-            "ExistenceRaster"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioA"
-        },
-        {
-          "DType": "FieldRasterRatioA"
-        }
-      ],
-      "name": "LocalMapAlgebraMultiplyRatioRatio",
-      "operation": "LocalMapAlgebraMultiplyRatioRatio",
-      "outputs": [
-        {
-          "DType": [
-            "FieldRasterRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterRatioA"
-        },
-        {
-          "DType": "TessellationAVectorA"
-        }
-      ],
-      "name": "ZonalStatisticsMeanRatio",
-      "operation": "ZonalStatisticsMeanRatio",
-      "outputs": [
-        {
-          "DType": [
-            "LatticeRatioA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ObjectVectorRatioA"
-        },
-        {
-          "DType": "Lattice"
-        }
-      ],
-      "name": "SpatialJoinMeanTessRatio",
-      "operation": "SpatialJoinMeanTessRatio",
-      "outputs": [
-        {
-          "DType": [
-            "LatticeRatioA"
           ]
         }
       ]
@@ -1020,66 +753,15 @@
     {
       "inputs": [
         {
-          "DType": "ObjectPoint"
+          "DType": "ObjectVector"
         }
       ],
-      "name": "ObjectPointToExistenceRaster",
-      "operation": "ObjectPointToExistenceRaster",
+      "name": "EuclideanDistanceObjectVector",
+      "operation": "EuclideanDistanceObjectVector",
       "outputs": [
         {
           "DType": [
-            "ExistenceRaster"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "FieldRasterNominalA"
-        },
-        {
-          "DType": "PointMeasures"
-        }
-      ],
-      "name": "ExtractFieldRasterValuestoPointMeasuresNominal",
-      "operation": "ExtractFieldRasterValuestoPointMeasuresNominal",
-      "outputs": [
-        {
-          "DType": [
-            "NominalAPointMeasures"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ExistenceVector"
-        }
-      ],
-      "name": "MergeTessellationExistenceVectorToObjectVector",
-      "operation": "MergeTessellationExistenceVectorToObjectVector",
-      "outputs": [
-        {
-          "DType": [
-            "ObjectVector"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "ObjectLine"
-        }
-      ],
-      "name": "ObjectLineToExistenceRaster",
-      "operation": "ObjectLineToExistenceRaster",
-      "outputs": [
-        {
-          "DType": [
-            "ExistenceRaster"
+            "FieldRasterRatioAIRA"
           ]
         }
       ]
@@ -1088,14 +770,17 @@
       "inputs": [
         {
           "DType": "FieldRasterOrdinalA"
+        },
+        {
+          "DType": "PointMeasures"
         }
       ],
-      "name": "RasterToCoverageOrdinal",
-      "operation": "RasterToCoverageOrdinal",
+      "name": "ExtractFieldRasterValuestoPointMeasuresOrdinal",
+      "operation": "ExtractFieldRasterValuestoPointMeasuresOrdinal",
       "outputs": [
         {
           "DType": [
-            "CoverageOrdinalA"
+            "OrdinalAPointMeasures"
           ]
         }
       ]
@@ -1103,15 +788,88 @@
     {
       "inputs": [
         {
-          "DType": "NominalAPointMeasures"
+          "DType": "FieldRaster"
         }
       ],
-      "name": "ThiessenPolygonsNominal",
-      "operation": "ThiessenPolygonsNominal",
+      "name": "FocalStatisticsVarietyInterval",
+      "operation": "FocalStatisticsVarietyInterval",
       "outputs": [
         {
           "DType": [
-            "CoverageNominalA"
+            "CountAFieldRaster"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "IntervalAObjectVector"
+        },
+        {
+          "DType": "Lattice"
+        }
+      ],
+      "name": "SpatialJoinMeanTessInterval",
+      "operation": "SpatialJoinMeanTessInterval",
+      "outputs": [
+        {
+          "DType": [
+            "IntervalALattice"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterOrdinalA"
+        },
+        {
+          "DType": "ObjectPoint"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoObjectPointOrdinal",
+      "operation": "ExtractFieldRasterValuestoObjectPointOrdinal",
+      "outputs": [
+        {
+          "DType": [
+            "ObjectPointOrdinalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAFieldRasterERA"
+        },
+        {
+          "DType": "TessellationAVectorA"
+        }
+      ],
+      "name": "ZonalStatisticsSumCount",
+      "operation": "ZonalStatisticsSumCount",
+      "outputs": [
+        {
+          "DType": [
+            "CountALatticeERA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAFieldRasterERA"
+        }
+      ],
+      "name": "FocalStatisticsSumCount",
+      "operation": "FocalStatisticsSumCount",
+      "outputs": [
+        {
+          "DType": [
+            "CountAFieldRasterERA"
           ]
         }
       ]
@@ -1138,14 +896,14 @@
     {
       "inputs": [
         {
-          "DType": "FieldRasterIRA"
+          "DType": "FieldRasterIntervalA"
         },
         {
           "DType": "TessellationAVectorA"
         }
       ],
-      "name": "ZonalStatisticsMeanIntervalIRA",
-      "operation": "ZonalStatisticsMeanIntervalIRA",
+      "name": "ZonalStatisticsMeanInterval",
+      "operation": "ZonalStatisticsMeanInterval",
       "outputs": [
         {
           "DType": [
@@ -1157,18 +915,89 @@
     {
       "inputs": [
         {
-          "DType": "LatticeRatioAIRA"
+          "DType": "FieldRasterIntervalA"
+        }
+      ],
+      "name": "RasterToContourInterval",
+      "operation": "RasterToContourInterval",
+      "outputs": [
+        {
+          "DType": [
+            "Contour",
+            "OrdinalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAObjectVectorERA"
+        },
+        {
+          "DType": "TessellationA"
+        }
+      ],
+      "name": "SpatialJoinMeanTessCount",
+      "operation": "SpatialJoinMeanTessCount",
+      "outputs": [
+        {
+          "DType": [
+            "CountALatticeERA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ExistenceRaster"
+        }
+      ],
+      "name": "FocalStatisticsExistenceRaster",
+      "operation": "FocalStatisticsExistenceRaster",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterRatioA"
+        },
+        {
+          "DType": "PointMeasures"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoPointMeasuresRatio",
+      "operation": "ExtractFieldRasterValuestoPointMeasuresRatio",
+      "outputs": [
+        {
+          "DType": [
+            "PointMeasuresRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ObjectVector"
         },
         {
           "DType": "Lattice"
         }
       ],
-      "name": "ArealInterpolationRate",
-      "operation": "ArealInterpolationRate",
+      "name": "SpatialJoinCountTess",
+      "operation": "SpatialJoinCountTess",
       "outputs": [
         {
           "DType": [
-            "LatticeRatioAIRA"
+            "CountALatticeERA"
           ]
         }
       ]
@@ -1176,18 +1005,15 @@
     {
       "inputs": [
         {
-          "DType": "FieldRasterOrdinalA"
-        },
-        {
-          "DType": "TessellationAVectorA"
+          "DType": "FieldRasterRatioAERA"
         }
       ],
-      "name": "ZonalStatisticsMedOrdinal",
-      "operation": "ZonalStatisticsMedOrdinal",
+      "name": "FocalStatisticsSumRatio",
+      "operation": "FocalStatisticsSumRatio",
       "outputs": [
         {
           "DType": [
-            "LatticeOrdinalA"
+            "FieldRasterRatioAERA"
           ]
         }
       ]
@@ -1195,15 +1021,31 @@
     {
       "inputs": [
         {
-          "DType": "PointMeasuresRatioAIRA"
+          "DType": "ObjectPoint"
         }
       ],
-      "name": "KrigingRatio",
-      "operation": "KrigingRatio",
+      "name": "ObjectPointToExistenceRaster",
+      "operation": "ObjectPointToExistenceRaster",
       "outputs": [
         {
           "DType": [
-            "FieldRasterRatioAIRA"
+            "ExistenceRaster"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ObjectRegion"
+        }
+      ],
+      "name": "ObjectRegionToExistenceRaster",
+      "operation": "ObjectRegionToExistenceRaster",
+      "outputs": [
+        {
+          "DType": [
+            "ExistenceRaster"
           ]
         }
       ]
@@ -1214,13 +1056,171 @@
           "DType": "CountAFieldRaster"
         }
       ],
-      "name": "RasterToContourCount",
-      "operation": "RasterToContourCount",
+      "name": "FocalStatisticsMeanCount",
+      "operation": "FocalStatisticsMeanCount",
       "outputs": [
         {
           "DType": [
-            "Contour",
-            "OrdinalA"
+            "FieldRasterRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointMeasuresIRA"
+        }
+      ],
+      "name": "KrigingInterval",
+      "operation": "KrigingInterval",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterIRA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "IntervalAPointMeasures"
+        }
+      ],
+      "name": "ThiessenPolygonsInterval",
+      "operation": "ThiessenPolygonsInterval",
+      "outputs": [
+        {
+          "DType": [
+            "CoverageIntervalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterNominalA"
+        },
+        {
+          "DType": "TessellationAVectorA"
+        }
+      ],
+      "name": "ZonalStatisticsMajorityNominal",
+      "operation": "ZonalStatisticsMajorityNominal",
+      "outputs": [
+        {
+          "DType": [
+            "LatticeNominalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "Contour"
+        }
+      ],
+      "name": "ContourToFieldRaster",
+      "operation": "ContourToFieldRaster",
+      "outputs": [
+        {
+          "DType": [
+            "FieldRasterOrdinalA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAFieldRaster"
+        },
+        {
+          "DType": "CountAFieldRaster"
+        }
+      ],
+      "name": "LocalMapAlgebraMultiplyCountCount",
+      "operation": "LocalMapAlgebraMultiplyCountCount",
+      "outputs": [
+        {
+          "DType": [
+            "CountAFieldRaster"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "CountAPointMeasures"
+        }
+      ],
+      "name": "ThiessenPolygonsCount",
+      "operation": "ThiessenPolygonsCount",
+      "outputs": [
+        {
+          "DType": [
+            "CountACoverage"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterNominalA"
+        },
+        {
+          "DType": "PointMeasures"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoPointMeasuresNominal",
+      "operation": "ExtractFieldRasterValuestoPointMeasuresNominal",
+      "outputs": [
+        {
+          "DType": [
+            "NominalAPointMeasures"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "FieldRasterRatioA"
+        },
+        {
+          "DType": "ObjectPoint"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoObjectPointRatio",
+      "operation": "ExtractFieldRasterValuestoObjectPointRatio",
+      "outputs": [
+        {
+          "DType": [
+            "ObjectPointRatioA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ExistenceRaster"
+        },
+        {
+          "DType": "ObjectPoint"
+        }
+      ],
+      "name": "ExtractFieldRasterValuestoObjectPointBoolean",
+      "operation": "ExtractFieldRasterValuestoObjectPointBoolean",
+      "outputs": [
+        {
+          "DType": [
+            "BooleanAObjectPoint"
           ]
         }
       ]

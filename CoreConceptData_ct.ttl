@@ -265,6 +265,10 @@ ccd:NetworkQ a owl:Class ;
             owl:onProperty ada:ofDataSet ;
             owl:someValuesFrom ccd:NetworkDS ] .
 
+ccd:NoDataExistenceRaster a owl:Class ;
+    rdfs:comment "A raster dataset where  NoData is interpreted as boolean \"false\"."@en ;
+    rdfs:subClassOf ccd:ExistenceRaster .
+
 ccd:NominalAObjectPoint a owl:Class ;
     rdfs:subClassOf ccd:NominalA,
         ccd:ObjectPoint ;
@@ -357,6 +361,10 @@ ccd:VectorTessellation a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ccd:Tessellation ccd:Vector ) ] .
 
+ccd:ZeroExistenceRaster a owl:Class ;
+    rdfs:comment "A raster dataset where 0 is interpreted as boolean \"false\""@en ;
+    rdfs:subClassOf ccd:ExistenceRaster .
+
 ccd:CoverageDS a owl:Class ;
     rdfs:comment "A dataset representing a field using (possibly irregular) patches of homogeneous values. For example, a landuse map or a soil map."@en ;
     rdfs:subClassOf ccd:FieldDS ;
@@ -377,11 +385,6 @@ ccd:EventVector a owl:Class ;
             owl:intersectionOf ( ccd:EventQ [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Vector ] ) ] .
-
-ccd:ExistenceRaster a owl:Class ;
-    rdfs:comment "Existence rasters are rasters representing boolean fields (fields denoting whether something is present at a cell location or not)."@en ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:BooleanA ccd:FieldRaster ) ] .
 
 ccd:ExistenceVector a owl:Class ;
     rdfs:comment "A vector layer attribute that satisfies a boolean expression and thus denotes the 'existence' of some attribute encoded phenomenon across space. Example is a layer of polygons of ''forest'' landuse or a layer of \"parks\"."@en ;
@@ -469,6 +472,11 @@ ccd:PointA a owl:Class ;
             owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:PointDataSet ] ) ] .
+
+ccd:ExistenceRaster a owl:Class ;
+    rdfs:comment "Existence rasters are rasters representing boolean fields (fields denoting whether something is present at a cell location or not)."@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:BooleanA ccd:FieldRaster ) ] .
 
 ccd:FieldVector a owl:Class ;
     rdfs:comment "A vector representation of a field. Can be a point or line measure, or a coverage"@en ;
