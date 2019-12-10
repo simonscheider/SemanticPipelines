@@ -10,10 +10,10 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm>,
-        <http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm>,
-        <http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm>,
-        <http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm>,
+tools:tool tools:implements <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm>,
+        <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm>,
+        <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm>,
+        <https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm>,
         <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm>,
         <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm>,
         <https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm>,
@@ -21,6 +21,7 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
         <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm>,
+        <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm>,
@@ -30,23 +31,22 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
         <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm>,
         <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> .
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-<http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> wf:input1 [ a ccd:VectorA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:TessellationA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> wf:input1 [ a ccd:TessellationA ] ;
+<https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> wf:input1 [ a ccd:TessellationA ] ;
     wf:input2 [ a ccd:TessellationA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<http://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> wf:input1 [ a ccd:VectorA ] ;
-    wf:input2 [ a ccd:TessellationA ] ;
-    wf:output [ a ccd:TessellationA ] .
-
-<https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> wf:input1 [ a ada:ValueList ] ;
-    wf:input2 [ a ada:ValueList ] ;
+<https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> wf:input1 [ a ada:Attribute ] ;
+    wf:input2 [ a ada:Attribute ] ;
     wf:input3 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
@@ -68,7 +68,11 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:TessellationA ] .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:LineA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> wf:input1 [ a ccd:VectorA ] ;
+    wf:input2 [ a ccd:TessellationA ] ;
+    wf:output [ a ccd:TessellationA ] .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> wf:input1 [ a ccd:TessellationA ] ;
@@ -78,12 +82,12 @@ tools:tool tools:implements <http://desktop.arcgis.com/en/arcmap/10.3/tools/spat
     wf:output [ a ccd:PointA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:TessellationA ] .
+    wf:output [ a ada:Attribute ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:LineA ] .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> wf:input1 [ a ccd:VectorA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> wf:input1 [ a ccd:RasterA ] ;

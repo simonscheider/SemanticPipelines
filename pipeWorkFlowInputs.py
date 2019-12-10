@@ -28,7 +28,7 @@ def pipe(tooldescfile = 'ToolDescription.ttl', ontologyfile = 'CoreConceptData.t
     #Then generates a XML version of the tooldescription for the full taxonomy (to be used with GISTaxonomy.rdf)
     toolannotator.main(toolsinrdf= 'ToolDescription_ct.ttl')
     #Generates a flattened (_fl) ontology by removing classes that inherit classlist, then generates a corresponding flattened tooldescription, by substituting classes with the LUC in the flattened ontology
-    shallowOntology.main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ", "BoundedPhen"] )
+    shallowOntology.main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NetworkDS", "NetworkQ", "CoreConceptDataSet", "NominalA", "EventQ", "ObjectQ", "BoundedPhen", "FieldDS", "EventDS", "ObjectDS", "AmountDS"] )
     finalfl = rdflib.Graph()
     finalfl.parse('CoreConceptData_tax_fl.ttl', format='turtle')
     finalfl.parse('ToolDescription_tax.ttl', format='turtle')

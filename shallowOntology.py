@@ -195,7 +195,7 @@ def getflattenedLUC(flattenedontology, ontology, cl):
 
 
 
-def main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ", "BoundedPhen"] ):
+def main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NetworkDS", "NetworkQ", "CoreConceptDataSet", "NominalA", "EventQ", "ObjectQ", "BoundedPhen", "FieldDS", "EventDS", "ObjectDS", "AmountDS"] ):
      #This is the list of classes that should get kicked out of the ontology Unions????
 
     flattenedontologyfile = flattenOntology(ontologyfile, classlist)
