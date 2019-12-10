@@ -357,6 +357,12 @@
           rdfs:comment "This attribute represents the quality of a network edge."@en .
 
 
+###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#NoDataExistenceRaster
+:NoDataExistenceRaster rdf:type owl:Class ;
+                       rdfs:subClassOf :ExistenceRaster ;
+                       rdfs:comment "A raster dataset where  NoData is interpreted as boolean \"false\"."@en .
+
+
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA
 :NominalA rdf:type owl:Class ;
           rdfs:subClassOf :Attribute ;
@@ -665,6 +671,12 @@
                                         ] ;
                     rdfs:subClassOf :Tessellation ;
                     rdfs:comment "This is a vector data set which is tessellated (and no raster)"@en .
+
+
+###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#ZeroExistenceRaster
+:ZeroExistenceRaster rdf:type owl:Class ;
+                     rdfs:subClassOf :ExistenceRaster ;
+                     rdfs:comment "A raster dataset where 0 is interpreted as boolean \"false\""@en .
 
 
 ###  http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#ERA

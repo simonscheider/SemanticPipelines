@@ -536,6 +536,15 @@
     
 
 
+    <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#NoDataExistenceRaster -->
+
+    <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#NoDataExistenceRaster">
+        <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceRaster"/>
+        <rdfs:comment xml:lang="en">A raster dataset where  NoData is interpreted as boolean &quot;false&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA -->
 
     <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#NominalA">
@@ -985,6 +994,15 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation"/>
         <rdfs:comment xml:lang="en">This is a vector data set which is tessellated (and no raster)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#ZeroExistenceRaster -->
+
+    <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ZeroExistenceRaster">
+        <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#ExistenceRaster"/>
+        <rdfs:comment xml:lang="en">A raster dataset where 0 is interpreted as boolean &quot;false&quot;</rdfs:comment>
     </owl:Class>
     
 
