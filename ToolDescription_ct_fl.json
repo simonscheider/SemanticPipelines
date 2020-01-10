@@ -3,18 +3,18 @@
     {
       "inputs": [
         {
-          "DType": "RasterA"
+          "DType": "VectorA"
         },
         {
-          "DType": "RasterA"
+          "DType": "VectorA"
         }
       ],
-      "name": "raster-calculator",
-      "operation": "raster-calculator",
+      "name": "using-areal-interpolation-to-predict-to-new-polygons",
+      "operation": "using-areal-interpolation-to-predict-to-new-polygons",
       "outputs": [
         {
           "DType": [
-            "RasterA"
+            "VectorA"
           ]
         }
       ]
@@ -31,104 +31,8 @@
           "DType": "RasterA"
         }
       ],
-      "name": "cost-path-function",
-      "operation": "cost-path-function",
-      "outputs": [
-        {
-          "DType": [
-            "RasterA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "TessellationA"
-        }
-      ],
-      "name": "polygon-to-raster",
-      "operation": "polygon-to-raster",
-      "outputs": [
-        {
-          "DType": [
-            "RasterA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "PointA"
-        }
-      ],
-      "name": "create-thiessen-polygons",
-      "operation": "create-thiessen-polygons",
-      "outputs": [
-        {
-          "DType": [
-            "TessellationA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "RasterA"
-        }
-      ],
-      "name": "raster-to-polygon",
-      "operation": "raster-to-polygon",
-      "outputs": [
-        {
-          "DType": [
-            "TessellationA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "RasterA"
-        }
-      ],
-      "name": "focal-statistics-function",
-      "operation": "focal-statistics-function",
-      "outputs": [
-        {
-          "DType": [
-            "RasterA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "RasterA"
-        }
-      ],
-      "name": "raster-to-polyline",
-      "operation": "raster-to-polyline",
-      "outputs": [
-        {
-          "DType": [
-            "LineA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "RasterA"
-        }
-      ],
-      "name": "reclassify",
-      "operation": "reclassify",
+      "name": "FullLeastCostPath",
+      "operation": "FullLeastCostPath",
       "outputs": [
         {
           "DType": [
@@ -159,18 +63,85 @@
     {
       "inputs": [
         {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-to-polygon",
+      "operation": "raster-to-polygon",
+      "outputs": [
+        {
+          "DType": [
+            "TessellationA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "RasterToContour",
+      "operation": "RasterToContour",
+      "outputs": [
+        {
+          "DType": [
+            "ValueList"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
           "DType": "VectorA"
         },
         {
-          "DType": "VectorA"
+          "DType": "RasterA"
         }
       ],
-      "name": "using-areal-interpolation-to-predict-to-new-polygons",
-      "operation": "using-areal-interpolation-to-predict-to-new-polygons",
+      "name": "zonal-statistics-as-table",
+      "operation": "zonal-statistics-as-table",
       "outputs": [
         {
           "DType": [
             "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointA"
+        }
+      ],
+      "name": "create-thiessen-polygons",
+      "operation": "create-thiessen-polygons",
+      "outputs": [
+        {
+          "DType": [
+            "TessellationA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        },
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-calculator",
+      "operation": "raster-calculator",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
           ]
         }
       ]
@@ -194,18 +165,15 @@
     {
       "inputs": [
         {
-          "DType": "RasterA"
-        },
-        {
-          "DType": "VectorA"
+          "DType": "TessellationA"
         }
       ],
-      "name": "zonal-statistics",
-      "operation": "zonal-statistics",
+      "name": "polygon-to-raster",
+      "operation": "polygon-to-raster",
       "outputs": [
         {
           "DType": [
-            "VectorA"
+            "RasterA"
           ]
         }
       ]
@@ -229,11 +197,11 @@
     {
       "inputs": [
         {
-          "DType": "PointA"
+          "DType": "LineA"
         }
       ],
-      "name": "kriging",
-      "operation": "kriging",
+      "name": "feature-to-raster",
+      "operation": "feature-to-raster",
       "outputs": [
         {
           "DType": [
@@ -245,46 +213,11 @@
     {
       "inputs": [
         {
-          "DType": "TessellationA"
+          "DType": "RasterA"
         }
       ],
-      "name": "select-features-using-attributes",
-      "operation": "select-features-using-attributes",
-      "outputs": [
-        {
-          "DType": [
-            "VectorA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "VectorA"
-        },
-        {
-          "DType": "VectorA"
-        }
-      ],
-      "name": "spatial-join",
-      "operation": "spatial-join",
-      "outputs": [
-        {
-          "DType": [
-            "VectorA"
-          ]
-        }
-      ]
-    },
-    {
-      "inputs": [
-        {
-          "DType": "VectorA"
-        }
-      ],
-      "name": "feature-to-raster",
-      "operation": "feature-to-raster",
+      "name": "focal-statistics-function",
+      "operation": "focal-statistics-function",
       "outputs": [
         {
           "DType": [
@@ -312,11 +245,11 @@
     {
       "inputs": [
         {
-          "DType": "VectorA"
+          "DType": "RasterA"
         }
       ],
-      "name": "euclidean-distance",
-      "operation": "euclidean-distance",
+      "name": "reclassify",
+      "operation": "reclassify",
       "outputs": [
         {
           "DType": [
@@ -333,6 +266,89 @@
       ],
       "name": "merge-features-into-one-feature",
       "operation": "merge-features-into-one-feature",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointA"
+        }
+      ],
+      "name": "kriging",
+      "operation": "kriging",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "TessellationA"
+        }
+      ],
+      "name": "select-layer-by-attribute",
+      "operation": "select-layer-by-attribute",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "euclidean-distance",
+      "operation": "euclidean-distance",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-to-polyline",
+      "operation": "raster-to-polyline",
+      "outputs": [
+        {
+          "DType": [
+            "LineA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        },
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "spatial-join",
+      "operation": "spatial-join",
       "outputs": [
         {
           "DType": [

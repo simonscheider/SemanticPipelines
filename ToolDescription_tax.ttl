@@ -91,7 +91,7 @@
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#LeastCostPathRasterRatio> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> .
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#FullLeastCostPath> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyCountCount> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> .
@@ -105,7 +105,7 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#LocalMapAlgebraMultiplyRatioRatio> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#MergeTessellationExistenceVectorToObjectVector> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://geographicknowledge.de/vocab/GISTools.rdf#MergeExistenceVectorToObjectVector> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ObjectLineToExistenceRaster> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -120,14 +120,8 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#ObjectVectorToExistenceRaster> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourCount> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> .
-
 <http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourInterval> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> .
-
-<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContourRatio> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> .
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContour> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#RasterToCoverageBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> .
@@ -139,13 +133,13 @@
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ReclassifyFieldRasterToBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm> .
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#SelectFeaturesContourToExistenceVector> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> .
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#SelectFeaturesCoverageToExistenceVector> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> .
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#SpatialJoinCountTess> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> .
@@ -184,39 +178,42 @@
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityBoolean> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMajorityNominal> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanCount> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanInterval> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanIntervalIRA> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanRatio> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMeanRatioIRA> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsMedOrdinal> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumCount> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#ZonalStatisticsSumRatio> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> .
+    rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> .
 
-<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://geographicknowledge.de/vocab/GISTools.rdf#FullLeastCostPath> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://geographicknowledge.de/vocab/GISTools.rdf#RasterToContour> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -225,28 +222,31 @@
 <https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/reclassify.htm> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
 <https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/help/mapping/navigation/select-features-using-attributes.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -264,10 +264,7 @@
 <https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
-
-<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/zonal-statistics.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+<https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> a <http://www.w3.org/2002/07/owl#Class> ;
