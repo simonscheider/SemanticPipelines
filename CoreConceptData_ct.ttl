@@ -364,6 +364,12 @@ ccd:TrackDS a owl:Class ;
     rdfs:subClassOf ccd:EventDS,
         ccd:PointDataSet .
 
+ccd:VectorRegionA a owl:Class ;
+    rdfs:comment "An attribute of a region vector data set"@en ;
+    rdfs:subClassOf ccd:Attribute ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:RegionA ccd:VectorA ) ] .
+
 ccd:VectorTessellation a owl:Class ;
     rdfs:comment "This is a vector data set which is tessellated (and no raster)"@en ;
     rdfs:subClassOf ccd:Tessellation ;
@@ -437,14 +443,6 @@ ccd:Region a owl:Class ;
     rdfs:comment "A generalized geometry, including 2D and 3D extended regions. In 2D, this might be a Polygon."@en ;
     rdfs:subClassOf ada:Spatial .
 
-ccd:RegionA a owl:Class ;
-    rdfs:comment "Atrribute of some region data sets"@en ;
-    rdfs:subClassOf ccd:Attribute ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:RegionDataSet ] ) ] .
-
 ccd:RegionData a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ada:SpatialData [ a owl:Restriction ;
@@ -481,6 +479,14 @@ ccd:PointA a owl:Class ;
             owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:PointDataSet ] ) ] .
+
+ccd:RegionA a owl:Class ;
+    rdfs:comment "Atrribute of some region data sets"@en ;
+    rdfs:subClassOf ccd:Attribute ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:Attribute [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:RegionDataSet ] ) ] .
 
 ccd:TessellationA a owl:Class ;
     rdfs:comment "An attribute of a tesselation data set"@en ;

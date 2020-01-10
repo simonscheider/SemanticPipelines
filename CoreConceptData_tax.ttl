@@ -799,6 +799,14 @@
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Vector>,
         <http://www.w3.org/2002/07/owl#Thing> .
 
+<http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorRegionA> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionA>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA>,
+        <http://www.w3.org/2002/07/owl#Thing> .
+
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorTessellation> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialDataSet>,
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet>,
@@ -931,12 +939,6 @@ xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA>,
         <http://www.w3.org/2002/07/owl#Thing> .
 
-<http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionA> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
-        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
-        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
-        <http://www.w3.org/2002/07/owl#Thing> .
-
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#AmountDS> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialDataSet>,
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#CoreConceptDataSet>,
@@ -969,6 +971,12 @@ xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
     rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#SpatialDataSet>,
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionDataSet>,
         <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Tessellation>,
+        <http://www.w3.org/2002/07/owl#Thing> .
+
+<http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionA> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/AnalysisData.rdf#Attribute>,
+        <http://geographicknowledge.de/vocab/AnalysisData.rdf#ValueList>,
+        <http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute>,
         <http://www.w3.org/2002/07/owl#Thing> .
 
 <http://geographicknowledge.de/vocab/CoreConceptData.rdf#LineA> a <http://www.w3.org/2002/07/owl#Class> ;
