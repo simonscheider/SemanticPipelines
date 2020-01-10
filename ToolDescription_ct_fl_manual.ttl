@@ -1,0 +1,522 @@
+@prefix ada: <http://geographicknowledge.de/vocab/AnalysisData.rdf#> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> .
+@prefix em: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
+@prefix exm: <http://geographicknowledge.de/vocab/ExtensiveMeasures.rdf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tools: <http://geographicknowledge.de/vocab/GISTools.rdf#> .
+@prefix wf: <http://geographicknowledge.de/vocab/Workflow.rdf#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+tools:FullLeastCostPath tools:implements tools:LeastCostPathRasterRatio ;
+    rdf:first <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-distance-global-function.htm> ;
+    rdf:rest ( <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> ) .
+
+# TODO: Remove this tool altogether because there's no such thing as a 
+# contour in this ontology?
+tools:RasterToContour tools:implements tools:RasterToContourInterval ;
+    rdf:first <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> ;
+    rdf:rest ( <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> ) .
+
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanCount,
+        tools:FocalStatisticsMeanInterval,
+        tools:FocalStatisticsMeanRatio,
+        tools:FocalStatisticsSumCount,
+        tools:FocalStatisticsSumRatio,
+        tools:FocalStatisticsVarietyInterval .
+
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements tools:KernelDensity .
+
+<https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage,
+        tools:ArealInterpolationRate .
+
+<https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> tools:implements tools:ZonalStatisticsMajorityBoolean,
+        tools:ZonalStatisticsMajorityNominal,
+        tools:ZonalStatisticsMeanCount,
+        tools:ZonalStatisticsMeanInterval,
+        tools:ZonalStatisticsMeanIntervalIRA,
+        tools:ZonalStatisticsMeanRatio,
+        tools:ZonalStatisticsMeanRatioIRA,
+        tools:ZonalStatisticsMedOrdinal,
+        tools:ZonalStatisticsSumCount,
+        tools:ZonalStatisticsSumRatio .
+
+<https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> tools:implements tools:FocalStatisticsExistenceRaster .
+
+<https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements tools:MergeExistenceVectorToObjectVector .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingCount,
+        tools:KrigingInterval,
+        tools:KrigingRatio .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsBoolean,
+        tools:ThiessenPolygonsCount,
+        tools:ThiessenPolygonsInterval,
+        tools:ThiessenPolygonsNominal,
+        tools:ThiessenPolygonsOrdinal,
+        tools:ThiessenPolygonsRatio .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess,
+        tools:SpatialJoinMeanTessCount,
+        tools:SpatialJoinMeanTessInterval,
+        tools:SpatialJoinMeanTessRatio,
+        tools:SpatialJoinSumTessCount,
+        tools:SpatialJoinSumTessRatio .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectLineToExistenceRaster,
+        tools:ObjectPointToExistenceRaster,
+        tools:ObjectRegionToExistenceRaster,
+        tools:ObjectVectorToExistenceRaster .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster,
+        tools:CoverageToFieldRaster .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> tools:implements tools:SelectFeaturesContourToExistenceVector,
+        tools:SelectFeaturesCoverageToExistenceVector .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceExistenceRaster,
+        tools:EuclideanDistanceObjectVector .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointBoolean,
+        tools:ExtractFieldRasterValuestoObjectPointInterval,
+        tools:ExtractFieldRasterValuestoObjectPointNominal,
+        tools:ExtractFieldRasterValuestoObjectPointOrdinal,
+        tools:ExtractFieldRasterValuestoObjectPointRatio,
+        tools:ExtractFieldRasterValuestoPointMeasuresBoolean,
+        tools:ExtractFieldRasterValuestoPointMeasuresInterval,
+        tools:ExtractFieldRasterValuestoPointMeasuresNominal,
+        tools:ExtractFieldRasterValuestoPointMeasuresOrdinal,
+        tools:ExtractFieldRasterValuestoPointMeasuresRatio .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountCount,
+        tools:LocalMapAlgebraMultiplyCountRatio,
+        tools:LocalMapAlgebraMultiplyRatioCount,
+        tools:LocalMapAlgebraMultiplyRatioRatio .
+
+tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of the mean of a measured attribute" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:ArealInterpolationRate rdfs:label "Makes polygon to polygon predictions of a measured rate attribute" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+# TODO: Also raster?
+tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+# TODO: Also raster?
+tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive." ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
+    wf:input1 [ a ccd:ObjectVector ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LineA ] .
+
+tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points." ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoObjectPointBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoObjectPointInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoObjectPointNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoObjectPointOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoObjectPointRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoPointMeasuresBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoPointMeasuresInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoPointMeasuresNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood." ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell location a Sum of the values with an Ratio measurement level within a specified neighborhood around it" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:KernelDensityPoint rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:KernelDensityLine rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:KernelDensityRegion rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:KrigingCount rdfs:label "interpolates a raster surface from points at count measurement level using the kriging algorithm." ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm." ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:KrigingRatio rdfs:label "interpolates a raster surface from points at ratio measurement level using the kriging algorithm." ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+# TODO: Are all these (4^2) combinations really necessary?
+tools:LeastCostPathRasterRaster rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRasterPoint rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRasterLine rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:LineA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRasterRegion rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathPointRaster rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathPointPoint rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathPointLine rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:input2 [ a ccd:LineA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathPointRegion rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathLineRaster rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathLinePoint rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathLineLine rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:LineA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathLineRegion rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRegionRaster rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRegionPoint rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:PointA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRegionLine rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:LineA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LeastCostPathRegionRegion rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:input3 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a ratio value with a count value" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:MergeExistencePoints rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon." ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:PointA ] .
+
+tools:MergeExistenceLines rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon." ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:output [ a ccd:LineA ] .
+
+tools:MergeExistenceRegions rdfs:label "By merging all instances of the existence of a certain phenomena into a singular polygon we can define it as an object as it now has an unique defining quality that only exists within the created polygon." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:ObjectLineToExistenceRaster rdfs:label "Converts Object vectors with any measurement level to a raster denoting the existence of a feature at a location in the raster" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:ObjectPointToExistenceRaster rdfs:label "Converts object points with any measurement level to a raster denoting the existence of a feature at a location in the raster" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:ObjectRegionToExistenceRaster rdfs:label "Converts object regions with any measurement level to a raster denoting the existence of a feature at a location in the raster" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+
+# TODO: Also raster?
+tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour dataset. The raster is first reclassified to an ordinal raster, and then converted to a polygon layer." ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:RasterToCoverageNominal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:RasterToCoverageOrdinal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldraster to a boolean (succes or fail) based on a rule" ;
+    wf:input1 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+# TODO: Also raster?
+tools:SelectFeaturesContourToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:ExistenceVector ] .
+
+tools:SelectFeaturesCoverageToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:ExistenceVector ] .
+
+tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:ObjectVector ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:CountALatticeVectorAERA ] .
+
+tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:CountAObjectVectorERA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:CountALatticeVectorAERA ] .
+
+tools:SpatialJoinMeanTessInterval rdfs:label "Averages the attributes at interval measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:IntervalAObjectVector ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:IntervalALatticeVectorA ] .
+
+tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:ObjectVectorRatioA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:LatticeRatioAVectorA ] .
+
+tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:CountAObjectVectorERA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:CountALatticeVectorAERA ] .
+
+tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:ObjectVectorRatioAERA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:LatticeRatioAVectorAERA ] .
+
+tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:BooleanACoverage ] .
+
+tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point features with a Count measurement level" ;
+    wf:input1 [ a ccd:CountAPointMeasures ] ;
+    wf:output [ a ccd:CountACoverage ] .
+
+tools:ThiessenPolygonsInterval rdfs:label "Creates Thiessen polygons from point features with an interval measurement level" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:CoverageIntervalA ] .
+
+tools:ThiessenPolygonsNominal rdfs:label "Creates Thiessen polygons from point features with a nominal measurement level" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:CoverageNominalA ] .
+
+tools:ThiessenPolygonsOrdinal rdfs:label "Creates Thiessen polygons from point features with an ordinal measurement level" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:CoverageOrdinalA ] .
+
+tools:ThiessenPolygonsRatio rdfs:label "Creates Thiessen polygons from point features with a ratio measurement level" ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:CoverageRatioA ] .
+
+tools:ZonalStatisticsMajorityBoolean rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:BooleanALatticeVectorA ] .
+
+tools:ZonalStatisticsMajorityNominal rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LatticeNominalAVectorA ] .
+
+tools:ZonalStatisticsMeanCount rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LatticeRatioAVectorA ] .
+
+tools:ZonalStatisticsMeanInterval rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:IntervalALatticeVectorA ] .
+
+tools:ZonalStatisticsMeanIntervalIRA rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:IntervalALatticeVectorA ] .
+
+tools:ZonalStatisticsMeanRatio rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LatticeRatioAVectorA ] .
+
+tools:ZonalStatisticsMeanRatioIRA rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LatticeRatioAVectorA ] .
+
+tools:ZonalStatisticsMedOrdinal rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LatticeOrdinalAVectorA ] .
+
+tools:ZonalStatisticsSumCount rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:CountALatticeVectorAERA ] .
+
+tools:ZonalStatisticsSumRatio rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:RasterA ] ;
+    wf:output [ a ccd:LatticeRatioAVectorAERA ] .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageBoolean,
+        tools:RasterToCoverageNominal,
+        tools:RasterToCoverageOrdinal .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> tools:implements tools:ReclassifyFieldRasterToBoolean .
+
