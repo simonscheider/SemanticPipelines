@@ -11,78 +11,92 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-tools:FullLeastCostPath tools:implements tools:LeastCostPathRasterRatio ;
+tools:FullLeastCostPath tools:implements
+        tools:LeastCostPathRasterRaster,
+        tools:LeastCostPathRasterPoint,
+        tools:LeastCostPathRasterLine,
+        tools:LeastCostPathRasterRegion,
+        tools:LeastCostPathPointRaster,
+        tools:LeastCostPathPointPoint,
+        tools:LeastCostPathPointLine,
+        tools:LeastCostPathPointRegion,
+        tools:LeastCostPathLineRaster,
+        tools:LeastCostPathLinePoint,
+        tools:LeastCostPathLineLine,
+        tools:LeastCostPathLineRegion,
+        tools:LeastCostPathRegionRaster,
+        tools:LeastCostPathRegionPoint,
+        tools:LeastCostPathRegionLine,
+        tools:LeastCostPathRegionRegion ;
     rdf:first <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-distance-global-function.htm> ;
     rdf:rest ( <https://pro.arcgis.com/en/pro-app/help/data/imagery/cost-path-function.htm> ) .
 
 # TODO: Remove this tool altogether because there's no such thing as a 
 # contour in this ontology?
-tools:RasterToContour tools:implements tools:RasterToContourInterval ;
+tools:FullRasterToContour tools:implements tools:RasterToContour;
     rdf:first <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> ;
     rdf:rest ( <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> ) .
 
-<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMeanCount,
-        tools:FocalStatisticsMeanInterval,
-        tools:FocalStatisticsMeanRatio,
-        tools:FocalStatisticsSumCount,
-        tools:FocalStatisticsSumRatio,
-        tools:FocalStatisticsVarietyInterval .
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> tools:implements tools:FocalStatisticsMean,
+        tools:FocalStatisticsSum,
+        tools:FocalStatisticsVariety .
 
-<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements tools:KernelDensity .
+<https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements
+    tools:KernelDensityPoint, 
+    tools:KernelDensityLine, 
+    tools:KernelDensityRegion .
 
 <https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> tools:implements tools:ArealInterpolationAverage,
         tools:ArealInterpolationRate .
 
-<https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> tools:implements tools:ZonalStatisticsMajorityBoolean,
-        tools:ZonalStatisticsMajorityNominal,
-        tools:ZonalStatisticsMeanCount,
-        tools:ZonalStatisticsMeanInterval,
-        tools:ZonalStatisticsMeanIntervalIRA,
-        tools:ZonalStatisticsMeanRatio,
-        tools:ZonalStatisticsMeanRatioIRA,
-        tools:ZonalStatisticsMedOrdinal,
-        tools:ZonalStatisticsSumCount,
-        tools:ZonalStatisticsSumRatio .
+<https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> tools:implements tools:ZonalStatisticsMajority,
+        tools:ZonalStatisticsMean,
+        tools:ZonalStatisticsMedian,
+        tools:ZonalStatisticsSum .
 
-<https://pro.arcgis.com/en/pro-app/help/data/imagery/focal-statistics-function.htm> tools:implements tools:FocalStatisticsExistenceRaster .
+<https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements
+    tools:MergeExistencePoints,
+    tools:MergeExistenceLines,
+    tools:MergeExistenceRegions .
 
-<https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements tools:MergeExistenceVectorToObjectVector .
+<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:Kriging .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingCount,
-        tools:KrigingInterval,
-        tools:KrigingRatio .
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsRaster,
+        tools:ThiessenPolygonsRegion .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/create-thiessen-polygons.htm> tools:implements tools:ThiessenPolygonsBoolean,
-        tools:ThiessenPolygonsCount,
-        tools:ThiessenPolygonsInterval,
-        tools:ThiessenPolygonsNominal,
-        tools:ThiessenPolygonsOrdinal,
-        tools:ThiessenPolygonsRatio .
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements tools:SpatialJoinCountTess,
-        tools:SpatialJoinMeanTessCount,
-        tools:SpatialJoinMeanTessInterval,
-        tools:SpatialJoinMeanTessRatio,
-        tools:SpatialJoinSumTessCount,
-        tools:SpatialJoinSumTessRatio .
+<https://pro.arcgis.com/en/pro-app/tool-reference/analysis/spatial-join.htm> tools:implements
+    tools:SpatialJoinMeanPoint,
+    tools:SpatialJoinMeanLine,
+    tools:SpatialJoinMeanRegion,
+    tools:SpatialJoinSumPoint,
+    tools:SpatialJoinSumLine,
+    tools:SpatialJoinSumRegion,
+    tools:SpatialJoinCountPoint,
+    tools:SpatialJoinCountLine,
+    tools:SpatialJoinCountRegion .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectLineToExistenceRaster,
         tools:ObjectPointToExistenceRaster,
-        tools:ObjectRegionToExistenceRaster,
-        tools:ObjectVectorToExistenceRaster .
+        tools:ObjectRegionToExistenceRaster .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster,
-        tools:CoverageToFieldRaster .
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements
+        tools:VectorContourToFieldRaster,
+        tools:VectorCoverageToFieldRaster.
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean .
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToPoint .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToObjectLineBoolean .
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polyline.htm> tools:implements tools:ExistenceRasterToLine .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> tools:implements tools:SelectFeaturesContourToExistenceVector,
-        tools:SelectFeaturesCoverageToExistenceVector .
+<https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> tools:implements
+    tools:SelectFeaturesContourToExistencePoint,
+    tools:SelectFeaturesContourToExistenceLine,
+    tools:SelectFeaturesContourToExistenceRegion,
+    tools:SelectFeaturesCoverageToExistencePoint,
+    tools:SelectFeaturesCoverageToExistenceLine,
+    tools:SelectFeaturesCoverageToExistenceRegion .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceExistenceRaster,
-        tools:EuclideanDistanceObjectVector .
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceRaster,
+        tools:EuclideanDistanceVector .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointBoolean,
         tools:ExtractFieldRasterValuestoObjectPointInterval,
@@ -110,29 +124,27 @@ tools:ArealInterpolationRate rdfs:label "Makes polygon to polygon predictions of
     wf:input2 [ a ccd:VectorRegionA ] ;
     wf:output [ a ccd:VectorRegionA ] .
 
-# TODO: Also raster?
-tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters" ;
+tools:VectorContourToFieldRaster rdfs:label "Converts contour maps to field Rasters" ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:output [ a ccd:RasterA ] .
 
-# TODO: Also raster?
-tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters" ;
+tools:VectorCoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters" ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive." ;
+tools:EuclideanDistanceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive." ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:EuclideanDistanceObjectVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
+tools:EuclideanDistanceVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
     wf:input1 [ a ccd:ObjectVector ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:ExistenceRasterToObjectLineBoolean rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
+tools:ExistenceRasterToLine rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:LineA ] .
 
-tools:ExistenceRasterToObjectPointBoolean rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points." ;
+tools:ExistenceRasterToPoint rdfs:label "Converts a raster dataset with a Boolean measurement level to point vectors. For each cell of the input raster dataset, a point will be created in the output feature class. The points will be positioned at the centers of cells that they represent. The NoData cells will not be transformed into points." ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:PointA ] .
 
@@ -186,31 +198,15 @@ tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the info
     wf:input2 [ a ccd:PointA ] ;
     wf:output [ a ccd:PointA ] .
 
-tools:FocalStatisticsExistenceRaster rdfs:label "Calculates for each input cell location a density of the surrounding rastercells at a boolean measurement level that denote a succes, within a specified neighborhood." ;
+tools:FocalStatisticsMean rdfs:label "Calculates for each input cell location a Mean of the values within a specified neighborhood around it" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:FocalStatisticsMeanCount rdfs:label "Calculates for each input cell location a Mean of the values with an Count measurement level within a specified neighborhood around it" ;
+tools:FocalStatisticsSum rdfs:label "Calculates for each input cell location a Sum of the values within a specified neighborhood around it" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:FocalStatisticsMeanInterval rdfs:label "Calculates for each input cell location a Mean of the values with an Interval measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:FocalStatisticsMeanRatio rdfs:label "Calculates for each input cell location a Mean of the values with an Ratio measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:FocalStatisticsSumCount rdfs:label "Calculates for each input cell location a Sum of the values with an Count measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell location a Sum of the values with an Ratio measurement level within a specified neighborhood around it" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it" ;
+tools:FocalStatisticsVariety rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
@@ -226,15 +222,7 @@ tools:KernelDensityRegion rdfs:label "Calculates for each input cell location a 
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:KrigingCount rdfs:label "interpolates a raster surface from points at count measurement level using the kriging algorithm." ;
-    wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm." ;
-    wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:KrigingRatio rdfs:label "interpolates a raster surface from points at ratio measurement level using the kriging algorithm." ;
+tools:Kriging rdfs:label "interpolates a raster surface from points using the kriging algorithm." ;
     wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:RasterA ] .
 
@@ -381,19 +369,11 @@ tools:ObjectRegionToExistenceRaster rdfs:label "Converts object regions with any
 
 
 # TODO: Also raster?
-tools:RasterToContourInterval rdfs:label "Converts a field raster to a Contour dataset. The raster is first reclassified to an ordinal raster, and then converted to a polygon layer." ;
+tools:RasterToContour rdfs:label "Converts a field raster to a Contour dataset. The raster is first reclassified to an ordinal raster, and then converted to a polygon layer." ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:VectorRegionA ] .
 
-tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:VectorRegionA ] .
-
-tools:RasterToCoverageNominal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:VectorRegionA ] .
-
-tools:RasterToCoverageOrdinal rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
+tools:RasterToCoverage rdfs:label "Converts a field raster to a Coverage dataset by summing values into intervals or using data with a measurements level of ordinal or lower" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:VectorRegionA ] .
 
@@ -402,117 +382,113 @@ tools:ReclassifyFieldRasterToBoolean rdfs:label "transforms data within a fieldr
     wf:output [ a ccd:RasterA ] .
 
 # TODO: Also raster?
-tools:SelectFeaturesContourToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria" ;
+tools:SelectFeaturesContourToExistencePoint rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria" ;
     wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:ExistenceVector ] .
+    wf:output [ a ccd:PointA ] .
 
-tools:SelectFeaturesCoverageToExistenceVector rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
+# TODO: Also raster?
+tools:SelectFeaturesContourToExistenceLine rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria" ;
     wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:ExistenceVector ] .
+    wf:output [ a ccd:LineA ] .
 
-tools:SpatialJoinCountTess rdfs:label "Counts the number of features from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:ObjectVector ] ;
-    wf:input2 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:CountALatticeVectorAERA ] .
+# TODO: Also raster?
+tools:SelectFeaturesContourToExistenceRegion rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:SpatialJoinMeanTessCount rdfs:label "Averages the attributes at Count measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:CountAObjectVectorERA ] ;
-    wf:input2 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:CountALatticeVectorAERA ] .
+# TODO: Also raster?
+tools:SelectFeaturesCoverageToExistencePoint rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:PointA ] .
 
-tools:SpatialJoinMeanTessInterval rdfs:label "Averages the attributes at interval measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:IntervalAObjectVector ] ;
-    wf:input2 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:IntervalALatticeVectorA ] .
+# TODO: Also raster?
+tools:SelectFeaturesCoverageToExistenceLine rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:LineA ] .
 
-tools:SpatialJoinMeanTessRatio rdfs:label "Averages the attributes at Ratio measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:ObjectVectorRatioA ] ;
-    wf:input2 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:LatticeRatioAVectorA ] .
+# TODO: Also raster?
+tools:SelectFeaturesCoverageToExistenceRegion rdfs:label "a SQL query to select features matching a selection criteria.You build a query expression to generate the subset. You can query a dataset based on a field in a layer or a table. Using this selection a new Feature dataset is created with only the selected features using the Copy Features tool. This feature dataset represents all the area's that denounce the presence of a certain criteria " ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:SpatialJoinSumTessCount rdfs:label "Sums the attributes at Count measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:CountAObjectVectorERA ] ;
-    wf:input2 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:CountALatticeVectorAERA ] .
-
-tools:SpatialJoinSumTessRatio rdfs:label "Sums the attributes at ratio measurement level from one feature to another based on the spatial relation" ;
-    wf:input1 [ a ccd:ObjectVectorRatioAERA ] ;
-    wf:input2 [ a ccd:VectorRegionA ] ;
-    wf:output [ a ccd:LatticeRatioAVectorAERA ] .
-
-tools:ThiessenPolygonsBoolean rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level" ;
+# TODO: Are these redundant combinations for spatial join?
+tools:SpatialJoinMeanPoint rdfs:label "Averages the attributes from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:BooleanACoverage ] .
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point features with a Count measurement level" ;
-    wf:input1 [ a ccd:CountAPointMeasures ] ;
-    wf:output [ a ccd:CountACoverage ] .
+tools:SpatialJoinMeanLine rdfs:label "Averages the attributes from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ThiessenPolygonsInterval rdfs:label "Creates Thiessen polygons from point features with an interval measurement level" ;
+tools:SpatialJoinMeanRegion rdfs:label "Averages the attributes from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:SpatialJoinSumPoint rdfs:label "Sums the attributes from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:CoverageIntervalA ] .
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ThiessenPolygonsNominal rdfs:label "Creates Thiessen polygons from point features with a nominal measurement level" ;
+tools:SpatialJoinSumLine rdfs:label "Sums the attributes from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:SpatialJoinSumRegion rdfs:label "Sums the attributes from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:SpatialJoinCountPoint rdfs:label "Counts the number of features from one feature to another based on the spatial relation" ;
     wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:CoverageNominalA ] .
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ThiessenPolygonsOrdinal rdfs:label "Creates Thiessen polygons from point features with an ordinal measurement level" ;
+tools:SpatialJoinCountLine rdfs:label "Counts the number of features from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:SpatialJoinCountRegion rdfs:label "Counts the number of features from one feature to another based on the spatial relation" ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
+    wf:input2 [ a ccd:VectorRegionA ] ;
+    wf:output [ a ccd:VectorRegionA ] .
+
+tools:ThiessenPolygonsRaster rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level" ;
     wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:CoverageOrdinalA ] .
+    wf:output [ a ccd:RasterA ] .
 
-tools:ThiessenPolygonsRatio rdfs:label "Creates Thiessen polygons from point features with a ratio measurement level" ;
+tools:ThiessenPolygonsRegion rdfs:label "Creates Thiessen polygons from point features with a boolean measurement level" ;
     wf:input1 [ a ccd:PointA ] ;
-    wf:output [ a ccd:CoverageRatioA ] .
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ZonalStatisticsMajorityBoolean rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+tools:ZonalStatisticsMajority rdfs:label "Calculates the most common value on values with a Boolean measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:BooleanALatticeVectorA ] .
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ZonalStatisticsMajorityNominal rdfs:label "Calculates the most common value on values with a Nominal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+tools:ZonalStatisticsCount rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LatticeNominalAVectorA ] .
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ZonalStatisticsMeanCount rdfs:label "Calculates the average value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+tools:ZonalStatisticsMean rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LatticeRatioAVectorA ] .
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ZonalStatisticsMeanInterval rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+tools:ZonalStatisticsMedian rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:IntervalALatticeVectorA ] .
+    wf:output [ a ccd:VectorRegionA ] .
 
-tools:ZonalStatisticsMeanIntervalIRA rdfs:label "Calculates the average value for values with a Interval measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
+tools:ZonalStatisticsSum rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:IntervalALatticeVectorA ] .
-
-tools:ZonalStatisticsMeanRatio rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LatticeRatioAVectorA ] .
-
-tools:ZonalStatisticsMeanRatioIRA rdfs:label "Calculates the average value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LatticeRatioAVectorA ] .
-
-tools:ZonalStatisticsMedOrdinal rdfs:label "Calculates the median on values with an Ordinal measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LatticeOrdinalAVectorA ] .
-
-tools:ZonalStatisticsSumCount rdfs:label "Calculates the total value for values with a Count measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:CountALatticeVectorAERA ] .
-
-tools:ZonalStatisticsSumRatio rdfs:label "Calculates the total value for values with a Ratio measurement level of a raster within the zones of another dataset, a zone is defined as all areas in the input that have the same value. The areas do not have to be contiguous. Both raster and feature datasets can be used for the zone input." ;
-    wf:input1 [ a ccd:VectorRegionA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:LatticeRatioAVectorAERA ] .
+    wf:output [ a ccd:VectorRegionA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageBoolean,
         tools:RasterToCoverageNominal,
