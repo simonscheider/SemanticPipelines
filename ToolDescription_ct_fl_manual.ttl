@@ -52,6 +52,7 @@ tools:FullRasterToContour tools:implements tools:RasterToContour;
 <https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-analyst-toolbox/zonal-statistics-as-table.htm> tools:implements tools:ZonalStatisticsMajority,
         tools:ZonalStatisticsMean,
         tools:ZonalStatisticsMedian,
+        tools:ZonalStatisticsCount,
         tools:ZonalStatisticsSum .
 
 <https://pro.arcgis.com/en/pro-app/help/editing/merge-features-into-one-feature.htm> tools:implements
@@ -98,21 +99,13 @@ tools:FullRasterToContour tools:implements tools:RasterToContour;
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceRaster,
         tools:EuclideanDistanceVector .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuestoObjectPointBoolean,
-        tools:ExtractFieldRasterValuestoObjectPointInterval,
-        tools:ExtractFieldRasterValuestoObjectPointNominal,
-        tools:ExtractFieldRasterValuestoObjectPointOrdinal,
-        tools:ExtractFieldRasterValuestoObjectPointRatio,
-        tools:ExtractFieldRasterValuestoPointMeasuresBoolean,
-        tools:ExtractFieldRasterValuestoPointMeasuresInterval,
-        tools:ExtractFieldRasterValuestoPointMeasuresNominal,
-        tools:ExtractFieldRasterValuestoPointMeasuresOrdinal,
-        tools:ExtractFieldRasterValuestoPointMeasuresRatio .
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuesToPoints .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountCount,
-        tools:LocalMapAlgebraMultiplyCountRatio,
-        tools:LocalMapAlgebraMultiplyRatioCount,
-        tools:LocalMapAlgebraMultiplyRatioRatio .
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiply .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverage .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> tools:implements tools:ReclassifyFieldRasterToBoolean .
 
 tools:ArealInterpolationAverage rdfs:label "Makes polygon to polygon predictions of the mean of a measured attribute" ;
     wf:input1 [ a ccd:VectorRegionA ] ;
@@ -148,52 +141,7 @@ tools:ExistenceRasterToPoint rdfs:label "Converts a raster dataset with a Boolea
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:PointA ] .
 
-tools:ExtractFieldRasterValuestoObjectPointBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoObjectPointInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoObjectPointNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoObjectPointOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoObjectPointRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresBoolean rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresInterval rdfs:label "Extracts the information of a Interval field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresNominal rdfs:label "Extracts the information of a Nominal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresOrdinal rdfs:label "Extracts the information of a Ordinal field raster to a Point Measure" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:PointA ] ;
-    wf:output [ a ccd:PointA ] .
-
-tools:ExtractFieldRasterValuestoPointMeasuresRatio rdfs:label "Extracts the information of a Ratio field raster to a Point Measure" ;
+tools:ExtractFieldRasterValuesToPoints rdfs:label "Extracts the information of a Boolean field raster to a Point Measure" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:PointA ] ;
     wf:output [ a ccd:PointA ] .
@@ -323,22 +271,7 @@ tools:LeastCostPathRegionRegion rdfs:label "The Cost Path function calculates th
     wf:input3 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:LocalMapAlgebraMultiplyCountCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:LocalMapAlgebraMultiplyCountRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a count value with a ratio value" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:LocalMapAlgebraMultiplyRatioCount rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies a ratio value with a count value" ;
-    wf:input1 [ a ccd:RasterA ] ;
-    wf:input2 [ a ccd:RasterA ] ;
-    wf:output [ a ccd:RasterA ] .
-
-tools:LocalMapAlgebraMultiplyRatioRatio rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a ratio measurement level, in this case it multiplies the rasters with eachother" ;
+tools:LocalMapAlgebraMultiply rdfs:label "Builds and executes a Local Map Algebra expression using Python syntax using rasters with a Count measurement level, in this case it multiplies the rasters with eachother" ;
     wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
@@ -489,10 +422,3 @@ tools:ZonalStatisticsSum rdfs:label "Calculates the total value for values with 
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:VectorRegionA ] .
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-polygon.htm> tools:implements tools:RasterToCoverageBoolean,
-        tools:RasterToCoverageNominal,
-        tools:RasterToCoverageOrdinal .
-
-<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/reclassify.htm> tools:implements tools:ReclassifyFieldRasterToBoolean .
-
