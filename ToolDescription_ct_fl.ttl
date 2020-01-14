@@ -70,7 +70,7 @@ tools:RasterToContour wf:input1 [ a ccd:RasterA ] ;
     wf:input2 [ a ccd:VectorA ] ;
     wf:output [ a ccd:VectorA ] .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:LineA ] ;
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> wf:input1 [ a ccd:PointA ] ;
     wf:output [ a ccd:RasterA ] .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> wf:input1 [ a ccd:TessellationA ] ;
