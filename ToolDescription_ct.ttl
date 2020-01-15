@@ -241,16 +241,16 @@ tools:KernelDensity rdfs:label "Calculates for each input cell location a densit
     wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:KrigingCount rdfs:label "interpolates a raster surface from points at count measurement level using the kriging algorithm." ;
-    wf:input1 [ a ccd:CountAPointMeasuresIRA ] ;
-    wf:output [ a ccd:CountAFieldRasterIRA ] .
+    wf:input1 [ a ccd:CountAPointMeasures ] ;
+    wf:output [ a ccd:CountAFieldRaster ] .
 
 tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm." ;
-    wf:input1 [ a ccd:PointMeasuresIRA ] ;
-    wf:output [ a ccd:FieldRasterIRA ] .
+    wf:input1 [ a ccd:IntervalAPointMeasures ] ;
+    wf:output [ a ccd:FieldRasterIntervalA ] .
 
 tools:KrigingRatio rdfs:label "interpolates a raster surface from points at ratio measurement level using the kriging algorithm." ;
-    wf:input1 [ a ccd:PointMeasuresRatioAIRA ] ;
-    wf:output [ a ccd:FieldRasterRatioAIRA ] .
+    wf:input1 [ a ccd:PointMeasuresRatioA ] ;
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:LeastCostPathRasterRatio rdfs:label "The Cost Path function calculates the least-cost path from a source to a destination. This function produces an output raster that records the least-cost path or paths from selected locations to the closest source cell defined within the accumulative cost surface at a ratio measurement level, in terms of cost distance" ;
     wf:input1 [ a ccd:BoundedPhen ] ;

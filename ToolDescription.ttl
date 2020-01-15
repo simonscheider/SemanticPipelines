@@ -98,20 +98,20 @@ tools:ThiessenPolygonsCount rdfs:label "Creates Thiessen polygons from point fea
 # with the standard 12 points setting, and a spherical search radius.
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingInterval.
 tools:KrigingInterval rdfs:label "interpolates a raster surface from points at interval measurement level using the kriging algorithm.";
-    wf:input1 [ a ccd:PointMeasures, ccd:IntervalA, exm:IRA ];
-    wf:output [ a ccd:FieldRaster, ccd:IntervalA, exm:IRA ].
+    wf:input1 [ a ccd:PointMeasures, ccd:IntervalA ];
+    wf:output [ a ccd:FieldRaster, ccd:IntervalA ].
 
 # with the standard 12 points setting, and a spherical search radius.
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingRatio.
 tools:KrigingRatio rdfs:label "interpolates a raster surface from points at ratio measurement level using the kriging algorithm.";
-    wf:input1 [ a ccd:PointMeasures, ccd:RatioA, exm:IRA ];
-    wf:output [ a ccd:FieldRaster, ccd:RatioA, exm:IRA ].
+    wf:input1 [ a ccd:PointMeasures, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 # with the standard 12 points setting, and a spherical search radius.
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> tools:implements tools:KrigingCount.
 tools:KrigingCount rdfs:label "interpolates a raster surface from points at count measurement level using the kriging algorithm.";
-    wf:input1 [ a ccd:PointMeasures, ccd:CountA, exm:IRA ];
-    wf:output [ a ccd:FieldRaster, ccd:CountA, exm:IRA ]. # The output may be a floating point number but it still represents a count of discrete entities.
+    wf:input1 [ a ccd:PointMeasures, ccd:CountA ];
+    wf:output [ a ccd:FieldRaster, ccd:CountA ]. # The output may be a floating point number but it still represents a count of discrete entities.
 
 ### Object vector to existence Raster  ( only kept the Objectvector to booleaan as this method only denotes the existence of polygons, if it also would give a value it would be a field raster) The input can only be booleaan, but every input is already boolean for the purpose of this analysis (it exists or it doesn't)
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-to-raster.htm> tools:implements tools:ObjectRegionToExistenceRaster.

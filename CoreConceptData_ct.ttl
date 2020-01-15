@@ -89,12 +89,6 @@ ccd:CountAFieldRasterERA a owl:Class ;
         em:ERA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:FieldRaster em:ERA ) ] .
 
-ccd:CountAFieldRasterIRA a owl:Class ;
-    rdfs:subClassOf ccd:CountA,
-        ccd:FieldRaster,
-        em:IRA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:FieldRaster em:IRA ) ] .
-
 ccd:CountALatticeVectorAERA a owl:Class ;
     rdfs:subClassOf ccd:CountA,
         ccd:Lattice,
@@ -112,12 +106,6 @@ ccd:CountAPointMeasures a owl:Class ;
     rdfs:subClassOf ccd:CountA,
         ccd:PointMeasures ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:PointMeasures ) ] .
-
-ccd:CountAPointMeasuresIRA a owl:Class ;
-    rdfs:subClassOf ccd:CountA,
-        ccd:PointMeasures,
-        em:IRA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:CountA ccd:PointMeasures em:IRA ) ] .
 
 ccd:CoverageIntervalA a owl:Class ;
     rdfs:subClassOf ccd:Coverage,
@@ -339,21 +327,10 @@ ccd:PointMeasuresDS a owl:Class ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( ccd:FieldDS ccd:PointDataSet ) ] .
 
-ccd:PointMeasuresIRA a owl:Class ;
-    rdfs:subClassOf ccd:PointMeasures,
-        em:IRA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:PointMeasures em:IRA ) ] .
-
 ccd:PointMeasuresRatioA a owl:Class ;
     rdfs:subClassOf ccd:PointMeasures,
         ccd:RatioA ;
     owl:equivalentClass [ owl:intersectionOf ( ccd:PointMeasures ccd:RatioA ) ] .
-
-ccd:PointMeasuresRatioAIRA a owl:Class ;
-    rdfs:subClassOf ccd:PointMeasures,
-        ccd:RatioA,
-        em:IRA ;
-    owl:equivalentClass [ owl:intersectionOf ( ccd:PointMeasures ccd:RatioA em:IRA ) ] .
 
 ccd:Track a owl:Class ;
     rdfs:comment "A type for a spatial track. A spatial track is a vector representation of \"fix\" events of some moving object. For example, a GPS track of points of a person moving."@en ;
@@ -570,6 +547,10 @@ ccd:Vector a owl:Class ;
             owl:intersectionOf ( ada:SpatialDataSet [ a owl:Class ;
                         owl:complementOf ccd:Raster ] ) ] .
 
+em:IRA a owl:Class ;
+    rdfs:comment "Intensive region attribute"@en ;
+    rdfs:subClassOf ccd:IntervalA .
+
 ccd:ObjectPoint a owl:Class ;
     rdfs:comment "An attribute of an object point dataset"@en ;
     rdfs:subClassOf ccd:ObjectVector,
@@ -586,6 +567,10 @@ ccd:FieldDS a owl:Class ;
 ccd:BooleanA a owl:Class ;
     rdfs:comment "Boolean attributes are spatial attributes within the range of True/False. They are special types of (bi)nominal attributes"@en ;
     rdfs:subClassOf ccd:NominalA .
+
+ccd:CountA a owl:Class ;
+    rdfs:comment "An attribute that denotes counts of discrete entities (compare Chrisman 1998)"@en ;
+    rdfs:subClassOf ccd:RatioA .
 
 ccd:NominalA a owl:Class ;
     rdfs:comment "A spatial attribute on nominal scale level"@en ;
@@ -604,6 +589,15 @@ ccd:OrdinalA a owl:Class ;
     rdfs:comment "A spatial attribute on ordinal scale level"@en ;
     rdfs:subClassOf ccd:NominalA .
 
+ccd:PointMeasures a owl:Class ;
+    rdfs:comment "Point measures are point-like representations of fields. For example, point data sets denoting the locations of measured temperature values."@en ;
+    rdfs:subClassOf ccd:FieldVector,
+        ccd:PointA ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( ccd:FieldQ [ a owl:Restriction ;
+                        owl:onProperty ada:ofDataSet ;
+                        owl:someValuesFrom ccd:PointDataSet ] ) ] .
+
 ccd:Coverage a owl:Class ;
     rdfs:comment "Coverages are tessellated layers that represent a continuous field. For example, landuse polygons."@en ;
     rdfs:subClassOf ccd:TessellationA ;
@@ -620,27 +614,6 @@ ccd:IntervalA a owl:Class ;
     rdfs:comment "An interval scaled attribute"@en ;
     rdfs:subClassOf ccd:OrdinalA .
 
-ccd:CountA a owl:Class ;
-    rdfs:comment "An attribute that denotes counts of discrete entities (compare Chrisman 1998)"@en ;
-    rdfs:subClassOf ccd:RatioA .
-
-em:IRA a owl:Class ;
-    rdfs:comment "Intensive region attribute"@en ;
-    rdfs:subClassOf ccd:IntervalA .
-
-ccd:PointMeasures a owl:Class ;
-    rdfs:comment "Point measures are point-like representations of fields. For example, point data sets denoting the locations of measured temperature values."@en ;
-    rdfs:subClassOf ccd:FieldVector,
-        ccd:PointA ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:intersectionOf ( ccd:FieldQ [ a owl:Restriction ;
-                        owl:onProperty ada:ofDataSet ;
-                        owl:someValuesFrom ccd:PointDataSet ] ) ] .
-
-ccd:Attribute a owl:Class ;
-    rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
-    rdfs:subClassOf ada:ValueList .
-
 ccd:FieldRaster a owl:Class ;
     rdfs:comment "Field rasters are raster representations of continuous fields. For example, raster layers representing a terrain height (DTM)."@en ;
     rdfs:subClassOf ccd:RasterA ;
@@ -648,6 +621,10 @@ ccd:FieldRaster a owl:Class ;
             owl:intersectionOf ( ccd:FieldQ [ a owl:Restriction ;
                         owl:onProperty ada:ofDataSet ;
                         owl:someValuesFrom ccd:Raster ] ) ] .
+
+ccd:Attribute a owl:Class ;
+    rdfs:comment "Attributes of a tabular dataset. Each attribute corresponds to a column in the table."@en ;
+    rdfs:subClassOf ada:ValueList .
 
 ccd:Lattice a owl:Class ;
     rdfs:comment "A lattice is a spatial tessellation that represents objects and their qualities. For example, a set of municipalities with average income."@en ;
