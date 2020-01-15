@@ -33,6 +33,9 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsVariety> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> .
 
+<http://geographicknowledge.de/vocab/GISTools.rdf#IDW> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> .
+
 <http://geographicknowledge.de/vocab/GISTools.rdf#KernelDensityLine> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> .
 
@@ -211,6 +214,9 @@
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> a <http://www.w3.org/2002/07/owl#Class> ;

@@ -335,10 +335,35 @@ tools:RasterToCoverageBoolean rdfs:label "Converts a field raster to a Coverage 
     wf:output [ a ccd:Coverage, ccd:BooleanA ].
 
 ###Field Polygon to raster
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToFieldRaster.
-tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters";
-    wf:input1 [ a ccd:Coverage ];
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToNominalFieldRaster.
+tools:CoverageToNominalFieldRaster rdfs:label "Converts Field polygons to nominal field Rasters";
+    wf:input1 [ a ccd:Coverage, ccd:NominalA ];
     wf:output [ a ccd:FieldRaster, ccd:NominalA ].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToOrdinalFieldRaster.
+tools:CoverageToOrdinalFieldRaster rdfs:label "Converts Field polygons to ordinal field Rasters";
+    wf:input1 [ a ccd:Coverage, ccd:OrdinalA ];
+    wf:output [ a ccd:FieldRaster, ccd:OrdinalA ].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToIntervalFieldRaster.
+tools:CoverageToIntervalFieldRaster rdfs:label "Converts Field polygons to interval field Rasters";
+    wf:input1 [ a ccd:Coverage , ccd:IntervalA];
+    wf:output [ a ccd:FieldRaster, ccd:IntervalA ].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:CoverageToRatioFieldRaster.
+tools:CoverageToRatioFieldRaster rdfs:label "Converts Field polygons to ratio field Rasters";
+    wf:input1 [ a ccd:Coverage , ccd:RatioA];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> tools:implements tools:IDWInterval.
+tools:IDWInterval rdfs:label "Standard point interpolation for interval measurements.";
+    wf:input1 [ a ccd:PointMeasures, ccd:IntervalA ];
+    wf:output [ a ccd:FieldRaster, ccd:IntervalA ].
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> tools:implements tools:IDWRatio.
+tools:IDWRatio rdfs:label "Standard point interpolation for ratio measurements.";
+    wf:input1 [ a ccd:PointMeasures, ccd:RatioA ];
+    wf:output [ a ccd:FieldRaster, ccd:RatioA ].
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster.
 tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters";

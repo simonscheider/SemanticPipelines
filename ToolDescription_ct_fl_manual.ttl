@@ -41,6 +41,8 @@ tools:FullRasterToContour tools:implements tools:RasterToContour;
         tools:FocalStatisticsSum,
         tools:FocalStatisticsVariety .
 
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> tools:implements tools:IDW.
+
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> tools:implements
     tools:KernelDensityPoint, 
     tools:KernelDensityLine, 
@@ -422,3 +424,7 @@ tools:ZonalStatisticsSum rdfs:label "Calculates the total value for values with 
     wf:input1 [ a ccd:VectorRegionA ] ;
     wf:input2 [ a ccd:RasterA ] ;
     wf:output [ a ccd:VectorRegionA ] .
+
+tools:IDW rdfs:label "Point interpolation";
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .

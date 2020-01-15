@@ -12,7 +12,16 @@
 <http://geographicknowledge.de/vocab/GISTools.rdf#ContourToFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
 
-<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
+<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToIntervalFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToNominalFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToOrdinalFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#CoverageToRatioFieldRaster> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#EuclideanDistanceExistenceRaster> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -77,6 +86,12 @@
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#FocalStatisticsVarietyInterval> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#IDWInterval> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> .
+
+<http://geographicknowledge.de/vocab/GISTools.rdf#IDWRatio> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> .
 
 <http://geographicknowledge.de/vocab/GISTools.rdf#KernelDensity> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/kernel-density.htm> .
@@ -234,13 +249,13 @@
 <https://desktop.arcgis.com/en/arcmap/latest/extensions/geostatistical-analyst/using-areal-interpolation-to-predict-to-new-polygons.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
-<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
-    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
-
 <https://pro.arcgis.com/en/pro-app/tool-reference/data-management/select-layer-by-attribute.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/3d-analyst/kriging.htm> a <http://www.w3.org/2002/07/owl#Class> ;
@@ -253,6 +268,9 @@
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> a <http://www.w3.org/2002/07/owl#Class> ;
+    rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
+
+<https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> a <http://www.w3.org/2002/07/owl#Class> ;
     rdfs:subClassOf <http://geographicknowledge.de/vocab/GISTools.rdf#Tool> .
 
 <https://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/focal-statistics.htm> a <http://www.w3.org/2002/07/owl#Class> ;

@@ -70,7 +70,10 @@ tools:RasterToContour tools:implements tools:RasterToContourInterval ;
         tools:ObjectVectorToExistenceRaster .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/polygon-to-raster.htm> tools:implements tools:ContourToFieldRaster,
-        tools:CoverageToFieldRaster .
+        tools:CoverageToIntervalFieldRaster,
+        tools:CoverageToNominalFieldRaster,
+        tools:CoverageToOrdinalFieldRaster,
+        tools:CoverageToRatioFieldRaster .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/conversion/raster-to-point.htm> tools:implements tools:ExistenceRasterToObjectPointBoolean .
 
@@ -93,6 +96,9 @@ tools:RasterToContour tools:implements tools:RasterToContourInterval ;
         tools:ExtractFieldRasterValuestoPointMeasuresOrdinal,
         tools:ExtractFieldRasterValuestoPointMeasuresRatio .
 
+<https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/idw.htm> tools:implements tools:IDWInterval,
+        tools:IDWRatio .
+
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/raster-calculator.htm> tools:implements tools:LocalMapAlgebraMultiplyCountCount,
         tools:LocalMapAlgebraMultiplyCountRatio,
         tools:LocalMapAlgebraMultiplyRatioCount,
@@ -112,9 +118,21 @@ tools:ContourToFieldRaster rdfs:label "Converts contour maps to field Rasters" ;
     wf:input1 [ a ccd:Contour ] ;
     wf:output [ a ccd:FieldRasterOrdinalA ] .
 
-tools:CoverageToFieldRaster rdfs:label "Converts Field polygons to field Rasters" ;
-    wf:input1 [ a ccd:Coverage ] ;
+tools:CoverageToIntervalFieldRaster rdfs:label "Converts Field polygons to interval field Rasters" ;
+    wf:input1 [ a ccd:CoverageIntervalA ] ;
+    wf:output [ a ccd:FieldRasterIntervalA ] .
+
+tools:CoverageToNominalFieldRaster rdfs:label "Converts Field polygons to nominal field Rasters" ;
+    wf:input1 [ a ccd:CoverageNominalA ] ;
     wf:output [ a ccd:FieldRasterNominalA ] .
+
+tools:CoverageToOrdinalFieldRaster rdfs:label "Converts Field polygons to ordinal field Rasters" ;
+    wf:input1 [ a ccd:CoverageOrdinalA ] ;
+    wf:output [ a ccd:FieldRasterOrdinalA ] .
+
+tools:CoverageToRatioFieldRaster rdfs:label "Converts Field polygons to ratio field Rasters" ;
+    wf:input1 [ a ccd:CoverageRatioA ] ;
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:EuclideanDistanceExistenceRaster rdfs:label "Calculates, for each cell, the Euclidean distance to the closest existence raster grid that rapports a positive." ;
     wf:input1 [ a ccd:NoDataExistenceRaster ] ;
@@ -209,6 +227,14 @@ tools:FocalStatisticsSumRatio rdfs:label "Calculates for each input cell locatio
 tools:FocalStatisticsVarietyInterval rdfs:label "Calculates for each cell the variety (the number of unique values) within a specified neighborhood around it" ;
     wf:input1 [ a ccd:FieldRaster ] ;
     wf:output [ a ccd:CountAFieldRaster ] .
+
+tools:IDWInterval rdfs:label "Standard point interpolation for interval measurements." ;
+    wf:input1 [ a ccd:IntervalAPointMeasures ] ;
+    wf:output [ a ccd:FieldRasterIntervalA ] .
+
+tools:IDWRatio rdfs:label "Standard point interpolation for ratio measurements." ;
+    wf:input1 [ a ccd:PointMeasuresRatioA ] ;
+    wf:output [ a ccd:FieldRasterRatioA ] .
 
 tools:KernelDensity rdfs:label "Calculates for each input cell location a density of the surrounding vectors at a boolean measurement level that denote a succes, within a specified neighborhood." ;
     wf:input1 [ a ccd:ObjectVector ] ;
