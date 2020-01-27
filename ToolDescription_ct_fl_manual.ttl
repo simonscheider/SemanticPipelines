@@ -99,7 +99,9 @@ tools:FullRasterToContour tools:implements tools:RasterToContour;
     tools:SelectFeaturesCoverageToExistenceRegion .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/euclidean-distance.htm> tools:implements tools:EuclideanDistanceRaster,
-        tools:EuclideanDistanceVector .
+        tools:EuclideanDistancePoint,
+        tools:EuclideanDistanceLine,
+        tools:EuclideanDistanceRegion .
 
 <https://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/extract-values-to-points.htm> tools:implements tools:ExtractFieldRasterValuesToPoints .
 
@@ -131,8 +133,16 @@ tools:EuclideanDistanceRaster rdfs:label "Calculates, for each cell, the Euclide
     wf:input1 [ a ccd:RasterA ] ;
     wf:output [ a ccd:RasterA ] .
 
-tools:EuclideanDistanceVector rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
-    wf:input1 [ a ccd:ObjectVector ] ;
+tools:EuclideanDistancePoint rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
+    wf:input1 [ a ccd:PointA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:EuclideanDistanceLine rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
+    wf:input1 [ a ccd:LineA ] ;
+    wf:output [ a ccd:RasterA ] .
+
+tools:EuclideanDistanceRegion rdfs:label "Calculates, for each cell, the Euclidean distance to the closest source." ;
+    wf:input1 [ a ccd:VectorRegionA ] ;
     wf:output [ a ccd:RasterA ] .
 
 tools:ExistenceRasterToLine rdfs:label "Converts a raster dataset with a boolean measurement level to polyline features based on membership of the same value" ;
