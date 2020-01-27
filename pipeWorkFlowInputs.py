@@ -25,16 +25,22 @@ def pipe(tooldescfile = 'ToolDescription.ttl', ontologyfile = 'CoreConceptData.t
     final.parse('CoreConceptData_tax.ttl', format='turtle')
     final.parse('ToolDescription_tax.ttl', format='turtle')
     final.serialize(destination='GISTaxonomy.rdf', format = "application/rdf+xml")
-    #Then generates a XML version of the tooldescription for the full taxonomy (to be used with GISTaxonomy.rdf)
+    #Then generates a JSON version of the tooldescription for the full taxonomy (to be used with GISTaxonomy.rdf)
     toolannotator.main(toolsinrdf= 'ToolDescription_ct.ttl')
     #Generates a flattened (_fl) ontology by removing classes that inherit classlist, then generates a corresponding flattened tooldescription, by substituting classes with the LUC in the flattened ontology
-    shallowOntology.main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NominalA", "EventQ", "ObjectQ", "BoundedPhen"] )
+    # shallowOntology.main(tooldescfile = "ToolDescription_ct.ttl", ontologyfile = 'CoreConceptData_tax.ttl', classlist = ["FieldQ", "NetworkDS", "NetworkQ", "CoreConceptDataSet", "NominalA", "EventQ", "ObjectQ", "BoundedPhen", "FieldDS", "EventDS", "ObjectDS", "AmountDS"] )
+    
+    cleanWfTaxonomy.main(ontologyfile = 'CoreConceptData_ct.ttl', tooldesc='ToolDescription_ct_fl_manual.ttl', tool_tax_output='ToolDescription_tax_fl.ttl')
+
     finalfl = rdflib.Graph()
     finalfl.parse('CoreConceptData_tax_fl.ttl', format='turtle')
-    finalfl.parse('ToolDescription_tax.ttl', format='turtle')
+    finalfl.parse('ToolDescription_tax_fl.ttl', format='turtle')
     finalfl.serialize(destination='GISTaxonomy_fl.rdf', format = "application/rdf+xml")
-    #XML version of the flattened tool description (to be used with GISTaxonomy_fl.rdf
-    toolannotator.main(toolsinrdf= 'ToolDescription_ct_fl.ttl')
+    #JSON version of the flattened tool description (to be used with GISTaxonomy_fl.rdf
+    # toolannotator.main(toolsinrdf= 'ToolDescription_ct_fl.ttl')
+    # JSON version of the manual flattened tool description (to be used with
+    # GISTaxonomy_fl.rdf)
+    toolannotator.main(toolsinrdf= 'ToolDescription_ct_fl_manual.ttl')
 
 def main():
     pipe()

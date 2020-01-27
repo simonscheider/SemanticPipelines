@@ -13,11 +13,11 @@
 import rdflib
 import rdflib.plugins.sparql as sparql
 import glob
-import RDFClosure
+import owlrl
 from rdflib.namespace import RDFS, RDF, OWL
 from rdflib import URIRef, BNode, Literal
 from rdflib import Namespace
-from urlparse import urlparse
+from urllib.parse import urlparse
 import os
 
 TOOLS=rdflib.Namespace("http://geographicknowledge.de/vocab/GISTools.rdf#")
@@ -35,30 +35,30 @@ def load_rdf( g, rdffile, format='turtle' ):
 def run_inferences( g ):
     #print('run_inferences')
     # expand deductive closure
-    RDFClosure.DeductiveClosure(RDFClosure.OWLRL_Semantics).expand(g)
-    RDFClosure.DeductiveClosure(RDFClosure.RDFS_Semantics).expand(g)
+    owlrl.DeductiveClosure(owlrl.OWLRL_Semantics).expand(g)
+    owlrl.DeductiveClosure(owlrl.RDFS_Semantics).expand(g)
     n_triples(g)
     return g
 
 def n_triples( g, n=None ):
     """ Prints the number of triples in graph g """
     if n is None:
-        print( '  Triples: '+str(len(g)) )
+        print(( '  Triples: '+str(len(g)) ))
     else:
-        print( '  Triples: +'+str(len(g)-n) )
+        print(( '  Triples: +'+str(len(g)-n) ))
     return len(g)
 
 def cleanOWLOntology(ontologyfile= 'CoreConceptData_ct.ttl'): #This takes the combined types version as input
-    print 'Clean OWL ontology!'
+    print('Clean OWL ontology!')
     ccdontology = load_rdf(rdflib.Graph(),ontologyfile)
-    print 'Running inferences:'
+    print('Running inferences:')
     ccdontology = run_inferences(ccdontology)
     taxonomy = rdflib.Graph()
-    print 'Extracting subClassOf triples:'
+    print('Extracting subClassOf triples:')
     taxonomy += ccdontology.triples( (None, RDFS.subClassOf, None) ) #Keeping only subClassOf statements and classes
     taxonomy += ccdontology.triples( (None, RDF.type, OWL.Class) )
     n_triples(taxonomy)
-    print 'Cleaning blank node triples and loops:'
+    print('Cleaning blank node triples and loops:')
     taxonomyclean = rdflib.Graph()
     for (s,p,o) in taxonomy: #Removing triples that stem from blanknodes as well as loops
         if type(s) != BNode and type(o) != BNode:
@@ -71,7 +71,7 @@ def cleanOWLOntology(ontologyfile= 'CoreConceptData_ct.ttl'): #This takes the co
     return taxonomyclean
 
 def extractToolOntology(tooldesc='ToolDescription_ct.ttl'):
-    print 'Extract Tool ontology!'
+    print('Extract Tool ontology!')
     output = rdflib.Graph()
     tools = load_rdf(rdflib.Graph(),tooldesc)
     for (s,p,o) in tools.triples((None, TOOLS.implements, None)):
@@ -84,12 +84,12 @@ def extractToolOntology(tooldesc='ToolDescription_ct.ttl'):
     return output
 
 
-def main(ontologyfile = 'CoreConceptData_ct.ttl', tooldesc='ToolDescription_ct.ttl'):
+def main(ontologyfile = 'CoreConceptData_ct.ttl', tooldesc='ToolDescription_ct.ttl', tool_tax_output='ToolDescription_tax.ttl'):
     dt = 'CoreConceptData_tax.ttl'
     tax = cleanOWLOntology(ontologyfile = 'CoreConceptData_ct.ttl')
-    tooltax =extractToolOntology(tooldesc='ToolDescription_ct.ttl')
+    tooltax =extractToolOntology(tooldesc=tooldesc)
     tax.serialize(destination=dt,format = "turtle")
-    to = 'ToolDescription_tax.ttl'
+    to = tool_tax_output
     tooltax.serialize(destination=to,format = "turtle")
 
 

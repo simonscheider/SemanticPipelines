@@ -662,6 +662,17 @@
          rdfs:comment "Attribute of some vector data set"@en .
 
 
+###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorRegionA
+:VectorRegionA rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :RegionA
+                                                          :VectorA
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :Attribute ;
+               rdfs:comment "An attribute of a region vector data set"@en .
+
+
 ###  http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorTessellation
 :VectorTessellation rdf:type owl:Class ;
                     owl:equivalentClass [ owl:intersectionOf ( :Tessellation

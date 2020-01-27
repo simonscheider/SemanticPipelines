@@ -15,8 +15,8 @@ ccd:Line a owl:Class ;
         owl:Thing .
 
 ccd:LineA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
         ccd:VectorA,
         owl:Thing .
 
@@ -34,8 +34,8 @@ ccd:Point a owl:Class ;
         owl:Thing .
 
 ccd:PointA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
         ccd:VectorA,
         owl:Thing .
 
@@ -55,27 +55,27 @@ ccd:Raster a owl:Class ;
         owl:Thing .
 
 ccd:RasterA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
         owl:Thing .
 
 ccd:Region a owl:Class ;
     rdfs:subClassOf ada:Spatial,
         owl:Thing .
 
-ccd:RegionA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
-        owl:Thing .
-
 ccd:RegionData a owl:Class ;
     rdfs:subClassOf ada:SpatialData,
         owl:Thing .
 
-ccd:TessellationAVectorA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
-        ccd:TessellationA,
+ccd:TessellationA a owl:Class ;
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
+        owl:Thing .
+
+ccd:VectorRegionA a owl:Class ;
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
+        ccd:RegionA,
         ccd:VectorA,
         owl:Thing .
 
@@ -156,9 +156,9 @@ xsd:unsignedLong rdfs:subClassOf rdfs:Literal .
 
 xsd:unsignedShort rdfs:subClassOf rdfs:Literal .
 
-ccd:TessellationA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
+ccd:RegionA a owl:Class ;
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
         owl:Thing .
 
 ccd:Tessellation a owl:Class ;
@@ -175,14 +175,15 @@ ccd:Vector a owl:Class ;
         owl:Thing .
 
 ccd:VectorA a owl:Class ;
-    rdfs:subClassOf ada:Attribute,
-        ada:ValueList,
-        owl:Thing .
-
-ada:Attribute rdfs:subClassOf ada:ValueList,
+    rdfs:subClassOf ada:ValueList,
+        ccd:Attribute,
         owl:Thing .
 
 ada:SpatialDataSet rdfs:subClassOf tools:DType .
+
+ccd:Attribute a owl:Class ;
+    rdfs:subClassOf ada:ValueList,
+        owl:Thing .
 
 ada:ValueList rdfs:subClassOf tools:DType .
 

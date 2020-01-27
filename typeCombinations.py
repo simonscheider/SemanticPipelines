@@ -20,11 +20,10 @@ __copyright__   = ""
 import rdflib
 import rdflib.plugins.sparql as sparql
 import glob
-import RDFClosure
 from rdflib.namespace import RDFS, RDF, OWL
 from rdflib import URIRef, BNode, Literal
 from rdflib import Namespace
-from urlparse import urlparse
+from urllib.parse import urlparse
 import os
 
 CCD= rdflib.Namespace("http://geographicknowledge.de/vocab/CoreConceptData.rdf#")
@@ -43,14 +42,14 @@ def write_rdf(g, rdffile, format='turtle' ):
 def n_triples( g, n=None ):
     """ Prints the number of triples in graph g """
     if n is None:
-        print( '  Triples: '+str(len(g)) )
+        print(( '  Triples: '+str(len(g)) ))
     else:
-        print( '  Triples: +'+str(len(g)-n) )
+        print(( '  Triples: +'+str(len(g)-n) ))
     return len(g)
 
 def printGraph(graph):
     for s, p, o in graph:
-        print s, p,  o
+        print(s, p,  o)
 
 
 """"checks subsumption by property path query (fast)"""
@@ -149,7 +148,7 @@ def setprefixes(g):
 def combineTypes(rdffile, ontology, singletype = True): #singltype: should the resulting nodes in the rdffile have only a single type?
     rdfdata =load_rdf(rdflib.Graph(),rdffile)
     rdfdata = setprefixes(rdfdata)
-    print "Intersecting types (creating new leave classes in the ontology for each new type combination occurring in a tool's input/output annotation)"
+    print("Intersecting types (creating new leave classes in the ontology for each new type combination occurring in a tool's input/output annotation)")
 
     ontdata =load_rdf(rdflib.Graph(),ontology)
     ontdata = setprefixes(ontdata)

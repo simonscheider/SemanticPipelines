@@ -1,0 +1,361 @@
+{
+  "functions": [
+    {
+      "inputs": [
+        {
+          "DType": "TessellationA"
+        }
+      ],
+      "name": "select-layer-by-attribute",
+      "operation": "select-layer-by-attribute",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "merge-features-into-one-feature",
+      "operation": "merge-features-into-one-feature",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        },
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-calculator",
+      "operation": "raster-calculator",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        },
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "zonal-statistics-as-table",
+      "operation": "zonal-statistics-as-table",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "euclidean-distance",
+      "operation": "euclidean-distance",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "focal-statistics-function",
+      "operation": "focal-statistics-function",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-to-point",
+      "operation": "raster-to-point",
+      "outputs": [
+        {
+          "DType": [
+            "PointA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-to-polygon",
+      "operation": "raster-to-polygon",
+      "outputs": [
+        {
+          "DType": [
+            "TessellationA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        },
+        {
+          "DType": "PointA"
+        }
+      ],
+      "name": "extract-values-to-points",
+      "operation": "extract-values-to-points",
+      "outputs": [
+        {
+          "DType": [
+            "PointA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointA"
+        }
+      ],
+      "name": "kriging",
+      "operation": "kriging",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointA"
+        }
+      ],
+      "name": "feature-to-raster",
+      "operation": "feature-to-raster",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "reclassify",
+      "operation": "reclassify",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "ValueList"
+        },
+        {
+          "DType": "ValueList"
+        },
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "FullLeastCostPath",
+      "operation": "FullLeastCostPath",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "kernel-density",
+      "operation": "kernel-density",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        },
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "using-areal-interpolation-to-predict-to-new-polygons",
+      "operation": "using-areal-interpolation-to-predict-to-new-polygons",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "PointA"
+        }
+      ],
+      "name": "create-thiessen-polygons",
+      "operation": "create-thiessen-polygons",
+      "outputs": [
+        {
+          "DType": [
+            "TessellationA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "raster-to-polyline",
+      "operation": "raster-to-polyline",
+      "outputs": [
+        {
+          "DType": [
+            "LineA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "focal-statistics",
+      "operation": "focal-statistics",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "VectorA"
+        },
+        {
+          "DType": "VectorA"
+        }
+      ],
+      "name": "spatial-join",
+      "operation": "spatial-join",
+      "outputs": [
+        {
+          "DType": [
+            "VectorA"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "RasterA"
+        }
+      ],
+      "name": "RasterToContour",
+      "operation": "RasterToContour",
+      "outputs": [
+        {
+          "DType": [
+            "ValueList"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "DType": "TessellationA"
+        }
+      ],
+      "name": "polygon-to-raster",
+      "operation": "polygon-to-raster",
+      "outputs": [
+        {
+          "DType": [
+            "RasterA"
+          ]
+        }
+      ]
+    }
+  ]
+}

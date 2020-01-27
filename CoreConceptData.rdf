@@ -980,6 +980,21 @@
     </owl:Class>
     
 
+    <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorRegionA -->
+
+    <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorRegionA">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#RegionA"/>
+                    <rdf:Description rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorA"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://geographicknowledge.de/vocab/CoreConceptData.rdf#Attribute"/>
+        <rdfs:comment xml:lang="en">An attribute of a region vector data set</rdfs:comment>
+    </owl:Class>
+    
 
     <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorTessellation -->
 
