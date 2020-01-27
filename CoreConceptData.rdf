@@ -980,7 +980,6 @@
     </owl:Class>
     
 
-
     <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorRegionA -->
 
     <owl:Class rdf:about="http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorRegionA">
@@ -996,7 +995,6 @@
         <rdfs:comment xml:lang="en">An attribute of a region vector data set</rdfs:comment>
     </owl:Class>
     
-
 
     <!-- http://geographicknowledge.de/vocab/CoreConceptData.rdf#VectorTessellation -->
 
